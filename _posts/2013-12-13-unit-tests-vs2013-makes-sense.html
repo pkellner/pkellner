@@ -11,7 +11,7 @@ author:
 author_login: admin
 author_email: peter@peterkellner.net
 wordpress_id: 3864
-wordpress_url: http://peterkellner.net/?p=3864
+wordpress_url: https://peterkellner.net/?p=3864
 date: '2013-12-13 11:15:59 -0800'
 date_gmt: '2013-12-13 18:15:59 -0800'
 categories:
@@ -77,12 +77,12 @@ tags: []
 <p>So, what we are going to want to unit test is the  "CalcSessionPricesAndNextPrice" method with lots of different parameters.  In my case, I'm actually going to write  "CalcSessionPricesAndNextPrice" as I build my tests.  Some would say you should build all your tests first, then write the method and run all those tests, but my preference is to take little steps.  First write a couple tests, then write the method that solves that.  Repeat over and over until I feel I have a full compliment of tests.</p>
 <h2>The Unit Test Project Setup</h2>
 <p>Now we can create a unit test project.  I won't go through in Visual Studio 2013 the screens to get there. I assume you know how to do File/Create Project/Create C# Unit Test.  You can see in the screen shot below what I've created.  I always append my test project with .Test so it's clear what project I'm testing.</p>
-<p><a href="http://peterkellner.net/wp/wp-content/uploads/2013/12/vs1.jpg"><img class="alignnone size-medium wp-image-3867" alt="vs1" src="http://peterkellner.net/wp/wp-content/uploads/2013/12/vs1-186x300.jpg" width="186" height="300" /></a></p>
+<p><a href="/wp/wp-content/uploads/2013/12/vs1.jpg"><img class="alignnone size-medium wp-image-3867" alt="vs1" src="/wp/wp-content/uploads/2013/12/vs1-186x300.jpg" width="186" height="300" /></a></p>
 <p>You can see this is our web solution.  Previously we had DataAccess and now we have DataAccess.Test with one unit test (SessionPriceGoodThroughTest.cs).</p>
 <p>&nbsp;</p>
 <h2>The Unit Tests Themselves</h2>
 <p>Let's take a look now at the unit tests thenselves in the file SessionPriceGoodThroughTest.cs.  Basically, We've created 4 different test methods in our SessionPriceGoodThroughTests class.  One method, InitSessionDataForPricing basically gives some sample data that we will be testing on.  I've collapsed then below so you can see a screen shot giving some sense to our explanation.</p>
-<p><a href="http://peterkellner.net/wp/wp-content/uploads/2013/12/vs2.jpg"><img class="alignnone size-medium wp-image-3869" alt="vs2" src="http://peterkellner.net/wp/wp-content/uploads/2013/12/vs2-300x240.jpg" width="300" height="240" /></a></p>
+<p><a href="/wp/wp-content/uploads/2013/12/vs2.jpg"><img class="alignnone size-medium wp-image-3869" alt="vs2" src="/wp/wp-content/uploads/2013/12/vs2-300x240.jpg" width="300" height="240" /></a></p>
 <p>And, the Init Method Expanded:</p>
 <pre class="lang:c# decode:true">   private static void 
         InitSessionDataForPricing(out SessionsResult sessionsResult, 
@@ -172,7 +172,7 @@ public void TestSessionPriceCalcCurrentAttendanceEffectiveDateAfterAllPrices()
 <p>&nbsp;</p>
 <h2>Running The Unit Tests</h2>
 <p>I personally use ReSharper for running unit tests.  I like the interface so that is what I'm going to show.  You can see that all my tests have run successfully in the picture below.</p>
-<p><a href="http://peterkellner.net/wp/wp-content/uploads/2013/12/vs3.jpg"><img class="alignnone size-medium wp-image-3870" alt="vs3" src="http://peterkellner.net/wp/wp-content/uploads/2013/12/vs3-300x140.jpg" width="300" height="140" /></a></p>
+<p><a href="/wp/wp-content/uploads/2013/12/vs3.jpg"><img class="alignnone size-medium wp-image-3870" alt="vs3" src="/wp/wp-content/uploads/2013/12/vs3-300x140.jpg" width="300" height="140" /></a></p>
 <p>&nbsp;</p>
 <h2>Wrap Up</h2>
 <p>I think you can see that in this case, having about 50 different unit tests really helps to flesh out that our method works.  I'm 100% sure this test saved time in writing the function that does the work (which I'll paste below just so you have an idea of what I'm testing, as well as gives me confidence now and in the future that it all really works.</p>

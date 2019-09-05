@@ -12,7 +12,7 @@ author:
 author_login: admin
 author_email: peter@peterkellner.net
 wordpress_id: 1415
-wordpress_url: http://peterkellner.net/?p=1415
+wordpress_url: https://peterkellner.net/?p=1415
 date: '2010-12-03 12:33:10 -0800'
 date_gmt: '2010-12-03 19:33:10 -0800'
 categories:
@@ -25,17 +25,17 @@ tags: []
 ---
 <p>&#160;</p>
 <h2>Background And Conclusion</h2>
-<p>In my <a href="http://peterkellner.net/2010/11/24/efficiently-generating-sha256-checksum-for-files-using-csharp/">very last post</a> I talked about how using <a href="http://msdn.microsoft.com/en-us/library/d0hxa5e7.aspx">SHA256</a> seemed to not be affected by whether you use Buffered or Not Buffered streams.&#160; An astute reader (<a href="http://blog.functionalfun.net/">Samuel Jack</a>) referenced <a href="http://blogs.msdn.com/b/brada/archive/2004/04/15/114329.aspx">an article</a> by one of my favorite ex MIcrosoft employees (<a href="http://bradabrams.com/">Brad Abrams</a>) saying that almost all the .Net streams have buffering built in.</p>
+<p>In my <a href="/2010/11/24/efficiently-generating-sha256-checksum-for-files-using-csharp/">very last post</a> I talked about how using <a href="http://msdn.microsoft.com/en-us/library/d0hxa5e7.aspx">SHA256</a> seemed to not be affected by whether you use Buffered or Not Buffered streams.&#160; An astute reader (<a href="http://blog.functionalfun.net/">Samuel Jack</a>) referenced <a href="http://blogs.msdn.com/b/brada/archive/2004/04/15/114329.aspx">an article</a> by one of my favorite ex MIcrosoft employees (<a href="http://bradabrams.com/">Brad Abrams</a>) saying that almost all the .Net streams have buffering built in.</p>
 <p>Well, I think SHA256Managed does not.&#160; One of the challenges I’ve been facing lately with my current project is to provide feedback while doing all kinds of byte piping (stream stuff).&#160; While figuring out how to do this, I inadvertently figured out that buffering makes a huge difference.&#160; Briefly, let me show my results first, then talk about the code that went into it.</p>
 <p>Notice that when I use a 64MB Buffer, the memory used for the process is 77MB and when I use an 8MB buffer, the memory used is 17MB.&#160; Clearly the buffer allocated matters.&#160; Just for information, I’ve also included the code that does not break the SHA256 hash into blocks, and it has the same results based on the size of the Memory Buffer declared.&#160; That is, small buffer, small use, big buffer, big use.</p>
 <p>  <!--more-->
-<p><a href="http://peterkellner.net/FilesForWebDownload/Using_9C01/image.png"><img style="background-image: none; border-bottom: 0px; border-left: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px" title="image" border="0" alt="image" src="http://peterkellner.net/FilesForWebDownload/Using_9C01/image_thumb.png" width="402" height="220" /></a></p>
-<p><a href="http://peterkellner.net/FilesForWebDownload/Using_9C01/image_3.png"><img style="background-image: none; border-bottom: 0px; border-left: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px" title="image" border="0" alt="image" src="http://peterkellner.net/FilesForWebDownload/Using_9C01/image_thumb_3.png" width="405" height="276" /></a></p>
+<p><a href="/FilesForWebDownload/Using_9C01/image.png"><img style="background-image: none; border-bottom: 0px; border-left: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px" title="image" border="0" alt="image" src="/FilesForWebDownload/Using_9C01/image_thumb.png" width="402" height="220" /></a></p>
+<p><a href="/FilesForWebDownload/Using_9C01/image_3.png"><img style="background-image: none; border-bottom: 0px; border-left: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px" title="image" border="0" alt="image" src="/FilesForWebDownload/Using_9C01/image_thumb_3.png" width="405" height="276" /></a></p>
 <h2>The Code</h2>
 <p>The code that I wrote to do this basically does a nice job of splitting up the processing so that you can log progress as it runs. I’m attaching the <a href="http://msdn.microsoft.com/en-us/vstudio/default.aspx">Visual Studio 2010</a> project here as well as pasting the relevant source code.&#160; It’s a good base to experiment with.&#160; Feel free to comment on interesting things you find experimenting with it.</p>
 <p>Visual Studio 2010 Project:&#160;&#160;&#160;&#160;&#160;&#160;
 <div style="padding-bottom: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; float: none; padding-top: 0px" id="scid:8eb9d37f-1541-4f29-b6f4-1eea890d4876:3633437a-182a-48b1-90bc-e4ae3be04a84" class="wlWriterEditableSmartContent">
-<div><a href="http://peterkellner.net/FilesForWebDownload/Using_9C01/SHA512BufferedConsoleProject.zip" target="_self">SHA512BufferedConsoleProject.zip</a></div></p>
+<div><a href="/FilesForWebDownload/Using_9C01/SHA512BufferedConsoleProject.zip" target="_self">SHA512BufferedConsoleProject.zip</a></div></p>
 </div>
 <p>&#160;</p>
 <div id="codeSnippetWrapper">

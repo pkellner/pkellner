@@ -12,7 +12,7 @@ author:
 author_login: admin
 author_email: peter@peterkellner.net
 wordpress_id: 1366
-wordpress_url: http://peterkellner.net/2010/09/12/simplerssreader-in-silicon-valley-code-camp-objectdatasource-repeater-aspnet/
+wordpress_url: https://peterkellner.net/2010/09/12/simplerssreader-in-silicon-valley-code-camp-objectdatasource-repeater-aspnet/
 date: '2010-09-12 14:44:26 -0700'
 date_gmt: '2010-09-12 21:44:26 -0700'
 categories:
@@ -25,11 +25,11 @@ tags: []
 <p>There are 10,000 ways to do this.&#160; Back way back when (<a href="http://www.asp.net/">ASP.NET</a> 1.1) days, we would have created either a custom control to do this, then added a Repeater control on the page to display it.&#160; Well, the <a href="http://siliconvalley-codecamp.com/">Silicon Valley Code Camp</a> Website was started back in those days and since what I want is so simple, I decided to do just that (minus the custom control).&#160; I really only wanted to spend about 10 minutes doing this, and as it turned out, it took about 30.&#160; Oh well, 3x plan verses execution.&#160; Could do better next time.</p>
 <p>So, here is basically what I want on the left side bar of the home page of Silicon Valley Code Camp:</p>
 <p> <!--more-->
-<p><a href="http://blog.siliconvalley-codecamp.com/"><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="RSS Feed Look" border="0" alt="RSS Feed Look" src="http://peterkellner.net/FilesForWebDownload/AddingaListofRecentPostsToTheSiliconVall_CF44/image.png" width="177" height="346" /></a> </p>
+<p><a href="http://blog.siliconvalley-codecamp.com/"><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="RSS Feed Look" border="0" alt="RSS Feed Look" src="/FilesForWebDownload/AddingaListofRecentPostsToTheSiliconVall_CF44/image.png" width="177" height="346" /></a> </p>
 <p>&#160;</p>
 <p>First, I’ll attach my simple project I build to do this standalone so you can run it yourself, then, I’ll do a quick step through of the key code.&#160; </p>
 <div style="padding-bottom: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; float: none; padding-top: 0px" id="scid:8eb9d37f-1541-4f29-b6f4-1eea890d4876:a42e11ac-159d-4bc9-8e14-637ad835e07b" class="wlWriterEditableSmartContent">
-<div><a href="http://peterkellner.net/FilesForWebDownload/AddingaListofRecentPostsToTheSiliconVall_CF44/SimpleRSSReaderJustTitleAndLink.zip" target="_self">SimpleRSSReaderJustTitleAndLink.zip</a></div></p>
+<div><a href="/FilesForWebDownload/AddingaListofRecentPostsToTheSiliconVall_CF44/SimpleRSSReaderJustTitleAndLink.zip" target="_self">SimpleRSSReaderJustTitleAndLink.zip</a></div></p>
 </div>
 <p>All that is really in this project is a simple c# class file that contains a business object and one get method to retrieve the list.&#160; That file is called RSSFeed.cs.&#160; I’ve pasted all the code of that class below:</p>
 <div id="codeSnippetWrapper">

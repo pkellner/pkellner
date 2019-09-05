@@ -11,7 +11,7 @@ author:
 author_login: admin
 author_email: peter@peterkellner.net
 wordpress_id: 1344
-wordpress_url: http://peterkellner.net/2010/07/25/refactor-overload-coderush-visualstudio-2010/
+wordpress_url: https://peterkellner.net/2010/07/25/refactor-overload-coderush-visualstudio-2010/
 date: '2010-07-25 18:48:35 -0700'
 date_gmt: '2010-07-26 01:48:35 -0700'
 categories:
@@ -32,16 +32,16 @@ tags: []
 <p></div>
 <p>So now, we want to create an overloaded method with the two new parameters (pauseMsScopeLeft and pauseMsScopeRight) left out.&#160; </p>
 <p>The way we do this is first, hover the cursor over the method name (SynchronizeScopeAsynStart) as follows.</p>
-<p><a href="http://peterkellner.net/FilesForWebDownload/CreatingNewOverloadedMethodsinCisReallyE_1086D/image.png"><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" border="0" alt="image" src="http://peterkellner.net/FilesForWebDownload/CreatingNewOverloadedMethodsinCisReallyE_1086D/image_thumb.png" width="491" height="166" /></a> </p>
+<p><a href="/FilesForWebDownload/CreatingNewOverloadedMethodsinCisReallyE_1086D/image.png"><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" border="0" alt="image" src="/FilesForWebDownload/CreatingNewOverloadedMethodsinCisReallyE_1086D/image_thumb.png" width="491" height="166" /></a> </p>
 <p>Notice the helper message telling us</p>
 <blockquote>
 <p>Create an overloaded method similar to this one with fewer parameters.</p>
 </blockquote>
 <p>This is exactly what we want to do so we chose this by pressing enter.&#160; CodeRush now gives us a red arrow pointer telling us where it will put the overloaded method by default as well as giving us some instructions on how to put the method someplace else.&#160; In our case, I’m happy to have it right below where the original method is, so I just press enter.</p>
-<p><a href="http://peterkellner.net/FilesForWebDownload/CreatingNewOverloadedMethodsinCisReallyE_1086D/image_3.png"><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" border="0" alt="image" src="http://peterkellner.net/FilesForWebDownload/CreatingNewOverloadedMethodsinCisReallyE_1086D/image_thumb_3.png" width="519" height="375" /></a> </p>
+<p><a href="/FilesForWebDownload/CreatingNewOverloadedMethodsinCisReallyE_1086D/image_3.png"><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" border="0" alt="image" src="/FilesForWebDownload/CreatingNewOverloadedMethodsinCisReallyE_1086D/image_thumb_3.png" width="519" height="375" /></a> </p>
 <p>Now, is the really clever part.&#160; I can simply follow the little helper window and move through the parameter list and exclude parameters I don’t want in the parameter list of my new overloaded method.&#160; In my case, I want to get rid of the last two parameters.&#160; It highlights the last one to start, so I simply press “space” as it says, then I press Shift-Tab to get to the previous parameter, space bar again to exclude that one and I’m almost done.&#160; Here is the screen I’m now looking at.</p>
-<p><a href="http://peterkellner.net/FilesForWebDownload/CreatingNewOverloadedMethodsinCisReallyE_1086D/image_4.png"><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" border="0" alt="image" src="http://peterkellner.net/FilesForWebDownload/CreatingNewOverloadedMethodsinCisReallyE_1086D/image_thumb_4.png" width="536" height="353" /></a> </p>
+<p><a href="/FilesForWebDownload/CreatingNewOverloadedMethodsinCisReallyE_1086D/image_4.png"><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" border="0" alt="image" src="/FilesForWebDownload/CreatingNewOverloadedMethodsinCisReallyE_1086D/image_thumb_4.png" width="536" height="353" /></a> </p>
 <p>Finally, I press enter to commit my changes and I have a new overloaded method that looks like the following.</p>
-<p><a href="http://peterkellner.net/FilesForWebDownload/CreatingNewOverloadedMethodsinCisReallyE_1086D/image_5.png"><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" border="0" alt="image" src="http://peterkellner.net/FilesForWebDownload/CreatingNewOverloadedMethodsinCisReallyE_1086D/image_thumb_5.png" width="562" height="227" /></a> </p>
+<p><a href="/FilesForWebDownload/CreatingNewOverloadedMethodsinCisReallyE_1086D/image_5.png"><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" border="0" alt="image" src="/FilesForWebDownload/CreatingNewOverloadedMethodsinCisReallyE_1086D/image_thumb_5.png" width="562" height="227" /></a> </p>
 <p>You can continue with the refactoring and tell CodeRush to “inline” your temporary variables, but I think this is enough for now.</p>
 <p>Hope this helps!</p>

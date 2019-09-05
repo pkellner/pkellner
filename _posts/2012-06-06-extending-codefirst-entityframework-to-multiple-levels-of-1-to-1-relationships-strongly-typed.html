@@ -12,7 +12,7 @@ author:
 author_login: admin
 author_email: peter@peterkellner.net
 wordpress_id: 2030
-wordpress_url: http://peterkellner.net/?p=2030
+wordpress_url: https://peterkellner.net/?p=2030
 date: '2012-06-06 07:15:31 -0700'
 date_gmt: '2012-06-06 14:15:31 -0700'
 categories:
@@ -21,13 +21,13 @@ categories:
 - CodeFirst
 tags: []
 ---
-<p>In my <a href="http://peterkellner.net/2012/06/06/working-with-nested-class-in-simple-1-to-1-relationship-with-entityframework-4-codefirst/">previous post</a>, I showed how to take a simple relationship between Customers and an one Detail per customer build that into a relationship that eagerly loaded the customer record when retrieving a Detail record with CodeFirst in <a href="http://msdn.microsoft.com/en-us/library/aa697427(v=vs.80).aspx">EntityFramework.</a>&#160; Now, let’s extend that so that a customer has an Address associated with them. This means, the relationship is as follows:</p>
+<p>In my <a href="/2012/06/06/working-with-nested-class-in-simple-1-to-1-relationship-with-entityframework-4-codefirst/">previous post</a>, I showed how to take a simple relationship between Customers and an one Detail per customer build that into a relationship that eagerly loaded the customer record when retrieving a Detail record with CodeFirst in <a href="http://msdn.microsoft.com/en-us/library/aa697427(v=vs.80).aspx">EntityFramework.</a>&#160; Now, let’s extend that so that a customer has an Address associated with them. This means, the relationship is as follows:</p>
 <p>Detail</p>
 <p>&#160;&#160;&#160; Customer</p>
 <p>&#160;&#160;&#160;&#160;&#160;&#160;&#160; Address</p>
 <p>Or, using my favorite Sql Manager Tool <a href="http://www.sqlmanager.net/">http://www.sqlmanager.net/</a> from EMS Database Management Solutions:</p>
 <p>&#160;</p>
-<p><a href="http://peterkellner.net/wp/wp-content/uploads/2012/06/image1.png"><img title="image" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; padding-top: 0px; padding-left: 0px; border-left: 0px; display: inline; padding-right: 0px" border="0" alt="image" src="http://peterkellner.net/wp/wp-content/uploads/2012/06/image_thumb1.png" width="308" height="211" /></a></p>
+<p><a href="/wp/wp-content/uploads/2012/06/image1.png"><img title="image" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; padding-top: 0px; padding-left: 0px; border-left: 0px; display: inline; padding-right: 0px" border="0" alt="image" src="/wp/wp-content/uploads/2012/06/image_thumb1.png" width="308" height="211" /></a></p>
 <p>&#160;</p>
 <p>The model is now as follows:</p>
 <pre class="csharpcode"><span class="kwrd">namespace</span> Con1
@@ -161,7 +161,7 @@ Console.WriteLine(
         }
     }</pre>
 <p>And the result running it is now:</p>
-<p><a href="http://peterkellner.net/wp/wp-content/uploads/2012/06/image2.png"><img title="image" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; padding-top: 0px; padding-left: 0px; border-left: 0px; display: inline; padding-right: 0px" border="0" alt="image" src="http://peterkellner.net/wp/wp-content/uploads/2012/06/image_thumb2.png" width="512" height="93" /></a></p>
+<p><a href="/wp/wp-content/uploads/2012/06/image2.png"><img title="image" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; padding-top: 0px; padding-left: 0px; border-left: 0px; display: inline; padding-right: 0px" border="0" alt="image" src="/wp/wp-content/uploads/2012/06/image_thumb2.png" width="512" height="93" /></a></p>
 <p>
 <style type="text/css">
 .csharpcode, .csharpcode pre<br />

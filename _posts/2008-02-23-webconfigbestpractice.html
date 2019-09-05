@@ -16,7 +16,7 @@ excerpt: "<p>This article shows a good way to manage connection string and appse
   how to set defaults so moving to production from testing or development can be less
   painful</p>"
 wordpress_id: 102
-wordpress_url: http://peterkellner.net/2008/02/23/webconfigbestpractice/
+wordpress_url: https://peterkellner.net/2008/02/23/webconfigbestpractice/
 date: '2008-02-23 14:25:22 -0800'
 date_gmt: '2008-02-23 21:25:22 -0800'
 categories:
@@ -27,7 +27,7 @@ tags: []
 ---
 <h2>The Typical Way</h2>
 <p>When you first create an asp.net project a file is usually created in your root web directory called web.config.&#160; By default there are two (usually empty) sections in the file.&#160; One for appSettings, and one for connectionStrings.&#160; Below is a default project created with visual studio 2008 and a sample web.config file.</p>
-<p><img style="border-right-width: 0px; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" border="0" alt="webconfig1" src="http://peterkellner.net/wp/wp-content/uploads/2008/02/webconfig1.jpg" /></p>
+<p><img style="border-right-width: 0px; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" border="0" alt="webconfig1" src="/wp/wp-content/uploads/2008/02/webconfig1.jpg" /></p>
 <p> <!--more-->
 <p>The thing you would normally do is put stuff in those tags that your application would use.&#160; That is, you would would likely put in a sqlserver connection in the connection tag, then in your appsettings section, you might put something like your smtp mail server location.&#160; Here is what this might look like after you have configured your settings.</p>
 <pre class="csharpcode">  <span class="kwrd">&lt;</span><span class="html">appSettings</span><span class="kwrd">&gt;</span>

@@ -12,7 +12,7 @@ author:
 author_login: admin
 author_email: peter@peterkellner.net
 wordpress_id: 1385
-wordpress_url: http://peterkellner.net/2010/11/04/how-to-format-bytes-in-gridview-using-asp-net-custom-aspboundfield-server-control/
+wordpress_url: https://peterkellner.net/2010/11/04/how-to-format-bytes-in-gridview-using-asp-net-custom-aspboundfield-server-control/
 date: '2010-11-04 08:35:09 -0700'
 date_gmt: '2010-11-04 15:35:09 -0700'
 categories:
@@ -22,17 +22,17 @@ tags: []
 <h3>&#160;</h3>
 <h2>(AKA, how to not use templates to do a simple GridView Column Formatting) </h2>
 <p>&#160;</p>
-<p>This post is inspired by another post on did on <a href="http://peterkellner.net/2006/05/24/how-to-set-a-date-format-in-gridview-using-aspnet-20using-htmlencode-property/">GridView date formatting</a> years ago.&#160; It’s still very popular.</p>
+<p>This post is inspired by another post on did on <a href="/2006/05/24/how-to-set-a-date-format-in-gridview-using-aspnet-20using-htmlencode-property/">GridView date formatting</a> years ago.&#160; It’s still very popular.</p>
 <p>If you are like me, you don’t like using <a href="http://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.gridview.aspx">GridView</a> Templates because it makes you write ugly verbose code.&#160; In this post, I’ll show you how to do a quick customization of the <a href="http://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.boundfield.aspx">BoundField</a> asp.net&#160; server control.&#160; That is, the one you typically see in GridView as follows:</p>
 <p>&#160;</p>
-<p><a href="http://peterkellner.net/FilesForWebDownload/d5424563765f_7094/image.png"><img style="background-image: none; border-right-width: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px; padding-top: 0px" title="image" border="0" alt="image" src="http://peterkellner.net/FilesForWebDownload/d5424563765f_7094/image_thumb.png" width="244" height="90" /></a></p>
+<p><a href="/FilesForWebDownload/d5424563765f_7094/image.png"><img style="background-image: none; border-right-width: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px; padding-top: 0px" title="image" border="0" alt="image" src="/FilesForWebDownload/d5424563765f_7094/image_thumb.png" width="244" height="90" /></a></p>
 <p>What we plan to do, is to create a custom control that looks like the following:</p>
-<p><a href="http://peterkellner.net/FilesForWebDownload/d5424563765f_7094/image_3.png"><img style="background-image: none; border-bottom: 0px; border-left: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px" title="image" border="0" alt="image" src="http://peterkellner.net/FilesForWebDownload/d5424563765f_7094/image_thumb_3.png" width="511" height="102" /></a></p>
+<p><a href="/FilesForWebDownload/d5424563765f_7094/image_3.png"><img style="background-image: none; border-bottom: 0px; border-left: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px" title="image" border="0" alt="image" src="/FilesForWebDownload/d5424563765f_7094/image_thumb_3.png" width="511" height="102" /></a></p>
 <p>and will end up displaying data in a table that looks like the following:</p>
-<p><a href="http://peterkellner.net/FilesForWebDownload/d5424563765f_7094/image_4.png"><img style="background-image: none; border-bottom: 0px; border-left: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px" title="image" border="0" alt="image" src="http://peterkellner.net/FilesForWebDownload/d5424563765f_7094/image_thumb_4.png" width="447" height="208" /></a></p>
+<p><a href="/FilesForWebDownload/d5424563765f_7094/image_4.png"><img style="background-image: none; border-bottom: 0px; border-left: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px" title="image" border="0" alt="image" src="/FilesForWebDownload/d5424563765f_7094/image_thumb_4.png" width="447" height="208" /></a></p>
 <p>  <!--more-->
 <p>So, one approach could be to simply convert the second column into a template with GridView and build a function to call that converts the column from numbers like 267030000 to 267.3 MB.&#160; To do that, the code on the GridView will look like the following:</p>
-<p><a href="http://peterkellner.net/FilesForWebDownload/d5424563765f_7094/image_5.png"><img style="background-image: none; border-bottom: 0px; border-left: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px" title="image" border="0" alt="image" src="http://peterkellner.net/FilesForWebDownload/d5424563765f_7094/image_thumb_5.png" width="616" height="193" /></a></p>
+<p><a href="/FilesForWebDownload/d5424563765f_7094/image_5.png"><img style="background-image: none; border-bottom: 0px; border-left: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px" title="image" border="0" alt="image" src="/FilesForWebDownload/d5424563765f_7094/image_thumb_5.png" width="616" height="193" /></a></p>
 <p>And, the code behind will be as follows:</p>
 <p>&#160;</p>
 <div id="codeSnippetWrapper">
@@ -53,8 +53,8 @@ tags: []
 <p>Keep in mind, you can add all kinds of special properties now to this control to handle all sorts of formatting that might be common to your business.</p>
 <p>Here is the sample project build with <a href="http://www.microsoft.com/visualstudio/en-us/products/2010-editions">Visual Studio 2010</a> that demonstrates the above code.</p>
 <div style="padding-bottom: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; float: none; padding-top: 0px" id="scid:8eb9d37f-1541-4f29-b6f4-1eea890d4876:be9f8e87-2126-42ee-8fb2-1686a3d99203" class="wlWriterEditableSmartContent">
-<div>Visual Studio 2010 Solution   <a href="http://peterkellner.net/FilesForWebDownload/d5424563765f_7094/GridViewExtendedBoundField.zip" target="_self">GridViewExtendedBoundField.zip</a></div></p>
+<div>Visual Studio 2010 Solution   <a href="/FilesForWebDownload/d5424563765f_7094/GridViewExtendedBoundField.zip" target="_self">GridViewExtendedBoundField.zip</a></div></p>
 </div>
 <div style="padding-bottom: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; float: none; padding-top: 0px" id="scid:8eb9d37f-1541-4f29-b6f4-1eea890d4876:26eb3413-52b5-42d8-b591-be12a5b10f39" class="wlWriterEditableSmartContent">
-<div>Visual Studio 2010 Solution   <a href="http://peterkellner.net/FilesForWebDownload/d5424563765f_7094/GridViewExtendedBoundField_3.zip" target="_self">GridViewExtendedBoundField.zip</a></div></p>
+<div>Visual Studio 2010 Solution   <a href="/FilesForWebDownload/d5424563765f_7094/GridViewExtendedBoundField_3.zip" target="_self">GridViewExtendedBoundField.zip</a></div></p>
 </div>

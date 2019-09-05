@@ -12,7 +12,7 @@ author:
 author_login: admin
 author_email: peter@peterkellner.net
 wordpress_id: 159
-wordpress_url: http://peterkellner.net/2008/09/14/wcf-web-service-json-vs2008/
+wordpress_url: https://peterkellner.net/2008/09/14/wcf-web-service-json-vs2008/
 date: '2008-09-14 00:20:41 -0700'
 date_gmt: '2008-09-14 05:20:41 -0700'
 categories:
@@ -24,12 +24,12 @@ tags: []
 ---
 <p>Microsoft has made building a WCF Web Service to communicate with <a href="http://www.javascript.com/">JavaScript</a> very easy in <a href="http://msdn.microsoft.com/en-us/vstudio/default.aspx">Visual Studio 2008</a>.&#160; In this post, I'll go through the basics of building this app and demonstrate it working.&#160; Included is the project file which might be a help so you can run it yourself.&#160; I have found a lot of other posts on the web about this same topic but have had little luck getting the code to work.&#160; Few authors post projects with actual working code.&#160; I try to as often as I can because I know how frustrating it can be to not be able to get something working. </p>
 <div style="padding-bottom: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px" id="scid:fb3a1972-4489-4e52-abe7-25a00bb07fdf:7617170c-c77c-47bd-8690-065580975f5d" class="wlWriterSmartContent">
-<p>Code Associated With this Article <a href="http://peterkellner.net/wp/wp-content/uploads/2008/09/WebSite8.zip" target="_blank">Visual Studio Project</a></p>
+<p>Code Associated With this Article <a href="/wp/wp-content/uploads/2008/09/WebSite8.zip" target="_blank">Visual Studio Project</a></p>
 </p></div>
 <p>First, create an ASP.NET 3.5 Web site.&#160; That is, go into File / New Website and choose ASP.NET Web Site.</p>
 <p>Then, Add a new Item to the root of the project called WCF Service and name it SimpleService.svc.</p>
 <p> <!--more-->
-<p><a href="http://peterkellner.net/wp/wp-content/uploads/2008/09/image2.png"><img style="border-right-width: 0px; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" border="0" alt="image" src="http://peterkellner.net/wp/wp-content/uploads/2008/09/image_thumb2.png" width="547" height="358" /></a></p>
+<p><a href="/wp/wp-content/uploads/2008/09/image2.png"><img style="border-right-width: 0px; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" border="0" alt="image" src="/wp/wp-content/uploads/2008/09/image_thumb2.png" width="547" height="358" /></a></p>
 <p>This will create the service for you in your project and also update your web.config by updating the&#160; <a href="http://msdn.microsoft.com/en-us/library/ms733932.aspx">&lt;system.serviceModel&gt;</a> section.&#160; I'm sure it's doing a stellar job, however I could not get the service to work with what it did so if you know more about it than I do, don't follow my advice here. However, if you replace what it generated with the following section, it will work (at least with <a href="http://msdn.microsoft.com/en-us/netframework/default.aspx">.Net 3.5sp1</a>, Visual Studio 2008 sp1).</p>
 <div class="csharpcode">
 <pre class="alt">  &lt;system.serviceModel&gt;</pre>
@@ -101,7 +101,7 @@ tags: []
 </div>
 <p>Now, what we have is a JavaScript file (Default.aspx.cs) that automatically will get included with running your Default.aspx page.&#160; Because <a href="http://www.asp.net/AJAX/Documentation/Live/overview/ScriptManagerOverview.aspx">ScriptManager</a> is running and we have included the SimpleService, JavaScript code will also be injected that gives us the plumbing to call the SimpleService web service.</p>
 <p>Almost finally, we have a service defined and hopefully it is ready for the JavaScript.&#160; Add a new JavaScript file to your solution called Default.aspx.js.&#160; This will be the javascript that actually calls the service we built (SimpleService).</p>
-<p><a href="http://peterkellner.net/wp/wp-content/uploads/2008/09/image_32.png"><img style="border-right-width: 0px; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" border="0" alt="image" src="http://peterkellner.net/wp/wp-content/uploads/2008/09/image_thumb_32.png" width="490" height="322" /></a></p>
+<p><a href="/wp/wp-content/uploads/2008/09/image_32.png"><img style="border-right-width: 0px; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" border="0" alt="image" src="/wp/wp-content/uploads/2008/09/image_thumb_32.png" width="490" height="322" /></a></p>
 <p>Put the following Javascript in the Default.aspx.js page.</p>
 <div class="csharpcode">
 <pre class="alt">function pageLoad() {</pre>
@@ -162,7 +162,7 @@ tags: []
 <p>(The above JavaScript was given to me by a kind user named x-format on forums.asp.net.&#160;&#160; Here is the thread with my request and the response)</p>
 <p><a title="http://forums.asp.net/t/1319775.aspx" href="http://forums.asp.net/t/1319775.aspx">http://forums.asp.net/t/1319775.aspx</a></p>
 <p>Then, when you run the example, this is what you get.</p>
-<p><a href="http://peterkellner.net/wp/wp-content/uploads/2008/09/image_41.png"><img style="border-right-width: 0px; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" border="0" alt="image" src="http://peterkellner.net/wp/wp-content/uploads/2008/09/image_thumb_41.png" width="136" height="194" /></a></p>
+<p><a href="/wp/wp-content/uploads/2008/09/image_41.png"><img style="border-right-width: 0px; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" border="0" alt="image" src="/wp/wp-content/uploads/2008/09/image_thumb_41.png" width="136" height="194" /></a></p>
 <p>Several authors have mentioned that you can avoid all the WCF plumbing in the WCF file by using the following code in your svc file:</p>
 <pre class="csharpcode">&lt;%@ ServiceHost 
 Language=<span class="str">&quot;C#&quot;</span> 

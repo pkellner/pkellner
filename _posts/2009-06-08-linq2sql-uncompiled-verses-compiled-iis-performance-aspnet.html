@@ -12,7 +12,7 @@ author:
 author_login: admin
 author_email: peter@peterkellner.net
 wordpress_id: 318
-wordpress_url: http://peterkellner.net/2009/06/08/linq2sql-uncompiled-verses-compiled-iis-performance-aspnet/
+wordpress_url: https://peterkellner.net/2009/06/08/linq2sql-uncompiled-verses-compiled-iis-performance-aspnet/
 date: '2009-06-08 22:21:49 -0700'
 date_gmt: '2009-06-09 05:21:49 -0700'
 categories:
@@ -22,7 +22,7 @@ categories:
 - LINQ to SQL
 tags: []
 ---
-<p><font style="background-color: #ffff00">*Note 10/22/2011 (2+ years later):&#160; Microsoft is fixing this problem in EntityFramework 4.5!&#160; See my post here about it:</font> <a href="http://peterkellner.net/2011/10/22/microsoft-to-add-auto-compiled-linq-queries-to-entity-framework-v-next/"><font style="background-color: #ffff00">http://peterkellner.net/2011/10/22/microsoft-to-add-auto-compiled-linq-queries-to-entity-framework-v-next/</font></a></p>
+<p><font style="background-color: #ffff00">*Note 10/22/2011 (2+ years later):&#160; Microsoft is fixing this problem in EntityFramework 4.5!&#160; See my post here about it:</font> <a href="/2011/10/22/microsoft-to-add-auto-compiled-linq-queries-to-entity-framework-v-next/"><font style="background-color: #ffff00">https://peterkellner.net/2011/10/22/microsoft-to-add-auto-compiled-linq-queries-to-entity-framework-v-next/</font></a></p>
 <p>&#160;</p>
 <div>
 <div class="peterkellnerpromo"> <a href="/contact" target="_blank">If you have a problem like this involving ASP.NET, LINQ, EF, etc., consulting services are available.  We love these kind of problems.  Contact Peter Kellner and his associates <span>here</span></a>. </div>
@@ -41,18 +41,18 @@ tags: []
 <p>OK, maybe my assumptions are not so good, but I believe overall I’m making a good point so I’m going to keep going rather than just say “take my word for it, trust me”.&#160; So, I’m attaching the web project here that let’s you recreate all this so you can do your own tests.&#160; I think you’ll need Visual Studio Team Suite to do these tests.&#160; If you don’t have that, you can at least look at the code.&#160; The guts are in LINQUtils.cs.&#160; I’m going to show the relevant code below.</p>
 <p>But before that, here is the Visual Studio 2008 Project Code if you want to try it yourself: </p>
 <div style="padding-bottom: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; float: none; padding-top: 0px" id="scid:fb3a1972-4489-4e52-abe7-25a00bb07fdf:b2b30af6-cfd4-413d-abeb-71e63d4120bf" class="wlWriterSmartContent">
-<p>Download: <a href="http://peterkellner.net/wp/wp-content/uploads/2009/06/LINQ2SQL_CompiledQueryWebTest.zip" target="_blank">Project Zip File</a></p>
+<p>Download: <a href="/wp/wp-content/uploads/2009/06/LINQ2SQL_CompiledQueryWebTest.zip" target="_blank">Project Zip File</a></p>
 </p></div>
 <p>First, The Results</p>
 <table border="0" cellspacing="0" cellpadding="2" width="400">
 <tbody>
 <tr>
-<td valign="top" width="200"><a href="http://peterkellner.net/wp/wp-content/uploads/2009/06/notcompiled.png"><img style="border-right-width: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="notcompiled" border="0" alt="notcompiled" src="http://peterkellner.net/wp/wp-content/uploads/2009/06/notcompiled_thumb.png" width="412" height="237" /></a> </td>
-<td valign="top" width="200"><a href="http://peterkellner.net/wp/wp-content/uploads/2009/06/notcompiled1.png"><img style="border-right-width: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="notcompiled1" border="0" alt="notcompiled1" src="http://peterkellner.net/wp/wp-content/uploads/2009/06/notcompiled1_thumb.png" width="250" height="236" /></a> </td>
+<td valign="top" width="200"><a href="/wp/wp-content/uploads/2009/06/notcompiled.png"><img style="border-right-width: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="notcompiled" border="0" alt="notcompiled" src="/wp/wp-content/uploads/2009/06/notcompiled_thumb.png" width="412" height="237" /></a> </td>
+<td valign="top" width="200"><a href="/wp/wp-content/uploads/2009/06/notcompiled1.png"><img style="border-right-width: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="notcompiled1" border="0" alt="notcompiled1" src="/wp/wp-content/uploads/2009/06/notcompiled1_thumb.png" width="250" height="236" /></a> </td>
 </tr>
 <tr>
-<td valign="top" width="200"><a href="http://peterkellner.net/wp/wp-content/uploads/2009/06/compiled.png"><img style="border-right-width: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="compiled" border="0" alt="compiled" src="http://peterkellner.net/wp/wp-content/uploads/2009/06/compiled_thumb.png" width="411" height="219" /></a> </td>
-<td valign="top" width="200"><a href="http://peterkellner.net/wp/wp-content/uploads/2009/06/image1.png"><img style="border-right-width: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="image" border="0" alt="image" src="http://peterkellner.net/wp/wp-content/uploads/2009/06/image_thumb1.png" width="247" height="221" /></a> </td>
+<td valign="top" width="200"><a href="/wp/wp-content/uploads/2009/06/compiled.png"><img style="border-right-width: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="compiled" border="0" alt="compiled" src="/wp/wp-content/uploads/2009/06/compiled_thumb.png" width="411" height="219" /></a> </td>
+<td valign="top" width="200"><a href="/wp/wp-content/uploads/2009/06/image1.png"><img style="border-right-width: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="image" border="0" alt="image" src="/wp/wp-content/uploads/2009/06/image_thumb1.png" width="247" height="221" /></a> </td>
 </tr>
 </tbody>
 </table>
