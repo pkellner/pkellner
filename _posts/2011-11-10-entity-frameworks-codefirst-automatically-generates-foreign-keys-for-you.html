@@ -1,0 +1,43 @@
+---
+layout: post
+status: publish
+published: true
+title: Entity Framework&rsquo;s CodeFirst Automatically Generates Foreign Keys For
+  you
+author:
+  display_name: Peter Kellner
+  login: admin
+  email: peter@peterkellner.net
+  url: ''
+author_login: admin
+author_email: peter@peterkellner.net
+wordpress_id: 1649
+wordpress_url: http://peterkellner.net/2011/11/10/entity-frameworks-codefirst-automatically-generates-foreign-keys-for-you/
+date: '2011-11-10 23:24:11 -0800'
+date_gmt: '2011-11-11 06:24:11 -0800'
+categories:
+- Entity Framework
+- Sql Server CE
+- CodeFirst
+tags: []
+---
+<p>I’ve been struggling with getting the <a href="http://msdn.microsoft.com/en-us/library/aa697427(v=vs.80).aspx">EF</a> CodeFirst right so that it automatically generates foreign keys when the tables are created. I had noticed that there is interesting syntax you can put in to create these foreign keys, however it seemed that the relationships are known so CodeFirst should do that for you.&#160; I won’t even bother to go through all the mistakes I made, but if you want to see one, you can check out my <a href="http://social.msdn.microsoft.com/Forums/en-US/adodotnetentityframework/thread/a0c85adc-baa3-43fb-8323-4e9eabdfb237/">forum post</a> where I ask for help.</p>
+<p>I’m currently writing a series of articles on building a <a href="http://www.sencha.com/">Sencha</a> <a href="http://www.sencha.com/products/extjs/">ExtJS</a> application with <a href="http://www.asp.net/">Microsoft ASP.NET</a> <a href="http://www.asp.net/mvc">MVC3</a>.&#160; I use <a href="http://msdn.microsoft.com/en-us/data/aa937723">codefirst</a> and at the moment I’m building a database of US Presidents and linking them to their Party (republican, democrat, etc.).&#160; So, the important thing is to link from the Presidents table to the Party Table and also from the Party to the President.&#160; Below is the code:</p>
+<div style="border-bottom: silver 1px solid; text-align: left; border-left: silver 1px solid; padding-bottom: 4px; line-height: 12pt; background-color: #f4f4f4; margin: 20px 0px 10px; padding-left: 4px; width: 97.5%; padding-right: 4px; font-family: &#39;Courier New&#39;, courier, monospace; direction: ltr; max-height: 200px; font-size: 8pt; overflow: auto; border-top: silver 1px solid; cursor: text; border-right: silver 1px solid; padding-top: 4px" id="codeSnippetWrapper">
+<pre style="border-bottom-style: none; text-align: left; padding-bottom: 0px; line-height: 12pt; background-color: #f4f4f4; margin: 0em; border-left-style: none; padding-left: 0px; width: 100%; padding-right: 0px; font-family: &#39;Courier New&#39;, courier, monospace; direction: ltr; border-top-style: none; color: black; border-right-style: none; font-size: 8pt; overflow: visible; padding-top: 0px" id="codeSnippet"><span style="color: #0000ff">namespace</span> SenchaDesignerExtension.Models<br />{<br />    <span style="color: #0000ff">public</span> <span style="color: #0000ff">class</span> Party<br />    {<br />        [Key]<br />        [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]<br />        <span style="color: #0000ff">public</span> <span style="color: #0000ff">int</span> Id { get; set; }<br /><br />        [MaxLengthAttribute(40)]<br />        <span style="color: #0000ff">public</span> <span style="color: #0000ff">string</span> Name { get; set; }<br />        <span style="color: #0000ff">public</span> <span style="color: #0000ff">virtual</span> ICollection&lt;President&gt; Presidents { get; set; } <br />    }<br /><br />    <span style="color: #0000ff">public</span> <span style="color: #0000ff">class</span> President<br />    {<br />        [Key]<br />        [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]<br />        <span style="color: #0000ff">public</span> <span style="color: #0000ff">int</span> Id { get; set; }<br /><br />        <span style="color: #0000ff">public</span> <span style="color: #0000ff">virtual</span> Party Party { get; set; }<br /><br />        <span style="color: #0000ff">public</span> <span style="color: #0000ff">int</span> PresidentNumber { get; set; }<br /><br />        [MaxLengthAttribute(20)]<br />        <span style="color: #0000ff">public</span> <span style="color: #0000ff">string</span> FirstName { get; set; }<br />        [MaxLengthAttribute(20)]<br />        <span style="color: #0000ff">public</span> <span style="color: #0000ff">string</span> LastName { get; set; }<br />        <span style="color: #0000ff">public</span> <span style="color: #0000ff">bool</span> Impeached { get; set; }<br />        <span style="color: #0000ff">public</span> DateTime TookOffice { get; set; }<br />        <span style="color: #0000ff">public</span> DateTime LeftOffice { get; set; }<br />        <span style="color: #0000ff">public</span> <span style="color: #0000ff">decimal</span>  Income { get; set; }<br />    } <br />}</pre>
+<p></div>
+<p>And, the repository is defined as follows:</p>
+<div style="border-bottom: silver 1px solid; text-align: left; border-left: silver 1px solid; padding-bottom: 4px; line-height: 12pt; background-color: #f4f4f4; margin: 20px 0px 10px; padding-left: 4px; width: 97.5%; padding-right: 4px; font-family: &#39;Courier New&#39;, courier, monospace; direction: ltr; max-height: 200px; font-size: 8pt; overflow: auto; border-top: silver 1px solid; cursor: text; border-right: silver 1px solid; padding-top: 4px" id="codeSnippetWrapper">
+<pre style="border-bottom-style: none; text-align: left; padding-bottom: 0px; line-height: 12pt; background-color: #f4f4f4; margin: 0em; border-left-style: none; padding-left: 0px; width: 100%; padding-right: 0px; font-family: &#39;Courier New&#39;, courier, monospace; direction: ltr; border-top-style: none; color: black; border-right-style: none; font-size: 8pt; overflow: visible; padding-top: 0px" id="codeSnippet"><span style="color: #0000ff">public</span> <span style="color: #0000ff">class</span> USPresidentsDb : DbContext<br />{<br />     <span style="color: #0000ff">public</span> USPresidentsDb()<br />        : <span style="color: #0000ff">base</span>(<span style="color: #006080">&quot;name=USPresidents&quot;</span>)<br />    {<br />    }<br /><br />    <span style="color: #0000ff">public</span> DbSet&lt;UserInfo&gt; Users { get; set; }<br />    <span style="color: #0000ff">public</span> DbSet&lt;President&gt; Presidents { get; set; }<br />    <span style="color: #0000ff">public</span> DbSet&lt;Party&gt; Parties { get; set; }<br />    ...</pre>
+<p></div>
+<p>&#160;</p>
+<p>Notice that in the party class, there is a virtual ICollection of Presidents, and notice in the President class, there is a virtual reference to the Party.&#160; These combined make the relationship work and the foreign key created.</p>
+<p>If I look in my SQL Database, you’ll see a new foreign key is automatically created for me as Party_id.</p>
+<p>&#160;</p>
+<p><a href="http://peterkellner.net/wp/wp-content/uploads/2011/11/image8.png"><img style="background-image: none; border-bottom: 0px; border-left: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px" title="image" border="0" alt="image" src="http://peterkellner.net/wp/wp-content/uploads/2011/11/image_thumb7.png" width="205" height="244" /></a></p>
+<p>I’m not exactly sure how SqlExpressCE shows foreign keys, but I know it is there because when I try to delete a Party record that is associated with a President I get the following error:</p>
+<p>&#160;</p>
+<p><a href="http://peterkellner.net/wp/wp-content/uploads/2011/11/image9.png"><img style="background-image: none; border-bottom: 0px; border-left: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px" title="image" border="0" alt="image" src="http://peterkellner.net/wp/wp-content/uploads/2011/11/image_thumb8.png" width="343" height="248" /></a></p>
+<p>which tells me there is a constraint called Party_Presidents (my foreign key).</p>
+<p>&#160;</p>
+<p>So, it worked!&#160; If you want to see the full source for this, keep an eye on the series of articles I’m now writing (only the first one is done, but probably, by the time you find this, I’ll have others done that include this Presidents example.&#160; You can find the first one at the URL:&#160; <a title="http://peterkellner.net/2011/11/04/building-an-senchas-extjs-4-0-mvc-application-with-microsofts-asp-net-mvc3-series-basics/" href="http://peterkellner.net/2011/11/04/building-an-senchas-extjs-4-0-mvc-application-with-microsofts-asp-net-mvc3-series-basics/">http://peterkellner.net/2011/11/04/building-an-senchas-extjs-4-0-mvc-application-with-microsofts-asp-net-mvc3-series-basics/</a></p>
