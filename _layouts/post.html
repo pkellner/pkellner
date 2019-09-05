@@ -18,7 +18,7 @@ layout: default
             <h2 class="subheading">{{ page.subtitle }}</h2>
             {% endif %}
             <span class="meta">Posted by
-              <a href="#">{% if page.author %}{{ page.author }}{% else %}{{ site.author }}{% endif %}</a>
+              <a href="#">{% if page.author.display_name %}{{ page.author.display_name }}{% else %}{{ "Peter G Kellner" }}{% endif %}</a>
               on {{ page.date | date: '%B %d, %Y' }} &middot; {% include read_time.html
               content=page.content %}
             </span>
@@ -31,6 +31,8 @@ layout: default
   <div class="container">
     <div class="row">
       <div class="col-lg-8 col-md-10 mx-auto">
+
+        {{ page.food }} <hr/>
 
         {{ content }}
 

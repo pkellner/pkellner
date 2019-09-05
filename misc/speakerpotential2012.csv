@@ -1,0 +1,597 @@
+﻿InterestLevelCount,Title,UserFirstName,UserLastName,Email,CodeCampYearId,SessionId
+18,Working With SharePoint Data,Joseph,Ackerman,joseph_ackerman@dell.com,3,84
+24,SharePoint - Web Parts 101,Joseph,Ackerman,joseph_ackerman@dell.com,4,167
+17,SharePoint - Working with List and Library Data,Joseph,Ackerman,joseph_ackerman@dell.com,4,168
+30,SharePoint Web Parts 101: Then and Now,Joseph,Ackerman,joseph_ackerman@dell.com,5,348
+13,Getting started with OSGi,Rahul,Agarwal,rahul_nus@yahoo.com,4,272
+116,Do you MapReduce?,Rahul,Agarwal,rahul_nus@yahoo.com,5,429
+2,Test GNOME applications using LDTP,Nagappan,Alagappan,nagappan@gmail.com,6,644
+23,Deep dive on PayPalX Payments Platform,Praveen,Alavilli,praveen@x.com,5,454
+49,"App Monetization, still a mystery ?",Praveen,Alavilli,praveen@x.com,5,485
+15,"Java2D and Groovy, a perfect match",Andres,Almiray,aalmiray@yahoo.com,3,5
+34,Boosting Your Testing Productivity with Groovy,Andres,Almiray,aalmiray@yahoo.com,3,6
+21,Building Rich Applications with Groovy's SwingBuilder,Andres,Almiray,aalmiray@yahoo.com,3,7
+8,Painless Desktop Application Development: The Griffon Experience,Andres,Almiray,aalmiray@yahoo.com,6,628
+11,A Walkthrough Groovy's AST Transformations,Andres,Almiray,aalmiray@yahoo.com,6,629
+30,Integrating iPhone apps with Drupal,Eneko,Alonso,eneko.alonso@gmail.com,4,243
+22,The Google Buzz API and You,Bob,Aman,bobaman@google.com,5,530
+21,Hands on introduction to Parallel Management Patterns,Minesh B.,Amin,mamin@mbasciences.com,6,724
+15,Advanced ASP.NET MVC Extensibility,Steve,Andrews,stevea@devexpress.com,5,538
+10,May The Source Stay With You,Steve,Andrews,stevea@devexpress.com,5,539
+41,OpenStack - Open Source Cloud Software,Joe,Arnold,joe.arnold@yahoo.com,5,562
+81,How StackOverflow is using HTML5,Jeff,Atwood,jatwood@codinghorror.com,5,567
+7,2011 Survey of Web-Based 3D Technologies,Chad,Austin,caustin@gmail.com,6,662
+9,Discovering Software Trade Secret Theft,Nikolaus,Baer,nik@zeidmanconsulting.com,3,63
+144,Data Visualization in HTML5 with jQuery and Wijmo,Chris,Bannon,chrisb@componentone.com,6,713
+27,Groovy/Grails Controllers Deep Dive,chris,bedford,chris@buildlackey.com,5,489
+31,Silverlight Data Service Options for Business Apps,Ward,Bell,wardbell@hotmail.com,4,273
+16,Silverlight Automated Testing,Ward,Bell,wardbell@hotmail.com,5,554
+23,Practical Entity Framework for the Silverlight Developer,Ward,Bell,wardbell@hotmail.com,5,555
+31,Using the Windows Runtime from JavaScript in Windows 8,Ward,Bell,wardbell@hotmail.com,6,811
+29,Software Gardening,Craig,Berntson,craig@craigberntson.com,6,622
+27,The Continuous Delivery Zone,Craig,Berntson,craig@craigberntson.com,6,740
+11,An Introduction to The Managed Extensibility Framework (MEF) in .NET 4,Karl,Beutner,karlbeutner@gmail.com,6,703
+46,Introduction to the XBox Kinect SDK from Microsoft,Karl,Beutner,karlbeutner@gmail.com,6,704
+78,Google Chrome / HTML5,Eric,Bidelman,e.bidelman@google.com,5,518
+50,When Browsers Behave Badly - Part One,Robert,Biggs,rbiggs@vertigo.com,3,14
+48,When Browsers Behave Badly - Part Two,Robert,Biggs,rbiggs@vertigo.com,3,15
+19,Writing a jQuery Plugin,Robert,Biggs,rbiggs@vertigo.com,4,239
+27,Developing for Webkit,Robert,Biggs,rbiggs@vertigo.com,4,240
+36,JavaScript Animation,Robert,Biggs,rbiggs@vertigo.com,4,241
+36,Expression Blend Tips &amp; Tricks,Robert,Biggs,rbiggs@vertigo.com,4,242
+47,Use RSpec to Learn Ruby,Dan,Bikle,dan@bot4.us,6,716
+20,Deep Dumpster Diving,Ronn,Black,rblack@btsoft.org,4,229
+15,Deep Dumpster Diving,Ronn,Black,rblack@btsoft.org,5,519
+72,Analyzing Memory Usage and Memory Leaks,Ronn,Black,rblack@btsoft.org,5,551
+24,Team Estimation Game,Steve,Bockman,steve@stevebockman.com,4,255
+25,Slow Down to Speed Up,Steve,Bockman,steve@stevebockman.com,4,257
+22,Avoiding the Knowledge Transfer Bottleneck,Steve,Bockman,steve@stevebockman.com,4,258
+32,Making Pair Programming and TDD Fun and Effective,Steve,Bockman,steve@stevebockman.com,4,259
+13,The Dependency Game,Steve,Bockman,steve@stevebockman.com,6,702
+5,From Just-In-Case to Just-In-Time and Beyond,Steve,Bockman,steve@stevebockman.com,6,664
+40,"Where is my data? Consistency, availability, security of cloud file storage at Box",Antoine,Boulanger,antoine@box.net,6,706
+35,Which Web App Stack is Best?,Clive,Boulton,clive.boulton@gmail.com,4,276
+16,a briefing on itemscript:  a system for building loosely-coupled declarative applications using JSON,bill,braasch,bill@itemscript.org,4,231
+54,Test Driven Development: an intro for C# developers,Mathias,Brandewinder,mathias.brandewinder@clear-lines.com,3,34
+21,Office development? Who would want to do that?,Mathias,Brandewinder,mathias.brandewinder@clear-lines.com,3,35
+53,Test Driven Development: an intro for C# developers,Mathias,Brandewinder,mathias.brandewinder@clear-lines.com,4,163
+41,intro to Test Driven Development for C# developers,Mathias,Brandewinder,mathias.brandewinder@clear-lines.com,5,341
+50,For Those About to Mock,Mathias,Brandewinder,mathias.brandewinder@clear-lines.com,5,342
+30,For Those About to Mock,Mathias,Brandewinder,mathias.brandewinder@clear-lines.com,6,660
+26,Beginning Test Driven Development for C# developers,Mathias,Brandewinder,mathias.brandewinder@clear-lines.com,6,661
+10,An excursion in F#,Mathias,Brandewinder,mathias.brandewinder@clear-lines.com,6,824
+6,"Broadcast Badges made Really, Really Simple",Kent,Brewster,kent_brewster@yahoo.com,4,172
+25,"Teaching Kids Programming with Scratch, Alice and Python",Dave,Briccetti,daveb@davebsoft.com,3,48
+25,"Teaching Kids Programming with Scratch, Alice and Python",Dave,Briccetti,daveb@davebsoft.com,4,173
+12,TalkingPuffin: a Scala Twitter Client,Dave,Briccetti,daveb@davebsoft.com,4,175
+30,Game and Story Programming Class for Kids,Dave,Briccetti,daveb@davebsoft.com,4,180
+14,BirdShow: A Scala/Lift App for Showing Flickr Photos,Dave,Briccetti,daveb@davebsoft.com,5,394
+23,Teaching Programming to Kids,Dave,Briccetti,daveb@davebsoft.com,5,395
+22,Scratch Programming Workshop for Kids,Dave,Briccetti,daveb@davebsoft.com,5,396
+15,"Scala and Lift Introduction, and TalkingPuffin Web: A Scala Lift Webapp",Dave,Briccetti,daveb@davebsoft.com,6,674
+15,Kojo Programming for Kids,Dave,Briccetti,daveb@davebsoft.com,6,675
+18,A Platform for building RIAs using Domain Specific Languages,John,Brinnand,jbrinnand@gmail.com,6,739
+70,"Silverlight 2.0, it just keeps getting better",Dave,Britton,d_britton@hotmail.com,3,13
+75,CTO RoundTable:   &quot;Leaders in Technology&quot;,Stacey,Broadwell,stacey@ctoroundtable.com,6,736
+11,"Automating Business Processes with K2, ASP.NET &amp; SharePoint",Brandon,Brown,davidco@k2.com,5,561
+7,Gallio: Crafting a Toolchain,Jeff,Brown,jeff.brown@gmail.com,3,69
+86,No such thing as a secure network (Wireless Security Class/Demo),Leonardo,Brown,leonardo.brown@gmail.com,5,490
+27,High Performance Ajax/JavasScript with ASP.NET and ExtJS,Mats,Bryntse,roevlasse@yahoo.co.uk,3,85
+248,Basic Android,Lance,Bullock,Lance@falafel.com,5,377
+247,Android: Beyond the Basics,Lance,Bullock,Lance@falafel.com,5,379
+238,iPhone Development Kickstart,Lance,Bullock,Lance@falafel.com,6,594
+18,Setting up your SharePoint Developer Environment,Matthew,Burnett,mburnett@microsoft.com,5,509
+12,Building Safe SharePoint Solutions,Matthew,Burnett,mburnett@microsoft.com,5,510
+12,Mapping and location awareness on the Windows Phone,Gary,Campbell,gary@falafel.com,6,591
+198,Programming Android Tablets,Oswald,Campesato,ocampesato@yahoo.com,6,652
+49,Extending the Power of CSS3,Oswald,Campesato,ocampesato@yahoo.com,6,637
+62,Powerful Resume &amp; Cover Letter Writing.,Sondra,Card,sondracard@gmail.com,6,759
+18,Simple-Spring-Memcached,Nelz,Carpentier,nelz9999@gmail.com,4,262
+12,WillowChat: Out-of-the-Box Comet Webchat,Michael,Carter,CarterMichael@gmail.com,3,123
+13,BOO and Powershell for Testers,paul,cassidy,pcassidy@frontporch.com,4,198
+14,Advanced Scripting in Powershell,paul,cassidy,pcassidy@frontporch.com,5,347
+24,Introduction to Powershell,paul,cassidy,pcassidy@frontporch.com,5,393
+3,"PowerShell Types and Objects, Objects and Types. Oh My!",paul,cassidy,pcassidy@frontporch.com,6,606
+81,An Introduction to Node.js,Tim,Caswell,tim@creationix.com,5,486
+16,WPF Tips and Tricks,Gustavo,Cavalcanti,gustavo@tinyfit.com,5,572
+8,WPF/Silverlight Resources Tips and Tricks,Gustavo,Cavalcanti,gus@tinyfit.com,6,741
+10,"Flex and 3D UI, for games and more",Vic,Cekvenich,vcekvenich2@gmail.com,3,119
+24,"Best and worst practice for actionscript/flash(flex) development, 3D, asset/socket servers/crossdomain.",Vic,Cekvenich,vcekvenich2@gmail.com,4,270
+20,Career Development for Careers in the Video Gaming Industry,Jerry,Cellilo,cellilojerry@foothill.edu,5,501
+55,Getting and Keeping the Job - What you need to know,Jerry,Cellilo,cellilojerry@foothill.edu,5,507
+105,Brief Introduction to Natural Language Processing,Daniel,Cer,Daniel.Cer@gmail.com,5,365
+12,AutoMobile: the Next Hot Platform for Mobile Linux,Alison,Chaiken,alchaiken@gmail.com,6,708
+14,SQL Source Control Solutions,Joel,Champagne,joelc@codexframework.com,5,556
+11,Java EE 6 Tooling,Ludovic,Champenois,ludovic.champenois@oracle.com,5,442
+18,LINQ and WPF Inergration Overview(Software + Services Stragegy),Johnny,Chan,shumsh@gmail.com,3,53
+63,Writing Collaborative Apps in Google Wave,Newton,Chan,channewton@fhda.edu,4,245
+12,Take a REST on WebLogic Server,Symon,Chang,symonchang@gmail.com,3,95
+16,Web Services Interop between Java and .NET,Symon,Chang,symonchang@gmail.com,3,100
+52,The Five Biggest Myths about Web Services Security,Symon,Chang,symonchang@gmail.com,5,526
+14,Security As A Service,Marc,Chanliau,marc.chanliau@oracle.com,4,306
+32,Power-up:  Trends in the Video Game Industry,Albert,Chen,achen@cogswell.edu,5,523
+24,Building Rich Web applications using jMaki,Doris,Chen,doristchen@hotmail.com,3,68
+52,Developing Revolutionary Web Applications using Comet and Ajax Push,Doris,Chen,doristchen@hotmail.com,4,305
+181,jQuery Makes Writing JavaScript Fun Again,Doris,Chen,doristungchen@gmail.com,5,513
+245,Practical HTML5: Using It Today,Doris,Chen,doristungchen@gmail.com,6,744
+445,Dive into HTML5,Doris,Chen,doristungchen@gmail.com,6,745
+20,Learning Python in Grade School,Edward,Cherlin,echerlin@gmail.com,4,174
+19,GPU Accelerated Databases using OpenCL,Tim,Child,tim.child@comcast.net,6,633
+20,Getting Started with JavaFX and WidgetFX,Stephen,Chin,steve@widgetfx.org,4,162
+71,Android Flash Development,Stephen,Chin,steve@widgetfx.org,5,402
+19,Visage Android Hands-on Lab (part 2),Stephen,Chin,steve@widgetfx.org,6,630
+10,Mobile Flex for Java Geeks,Stephen,Chin,steve@widgetfx.org,6,631
+4,"JavaFX 2.0 With Alternative Languages - Groovy, Clojure, Scala, Fantom, and Visage",Stephen,Chin,steve@widgetfx.org,6,632
+35,Visage Android Hands-on Lab  (part 1),Stephen,Chin,steve@widgetfx.org,6,808
+48,How to build asynchronous Web Services,pyounguk,cho,pyounguk@yahoo.com,3,110
+28,Introduction to Spring Web Services,pyounguk,cho,pyounguk@yahoo.com,3,111
+93,What is Python?,wesley,chun,wescpy@gmail.com,3,64
+20,Programming Microsoft Office using Python,wesley,chun,wescpy@gmail.com,3,65
+124,What is Python?,wesley,chun,wescpy@gmail.com,4,202
+31,Programming Microsoft Office using Python,wesley,chun,wescpy@gmail.com,4,203
+39,Python 3: The Next Generation,wesley,chun,wescpy@gmail.com,4,227
+118,What is Google App Engine?,wesley,chun,wescpy@gmail.com,5,424
+127,What is Python?,wesley,chun,wescpy@gmail.com,5,354
+132,Introducing Google APIs Part III (New &amp; Exciting),wesley,chun,wescpy@gmail.com,5,517
+80,Google App Engine Workshop,wesley,chun,wescpy@gmail.com,5,515
+169,What is Python?,wesley,chun,wescpy@gmail.com,6,750
+112,What is Google App Engine?,wesley,chun,wescpy@gmail.com,6,751
+70,Google App Engine workshop,wesley,chun,wescpy@gmail.com,6,752
+5,FastCGI for high performance desktop applications,Mike,Coast Development,michaelsplendidusa@yahoo.com,4,310
+15,Silverlight Debugging Techniques,Alan,Cobb,alan@alancobb.com,3,116
+7,Introduction to architecting Silverlight applications with Prism v4,Alan,Cobb,alancobb2@gmail.com,5,584
+6,FlexCloudSDK - Cloud Computing for Adobe Flex Developers and Web Developers,Tony,Constantinides,constantinnovationsinc@gmail.com,6,732
+61,App Engine 101,Jason,Cooper,jasonacooper@gmail.com,4,321
+28,Create a Kinect Powered Personal Robot with Microsoft Robotics Developer Studio,Bill,Crow,bill.crow@microsoft.com,6,825
+14,JCP and the Future of Java,Patrick,Curran,patrick@jcp.org,6,748
+8,Become a Code Warrior : Author an Open Licensed Textbook,Una,Daly,dalyuna@foothill.edu,5,514
+123,Getting Started with iOS Mobile App Development,Una,Daly,dalyuna@foothill.edu,6,801
+8,"Deme: Now A Modular CMS, Now in Django",Todd,Davies,davies@csli.stanford.edu,3,74
+6,Deme: A Django-Based CMS for Deliberative Content Creation and Control by Users,Todd,Davies,trbdavies@yahoo.com,6,828
+28,Befriending Lambda Expressions,Stephen,Dempsey,stephend@falafel.com,4,248
+63,0 to 60 with Regular Expressions in 75 minutes,nima,dilmaghani,nimadi@gmail.com,3,109
+87,0 to 60 with Regular Expressions in 75 minutes,nima,dilmaghani,nimadi@gmail.com,4,230
+149,0 to 60 with Regular Expressions in 75 minutes,nima,dilmaghani,nimadi@gmail.com,5,497
+72,0 to 60 with Regular Expressions in 75 minutes,nima,dilmaghani,nimadi@gmail.com,6,803
+3,Dynamics CRM as a Platform for Business Process Management (BPM),James,Downey,downeyj@gmail.com,3,91
+40,WF4: Workflow in .Net 4.0,James,Downey,downeyj@gmail.com,4,170
+27,SharePoint 2010 Information Architecture: Best Practices,James,Downey,james_downey@dell.com,5,461
+10,Using JSF with Ajax,Jim,Driscoll,JamesGDriscoll@gmail.com,4,292
+23,DSLs with Groovy,Jim,Driscoll,JamesGDriscoll@gmail.com,6,764
+51,MySQL Cluster With and Without SQL,John David,Duncan,john.duncan@oracle.com,6,802
+48,JavaScript Code assist for NodeJs and more,Justin,Early,earlyster@gmail.com,6,682
+69,"Pragmatic JavaScript, jQuery & Ajax with ASP.NET",Damian,Edwards,dedward@microsoft.com,6,823
+9,WP7 Developer Contest - Day 1 Session 1,Daniel,Egan,daniel.egan@microsoft.com,5,576
+4,WP7 Developer Contest Day 1 Session 2,Daniel,Egan,daniel.egan@microsoft.com,5,577
+4,WP7 Developer Contest Day 1 Session 3,Daniel,Egan,daniel.egan@microsoft.com,5,578
+5,WP7 Developer Contest Day 1 Session 4,Daniel,Egan,daniel.egan@microsoft.com,5,579
+5,WP7 Developer Contest - Day 2 Session 1 (Building Your app),Daniel,Egan,daniel.egan@microsoft.com,5,580
+4,WP7 Developer Contest Day 2 Session 2 (Building your app),Daniel,Egan,daniel.egan@microsoft.com,5,581
+1,WP7 Developer Contest Day 2 Session 3 (Building You app),Daniel,Egan,daniel.egan@microsoft.com,5,582
+5,WP7 Developer Contest Day 2 Session 4 (Presentations and Awards),Daniel,Egan,daniel.egan@microsoft.com,5,583
+19,Augmented Reality in Windows Phone Mango,Daniel,Egan,daegan@microsoft.com,6,737
+8,Fun with Live Tiles in Windows Phone 7,Daniel,Egan,daegan@microsoft.com,6,738
+15,The Perils and Pleasures of Testing with Selenium,Mark,Erdmann,mark.erdmann@gmail.com,4,323
+4,Computer Programmers Helping To Shape an Experimental Film,Robert,Evans,biggestcrime@gmail.com,6,735
+34,Code Excellence for the Average Programmer - Part 2,Llewellyn,Falco,isidore@setgame.com,4,280
+46,Unit Testing the Easy Way in C#,Llewellyn,Falco,isidore@setgame.com,4,281
+74,Test-driven Development: It’s All about Fluency,Llewellyn,Falco,isidore@setgame.com,6,758
+12,Building Java Applications for MySQL,Todd,Farmer,todd.farmer@oracle.com,6,804
+20,Building Interoperabile and Scalable PHP Applications,Marina,Fisher,marina.fisher@sun.com,3,73
+45,From Code to Complete Product to Brand,Athol ,Foden,athol@brighternaming.com,4,188
+70,From Code to Product to Company to Brand,Athol ,Foden,athol@brighternaming.com,5,392
+79,From Code to Product to Market to Business - Fast Bootstrapping,Athol ,Foden,athol@brighternaming.com,6,648
+3,Pragmatic Naming for  Programmers and Product Managers,Athol ,Foden,athol@brighternaming.com,6,649
+27,Creating Office 2010 Add-ins Using SharePoint as a Data Source,Donovan,Follette,donovanf@microsoft.com,5,511
+10,Developing SharePoint and Office 365 Applications using Windows Azure,Donovan,Follette,donovanf@microsoft.com,6,794
+65,How to Product Manage an Agile Team,sara,ford,saraf@microsoft.com,5,427
+61,Visual Studio 2010 Tips and Tricks,sara,ford,saraf@microsoft.com,5,428
+5,A Tour of Ohloh.net,Sara,Ford,sford@blackducksoftware.com,6,667
+61,Visual Studio 2010 Tips and Tricks,Sara,Ford,sford@blackducksoftware.com,6,701
+39,Getting Started with Windows Azure,Steve,Fox,stefox@microsoft.com,6,793
+6,LinkedIn's Engineering Process using JIRA,Daniel,Francisco,dfrancisco@linkedin.com,3,113
+16,Making (More) Money with Phone 7,Russell,Fustino,russell.fustino@grapecity.com,6,726
+10,Reporting in Silverlight.,Russell,Fustino,russell.fustino@grapecity.com,6,727
+4,Windows Mobile DevCamp (9 of 10),giovanni,gallucci,codecamp@gallucci.net,4,334
+4,Windows Mobile DevCamp (10 of 10),giovanni,gallucci,codecamp@gallucci.net,4,335
+12,Windows Mobile DevCamp (1 of 10),giovanni,gallucci,codecamp@gallucci.net,4,284
+11,Windows Mobile DevCamp (2 of 10),giovanni,gallucci,codecamp@gallucci.net,4,285
+12,Windows Mobile DevCamp (3 of 10),giovanni,gallucci,codecamp@gallucci.net,4,286
+13,Windows Mobile DevCamp (4 of 10),giovanni,gallucci,codecamp@gallucci.net,4,287
+6,Windows Mobile DevCamp (5 of 10),giovanni,gallucci,codecamp@gallucci.net,4,288
+8,Windows Mobile DevCamp (6 of 10),giovanni,gallucci,codecamp@gallucci.net,4,289
+5,Windows Mobile DevCamp (7 of 10),giovanni,gallucci,codecamp@gallucci.net,4,290
+7,Windows Mobile DevCamp (8 of 10),giovanni,gallucci,codecamp@gallucci.net,4,291
+158,Mobile Development 101: Developing Apps for the iPhone and the Android Platform,Michael,Galpin,mike.sr@gmail.com,4,219
+28,Scala On Your Phone: Mobile Development with Less Suck,Michael,Galpin,mike.sr@gmail.com,4,220
+149,Mobile HTML 5.0,Michael,Galpin,mike.sr@gmail.com,5,400
+30,That’s My App - Running in Your Background - Draining Your Battery,Michael,Galpin,mike.sr@gmail.com,5,401
+38,Working with Images on Android,Michael,Galpin,mike.sr@gmail.com,6,733
+7,"Math on the web: handwriting for input, MathJax for display",Peter,Garst,pgarst@gmail.com,6,646
+15,Scaling Hibernate Apps with Terracotta,Taylor,Gautier,tgautier@yahoo.com,4,308
+35,Using &amp; Writing Behaviors in SIlverlight &amp; WPF with Blend &amp; Visual Studio,Joe,Gershgorin,joe@bitspy.com,4,212
+9,Spock: The Search for an Intelligent Spec,Edward,Gibbs,edward_gibbs@yahoo.com,6,659
+6,Tropo.com: Real-time Communications Cloud API,Jason,Goecke,jsgoecke@tropo.com,5,503
+22,An Agile GUI War,Doug,Goldie,doug@codecauldron.com,5,493
+22,"Introduction to NME, the &quot;Write Once, Publish Everywhere&quot; Framework",Joshua,Granick,joshua@joshuagranick.com,6,754
+15,Learning to Love Services:  Experiences from the Transition to a Service-oriented Architecture,Jeff,Green,jgreen@ingenuity.com,6,743
+45,Groking the Code-Base,Kim,Greenlee,krgreenlee@comcast.net,3,89
+56,The Basics of Threading,Kim,Greenlee,krgreenlee@comcast.net,3,90
+31,Presenting for Engineers,Kim,Greenlee,krgreenlee@comcast.net,4,274
+5,"Web API for Wuala, social online storage",Dominik,Grolimund,dominik@wuala.com,3,83
+18,GlassFish: On a mission to please developers,Arun,Gupta,arun.p.gupta@oracle.com,3,61
+8,Metro: Hello World to .NET 3.5 interoperable Web service,Arun,Gupta,arun.p.gupta@oracle.com,3,58
+10,Rails powered by GlassFish,Arun,Gupta,arun.p.gupta@oracle.com,3,32
+13,Java EE 6 and GlassFish v3: Paving the path for future,Arun,Gupta,arun.p.gupta@oracle.com,4,263
+15,Using Eclipse for Java EE 6 development for the GlassFish™ Application Server,Arun,Gupta,arun.p.gupta@oracle.com,4,264
+6,(CANCELLED) Dynamic Languages &amp; Web Frameworks in GlassFish,Arun,Gupta,arun.p.gupta@oracle.com,4,265
+37,Java EE 6: Doing More With Less,Arun,Gupta,arun.p.gupta@oracle.com,5,440
+27,OSGi and Java EE in GlassFish,Arun,Gupta,arun.p.gupta@oracle.com,5,441
+37,Running your Java EE 6 application in the Cloud,Arun,Gupta,arun.p.gupta@oracle.com,5,444
+21,Deploy and Monitor your Java EE 6 session in a fully-clustered GlassFish,Arun,Gupta,arun.p.gupta@oracle.com,6,766
+79,The Java EE 7 Platform: Developing for the Cloud,Arun,Gupta,arun.p.gupta@oracle.com,6,770
+23,Particle - Cross platform SDK for native mobile apps from a single code base,Neeraj,Gupta,neeraj@particlecode.com,6,731
+90,Accepting payments online - Opportunities and Pitfalls,PJ,Gupta,pj@pjgupta.com,6,819
+35,Javascript in Cloud - Think Automation using Google Apps Script,Saurabh,Gupta,sagupta@google.com,6,678
+24,Component Based Java Web Development with Apache Wicket,Karthik,Gurumurthy,karthik.gurumurthy@etrade.com,3,18
+63,“Embellish Your Pictures”-  Build an Application for an Android Phone,Jack,Ha,jack@jalobi.com,4,232
+13,webOS - Cross Platform and node.js,Kevin,Hague,kevin.hague@palm.com,5,585
+46,WebSocket I/O with Ruby EventMachine,Scott,Haines,scott@newfrontcreative.com,6,718
+20,Three Cool Things About F#,Matt,Harrington,Matt.Harrington@microsoft.com,6,711
+84,Algorithmic Trading,Peter,Harrington,peter@zillabyte.com,5,453
+33,Hackathon 4 Kids: Hands-on with the Google Map (Part I),Bess,Ho,bess.ho@gmail.com,3,41
+15,Hackathon 4 Kids: Building Game over Google App Engine (Part 2),Bess,Ho,bess.ho@gmail.com,3,124
+92,&quot;Best Practice&quot; in iPhone SDK App Design,Bess,Ho,bess.ho@gmail.com,4,182
+135,Dancing with iOS SDK: iPhone &amp; iPad,Bess,Ho,bess.ho@gmail.com,5,359
+47,Visual Studio 2010 Code Generation,Doug,Holland,doug.holland@microsoft.com,5,456
+7,Hands-on Lab: Building and Deploying Applications with Oracle WebLogic Server 10gR3 and Eclipse,Pieter,Humphrey,pieter.humphrey@oracle.com,3,112
+9,Top 10 Productivity Tools for Java Developers on Oracle WebLogic Server 10gR3,Pieter,Humphrey,pieter.humphrey@oracle.com,4,316
+10,How to Develop with Oracle Fusion Middleware on Amazon EC2,Pieter,Humphrey,pieter.humphrey@oracle.com,4,317
+40,An engineer’s introduction to in-memory data grid development,Pieter,Humphrey,pieter.humphrey@oracle.com,6,787
+4,"In-memory session replication with WebLogic and GlassFish, Coherence",Pieter,Humphrey,pieter.humphrey@oracle.com,6,788
+43,Create Data Visualizations in Minutes Using Google Fusion Tables,Kathryn,Hurley,kbrisbin@google.com,6,681
+46,Best Practices for Scaling Java Applications with Distributed Caching,Slava,Imeshev,simeshev@cacheonix.com,3,62
+96,Best Practices for Scaling Java Applications with Distributed Caching,Slava,Imeshev,simeshev@cacheonix.com,6,742
+35,"membase.org: The Simple, Fast, Elastic NoSQL Database Powering FarmVille is now an Open Source Project",Matt,Ingenthron,matt@northscale.com,5,481
+17,GridGain - Java Grid Computing Made Simple,Nikita,Ivanov,nivanov@gridgain.com,3,46
+31,Cloud Computing with Scala and GridGain,Nikita,IVANOV,nivanov@gridgain.com,5,355
+25,Distributed Programming with Scala and GridGain,Nikita,IVANOV,nivanov@gridgain.com,6,620
+9,"Scaling a Platform with Bebo, Yahoo (YOS), RockYou and Sun Microsystems - Panel Moderated",Sudha,Jamthe,sujamthe@yahoo.com,3,128
+18,Social Integration Metrics fo Social App Product Managers and Developers,Sudha,Jamthe,sujamthe@yahoo.com,6,734
+18,The Fundamentals of Transaction Systems,Charles,Johnson,CharlesOne@Yahoo.Com,3,118
+57,Beginning Ubuntu Gnu-Linux Development,Drew,Johnson,nuboon2age@gmail.com,5,547
+70,Creating the next Google,Fletcher,Johnson,svcc@fjemail.com,5,338
+43,MVC and Entity Framework 4,James,Johnson,jamesj@componentone.com,5,525
+42,Build Bindingly-Fast Web Apps with HTML5 and SproutCore ,Charles,Jolley,charles@sproutit.com,4,254
+33,Creating Professional Applications with the LinkedIn Javascript API,Kirsten,Jones,synedra@gmail.com,6,753
+38,Lego for Software Engineers Part 1 – How to build reusable and maintainable applications in C#,Theo,Jungeblut,theo@csharp-lighthouse.com,5,470
+31,"Lego for Software Engineers Part 2 – From Unity, MEF and WCF",Theo,Jungeblut,theo@csharp-lighthouse.com,5,471
+47,Clean Code – Why writing Clean Code makes us more efficient,Theo,Jungeblut,theo@csharp-lighthouse.com,6,625
+12,Contract-First Development with Microsoft Code Contracts and Microsoft Pex,Theo,Jungeblut,theo@csharp-lighthouse.com,6,626
+5,Taming Web Services Interoperability,Nilesh,Junnarkar,nilesh.junnarkar@oracle.com,3,108
+10,Web Services Interoperability Platform (Session Cancelled) ,Nilesh,Junnarkar,nilesh.junnarkar@oracle.com,4,235
+28,Exception-Safe Coding in C++,Jon,Kalb,codecamp@kalbweb.com,6,827
+38,Mobile App Communications in the Cloud,Adam,Kalsey,akalsey@voxeo.com,5,563
+15,DotNetNuke Module Development in C#,Nik,Kalyani,nik@kalyani.com,3,122
+19,Windows Azure Storage: The REST of the Story,Nik,Kalyani,nik@kalyani.com,4,206
+17,"Mobile Apps with ASP.NET MVC, WURFL and jQuery Mobile",Nik,Kalyani,nik@kalyani.com,6,729
+98,"Sencha Touch: Amazing Mobile Web Apps with HTML5, CSS3 &amp; JavaScript",David,Kaneda,dave@sencha.com,5,550
+12,Deep Diagnostics of Production JVMs using Oracle AD4J,Shiraz,Kanga,skanga@gmail.com,4,215
+14,Getting Started with .NET and Oracle Database,Alex,Keh,alex.keh@oracle.com,6,761
+9,"Entity Framework, LINQ, and WCF Data Services for Oracle Database",Alex,Keh,alex.keh@oracle.com,6,762
+36,Mergers and Acquisitions in Consumer Internet,ASHISH,KELKAR,akelkar@gmail.com,6,790
+75,Building High performance ASP.NET web applications,Peter,Kellner,peter@peterkellner.net,3,2
+10,Membership with Profile and High Performance ExtJS JavaScript Interface,Peter,Kellner,peter@peterkellner.net,4,151
+9,Technology of Building Silicon Valley Code Camp Web Site and More,Peter,Kellner,peter@peterkellner.net,5,569
+39,Developing a Google Wave Extension,Brian,Kennish,byoogle@google.com,4,320
+13,PayPal Platform Preview ,Khurram ,Khan,aburchby@paypal.com,4,282
+16,Groovy and Concurrency,Paul,King,paulk@asert.com.au,3,79
+21,Agile Developer Practices for Dynamic Languages,Paul,King,paulk@asert.com.au,3,80
+50,Groovy Tutorial,Paul,King,paulk@asert.com.au,3,81
+21,XML and Web Services with Groovy,Paul,King,paulk@asert.com.au,3,82
+50,The Performance Limitations  of the Java Platform ... and how to avoid them,Ron,Kleinman,ron.kleinman@gmail.com,3,86
+11,Understanding SQL Server XML Features,Randy,Knight,randy@sqlsolutionsgroup.com,6,658
+7,Using ExtJS and Jabsorb for Rich Internet Applications,Stan,Knutson,stanley@stanleyknutson.com,3,101
+51,Introduction to JAX-RS,Jitendra,Kotamraju,jitendra.kotamraju@oracle.com,5,452
+34,Unit testing Legacy code ,Suresh,Koya,surikoya@yahoo.com,6,707
+1,Developing Applications for Meego,Roland,Krause,rokrau@yahoo.com,6,710
+19,Windows Azure:Everything you wanted to know about Microsoft's operating system for the cloud,Sriram,Krishnan,sriramk@microsoft.com,3,78
+44,Asynchronous Web Services,Manoj,Kumar,manoj.k.kumar@oracle.com,4,181
+69,Asynchronous Web Services: Part 1,Manoj,Kumar,manoj.k.kumar@oracle.com,5,352
+52,Asynchronous Web Services: Part 2,Manoj,Kumar,manoj.k.kumar@oracle.com,5,353
+86,Optimize Performance of your Code,Vlad,Kuznetsov,vladiator@gmail.com,4,269
+33,A Hands-On Overview of the Semantic Web,Shamod,Lacoul,shamod2002@yahoo.com,4,244
+32,"RDFa - what, why and how?",Shamod,Lacoul,shamod2002@yahoo.com,5,477
+25,Processing annotations with AOP,Ramnivas,Laddad,ramnivas@ramnivas.com,4,164
+42,Enterprise Application Development with Spring,Ramnivas,Laddad,ramnivas@ramnivas.com,4,208
+27,Enterprise AOP with Spring and AspectJ,Ramnivas,Laddad,ramnivas@ramnivas.com,4,209
+26,Spring Roo: Productive Enterprise Application Development,Ramnivas,Laddad,ramnivas@ramnivas.com,5,414
+67,Introduction to Cloud Foundry,Ramnivas,Laddad,ramnivas@ramnivas.com,6,772
+36,Data Mining for .NET Developers,Lynn,Langit,lynnl@microsoft.com,3,11
+4,What is Gemini,Lynn,Langit,lynnl@microsoft.com,4,185
+12,SQL Azure for Developers,Lynn,Langit,lynnl@microsoft.com,6,683
+47,Teaching Kids Programming,Lynn,Langit,lynnl@microsoft.com,6,684
+41,Approval Tests – Unit Testing Done Better!,Lynn,Langit,lynnl@microsoft.com,6,694
+14,High-Performance SQL Applications Using In-Memory Database Technology,Simon,Law,simon.law@oracle.com,6,809
+36,Clustered Architecture Patterns: Delivering Scalability and Availability with Terracotta,Orion,Letizi,orion@terracotta.org,3,40
+15,High-Performance Scalability for Enterprise Applications with Enterprise Ehcache,Orion,Letizi,orion@terracottatech.com,5,540
+12,Autoperf - An Experience Report for a Haskell Automation Tool.,michael,litchard,michael@schmong.org,6,640
+39,ASP.NET MVC for WebForm Programmers,Paul,Litwin,paul@litwinconsulting.com,5,437
+5,Bring Charting to Your ASP.NET Sites with the Chart Control,Paul,Litwin,paul@litwinconsulting.com,5,438
+69,D.R.Y. CSS &amp; Images,Kimber,Lockhart,kimber@box.net,6,686
+100,Introducing the .NET Service Bus,Juval,Lowy,juval.lowy@idesign.net,4,156
+41,Beyond the Relay – Routers and Queues in the .NET Service Bus,Juval,Lowy,juval.lowy@idesign.net,4,157
+47,Designing for Windows 8: Metro,Michael,Lucaccini,mike@archetype-inc.com,6,813
+34,"Rapid Iteration in HTML5: Designer/Developer Workflow, Techniques &amp; Process",Michael,Lucaccini,mike@archetype-inc.com,6,814
+15,RIA With Flex &amp; Java Using BlazeDS,Hien,Luu,hluu@yahoo.com,4,252
+58,Exploring Amazon AWS Services &amp; Best Practices,Hien,Luu,hluu@yahoo.com,5,479
+11,Introduction to Windows Azure AppFabric Applications,Neil,Mackenzie,nmackenzie@live.com,6,705
+21,Lean-Agile games to reduce technical debt and improve productivity,Masa K,Maeda,masa.shojiki.solutions@gmail.com,5,533
+11,"Lean-Agile Adoption: save it from failing or, better, don&#39;t let it fail.",Masa K,Maeda,masa.shojiki.solutions@gmail.com,5,534
+266,Hands on jQuery Mobile,Sidney,Maestre,sidney@x.com,6,597
+65,(Kevin Nilson Pinch Hitting) Google Data APIs,Zach,Maier,zpm@google.com,4,302
+87,Website Optimization and Performance Improvement Techniques,Ratnakar,Malla,rmalla@gmail.com,5,468
+133,So you have an idea...,Daniel,Marashlian,danielzev@gmail.com,6,663
+106,Mapping on the Phone: Google Maps on Mobile Devices,Mano,Marks,mmarks@google.com,5,531
+104,Introducing Google APIs Part I (A-Z and Geo),Mano,Marks,mmarks@google.com,5,529
+7,The Modern Collaborative Enterprise - how to get the most out of social networking technologies,oliver ,marks,om@olivermarks.com,6,783
+15,Conquering XML with LINQ in Visual Basic 9,Beth,Massi,bethma@microsoft.com,3,21
+49,LINQ to Everything,Beth,Massi,bethma@microsoft.com,3,22
+20,Taking Advantage of LINQ and Open XML in Office 2007,Beth,Massi,bethma@microsoft.com,3,23
+35,Future Directions for  Microsoft Visual Basic and C#,Beth,Massi,bethma@microsoft.com,4,190
+16,Taking Advantage of LINQ and XML in Office 2007,Beth,Massi,bethma@microsoft.com,4,191
+34,Creating and Consuming OData Services,Beth,Massi,bethma@microsoft.com,5,421
+21,Visual Studio LightSwitch – Beyond the Basics,Beth,Massi,bethma@microsoft.com,5,483
+29,Introducing Visual Studio LightSwitch,Beth,Massi,bethma@microsoft.com,5,484
+26,Building Business Applications Quickly with Visual Studio LightSwitch,Beth,Massi,bethma@microsoft.com,6,601
+14,LightSwitch Advanced Development and Customization Techniques,Beth,Massi,bethma@microsoft.com,6,602
+36,"Windows Workflow Foundation: Past, Present, and Future",Jason,Mauer,jmauer@microsoft.com,3,98
+7,Destroy the Universe with XNA,Jason,Mauer,jmauer@microsoft.com,3,99
+16,Developing for Live Mesh  ,Scott,Mauvais,smauvais@microsoft.com,3,37
+38,RIA Services: RAD for the Middle Tier,Joe,Mayo,jmayo@mayosoftware.com,4,199
+11,What's the deal on Multi-tasking?,Jeff,McKenna,agile.action@gmail.com,5,535
+129,iOS Application Architecture,Kevin,McNeish,kjmcneish@me.com,6,668
+37,Testing for the Web,Jeff ,McWherter,jeff@mcwherter.net,3,49
+13,The Ecosystem of Context: How to Play,Pankaj,Mehra,pankaj@whodini.com,6,641
+73,An introduction to Google Web Toolkit and Ext GWT,Darrell,Meyer,darrell@sencha.com,5,549
+61,Computer Forensics: Digital-age Detection,Thomas,Millar,thomas.millar@us.army.mil,5,488
+201,The Science of Great UI,Mark,Miller,markm@devexpress.com,5,391
+82,Use Coaching Skills to be a Better Manager and Leader,Mary,Mills,marywmills@sbcglobal.net,6,749
+42,Facebook Application in Silverlight 2.0,Liam,Molloy,liam@vertigo.com,3,30
+9,MVP Program Overview,Suzanna,Moran,suzannam@microsoft.com,5,439
+38,"Servlet 3.0 extensible, asynchronous and easy to use",Rajiv,Mordani,rajiv.mordani@oracle.com,5,443
+30,Voice &amp; SMS Apps in the Cloud,Danielle,Morrill,danielle@twilio.com,5,560
+45,LEGO (R) Mindstorms for kids,Thomas,Mueller,tm@tmspecial.com,6,679
+17,Utilizing LEGO(R) to brainstorm and solve problems,Thomas,Mueller,tm@tmspecial.com,6,696
+23,How to take your current JavaScript/PHP app and make it scale,Manu,Mukerji,next2manu@gmail.com,5,482
+16,How to scale your App and make it work even when AWS goes down.,Manu,Mukerji,next2manu@gmail.com,6,725
+57,Software Startup Maturity Checklist,Sean,Murphy,skmurphy@skmurphy.com,4,201
+72,Will Work For Equity - the World Startups,Sean,Murphy,skmurphy@skmurphy.com,5,478
+8,.Net meets RegX,Steve,Mylroie,smylroie@ix.netcom.com,6,717
+17,.Net meets a multi-core world,Steve,Mylroie,smylroie@ix.netcom.com,6,719
+33,"Continous Integration with Hudson/Jenkins, Maven, Archiva and Subversion",Mark,Nelson,mark.x.nelson@oracle.com,6,769
+41,Introducing F#,Timothy,Ng,timng@microsoft.com,3,96
+27,LINQ Fundamentals,Timothy,Ng,timng@microsoft.com,3,92
+52,"Java, AIR and Android – make your logic mobile",Duane,Nickull,dnickull@adobe.com,5,570
+14,J2EE Cloud Computing: Manipulating PDF’s for fun and profit!,Duane,Nickull,dnickull@adobe.com,5,571
+45,"Hands on BlackBerry Playbook, iOS and Android Development",Duane,Nickull,dnickull@adobe.com,6,610
+15,Customer Experience Management for Architects,Duane,Nickull,dnickull@adobe.com,6,612
+19,Unified Cloud Storage Library,Dave,Nielsen,dnielsen@gmail.com,3,75
+9,Integrating Wikis and other Social Content into your Website,Dave,Nielsen,dnielsen@gmail.com,3,125
+83,CloudCamp: Round 1 (Intro to Cloud Computing),Dave,Nielsen,dnielsen@gmail.com,4,159
+47,CloudCamp: Round 1 (3 Topics TBD),Dave,Nielsen,dnielsen@gmail.com,4,325
+43,CloudCamp Sessions: Round 2 (Topics TBD),Dave,Nielsen,dnielsen@gmail.com,4,327
+43,CloudCamp Sessions: Round 3 (Topics TBD),Dave,Nielsen,dnielsen@gmail.com,4,330
+51,CloudCamp Wrap-up,Dave,Nielsen,dnielsen@gmail.com,4,333
+60,"CloudCamp Begins: Lightning Talks, then Propose Sessions",Dave,Nielsen,dnielsen@gmail.com,4,253
+61,Cloud Computing Track Lightning Talks,Dave,Nielsen,dnielsen@gmail.com,5,553
+24,x CANCELLED Setup and Build Your Own Open Source Cloud,Dave,Nielsen,dnielsen@gmail.com,5,564
+2,x CANCELLED - How to setup and scale Windows on IaaS,Dave,Nielsen,dnielsen@gmail.com,5,558
+62,Survey of Cloud Platforms,Dave,Nielsen,dnielsen@gmail.com,6,653
+40,An Introduction to Comet and Bayeux (Pushing data to the browser),Kevin,Nilson,kevin@javaclimber.com,3,3
+36,All about the Current and Future Trends in Comet,Kevin,Nilson,kevin@javaclimber.com,4,155
+109,Inside HTML5,Kevin,Nilson,kevin@javaclimber.com,5,545
+57,Next Generation of Testing for HTML5,Kevin,Nilson,kevin@javaclimber.com,5,546
+25,Advanced XAML for WinPhone 7,Bary,Nusz,bary@falafel.com,5,383
+7,Designer and Developer working together with WinPhone 7,Bary,Nusz,bary@falafel.com,5,384
+24,Attached properties and behaviors in Silverlight and WPF,Bary,Nusz,bary@falafel.com,5,376
+12,Attached Properties Unleashed,Bary,Nusz,bary@falafel.com,6,820
+8,SOA Integration with the Oracle Application Development Framework,Shaun,O'Brien,shaun.obrien@oracle.com,5,446
+12,Getting maximum productivity for the Java developer - the Oracle way,Shaun,O'Brien,shaun.obrien@oracle.com,5,447
+49,:%s/novice/expert/g -Vim From Essentials to Mastery,Bill,Odom,wno-svcc@tmtowtdi.com,6,765
+17,In-app Payments with PayPal's Mobile Payment Library (MPL),Pragati ,Ogal Rai,pragatiogal@gmail.com,5,492
+21,Mobile Ecosystem,Pragati ,Ogal Rai,pragatiogal@gmail.com,6,621
+6,Architecting and Consuming REST APIs in .NET using Lullaby,Ryan,Olshan,ryan@ryanolshan.com,3,120
+95,Introducing Google APIs Part II (Apps),Martin,Omander,momander@google.com,5,516
+74,"Store your data, predict the future",Martin,Omander,momander@google.com,6,797
+13,Quercus - PHP on Java,Emil,Ong,emil@caucho.com,3,28
+7,BAM and the Interactive Web,Emil,Ong,emil@caucho.com,3,29
+42,"Security with OAuth : Why, What and How",Manish,Pandit,pandit.manish@gmail.com,4,179
+33,Social Platforms : What goes on under the hood,Manish,Pandit,pandit.manish@gmail.com,5,455
+152,Introduction to MongoDB,Manish,Pandit,pandit.manish@gmail.com,6,608
+89,Play! as you REST : Using Play! Framework to build RESTful services,Manish,Pandit,pandit.manish@gmail.com,6,609
+72,Web Analytics - Do I really need it?,Massimo,Paolini,massimo@spectrum-group-online.com,4,267
+43,Intro to Web Analytics,Massimo,Paolini,massimo@spectrum-group-online.com,5,360
+36,Web Analytics - What&#39;s Next,Massimo,Paolini,massimo@spectrum-group-online.com,5,361
+61,SEO,Massimo,Paolini,massimo@spectrum-group-online.com,5,364
+47,SEO,Massimo,Paolini,massimo@spectrum-group-online.com,6,614
+76,Web Analytics - What's Next,Massimo,Paolini,massimo@spectrum-group-online.com,6,615
+20,Ruby Meta-programming,Bala,Paranj,bparanj@gmail.com,3,129
+161,Beginning iPhone Development,Bala,Paranj,bparanj@gmail.com,4,171
+13,SharePoint 2010 External Content Types,Shawn,Parker,slpem@hotmail.com,5,411
+38,"Monads, Functors, Functions, Java/Scala",Vlad,Patryshev,vpatryshev@gmail.com,5,451
+162,Build a mobile web app with Sencha Touch,James,Pearce,jamesp@sencha.com,6,798
+39,Applying Compiler Techniques to Iterate At Blazing Speed,Pascal-Louis,Perez,pascal@wealthfront.com,5,415
+63,Extreme Testing at kaChing: From Commit to Production in 5 Minutes,Pascal-Louis,Perez,pascal@wealthfront.com,5,399
+61,Automating Good Coding Practices,Kevin,Peterson,kevin@kdpeterson.net,5,419
+56,Getting Things Done (GTD) For a Geek,Woody,Pewitt,woody@pewitt.org,5,573
+40,Is Your C# Optimized?,Woody,Pewitt,woody@pewitt.org,6,714
+44,Consuming Data for humans,Woody,Pewitt,woody@pewitt.org,6,715
+8,Progressive Enhanced JavaFX 2.0 Custom Components,Peter,Pilgrim,peter.pilgrim@gmail.com,6,722
+10,lift: a simply functional web framework,David,Pollak,feeder.of.the.bears@gmail.com,3,55
+20,Scala: tips and tricks,David,Pollak,feeder.of.the.bears@gmail.com,3,56
+35,Beginning Scala,David,Pollak,feeder.of.the.bears@gmail.com,4,166
+5,"Going Viral :How I got 6000 downloads of my CSS framework in 3 days, off of one HN blog post.",Curtiss,Pope,Curtisspope@yahoo.com,5,512
+10,Powershell Modules,Shane,Powser,shane.powser@hotmail.com,5,349
+92,Scala for Java Programmers,Dhananjay,Ragade,dragade@linkedin.com,6,638
+51,Introduction to Clojure programming,Abbas,Raza,abbas.raza@gmail.com,6,642
+25,Develop Rich Internet Applications (RIA) using JavaFX,Sridhar,Reddy,sridharpreddy@gmail.com,3,76
+9,Building Enterprise Server-Side RIAs (Rich Internet Applications) with BlazeDS and Cairngorm Microarchitecture,Abdelmonaim,Remani,abdelmonaim.remani@gmail.com,3,57
+32,Introduction to Building RIA with Adobe Flex and AIR,Abdelmonaim,Remani,abdelmonaim.remani@gmail.com,3,60
+6,Communitas,Abdelmonaim,Remani,abdelmonaim.remani@gmail.com,4,237
+60,Introduction to Building Web Application with Spring MVC,Abdelmonaim,Remani,abdelmonaim.remani@gmail.com,4,222
+14,Lightning Talks - Day One,Van,Riper,vanriper@google.com,3,26
+16,Lightning Talks - Day Two,Van,Riper,vanriper@google.com,3,27
+68,Creating Java Applications with Google App Engine,Van,Riper,vanriper@google.com,4,161
+14,Mapping Agile Practices for Scalable Teams to TFS,Don,Robins,dbr@outformations.com,3,126
+15,Getting Started with SQL Server Compact Edition (CE) 3.51,Don,Robins,dbr@outformations.com,4,236
+6,Intro to Silverlight Media Framework,Kevin,Rohling,kevin.rohling@enginexp.com,5,495
+51,5-minute Commit-to-Production: Continuous Deployment,Adam,Rosien,adam@rosien.net,5,445
+34,Install your first PHP/ App on Amazon EC2,Issac,Roth,iroth@makara.com,5,565
+33,GUI Testing Made Easy,Alex,Ruiz,alex.ruiz.05@gmail.com,3,44
+22,Rich GUI Testing Made Easy,Alex,Ruiz,alex.ruiz.05@gmail.com,5,464
+8,Extending the JSF controller for reusability,Juan Camilo,Ruiz,jcruiz@gmail.com,6,768
+10,A Fun Look at Video Chatting,Aaron,Sahagun,aaron@alumwire.com,5,575
+37,Are you ready to switch your role from PM to scrum master? Do you know what you do not know?,Amit,Sarkar,amit@circarconsulting.com,5,435
+49,"Google Web Toolkit (GWT) - Productivity for you, Performance for your users",Fred,Sauer,fredsa@google.com,4,336
+15,Server-side OpenSocial Java programming,Chris,Schalk,cschalk@gmail.com,4,324
+88,"The Art of Raising Capital, for Technology Startup Leaders",Bruce,Schechter,bruce@schechter.com,6,636
+7,Silverlight Tools For Visual Studio,Cal,Schrotenboer,codecamp@adspecialties.com,3,138
+2,Windows Powershell Scripting,Cal,Schrotenboer,codecamp@adspecialties.com,3,139
+16,Architecture Reigns in the Cloud: Patterns that Produce Sustained Market Leaders,Sinclair ,Schuller,jkliza@apprenda.com,5,500
+31,Achieving Cloud-Scale Test Automation at Box,Randall,Schulz,rschulz@box.net,6,698
+56,Interactive Prototyping with DHTML,Bill,Scott,b.scott@yahoo.com,4,228
+65,Will Work For Equity - the World of Startups,Theresa,Shafer,tshafer@skmurphy.com,6,647
+36,Introduction to Windows Azure,Rinat,Shagisultanov,rinat.shagisultanov@neudesic.com,4,249
+14,Rich Internet Applications on Windows Azure,Rinat,Shagisultanov,rinat.shagisultanov@neudesic.com,4,250
+9,ClickOnce Deployment : How to Abuse it,Robin,Shahan,robin_shahan@comcast.net,4,277
+39,Microsoft Azure for Beginners,Robin,Shahan,robin_shahan@comcast.net,5,448
+25,Migrating to Microsoft Azure from a Traditional Hosted Environment,Robin,Shahan,robin_shahan@comcast.net,5,449
+8,Deploying .NET Smart Client Applications,Robin,Shahan,robin_shahan@comcast.net,5,450
+28,"Azure for Developers, Part 1",Robin,Shahan,robin_shahan@comcast.net,6,669
+23,"Azure for Developers, Part 2",Robin,Shahan,robin_shahan@comcast.net,6,670
+11,Oracle and .NET: Best Practices for Performance and Deployment,Christian,Shay,christian.shay@oracle.com,6,763
+4,WebMatrix In Depth,John,Sheehan,johnsheehan@gmail.com,6,627
+25,Intellectual Property Basics: Practice and Pitfalls for the Everyday Innovator,Randy ,Shen,shenrandy@gmail.com,5,544
+21,Intellectual Property Basics: Practice and Pitfalls for the Everyday Innovator,Randy ,Shen,shenrandy@gmail.com,6,796
+27,10 Tips to Spice up Your XAML Apps (Even if you are not a designer!),Paul,Sheriff,PSheriff@pdsa.com,6,634
+4,8 Navigation Techniques for your Silverlight Applications,Paul,Sheriff,PSheriff@pdsa.com,6,635
+4,Building Testable WPF LOB using XAML Power Toys,Karl,Shifflett,karl@littlerichie.com,3,93
+16,Mole For Visual Studio,Karl,Shifflett,karl@littlerichie.com,3,94
+43,Application Lifecycle for Windows Phone 7,Karl,Shifflett,molenator@comcast.net,5,472
+16,What's wrong with JSF and how to solve it,shay,shmeltzer,shay.shmeltzer@oracle.com,3,47
+22,Introduction to Oracle ADF,shay,shmeltzer,shay.shmeltzer@oracle.com,4,213
+15,Ajax Enabled JSF - Oracle ADF Faces Primer,shay,shmeltzer,shay.shmeltzer@oracle.com,4,214
+58,Debugging Of Multithreaded And Multiprocessed Programs On Linux,Roni,Simonian,roni@kloobok.com,6,709
+34,The Great Agile Requirements Showdown,Chris,Sims,Chris@AgileLearningLabs.com,4,216
+80,Agile 101,Chris,Sims,Chris@AgileLearningLabs.com,4,217
+22,Exploring Agility,Chris,Sims,Chris@AgileLearningLabs.com,4,218
+19,Grooming Your Product Backlog,Chris,Sims,Chris@AgileLearningLabs.com,5,474
+41,Agile - An Experiential Introduction,Chris,Sims,Chris@AgileLearningLabs.com,5,475
+17,"&quot;Hello, World&quot; in Verilog",Bob,Smith,bsmith@linuxtoys.org,4,183
+31,A First Look at Scala on Google App Engine,Eishay,Smith,eishay@gmail.com,4,210
+32,Absorbing Scala into Java Ecosystem,Eishay,Smith,eishay@gmail.com,4,160
+12,Rapid Prototyping with the Eclipse Rich Client Platform,Gene,Snider,egbertfitzwilly@yahoo.com,5,498
+14,Writing a CLI with Flex and Bison,Gene,Snider,egbertfitzwilly@yahoo.com,5,499
+9,Secrets of the WebOS Gurus,Gene,Snider,egbertfitzwilly@yahoo.com,6,624
+18,Eclipse RCP Rapid Application Development,Gene,Snider,egbertfitzwilly@yahoo.com,6,603
+18,Building Cloud Tools for Netflix,Joe,Sondow,joe@sondow.com,6,826
+6,Oracle ERP - Technical Overview,Alok,Sonthalia,sonthalia@yahoo.com,3,115
+94,Faster Mobile Anyone?,Steve,Souders,codecamp@souders.org,6,799
+28,Game Development for Windows Phone 7,Kenny,Spade,kenny.spade@microsoft.com,5,466
+23,Teaching Kids Programming,Kenny,Spade,kenny.spade@microsoft.com,5,467
+15,Windows Phone 7 Game Development in XNA and Silverlight,Kenny,Spade,kenny.spade@microsoft.com,6,680
+76,How to Become an Online Influencer,David,Spark,david@sparkmediasolutions.com,6,747
+16,Developing Java EE Applications with Eclipse and WTP: Looking ahead to Helios,Greg,Stachnick,greg.stachnick@oracle.com,4,309
+3,Design Time Dependency Analaysis for Eclipse - Just What Is In My Project Anyway?,Greg,Stachnick,greg.stachnick@oracle.com,5,548
+26,Managing &amp; Scaling your LAMP apps in the Cloud,Sebastian,Stadil,sebastian@scalr.com,5,566
+6,Surviving the Zerg: How your web app can stay online after Aliens take over California,Sebastian,Stadil,sebastian@scalr.com,6,643
+23,7 Best Features of WPF 3.5 SP1,Scott,Stanfield,scott@vertigo.com,3,43
+236,HTML5 Crash Course,Scott,Stanfield,scott@vertigo.com,5,568
+196,The Best HTML5 Tools You&#39;re Not Using,Scott,Stanfield,scott@vertigo.com,6,812
+8,The multi-component kernel of JBossAS 5,Scott,Stark,sstark@redhat.com,3,52
+6,Extending your Community Web Site to include Windows Phone 7,Bret,Stateham,bret@netconnex.com,5,431
+208,How to Break Into Mobile App Development,Leslie,Stevens-Huffman,lesliestevens@cox.net,6,775
+160,How to Create and Market Your Personal Brand,Leslie,Stevens-Huffman,lesliestevens@cox.net,6,776
+8,Introduction to DotNetNuke 5,Will,Strohl,will.strohl@gmail.com,5,385
+3,DotNetNuke 5 Administration: Tips & Tricks,Will,Strohl,will.strohl@gmail.com,5,386
+14,Using Advanced jQuery Techniques to Enhance Your DotNetNuke Modules,Will,Strohl,will.strohl@gmail.com,5,388
+40,Getting Started with Development on SharePoint 2010,Paul,Stubbs,pstubbs@microsoft.com,5,527
+26,Enhancing your SharePoint Site with Silverlight,Paul,Stubbs,pstubbs@microsoft.com,5,528
+8,Building Hybrid Applications with Service Bus v2,Paul ,Stubbs,nisha.baxi@microsoft.com,6,795
+19,Building and Sharing Enterprise Mashups &amp; Mashlets,Kishore,Subramanian,kishore.subramanian@jackbe.com,3,97
+25,Distributed source control with Mercurial: Developing a better workflow,Chris,Sutton,bdsutton@gmail.com,6,645
+34,Introduction to Adobe Flex,Keith,Sutton,keith_sutton100@hotmail.com,4,223
+31,Application Architectures for Adobe Flex Framework,Keith,Sutton,keith_sutton100@hotmail.com,4,224
+10,Building Web and Mobile apps with Flex on PHP and Zend,Keith,Sutton,keith.sutton100@gmail.com,6,806
+14,Building Flex Applications for Mobile and Desktop on the Cloud,Keith,Sutton,keith.sutton100@gmail.com,6,807
+35,Building Mobile Web Applications with SproutCore UI,Majd,Taby,mtaby@strobecorp.com,6,699
+19,Automated GUI Testing on Mac using ATOMac,James,Tatum,jtatum@gmail.com,6,639
+20,Cool new SQL Server 2008 Features - GeoSpatial and more.,Bruno,Terkaly,bterkaly@microsoft.com,3,103
+24,Windows 7 for Developers,Bruno,Terkaly,bterkaly@microsoft.com,4,299
+12,IE8 for Developers,Bruno,Terkaly,bterkaly@microsoft.com,4,300
+16,Creating and Migrating MVC/WebForm apps to the Cloud,Bruno,Terkaly,bterkaly@microsoft.com,5,423
+33,Windows Phone 7 Meets Cloud Computing - Supplying Mobile Devices with the Power of the Cloud,Bruno,Terkaly,bterkaly@microsoft.com,5,425
+3,PaaS Developer Tooling - Windows Azure,Bruno,Terkaly,bterkaly@microsoft.com,6,665
+15,How to create web apps in the cloud using TWiki,Peter,Thoeny,peter@thoeny.org,6,779
+26,How to Run a Long Background Process in a Web App,Peter,Thoeny,peter@thoeny.org,6,784
+24,TDD Coding Dojo,Lars,Thorup,lars@zealake.com,6,700
+17,Test Driven Development for embedded software in C or C++,Lars,Thorup,lars@zealake.com,6,692
+11,"Semantic SOA Governance, BPM and Complex Event Processing in Cloud",Arivoli,Tirouvingadame,arivoli.tirouvingadame@oracle.com,6,767
+121,Data Analysis with MapReduce and NoSQL,Shashank,Tiwari,tshanky@gmail.com,6,785
+22,Windows Phone 7 - &quot;Mango&quot; Refresh,J.,Tower,jonathant@falafel.com,6,596
+21,Tour of AutomatedQA's TestComplete 7,Steve,Trefethen,stevet@falafel.com,4,271
+13,Extending CruiseControl.NET,Steve,Trefethen,stevet@falafel.com,4,233
+41,HTML5 Uploading and Beyond,Ben,Trombley,ben@box.net,6,697
+36,How Do I Get Into Windows Phone 7 Development?,Peter,Tweed,petert@slalom.com,5,459
+106,JavaScript Code Organization and Encapsulation,Shawn,Van Ittersum,svicalifornia@gmail.com,6,773
+40,Introducing the Scala Programming Language,Bill,Venners,bill@artima.com,3,50
+38,The Feel of Scala,Bill,Venners,bill@artima.com,3,51
+14,Get Higher with ScalaTest,Bill,Venners,bill@artima.com,4,226
+19,What's New in Scala 2.8,Bill,Venners,bv-svp@artima.com,5,543
+23,Developing WPF and Silverlight 2 at the same time,Christopher,Vigna,chrisv@vertigo.com,3,102
+39,The Evolution of a Scrappy Startup to a Successful Web Service,Poornima,Vijayashanker,poornima82@gmail.com,3,107
+14,When to Build and When to Buy,Poornima,Vijayashanker,poornima82@gmail.com,4,268
+19,WCF Debugging - Where do I start?,Petar,Vucetin,petar@vertigo.com,3,42
+26,Beginning Windows Phone Development,Paras,Wadehra,ParasWadehra@gmail.com,6,666
+2,"PowerBuilder, The real &quot;Cat with 9 Lives!&quot;",yakov,werde,yakov@yakovwerde.com,6,822
+17,A well-typed program never goes wrong,Julien,Wetterwald,julien.wetterwald@gmail.com,5,416
+180,HTML5: All about Web Forms,Estelle,Weyl,estelle@weyl.org,6,720
+186,CSS3: Making Snow (in Silicon Valley) Without Javascript,Estelle,Weyl,estelle@weyl.org,6,721
+59,Winning the Engineering Talent War Online,Elaine,Wherry,elaine@meebo-inc.com,6,757
+47,0 - 60: QA Automation at Box,Peter,White,peter@box.net,6,690
+43,Android Ecosystem and best practices,Ryan,Wick,ryan.wick@sprint.com,5,520
+36,"Android: Developing for HTC EVO, Samsung Epic, Galaxy Tab, SprintID",Ryan,Wick,ryan.wick@sprint.com,5,521
+3,Prototyping User/Role Management with Oracle Virtual Directory and Oracle XE,Mark,Wilcox,mark.wilcox@oracle.com,3,137
+56,Building Video Applications with YouTube APIs,Jarek,Wilkiewicz,jarekw@youtube.com,5,522
+29,Take a sneak peek at YouTube Live Streaming APIs**,Jarek,Wilkiewicz,jarekw@youtube.com,6,695
+36,Introduction to Grails,James,Williams,james.l.williams@gmail.com,3,25
+7,Griffon: Swing just got fun again,James,Williams,james.l.williams@gmail.com,4,207
+125,Intro to HTML5 Game Programming - WebGL Edition,James,Williams,james.l.williams@gmail.com,6,685
+13,Appcelerator Titanium - Mobile for the Rest of Us,Nolan,Wright,nwright@appcelerator.com,4,261
+33,Appcelerator&#39;s Titanium Platform: Build Native Mobile Apps Using Your Web Skills !,Nolan,Wright,nwright@appcelerator.com,5,417
+60,Mobile Web Design Moves,Luke,Wroblewski,cdr@lukew.com,6,800
+17,iBeans = Dead-simple” integration for web app development,Ken,Yagen,ken.yagen@mulesoft.com,4,266
+35,REST for the rest of us,Ken,Yagen,ken.yagen@mulesoft.com,5,436
+41,Using memcached to Scale Out Your Website,Steve,Yen,steve.yen@northscale.com,4,303
+24,Business Rule Management System for .NET,yeepin,yheng,yeepin@gmail.com,3,45
+42,Monetizing with Google,Peng,Ying,pying@google.com,6,756
+51,Easing Into Agile,Ted,Young,tedyoung@gmail.com,3,38
+56,Building Better Tests in Java,Ted,Young,tedyoung@gmail.com,3,39
+35,Building Better Tests,Ted,Young,tedyoung@gmail.com,4,296
+69,Agile: Inspect and Adapt,Ted,Young,tedyoung@gmail.com,4,297
+10,Make Assertions Fun with FEST,Ted,Young,tedyoung@gmail.com,4,298
+24,Fluent Interfaces: Domain-Specific Languages in Plain-Old Java,Ted,Young,tedyoung@gmail.com,5,465
+3,Command Query Responsibility Segregation: Intro to CQRS,Ted,Young,tedyoung@gmail.com,6,778
+44,How To Hire and Manage a Developer,Steve,Zehngut,steve@zeek.com,6,774
+11,Building next generation business IT infrastructure -- unfold your company potential from within,Roman,Zhovtulya,roman@WebServiceCenter.net,3,104
+11,"Practical Internet Telephony with Asterisk: Strengths, Weaknesses, Opportunities, Threats",Roman,Zhovtulya,roman@WebServiceCenter.net,3,114
+8,"Practical Internet Telephony with Asterisk: Strengths, Weaknesses, Opportunities, Threats",Roman,Zhovtulya,roman@WebServiceCenter.net,4,293
+7,Next generation business IT infrastructure - unfold your company potential from within,Roman,Zhovtulya,roman@WebServiceCenter.net,4,294
+19,Next generation business IT infrastructure - unfold your company potential from within,Roman,Zhovtulya,roman@WebServiceCenter.net,5,541
+13,"Practical Internet Telephony with Asterisk: Strengths, Weaknesses, Opportunities, Threats",Roman,Zhovtulya,roman@WebServiceCenter.net,5,542
+10,"[voip] Practical Internet Telephony with Asterisk: Strengths, Weaknesses, Opportunities, Threats",Roman,Zhovtulya,roman@WebServiceCenter.net,6,654
+33,"[web goal management] Manage your life: Web-based integrated goal, time, project, knowledge, health management - new concepts, approaches and tools",Roman,Zhovtulya,roman@WebServiceCenter.net,6,656
+40,Code Excellence for the Average Programmer - Part 1,Woody,Zuill,wzuill@yahoo.com,4,279
+28,Kids Programming Workshop with Scratch,Gabi,Zuniga,zuniweiz@gapix.com,6,791
+28,TurboCharge your iPhone project with Three20,Gabi,Zuniga,zuniweiz@gapix.com,6,792
