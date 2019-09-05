@@ -30,28 +30,28 @@ twitter_username: pkellner
 github_username:  pkellner
 linkedin_username: peterkellner99
 
-gems: [jekyll-paginate-v2]
-
 # Build settings
 theme: minima
 
-plugins_dir:
-  - jekyll-paginate-v2
+
+
+paginate_path: "/posts/page:num/"
+
+#plugins_dir:
+#  - jekyll-paginate-v2
 
 plugins:
   - jekyll-feed
+  - jekyll-paginate
+paginate: 5
 
 pagination:
   enabled: true
-  per_page: 7
-  sort_reverse: true
-  sort_field: 'date'
-  title: ':title'
-  trail:
-    before: 2
-    after: 2
+
 
 permalink: /:year/:month/:day/:title/
+
+gems: [jekyll-paginate]
 
 # Exclude from processing.
 # The following items will not be processed, by default.
