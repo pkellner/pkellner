@@ -40,9 +40,10 @@ paginate_path: "/posts/page/:num/"
 #plugins_dir:
 #  - jekyll-paginate-v2
 
+#  - jekyll-sitemap
+
 plugins:
   - jekyll-feed
-  - jekyll-sitemap
   - jekyll-paginate
 paginate: 5
 
