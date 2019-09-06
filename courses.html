@@ -1,0 +1,55 @@
+---
+layout: page
+title: Video Training Courses
+background: "/img/bg-courses.jpeg"
+---
+
+<style>
+  .btn:focus,
+  .btn:active,
+  button:focus,
+  button:active {
+    outline: none !important;
+    box-shadow: none !important;
+  }
+
+  #image-gallery .modal-footer {
+    display: block;
+  }
+
+  .thumb {
+    margin-top: 15px;
+    margin-bottom: 15px;
+  }
+</style>
+
+<section class="pb-5">
+  <div class="container">
+    <div class="row">
+      {% for course in site.data.courses %}
+      <div class="col-md-4 col-xs-6 thumb">
+        <a
+          class="thumbnail"
+          href="{{ course.url }}"
+          data-image-id=""
+          data-toggle="modal"
+          data-title=""
+          data-image="{{ course.image }}"
+          data-target="#image-gallery"
+        >
+          <img
+            class="img-thumbnail"
+            src="{{ course.image }}"
+            alt="{{ course.name }}"
+          />
+        </a>
+      </div>
+      {% endfor %}
+    </div>
+    <hr/>
+    <div class="row">
+      <h4>Preview of Server-side Rendering in React with NextJS on Pluralsight</h4>
+      <iframe width="640" height="360" src="https://www.youtube.com/embed/rJSXRGegxFw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+  </div>
+</section>

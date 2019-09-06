@@ -27,6 +27,7 @@ url: "https://pk.angularu.net" # the base hostname & protocol for your site, e.g
 twitter_username: pkellner
 github_username:  pkellner
 linkedin_username: peterkellner99
+google_analytics: UA-648264-1
 
 
 # Build settings
