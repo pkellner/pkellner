@@ -32,9 +32,11 @@ layout: default
     <div class="row">
       <div class="col-lg-8 col-md-10 mx-auto">
 
-        {{ page.food }} <hr/>
-
         {{ content }}
+
+        {% if site.disqus.shortname %}
+        {% include disqus_comments.html %}
+        {% endif %}
 
         <div class="clearfix">
 

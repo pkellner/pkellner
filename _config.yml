@@ -33,6 +33,12 @@ google_analytics: UA-648264-1
 # Build settings
 theme: minima
 
+# Disqus Comments
+disqus:
+  # Leave shortname blank to disable comments site-wide.
+  # Disable comments for any post by adding `comments: false` to that post's YAML Front Matter.
+  shortname: peterkellnerblog
+
 
 
 paginate_path: "/posts/page/:num/"
