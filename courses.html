@@ -22,7 +22,7 @@ background: "/img/bg-courses.jpeg"
     margin-bottom: 15px;
   }
 
-  .pointercursor { cursor: pointer; }
+
 
 </style>
 
@@ -32,8 +32,9 @@ background: "/img/bg-courses.jpeg"
       {% for course in site.data.courses %}
       <div class="col-md-4 col-xs-6 thumb">
         <a
-          class="thumbnail pointercursor"
+          class="thumbnail"
           href="{{ course.url }}"
+          target="_blank"
           data-image-id=""
           data-toggle="modal"
           data-title=""
