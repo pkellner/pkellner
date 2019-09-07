@@ -5,17 +5,7 @@ background: "/img/bg-courses.jpeg"
 ---
 
 <style>
-  .btn:focus,
-  .btn:active,
-  button:focus,
-  button:active {
-    outline: none !important;
-    box-shadow: none !important;
-  }
 
-  #image-gallery .modal-footer {
-    display: block;
-  }
 
   .thumb {
     margin-top: 15px;
@@ -36,7 +26,6 @@ background: "/img/bg-courses.jpeg"
           href="{{ course.url }}"
           target="_blank"
           data-image-id=""
-          data-toggle="modal"
           data-title=""
           data-image="{{ course.image }}"
           data-target="#image-gallery"
