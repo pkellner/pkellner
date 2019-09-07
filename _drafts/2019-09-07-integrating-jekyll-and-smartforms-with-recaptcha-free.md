@@ -109,7 +109,7 @@ Notice the script tag pointing to the google api and then just above the form ta
 
 Now, when a user comes to your site and gets to the contact page, they see the nice google captcha and when they submit, you will get an email and the message will be logged.
 
-![](final.png)
+![](../_posts/final.png)
 
 
 
