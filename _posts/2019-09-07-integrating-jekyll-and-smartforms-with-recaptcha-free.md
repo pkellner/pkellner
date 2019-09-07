@@ -54,7 +54,7 @@ That's it! You are ready to go to your Jekyll site and add your contact form.
 
 Just a couple things to do in Jekyll.  First make a contact form that looks something like this:
 
-```
+```HTML
 ---
 layout: page
 title: Contact Me
