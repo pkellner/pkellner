@@ -29,6 +29,12 @@ github_username:  pkellner
 linkedin_username: peterkellner99
 google_analytics: UA-648264-1
 
+#picture:
+#  ignore_missing_images: true"
+
+markdown: kramdown
+
+highlighter: rouge
 
 # Build settings
 theme: minima
