@@ -26,23 +26,24 @@ I did need to figure out the contact me form and that's where [SmartForms](https
 
 Creating the account on https://smartforms.dev was easy. No credit card, simple setup.  Pricing is straight forward.  50 contacts emails a month, free forever. Though, I'd like to know what happens to that 51st.
 
-{% picture assets/posts/2019-09-07-integrating-jekyll-and-smartforms-with-recaptcha-free/homepage.png %}
+
+![](/assets/posts/2019-09-07-integrating-jekyll-and-smartforms-with-recaptcha-free/homepage.png)
 
 Next, click on the button "My forms" and add a new form.  You can see I have one now and it shows I have 10 submissions in it.
 
-{% picture assets/posts/2019-09-07-integrating-jekyll-and-smartforms-with-recaptcha-free/myforms.png %}
+![](/assets/posts/2019-09-07-integrating-jekyll-and-smartforms-with-recaptcha-free/myforms.png)
 
 Clicking on my form, I just need to name it, give it a redirect URL which is what happens after the person entering the comment clicks send, and of course, a very important captcha secret needs to be entered.
 
-{% picture assets/posts/2019-09-07-integrating-jekyll-and-smartforms-with-recaptcha-free/formsetup.png %}
+![](/assets/posts/2019-09-07-integrating-jekyll-and-smartforms-with-recaptcha-free/formsetup.png)
 
 I won't go into the details, but getting the captcha keys is easy. Go to your google account (yes, you need a google account), go here: https://developers.google.com/recaptcha/docs/settings and sign up for your keys (make sure to use recaptcha-2, 3 is hopefully coming... hint hint)
 
-{% picture assets/posts/2019-09-07-integrating-jekyll-and-smartforms-with-recaptcha-free/recaptcha.png %}
+![](/assets/posts/2019-09-07-integrating-jekyll-and-smartforms-with-recaptcha-free/recaptcha.png)
 
 Save your site and secret keys in a secure place (everyone will see the site key, but the secret you shoud not share).
 
-{% picture assets/posts/2019-09-07-integrating-jekyll-and-smartforms-with-recaptcha-free/recaptchakeys.png %}
+![](/assets/posts/2019-09-07-integrating-jekyll-and-smartforms-with-recaptcha-free/recaptchakeys.png)
 
 
 Now, go back to your form screen (above) and paste that secret key into the SmartForms setting box and update.
@@ -112,6 +113,6 @@ Notice the script tag pointing to the google api and then just above the form ta
 
 Now, when a user comes to your site and gets to the contact page, they see the nice google captcha and when they submit, you will get an email and the message will be logged.
 
-{% picture assets/posts/2019-09-07-integrating-jekyll-and-smartforms-with-recaptcha-free/final.png %}
+![](/assets/posts/2019-09-07-integrating-jekyll-and-smartforms-with-recaptcha-free/final.png)
 
 Good luck with your Jekyll adventure!
