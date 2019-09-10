@@ -16,7 +16,7 @@ excerpt: Learn how to integrate a static web site with a contact form effortless
 I've recently upgraded my blog site (this one) to use [Jekyll](https://jekyllrb.com/) instead of WordPress. For years, my Wordpress site has been getting more and more difficult to maintain. The [MySql](https://www.mysql.com/) database is a mess from all the plugins, and every time I press the "Upgrade Site" button in my dashboard, my heart would sink a little until after it said "successfully updated". I knew that if it failed, I'd be in a world of hurt.
 
 
-So, I bit the bullet, spent about two days converting and learning Jekyll and now, my site is 100% converted, running on [GitHub Pages](https://pages.github.com/) and ... so far so good. You can see the actually repository that serves the site here.  [https://github.com/pkellner/pkellner/tree/gh-pages](https://github.com/pkellner/pkellner/tree/gh-pages).  When nice thing that came for free is I had been meaning to upgrade this site to https and with GitHub Pages, I just had to check a box to make that happen.
+So, I bit the bullet, spent about two days converting and learning Jekyll and now, my site is 100% converted, running on [GitHub Pages](https://pages.github.com/) and ... so far so good. You can see the actually repository that serves the site here.  [https://github.com/pkellner/...](https://github.com/pkellner/pkellner/tree/gh-pages).  When nice thing that came for free is I had been meaning to upgrade this site to https and with GitHub Pages, I just had to check a box to make that happen.
 
 I did need to figure out the contact me form and that's where [SmartForms](https://smartforms.dev/) comes and made it easy
 
@@ -37,7 +37,7 @@ Clicking on my form, I just need to name it, give it a redirect URL which is wha
 
 ![](/assets/posts/2019-09-07-integrating-jekyll-and-smartforms-with-recaptcha-free/formsetup.png)
 
-I won't go into the details, but getting the captcha keys is easy. Go to your google account (yes, you need a google account), go here: https://developers.google.com/recaptcha/docs/settings and sign up for your keys (make sure to use recaptcha-2, 3 is hopefully coming... hint hint)
+I won't go into the details, but getting the captcha keys is easy. Go to your google account (yes, you need a google account), go here: [https://developers.google.com/recaptcha...](https://developers.google.com/recaptcha/docs/settings) and sign up for your keys (make sure to use recaptcha-2, 3 is hopefully coming... hint hint)
 
 ![](/assets/posts/2019-09-07-integrating-jekyll-and-smartforms-with-recaptcha-free/recaptcha.png)
 
