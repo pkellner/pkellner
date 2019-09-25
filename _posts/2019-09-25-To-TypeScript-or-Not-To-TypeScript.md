@@ -2,82 +2,106 @@
 layout: post
 status: publish
 published: true
-title: Debug React Hooks useState and useReducer with Redux DevTools Redux Support
+title: To TypeScript or Not To TypeScript
 author:
   display_name: Peter Kellner
   login: admin
   email: peter@peterkellner.net
 author_email: peter@peterkellner.net
-excerpt: Learn how to debug state changes in chrome dev tools while using the React Hooks useState and useReducer.  Learn how the Node NPM package reinspect makes this straight forward.
+excerpt: A discussion about whether it's worth the extra effort to add TypeScript to a JavaScript file. Is it worth it?
 ---
 
-# Background
+# Some Thoughts
 
-Yes, you can use the very cool Chrome extension [Redux DevTools](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd?hl=en) with [React Hooks](https://reactjs.org/docs/hooks-intro.html). You may have bumped into lots of articles that say one of the downsides of using React Hooks with useReduce and useState, instead of react-redux is that you loose the awesome development experience that comes with react-redux.  Well, that's just wrong. Using the npm package `reinspect` you can see state changes.
+A few months back I started using [TypeScript](https://www.typescriptlang.org/) on the [Silicon Valley Code Camp New Web App](https://svcc.mobi) (It's written using React now and is mobile responsive based of bootstrap).  For everyone, it's different but here are my 5 steps of coming to terms with TypeScript (so far).
 
-Below is a the JavaSript and you can find the full github repo with this example here:
+1.  I know I should learn TypeScript, just no time.
+2.  I'm trying to convert my first project and everyone says it's easy.  This is crazy hard. How does anyone use it?
+3.  Maybe this isn't so bad, I can see it helping for getting parameters correct but otherwise, it's really a lot of trouble.
+4.  It is helping me quite a bit. I keep running into problems that I know without TypeScript would be hard to fix.
+5.  I wonder if I'm using the "any" type too much and I'm somehow loosing important information I should really know about
 
-[github.com/pkellner/debug-react-hooks-with-redux-devtools](https://github.com/pkellner/debug-react-hooks-with-redux-devtools)
+# Todays Quandry
 
-![](/assets/posts/2019-09-16-debug-react-hooks-use-state-use-reducer-with-redux-devtools/devtools-debug3.gif)
-
-And the associated code is below.  Notice how `useState` and `useReducer` are imported from `reinspect` and not `react`.
+I have a type interface that I've created that basically looks like this:
 
 {% highlight javascript %} 
-import React from "react";
-import ReactDOM from "react-dom";
-
-import { StateInspector, useState, useReducer } from "reinspect";
-
-function CounterFunState() {
-  const [sum1, setSum1] = useState(100, "Sum1State");
-  return (
-    <>
-      {sum1}
-      <button onClick={() => setSum1(sum1 + 1)}>Add 1 state</button>&nbsp;&nbsp;<b>with useState</b>
-    </>
-  );
+export interface Session {
+    id: number;
+    room?: string;
+    title?: string;
+    description?: string;
 }
-
-function CounterFunReducer() {
-  const reducer = (state) => {
-    return state + 5;
-  };
-  const [sum2, dispatch] = useReducer(reducer, 5000, "Sum2State");
-  return (
-    <>
-      {sum2}
-      <button onClick={() => dispatch({})}>Add 5 reducer</button>&nbsp;&nbsp;<b>with useReducer</b>
-    </>
-  );
-}
-
-function Counter() {
-  return (
-    <>
-      <StateInspector name="App">
-        <h1>StateInspector</h1>
-        <CounterFunState /><br/><br/>
-        <CounterFunReducer />
-        <br/><br/>
-      </StateInspector>
-    </>
-  );
-}
-
-ReactDOM.render(<Counter />, document.querySelector("#root"));
 {% endhighlight %}
 
-There are just two things that you need to do in your code to make `useState` and `useReducer` work in your app.
+I've recently added the optional null to all the non key attributes using the `?`. The reason I did this is because I'm creating a new object of type `Session` and I want to mention some but not all of the attributes.  That is, something like this:
 
-1.  You need to surround your components that include `useState` and `useReducer` with the `<StateInspector>` element.
-2.  You need to make sure that you import `useState` and `useReducer` from the npm package `reinspect` and not `react`.
+{% highlight javascript %} 
+const sessionEmpty : Session = {
+    id: i,
+    title: 'Number For All'
+    room: 'Main Hall #1'
+};
+{% endhighlight %}
+  
+Sadly, that broke a lot of my code that now I have to fix.  For example, I have this sort method I call with `title` and now it's causing a compile error because it could get a null value and throw an error. Here is the original sort method:
 
-That is. The chrome extension `redux-devtools` will now just work as you would expect.
+{% highlight javascript %} 
+const sessionRoomsList: string[] = sessionRoomsListDistinct(
+                sessions
+            ).sort((n1, n2) => {
+                if (n1.toLowerCase() > n2.toLowerCase()) {
+                    return 1;
+                }
+                if (n1.toLowerCase() < n2.toLowerCase()) {
+                    return -1;
+                }
+                return 0;
+            });
+{% endhighlight %}
 
-As an aside, if you do want to learn more about React Hooks, Checkout my Pluralsight course (2 hours) and learn all about them.
+Obviously, the reason is that now that the passed in `room` value might be null and that would make my JavaScript app crash with an object not found.
 
-[www.pluralsight.com/courses/using-react-hooks](https://www.pluralsight.com/courses/using-react-hooks)
+My first inclination (which makes my app keep working) is just to change the type of the incoming parameters to `any`.  That would look like this:
+
+{% highlight javascript %} 
+const sessionRoomsList: string[] = sessionRoomsListDistinct(
+                sessions
+            ).sort((n1 : any, n2 : any) => {
+                if (n1.toLowerCase() > n2.toLowerCase()) {
+                    return 1;
+                }
+                if (n1.toLowerCase() < n2.toLowerCase()) {
+                    return -1;
+                }
+                return 0;
+            });
+{% endhighlight %}
+
+The problem now is that though this compiles, it will crash at runtime if `room` is null.  We all know what this means.
+
+**Debt goes up, happiness goes down.**
+
+The right thing to do is this (and then right a blog post about it so it doesn't feel like a total waste of time).
+
+{% highlight javascript %} 
+const sessionRoomsList: (string | undefined)[] = sessionRoomsListDistinct(
+    sessions
+).sort((n1, n2) => {
+
+    if ((n1 ? n1 : '').toLowerCase() > (n2 ? n2 : '').toLowerCase()) {
+        return 1;
+    }
+    if ((n1 ? n1 : '').toLowerCase() < (n2 ? n2 : '').toLowerCase()) {
+        return -1;
+    }
+    return 0;
+});
+{% endhighlight %}
+
+Thoughts? Am I crazy?  
+
+What will be my steps 6, 7 and 8 in my TypeScript Journey?
 
 Hope this helps.
 
