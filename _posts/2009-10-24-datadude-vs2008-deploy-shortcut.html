@@ -12,7 +12,7 @@ author:
 author_login: admin
 author_email: peter@peterkellner.net
 wordpress_id: 372
-wordpress_url: http://peterkellner.net/2009/10/24/datadude-vs2008-deploy-shortcut/
+wordpress_url: https://peterkellner.net/2009/10/24/datadude-vs2008-deploy-shortcut/
 date: '2009-10-24 08:38:15 -0700'
 date_gmt: '2009-10-24 15:38:15 -0700'
 categories:
@@ -20,10 +20,10 @@ categories:
 - Database
 tags: []
 ---
-<p>Not sure why this was hard, but I wanted to make a trivial command file to deploy my database (or any change to it).&#160; For those of you that don’t know the <a href="http://peterkellner.net/2009/01/17/visual-studio-database-edition-review-sqlserver2008/">DataDude project</a>, I have to say it’s one of the coolest tools that has come out the Microsoft Visual Studio Team for a while.&#160; Basically, in a nutshell, what it does is split’s your database into hundreds of little files.&#160; One for each table, key, foreign key, user, role, etc.&#160; Then, since it is a standard <a href="http://www.microsoft.com/visualstudio/en-us/products/teamsystem/default.mspx">VS2008</a> project, you can keep those files and the project under source control.&#160; The big benefit is that multiple team members can change files and check them in, and everyone’s schema is kept up to date.</p>
+<p>Not sure why this was hard, but I wanted to make a trivial command file to deploy my database (or any change to it).&#160; For those of you that don’t know the <a href="/2009/01/17/visual-studio-database-edition-review-sqlserver2008/">DataDude project</a>, I have to say it’s one of the coolest tools that has come out the Microsoft Visual Studio Team for a while.&#160; Basically, in a nutshell, what it does is split’s your database into hundreds of little files.&#160; One for each table, key, foreign key, user, role, etc.&#160; Then, since it is a standard <a href="http://www.microsoft.com/visualstudio/en-us/products/teamsystem/default.mspx">VS2008</a> project, you can keep those files and the project under source control.&#160; The big benefit is that multiple team members can change files and check them in, and everyone’s schema is kept up to date.</p>
 <p> <!--more-->
 <p>So, how does the up to date work?&#160; the way it works is when you get the latest from your version control, you simply right click on the vs2008 project and say “Deploy”.</p>
-<p><a href="http://peterkellner.net/FilesForWebDownload/HowtoAutomateaSimpleDeployUsingDataDudeV_777E/image.png"><img style="border-right-width: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="image" border="0" alt="image" src="http://peterkellner.net/FilesForWebDownload/HowtoAutomateaSimpleDeployUsingDataDudeV_777E/image_thumb.png" width="358" height="277" /></a></p>
+<p><a href="/FilesForWebDownload/HowtoAutomateaSimpleDeployUsingDataDudeV_777E/image.png"><img style="border-right-width: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="image" border="0" alt="image" src="/FilesForWebDownload/HowtoAutomateaSimpleDeployUsingDataDudeV_777E/image_thumb.png" width="358" height="277" /></a></p>
 <p>It’s kind of a hassle though because you have to open the project first, the don this.</p>
 <p>Here is a simple one line cmd file that you can use to do this task for you.</p>
 <pre class="csharpcode">C:\Windows\Microsoft.NET\Framework\v3.5\MSBuild.exe /t:Deploy 

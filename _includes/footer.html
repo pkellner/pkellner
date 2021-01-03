@@ -1,6 +1,6 @@
 <!-- Footer -->
 
-<hr>
+<hr />
 
 <footer>
   <div class="container">
@@ -16,8 +16,7 @@
               </span>
             </a>
           </li>
-          {% endif %}
-          {% if site.twitter_username %}
+          {% endif %} {% if site.twitter_username %}
           <li class="list-inline-item">
             <a href="https://twitter.com/{{ site.twitter_username }}">
               <span class="fa-stack fa-lg">
@@ -26,8 +25,7 @@
               </span>
             </a>
           </li>
-          {% endif %}
-          {% if site.facebook_username %}
+          {% endif %} {% if site.facebook_username %}
           <li class="list-inline-item">
             <a href="https://www.facebook.com/{{ site.facebook_username }}">
               <span class="fa-stack fa-lg">
@@ -36,8 +34,7 @@
               </span>
             </a>
           </li>
-          {% endif %}
-          {% if site.linkedin_username %}
+          {% endif %} {% if site.linkedin_username %}
           <li class="list-inline-item">
             <a href="https://www.linkedin.com/in/{{ site.linkedin_username }}">
               <span class="fa-stack fa-lg">
@@ -46,8 +43,7 @@
               </span>
             </a>
           </li>
-          {% endif %}
-          {% if site.github_username %}
+          {% endif %} {% if site.github_username %}
           <li class="list-inline-item">
             <a href="https://github.com/{{ site.github_username }}">
               <span class="fa-stack fa-lg">
@@ -57,8 +53,38 @@
             </a>
           </li>
           {% endif %}
+
+          <li class="list-inline-item">
+            <a
+              href="https://pluralsight.pxf.io/c/1196644/424552/7490?u=https%3A%2F%2Fwww.pluralsight.com%2Fauthors%2Fpeter-kellner"
+              target="_blank"
+              rel="noopener noreferrer"
+              ><img
+                class="alignnone wp-image-4636 size-full"
+                src="/wp/wp-content/uploads/2018/05/badge01-pluralsight.png"
+                alt=""
+                width="130"
+                height="50"
+            /></a>
+          </li>
+          <li class="list-inline-item">
+            <a
+              href="https://www.siliconvalley-codecamp.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              ><img
+                class="alignnone wp-image-4637 size-full"
+                src="/wp/wp-content/uploads/2018/05/badge02-svcc-1.png"
+                alt=""
+                width="101"
+                height="50"
+            /></a>
+          </li>
         </ul>
-        <p class="copyright text-muted">Copyright &copy; {{ site.author.display_name }} {{ 'now' | date: "%Y" }}</p>
+        <p class="copyright text-muted">
+          Copyright &copy; {{ site.author.display_name }} {{ 'now' | date: "%Y"
+          }}
+        </p>
       </div>
     </div>
   </div>

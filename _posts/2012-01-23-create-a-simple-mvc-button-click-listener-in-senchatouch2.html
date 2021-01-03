@@ -11,7 +11,7 @@ author:
 author_login: admin
 author_email: peter@peterkellner.net
 wordpress_id: 1793
-wordpress_url: http://peterkellner.net/2012/01/23/create-a-simple-mvc-button-click-listener-in-senchatouch2/
+wordpress_url: https://peterkellner.net/2012/01/23/create-a-simple-mvc-button-click-listener-in-senchatouch2/
 date: '2012-01-23 21:14:39 -0800'
 date_gmt: '2012-01-24 04:14:39 -0800'
 categories:
@@ -24,18 +24,18 @@ tags: []
 <p>&#160;</p>
 <p>I do not even want to admit how much time I spent today in a more complex application trying to get a <a href="http://www.sencha.com/learn/layout-faq/">button</a> to respond to a tap event in <a href="http://www.sencha.com/products/touch/">SenchaTouch 2.0 Beta</a>.&#160; I did notice several people like me on the forums with similar issues, but I did not find one concrete example that made the simple “click a <a href="http://miamicoder.com/2010/creating-sencha-touch-toolbar-buttons/">button application</a>”.&#160; Of course I’m building this in <a href="http://www.microsoft.com/visualstudio/en-us">Microsoft Visual Studio 2010</a> and debugging with <a href="https://chrome.google.com/">Chrome</a>.&#160; Let me start at the end.&#160; When you are done, you will have a simple two button page that you can click on either button and have your MVC controller react to either button as well as trap the button hit inside the actual Panel.</p>
 <p>&#160;</p>
-<p><a href="http://peterkellner.net/wp/wp-content/uploads/2012/01/image12.png"><img style="background-image: none; border-right-width: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px; padding-top: 0px" title="image" border="0" alt="image" src="http://peterkellner.net/wp/wp-content/uploads/2012/01/image_thumb10.png" width="431" height="255" /></a></p>
+<p><a href="/wp/wp-content/uploads/2012/01/image12.png"><img style="background-image: none; border-right-width: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px; padding-top: 0px" title="image" border="0" alt="image" src="/wp/wp-content/uploads/2012/01/image_thumb10.png" width="431" height="255" /></a></p>
 <p>&#160;</p>
 <p>And for those of you that have read enough, here is the source:&#160;&#160;
 <div style="padding-bottom: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; float: none; padding-top: 0px" id="scid:fb3a1972-4489-4e52-abe7-25a00bb07fdf:6cf571a4-5052-4531-9334-dc07fcce1ced" class="wlWriterEditableSmartContent">
-<p> <a href="http://peterkellner.net/wp/wp-content/uploads/2012/01/Sencha2MVCButtons1.zip" target="_blank">ZIP File Of Project With 2 Buttons and Listeners</a></p>
+<p> <a href="/wp/wp-content/uploads/2012/01/Sencha2MVCButtons1.zip" target="_blank">ZIP File Of Project With 2 Buttons and Listeners</a></p>
 </div>
 <p>&#160;</p>
 <p>&#160;</p>
 <h2>The Nitty Gritty</h2>
 <p>Creating an SenchaTouch project with MVC is a little tricky to setup.&#160; You need to get all the directories right.&#160; My favorite way to do this is to use the Sencha Designer to create the project, then abandon it if I want to strike out on my own.&#160; That is what I’ve done here.&#160; I don’t even think you can tell.</p>
 <p>Here is the file layout as seen from Visual Studio:</p>
-<p><a href="http://peterkellner.net/wp/wp-content/uploads/2012/01/image13.png"><img style="background-image: none; border-bottom: 0px; border-left: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px" title="image" border="0" alt="image" src="http://peterkellner.net/wp/wp-content/uploads/2012/01/image_thumb11.png" width="213" height="170" /></a></p>
+<p><a href="/wp/wp-content/uploads/2012/01/image13.png"><img style="background-image: none; border-bottom: 0px; border-left: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px" title="image" border="0" alt="image" src="/wp/wp-content/uploads/2012/01/image_thumb11.png" width="213" height="170" /></a></p>
 <p>5 Files and 3 directories.</p>
 <p>Let’s first take a look at the Panel that contains the buttons.&#160; Here is the code:</p>
 <pre class="csharpcode">Ext.define(<span class="str">'MyApp.view.MyPanel'</span>, {

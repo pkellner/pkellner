@@ -21,37 +21,51 @@
 title: Peter Kellner
 #email: your-email@example.com
 description: >- # this means to ignore newlines until "baseurl:"
-  Write an awesome description for your new site here. You can edit this
-  line in _config.yml. It will appear in your document head meta (for
-  Google search results) and in your feed.xml site description.
+  Problem solver   author   teacher
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "https://pk.angularu.net" # the base hostname & protocol for your site, e.g. http://example.com
+url: "https://peterkellner.net" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: pkellner
 github_username:  pkellner
 linkedin_username: peterkellner99
+google_analytics: UA-648264-1
 
-gems: [jekyll-paginate-v2]
+#picture:
+#  ignore_missing_images: true"
+
+markdown: kramdown
+
+highlighter: rouge
 
 # Build settings
 theme: minima
 
-plugins_dir:
-  - jekyll-paginate-v2
+# Disqus Comments
+disqus:
+  # Leave shortname blank to disable comments site-wide.
+  # Disable comments for any post by adding `comments: false` to that post's YAML Front Matter.
+  shortname: peterkellnerblog
+
+
+
+paginate_path: "/posts/page/:num/"
+
+#plugins_dir:
+#  - jekyll-paginate-v2
+
+#  - jekyll-sitemap
 
 plugins:
   - jekyll-feed
+  - jekyll-paginate
+paginate: 5
 
 pagination:
   enabled: true
-  per_page: 7
-  sort_reverse: true
-  sort_field: 'date'
-  title: ':title'
-  trail:
-    before: 2
-    after: 2
+
 
 permalink: /:year/:month/:day/:title/
+
+gems: [jekyll-paginate]
 
 # Exclude from processing.
 # The following items will not be processed, by default.

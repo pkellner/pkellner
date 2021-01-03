@@ -19,7 +19,7 @@ excerpt: <p>This article explains the mechanics involved in extending the Object
   tool available on the web</a> that lets you cut and paste part of your web.config
   file into a web page and out comes a ready-to-compile C-Sharp ObjectDataSource.</p>
 wordpress_id: 20
-wordpress_url: http://peterkellner.net/?p=29
+wordpress_url: https://peterkellner.net/?p=29
 date: '2006-03-13 17:33:03 -0800'
 date_gmt: '2006-03-14 00:33:03 -0800'
 categories:
@@ -106,13 +106,13 @@ tags: []
 <p>There are a couple things to notice in the above page_load event. First, if no user is logged in, the update button is disabled. This is because it would be meaningless to press the update button if there was no current user to update. It is important to mention that this article does not address dealing with anonymous users. That is a whole different topic. Very interesting, but beyond the scope of this article. Also notice that the first and last names are only loaded when the page is not a postback. That means that only the first time this page is loaded will the data will be loaded from the Profile datastore. After the first time, the data is stored in the page's viewstate and no longer will have to be retrieved from the static Profile class. This is important to note because each time a profile property is accessed, a round trip to the membership database occurs. This is the reason using the Profile classes are often referred to as chatty with the database. Something to think about, and keep in mind when designing your application.</p>
 <p>There are several good articles that go into more detail on using the profile provider. <a href="http://weblogs.asp.net/scottgu/archive/2005/10/18/427754.aspx">Scott Gu posts in his blog</a> an excellent how to guide that steps you through creating basic Membership in a web application including customized Profile information. A good one in MSDN is <a href="http://msdn.net/msdnmag/issues/05/10/CuttingEdge/">Personalization and User Profiles in ASP.NET 2.0 by Dino Esposito</a>. Another one of my favorites is <a href="http://www.odetocode.com/Articles/440.aspx">Profiles in ASP.NET 2.0 by Scott Allen</a>.</p>
 <h2 id="#Why">Why Do We Need This? </h2>
-<p>The questions comes up, why do we need an ObjectDataSource that encapsulates our Profile information? The answer is this. Even though ASP.NET does a wonderful job of giving us programmatic access to the Profile class it does not gives a simple way to view or update this data by binding it directly to any controls like gridview or detailsview. Joshua Flanagan wrote a very nice tool called <a href="http://peterkellner.net/download-manager/">ProfileView</a> that you can see on his blog. Basically, he wrote an ASP.NET 2.0 server control that enables users to view and/or edit the Profile data. It does this using reflection at runtime to figure out what the profile information is, then it shows it.</p>
+<p>The questions comes up, why do we need an ObjectDataSource that encapsulates our Profile information? The answer is this. Even though ASP.NET does a wonderful job of giving us programmatic access to the Profile class it does not gives a simple way to view or update this data by binding it directly to any controls like gridview or detailsview. Joshua Flanagan wrote a very nice tool called <a href="/download-manager/">ProfileView</a> that you can see on his blog. Basically, he wrote an ASP.NET 2.0 server control that enables users to view and/or edit the Profile data. It does this using reflection at runtime to figure out what the profile information is, then it shows it.</p>
 <p>The ObjectDataSource allows you at design time to make the presentation layer look exactly as you like. It also allows for viewing multiple members profiles at the same time. Take a look at the screen shot below to see what a gridview looks like using on ObjectDataSource generated using this technology. Also, you can <a href="http://livedemos.peterkellner.net/AJAXDemo/DefaultWithProfile.aspx">play with it live right here</a>.</p>
 <table border="0" cellpadding="10" width="200">
 <tbody>
 <tr>
-<td><a href="http://peterkellner.net/wp/wp-content/uploads/2006/03/membership.jpg"><img border="0" src="http://peterkellner.net/wp/wp-content/uploads/2006/03/membership_t.jpg" width="341" height="388" /></a></td>
-<td><img src="http://peterkellner.net/wp/wp-content/uploads/2006/03/membership_namesonly.jpg" /></td>
+<td><a href="/wp/wp-content/uploads/2006/03/membership.jpg"><img border="0" src="/wp/wp-content/uploads/2006/03/membership_t.jpg" width="341" height="388" /></a></td>
+<td><img src="/wp/wp-content/uploads/2006/03/membership_namesonly.jpg" /></td>
 </tr>
 </tbody>
 </table>
@@ -316,7 +316,7 @@ tags: []
 <h2 id="Using">Using the Profile Generating Website </h2>
 <p>All the changes listed in the previous section could be done by hand, however this would be very tedious. To make this process much easier, a code generator has been developed which takes as input the applications web.config file's &lt;System.Web&gt; section. The idea is to cut this out of the web.config file and paste it into the web page which will generate the code for you. Below is a screen show of what the web page looks like. When you get to this page, you must first click on the button in the right column labeled &quot;Click Here to Begin&quot;.</p>
 <p>Here is the URL: <a href="http://painfreeods.peterkellner.net/">http://painfreeods.peterkellner.net/</a></p>
-<p>&#160;<a href="http://peterkellner.net/wp/wp-content/uploads/2006/03/ProfileGenPage.jpg"><img border="0" src="http://peterkellner.net/wp/wp-content/uploads/2006/03/ProfileGenPage_t.jpg" /></a></p>
+<p>&#160;<a href="/wp/wp-content/uploads/2006/03/ProfileGenPage.jpg"><img border="0" src="/wp/wp-content/uploads/2006/03/ProfileGenPage_t.jpg" /></a></p>
 <p>The XML which is pasted into the multi line orange textbox is as follows (you should paste your own in here).</p>
 <p></p>
 <pre class="csharpcode"><span class="kwrd">&lt;</span><span class="html">system</span>  .<span class="attr">web</span><span class="kwrd">&gt;</span>
@@ -338,7 +338,7 @@ tags: []
 <span class="kwrd">&lt;/</span><span class="html">system</span><span class="kwrd">&gt;</span></pre>
 <p></p>
 <p>Now, if the &quot;Show Generated C#&quot; button is pressed, the complete ObjectDataSource will be created. This code can then be cut and pasted into the App_Code directory of the web project. Here is what the screen looks like.</p>
-<p><a href="http://peterkellner.net/wp/wp-content/uploads/2006/03/ProfileGenSrc.jpg"><img border="0" src="http://peterkellner.net/wp/wp-content/uploads/2006/03/ProfileGenSrc_t.jpg" /></a></p>
+<p><a href="/wp/wp-content/uploads/2006/03/ProfileGenSrc.jpg"><img border="0" src="/wp/wp-content/uploads/2006/03/ProfileGenSrc_t.jpg" /></a></p>
 <p>There are some limitations to this code generation technology. First is that there can only be one level of nesting. That is, there can be no groups of groups. Just one level of grouping is allowed as is shown here. It is OK to have multiple groups, just not nested. Another limitation is the type associated with the name must be a C# type. That is, string, bool,DateTime,etc. The final limitation (known about) is that it can not handle Array or Collection type properties. All properties must be single valued.</p>
 <p>At this point, error checking is minimal so if the limitations are exceeded, something will likely come out but it may not be what was desired.</p>
 <h2 id="Build">Build A Simple Web Page</h2>
@@ -349,49 +349,49 @@ tags: []
 <tbody>
 <tr>
 <td>
-<p><a href="http://peterkellner.net/wp/wp-content/uploads/2006/03/step1.jpg"><img border="0" src="http://peterkellner.net/wp/wp-content/uploads/2006/03/step1_t.jpg" width="250" height="186" /></a></p>
+<p><a href="/wp/wp-content/uploads/2006/03/step1.jpg"><img border="0" src="/wp/wp-content/uploads/2006/03/step1_t.jpg" width="250" height="186" /></a></p>
 <p>1. Add a New Web Page to the Project</p>
 </td>
 <td>
-<p><a href="http://peterkellner.net/wp/wp-content/uploads/2006/03/step2.jpg"><img border="0" src="http://peterkellner.net/wp/wp-content/uploads/2006/03/step2_t.jpg" width="250" height="179" /></a></p>
+<p><a href="/wp/wp-content/uploads/2006/03/step2.jpg"><img border="0" src="/wp/wp-content/uploads/2006/03/step2_t.jpg" width="250" height="179" /></a></p>
 <p>2. Choose Web Page and Name it</p>
 </td>
 </tr>
 <tr>
 <td>
-<p><a href="http://peterkellner.net/wp/wp-content/uploads/2006/03/step3.jpg"><img border="0" src="http://peterkellner.net/wp/wp-content/uploads/2006/03/step3_t.jpg" width="250" height="206" /></a></p>
+<p><a href="/wp/wp-content/uploads/2006/03/step3.jpg"><img border="0" src="/wp/wp-content/uploads/2006/03/step3_t.jpg" width="250" height="206" /></a></p>
 <p>3. Add a GridView and an ObjectDataSource. Associate them</p>
 </td>
 <td>
-<p><a href="http://peterkellner.net/wp/wp-content/uploads/2006/03/step4.jpg"><img border="0" src="http://peterkellner.net/wp/wp-content/uploads/2006/03/step4_t.jpg" /></a></p>
+<p><a href="/wp/wp-content/uploads/2006/03/step4.jpg"><img border="0" src="/wp/wp-content/uploads/2006/03/step4_t.jpg" /></a></p>
 <p>4. Configure the ObjectDataSource by Assigning the Class</p>
 </td>
 </tr>
 <tr>
 <td>
 <p>&#160;</p>
-<p><a href="http://peterkellner.net/wp/wp-content/uploads/2006/03/step5.jpg"><img border="0" src="http://peterkellner.net/wp/wp-content/uploads/2006/03/step5_t.jpg" width="250" height="174" /></a></p>
+<p><a href="/wp/wp-content/uploads/2006/03/step5.jpg"><img border="0" src="/wp/wp-content/uploads/2006/03/step5_t.jpg" width="250" height="174" /></a></p>
 <p>5. Choose the Get Method (Use Default)</p>
 </td>
 <td>
 <p>&#160;</p>
-<p><a href="http://peterkellner.net/wp/wp-content/uploads/2006/03/step6.jpg"><img border="0" src="http://peterkellner.net/wp/wp-content/uploads/2006/03/step6_t.jpg" width="250" height="174" /></a></p>
+<p><a href="/wp/wp-content/uploads/2006/03/step6.jpg"><img border="0" src="/wp/wp-content/uploads/2006/03/step6_t.jpg" width="250" height="174" /></a></p>
 <p>6. Choose the Update Method (Use Default)</p>
 </td>
 </tr>
 <tr>
 <td>
-<p><a href="http://peterkellner.net/wp/wp-content/uploads/2006/03/step7.jpg"><img border="0" src="http://peterkellner.net/wp/wp-content/uploads/2006/03/step7_t.jpg" width="250" height="174" /></a></p>
+<p><a href="/wp/wp-content/uploads/2006/03/step7.jpg"><img border="0" src="/wp/wp-content/uploads/2006/03/step7_t.jpg" width="250" height="174" /></a></p>
 <p>7. Choose the Insert Method (Choose Default)</p>
 </td>
 <td>
-<p><a href="http://peterkellner.net/wp/wp-content/uploads/2006/03/step8.jpg"><img border="0" src="http://peterkellner.net/wp/wp-content/uploads/2006/03/step8_t.jpg" width="250" height="174" /></a></p>
+<p><a href="/wp/wp-content/uploads/2006/03/step8.jpg"><img border="0" src="/wp/wp-content/uploads/2006/03/step8_t.jpg" width="250" height="174" /></a></p>
 <p>8. Choose the Delete Method (Choose Default)</p>
 </td>
 </tr>
 <tr>
 <td>
-<p><a href="http://peterkellner.net/wp/wp-content/uploads/2006/03/step9.jpg"><img border="0" src="http://peterkellner.net/wp/wp-content/uploads/2006/03/step9_t.jpg" width="250" height="154" /></a></p>
+<p><a href="/wp/wp-content/uploads/2006/03/step9.jpg"><img border="0" src="/wp/wp-content/uploads/2006/03/step9_t.jpg" width="250" height="154" /></a></p>
 <p>9. Run it! (OK, had to enable edit and delete on Gridview. No more boxes left)</p>
 </td>
 <td>&#160;</td>
@@ -401,5 +401,5 @@ tags: []
 <p>The code in the associated source to this article has a web apge ( MembershipWithProfile.aspx) which is very similar to what is done here.</p>
 <h2 id="Conclusions">Conclusions</h2>
 <p>Profiles are a very powerful way to store information about Membership. It's powerful in that with very little coding, lots of additional information about logged in users is available. With this tool, there is now a better way to organize this information and maintain it. Briefly mentioned earlier were the performance implications of using Profile information. It is important to understand what his happening under the covers when this technology is used. As long there is an understanding of what is happening and it is acceptable in the web application being developed, this is a wonderful technology.</p>
-<p>Finally, as a plug to the technology that was used in this free ObjectDataSource creator, the Pain Free ObjectDataSource Creator, available through subscription on this blog, lets the developer generate very flexible ObjectDataSource's to access database information in SqlServer, MySql and Oracle. Unlike the Profile ODS generator in this article, the ODS generator for databases gives you a large amount of flexibility. An infinite number of getter methods, updaters and inserters can be defined. It works with views, and also stored procedures. Any questions on the Pain Free ODS Generator, <a href="http://peterkellner.net/contact/">click here</a>.</p>
+<p>Finally, as a plug to the technology that was used in this free ObjectDataSource creator, the Pain Free ObjectDataSource Creator, available through subscription on this blog, lets the developer generate very flexible ObjectDataSource's to access database information in SqlServer, MySql and Oracle. Unlike the Profile ODS generator in this article, the ODS generator for databases gives you a large amount of flexibility. An infinite number of getter methods, updaters and inserters can be defined. It works with views, and also stored procedures. Any questions on the Pain Free ODS Generator, <a href="/contact/">click here</a>.</p>
 <p>Thanks for reading, and best of luck with your coding projects.</p>

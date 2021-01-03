@@ -11,7 +11,7 @@ author:
 author_login: admin
 author_email: peter@peterkellner.net
 wordpress_id: 1931
-wordpress_url: http://peterkellner.net/?p=1931
+wordpress_url: https://peterkellner.net/?p=1931
 date: '2012-04-10 12:40:18 -0700'
 date_gmt: '2012-04-10 19:40:18 -0700'
 categories:
@@ -33,26 +33,26 @@ tags: []
 <p>&#160;</p>
 <p>So, Here is what we will build.&#160; A handy formatter! (and you can run it at:&#160;&#160; <a href="http://reformatter.peterkellner.net/">http://reformatter.peterkellner.net/</a> )</p>
 <p>&#160;</p>
-<p><a href="http://reformatter.peterkellner.net/app.html"><img title="image" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; padding-top: 0px; padding-left: 0px; border-left: 0px; display: inline; padding-right: 0px" border="0" alt="image" src="http://peterkellner.net/wp/wp-content/uploads/2012/04/image4.png" width="510" height="438" /></a></p>
-<p><a href="http://reformatter.peterkellner.net/app.html"><img title="image" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; padding-top: 0px; padding-left: 0px; border-left: 0px; display: inline; padding-right: 0px" border="0" alt="image" src="http://peterkellner.net/wp/wp-content/uploads/2012/04/image5.png" width="511" height="444" /></a></p>
+<p><a href="http://reformatter.peterkellner.net/app.html"><img title="image" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; padding-top: 0px; padding-left: 0px; border-left: 0px; display: inline; padding-right: 0px" border="0" alt="image" src="/wp/wp-content/uploads/2012/04/image4.png" width="510" height="438" /></a></p>
+<p><a href="http://reformatter.peterkellner.net/app.html"><img title="image" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; padding-top: 0px; padding-left: 0px; border-left: 0px; display: inline; padding-right: 0px" border="0" alt="image" src="/wp/wp-content/uploads/2012/04/image5.png" width="511" height="444" /></a></p>
 <p>&#160;</p>
 <p>&#160;</p>
 <h2>Part I, The Visual Studio Project</h2>
 <p>&#160;</p>
 <p>Let’s first create the Visual Studio project.&#160; My development these days is actually using the latest Windows 8 Consumer build with the beta of Visual Studio 2011 running on it.&#160; The nice thing about this is because Microsoft added “Round Tripping” to VS2011, I can now use VS2011 to create the project and you, my happy readers, can download the project and open it in Visual Studio 2010.&#160; This has been long in coming and Microsoft has finally done it for the newest version of Visual Studio.&#160; Thank you Microsoft!</p>
 <p>&#160;</p>
-<p><a href="http://peterkellner.net/wp/wp-content/uploads/2012/04/image.png"><img title="image" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; padding-top: 0px; padding-left: 0px; border-left: 0px; display: inline; padding-right: 0px" border="0" alt="image" src="http://peterkellner.net/wp/wp-content/uploads/2012/04/image_thumb.png" width="438" height="271" /></a></p>
+<p><a href="/wp/wp-content/uploads/2012/04/image.png"><img title="image" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; padding-top: 0px; padding-left: 0px; border-left: 0px; display: inline; padding-right: 0px" border="0" alt="image" src="/wp/wp-content/uploads/2012/04/image_thumb.png" width="438" height="271" /></a></p>
 <p>&#160;</p>
 <p>And with an Internet Application with Razor (though I really don’t need all that extra stuff, it does not hurt)</p>
 <p>&#160;</p>
-<p><a href="http://peterkellner.net/wp/wp-content/uploads/2012/04/image1.png"><img title="image" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; padding-top: 0px; padding-left: 0px; border-left: 0px; display: inline; padding-right: 0px" border="0" alt="image" src="http://peterkellner.net/wp/wp-content/uploads/2012/04/image_thumb1.png" width="385" height="353" /></a></p>
+<p><a href="/wp/wp-content/uploads/2012/04/image1.png"><img title="image" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; padding-top: 0px; padding-left: 0px; border-left: 0px; display: inline; padding-right: 0px" border="0" alt="image" src="/wp/wp-content/uploads/2012/04/image_thumb1.png" width="385" height="353" /></a></p>
 <p>&#160;</p>
 <p>The structure created is as as shown below with a Controller and Views folder and all the proper routing setup.</p>
 <p>&#160;</p>
-<p><a href="http://peterkellner.net/wp/wp-content/uploads/2012/04/image2.png"><img title="image" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; padding-top: 0px; padding-left: 0px; border-left: 0px; display: inline; padding-right: 0px" border="0" alt="image" src="http://peterkellner.net/wp/wp-content/uploads/2012/04/image_thumb2.png" width="218" height="340" /></a></p>
+<p><a href="/wp/wp-content/uploads/2012/04/image2.png"><img title="image" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; padding-top: 0px; padding-left: 0px; border-left: 0px; display: inline; padding-right: 0px" border="0" alt="image" src="/wp/wp-content/uploads/2012/04/image_thumb2.png" width="218" height="340" /></a></p>
 <p>&#160;</p>
 <p>Because I want to make a very simple MVC app that only emits Json, Let’s create our own empty controller called ReformatterController.&#160; We do that by right clicking on the Controller folder and pressing “Add Controller”, then “Add Empty Controller”.</p>
-<p><a href="http://peterkellner.net/wp/wp-content/uploads/2012/04/image3.png"><img title="image" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; padding-top: 0px; padding-left: 0px; border-left: 0px; display: inline; padding-right: 0px" border="0" alt="image" src="http://peterkellner.net/wp/wp-content/uploads/2012/04/image_thumb3.png" width="352" height="256" /></a></p>
+<p><a href="/wp/wp-content/uploads/2012/04/image3.png"><img title="image" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; padding-top: 0px; padding-left: 0px; border-left: 0px; display: inline; padding-right: 0px" border="0" alt="image" src="/wp/wp-content/uploads/2012/04/image_thumb3.png" width="352" height="256" /></a></p>
 <p>&#160;</p>
 <p>Now, let’s create a very very simple controller with just one method that returns a JSON Result.&#160; I’m returning the data in a friendly format to&#160; Sencha’s ExtJS (or SenchaTouch for that matter).&#160; <a href="http://www.webappers.com/2011/02/16/how-to-build-single-page-applications-with-jquery/">JQuery</a> would be similar.&#160; Here is our new controller class (I’m sure my little tokenizer, line maker could be improved, but I’m just doing this to show some real work.</p>
 <pre class="csharpcode"><span class="kwrd">using</span> System;
@@ -199,5 +199,5 @@ Ext.Ajax.request({
 });</pre>
 <p>Now, in reality, I’ve added some useful stuff to the controller (and put the project here for your review, comments and suggestions).</p>
 <div id="scid:fb3a1972-4489-4e52-abe7-25a00bb07fdf:279ce901-a751-4b1a-8603-ebda182698cc" class="wlWriterEditableSmartContent" style="float: none; padding-bottom: 0px; padding-top: 0px; padding-left: 0px; margin: 0px; display: inline; padding-right: 0px">
-<p>Visual Studio Project <a href="http://peterkellner.net/wp/wp-content/uploads/2012/04/TextReformatter.zip" target="_blank">TextReformatter.zip</a></p>
+<p>Visual Studio Project <a href="/wp/wp-content/uploads/2012/04/TextReformatter.zip" target="_blank">TextReformatter.zip</a></p>
 </div>

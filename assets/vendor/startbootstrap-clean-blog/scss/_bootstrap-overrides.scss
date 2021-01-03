@@ -25,3 +25,9 @@
   font-size: 16px;
   padding: 25px 35px;
 }
+
+img {
+  vertical-align: middle;
+  border-style: none; // Remove the border on images inside links in IE 10-.
+  max-width: 98%;
+}

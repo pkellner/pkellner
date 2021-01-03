@@ -18,7 +18,7 @@ excerpt: In this article we will demonstrate a technique used to automatically a
   the API, creating and linking the presentation to a Wiki page would have to be an
   ugly manual process involving the dreaded cut and pasting of URL's.
 wordpress_id: 34
-wordpress_url: http://peterkellner.net/2006/09/18/pbwikiapi/
+wordpress_url: https://peterkellner.net/2006/09/18/pbwikiapi/
 date: '2006-09-18 12:04:10 -0700'
 date_gmt: '2006-09-18 19:04:10 -0700'
 categories:
@@ -36,7 +36,7 @@ tags: []
 <h2>PBWiki To The Rescue</h2>
 <p>Turns out the guys at PBWiki are just about to release an API for their software. One of the functions of this API allows us   <br />to create a new Wiki Page simply by building a request with post data as our page. Just what we need. So, lets just go through the steps with some fancy pictures and arrows of how we built this integration. (OK, no arrows, just pictures).</p>
 <p>First, lets take a look at how we've enhanced our web site. (OK, this is in beta so depending on how fast you are at reading this article, the web site might not be quite to production yet. You will need to use your imagination.)</p>
-<p><img src="http://peterkellner.net/wp/wp-content/uploads/2006/09/ccwebsite.jpg" /></p>
+<p><img src="/wp/wp-content/uploads/2006/09/ccwebsite.jpg" /></p>
 <p>Notice the <u>Wiki</u> hyperlink next to the Session Titles. When this hyperlink is pressed, an API call is generated to the PBWiki API calling the AddPage function. If the Wiki Page exists, it simply quietly fails. Then after that, a redirect is processed that takes the user directly to the new Wiki Page. First time, the Wiki page is created with all kinds of information about the session as well as any other information we might want to transfer over. Below is what the Wiki Page looks like on our CodeCamp Wiki.</p></p>
 <h2>The Plumbing</h2>
 <p>So, how did we do this? First, we got an <a href="http://api.pbwiki.com/">API key from PBWiki</a>. this is a huge 15 character or so alpha string that identifies your wiki so that when you use it, pages and such will be created on your wiki. Then, we had to write some code. Basically, the way the API works is that you build a request that looks something like this to add a page.</p>

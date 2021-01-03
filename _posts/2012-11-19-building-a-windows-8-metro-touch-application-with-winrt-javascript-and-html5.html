@@ -11,7 +11,7 @@ author:
 author_login: admin
 author_email: peter@peterkellner.net
 wordpress_id: 2186
-wordpress_url: http://peterkellner.net/?p=2186
+wordpress_url: https://peterkellner.net/?p=2186
 date: '2012-11-19 09:01:32 -0800'
 date_gmt: '2012-11-19 16:01:32 -0800'
 categories:
@@ -38,24 +38,24 @@ tags: []
 <p>&nbsp;</p>
 <h3>A Quick Look Ahead</h3>
 <p>Here is what our completed app will look like.  Basically, it has two pages.  The first page shows all the tracks and it includes an image background that represents each track.</p>
-<p><a href="http://peterkellner.net/wp/wp-content/uploads/2012/08/image12.png"><img style="display: inline; border-width: 0px;" title="image" src="http://peterkellner.net/wp/wp-content/uploads/2012/08/image_thumb12.png" alt="image" width="404" height="260" border="0" /></a></p>
+<p><a href="/wp/wp-content/uploads/2012/08/image12.png"><img style="display: inline; border-width: 0px;" title="image" src="/wp/wp-content/uploads/2012/08/image_thumb12.png" alt="image" width="404" height="260" border="0" /></a></p>
 <p>Then, when the user touches any of the tracks listed, they will be presented with the details of that particular track as follows.</p>
 <p>&nbsp;</p>
-<p><a href="http://peterkellner.net/wp/wp-content/uploads/2012/08/image13.png"><img style="display: inline; border-width: 0px;" title="image" src="http://peterkellner.net/wp/wp-content/uploads/2012/08/image_thumb13.png" alt="image" width="404" height="257" border="0" /></a></p>
+<p><a href="/wp/wp-content/uploads/2012/08/image13.png"><img style="display: inline; border-width: 0px;" title="image" src="/wp/wp-content/uploads/2012/08/image_thumb13.png" alt="image" width="404" height="257" border="0" /></a></p>
 <p>In addition, there will of course be the charms bar on the right for both search and about and on the bottom will be the app bar that let’s you refresh in case one or more tracks have changed.  As mentioned earlier, there are a lot more areas we could improve upon to make this app take much better advantage of the windows 8 platform.  Just to mention a couple, we could add push notifications so that refresh is not necessary and we could add a communication charms so the user could email or tweet a session or track.</p>
 <p>&nbsp;</p>
 <h3>Create a New Project for the JavaScript Windows 8 App</h3>
 <p>First thing to do is to create a new Visual Studio 2012 JavaScript Windows 8 project.  We of course want to select from a template that most closely matches our scenario for the reasons mentioned in the previous section “Built In Visual Studio 2012 Templates”.  So, File/New/Project/JavaScript (from the opening screen of Visual Studio).   Knowing that we want to display a top level view of all the tracks, with a drill down detail view of each track showing the individual sessions, it seems like the “Split App” is going to be our best choice so let’s choose that.</p>
 <p>&nbsp;</p>
-<p><a href="http://peterkellner.net/wp/wp-content/uploads/2012/08/image14.png"><img style="display: inline; border-width: 0px;" title="image" src="http://peterkellner.net/wp/wp-content/uploads/2012/08/image_thumb14.png" alt="image" width="404" height="294" border="0" /></a></p>
+<p><a href="/wp/wp-content/uploads/2012/08/image14.png"><img style="display: inline; border-width: 0px;" title="image" src="/wp/wp-content/uploads/2012/08/image_thumb14.png" alt="image" width="404" height="294" border="0" /></a></p>
 <p>&nbsp;</p>
 <p>If we run this application, out of the box you can see the similarities to the conference track viewer we plan on building.  Below are some small screen shots of how that looks.</p>
 <p>&nbsp;</p>
 <table width="400" border="0" cellspacing="0" cellpadding="2">
 <tbody>
 <tr>
-<td valign="top" width="200"><a href="http://peterkellner.net/wp/wp-content/uploads/2012/08/image15.png"><img style="display: inline; border-width: 0px;" title="image" src="http://peterkellner.net/wp/wp-content/uploads/2012/08/image_thumb15.png" alt="image" width="184" height="114" border="0" /></a></td>
-<td valign="top" width="200"><a href="http://peterkellner.net/wp/wp-content/uploads/2012/08/image16.png"><img style="display: inline; border-width: 0px;" title="image" src="http://peterkellner.net/wp/wp-content/uploads/2012/08/image_thumb16.png" alt="image" width="184" height="114" border="0" /></a></td>
+<td valign="top" width="200"><a href="/wp/wp-content/uploads/2012/08/image15.png"><img style="display: inline; border-width: 0px;" title="image" src="/wp/wp-content/uploads/2012/08/image_thumb15.png" alt="image" width="184" height="114" border="0" /></a></td>
+<td valign="top" width="200"><a href="/wp/wp-content/uploads/2012/08/image16.png"><img style="display: inline; border-width: 0px;" title="image" src="/wp/wp-content/uploads/2012/08/image_thumb16.png" alt="image" width="184" height="114" border="0" /></a></td>
 </tr>
 </tbody>
 </table>
@@ -128,7 +128,7 @@ tags: []
 <p>We’ve talked about how to retrieve data the first time, but now let’s talk about what happens when the user wants to look for a specific speaker or session by some search string.  Because we knew we wanted to add this later, we added to our loadData() function a search string parameter.  When passed in as null, all tracked sessions are downloaded.  However, when a value is passed in, we’ve added simple JavaScript code to the loadData() function to filter those results.</p>
 <p>So, let’s follow the guidelines posted at <a href="http://msdn.microsoft.com/en-us/library/windows/apps/hh465238.aspx">http://msdn.microsoft.com/en-us/library/windows/apps/hh465238.aspx</a> for how to create a minimal search in a Windows 8 JavaScript app.  In our application, there are only a few things that are required.</p>
 <p>First, in the split.js JavaScript file, add the following line of code in your page/ready label.  This causes the search charm to automatically come up as soon as the user starts to type anything on the keyboard.  That is, the user see something like the following and as soon as the press the search button or press enter, they event defined a little further below here will get executed.</p>
-<p><a href="http://peterkellner.net/wp/wp-content/uploads/2012/08/image17.png"><img style="display: inline; border-width: 0px;" title="image" src="http://peterkellner.net/wp/wp-content/uploads/2012/08/image_thumb17.png" alt="image" width="404" height="249" border="0" /></a></p>
+<p><a href="/wp/wp-content/uploads/2012/08/image17.png"><img style="display: inline; border-width: 0px;" title="image" src="/wp/wp-content/uploads/2012/08/image_thumb17.png" alt="image" width="404" height="249" border="0" /></a></p>
 <p>&nbsp;</p>
 <p>And the code looks as follows:</p>
 <pre class="csharpcode"><span class="rem">// This function is called whenever a user navigates to this page. It</span>
@@ -158,8 +158,8 @@ WinJS.Application.onsettings = function (e) {
 <table width="400" border="0" cellspacing="0" cellpadding="2">
 <tbody>
 <tr>
-<td valign="top" width="200"><a href="http://peterkellner.net/wp/wp-content/uploads/2012/08/image18.png"><img style="display: inline; border-width: 0px;" title="image" src="http://peterkellner.net/wp/wp-content/uploads/2012/08/image_thumb18.png" alt="image" width="194" height="118" border="0" /></a></td>
-<td valign="top" width="200"><a href="http://peterkellner.net/wp/wp-content/uploads/2012/08/image19.png"><img style="display: inline; border-width: 0px;" title="image" src="http://peterkellner.net/wp/wp-content/uploads/2012/08/image_thumb19.png" alt="image" width="194" height="119" border="0" /></a></td>
+<td valign="top" width="200"><a href="/wp/wp-content/uploads/2012/08/image18.png"><img style="display: inline; border-width: 0px;" title="image" src="/wp/wp-content/uploads/2012/08/image_thumb18.png" alt="image" width="194" height="118" border="0" /></a></td>
+<td valign="top" width="200"><a href="/wp/wp-content/uploads/2012/08/image19.png"><img style="display: inline; border-width: 0px;" title="image" src="/wp/wp-content/uploads/2012/08/image_thumb19.png" alt="image" width="194" height="119" border="0" /></a></td>
 </tr>
 </tbody>
 </table>

@@ -11,7 +11,7 @@ author:
 author_login: admin
 author_email: peter@peterkellner.net
 wordpress_id: 3919
-wordpress_url: http://peterkellner.net/?p=3919
+wordpress_url: https://peterkellner.net/?p=3919
 date: '2014-02-11 16:44:20 -0800'
 date_gmt: '2014-02-11 23:44:20 -0800'
 categories:
@@ -26,12 +26,12 @@ tags: []
 <p>I’ve been using <a href="http://sendgrid.com/">SendGrid’s</a> API WebHooks to capture email events (Version 1).&#160; This version sends one event at a time which has always been a pretty bad idea.&#160; When I first did the integration a year or so ago, the only way to capture multiple events at once was to consume some proprietary non-JSON like protocol.&#160; I declined.&#160; They finally have upgraded the API to send standard JSON records and are going to obsolete version 1 so I need to change.&#160; Here goes…</p>
 <h2>Send Grid Event Notification Configuration</h2>
 <p>First, you need to go into Event Notification and change to (v3) of the config.&#160; Then, I pressed the “Test Your Integration” button while running fiddler to grab the JSON SendGrid generates (see screen shot)</p>
-<p><a href="http://peterkellner.net/wp/wp-content/uploads/2014/02/image.png"><img title="image" style="border-left-width: 0px; border-right-width: 0px; border-bottom-width: 0px; display: inline; border-top-width: 0px" border="0" alt="image" src="http://peterkellner.net/wp/wp-content/uploads/2014/02/image_thumb.png" width="386" height="340" /></a> </p>
+<p><a href="/wp/wp-content/uploads/2014/02/image.png"><img title="image" style="border-left-width: 0px; border-right-width: 0px; border-bottom-width: 0px; display: inline; border-top-width: 0px" border="0" alt="image" src="/wp/wp-content/uploads/2014/02/image_thumb.png" width="386" height="340" /></a> </p>
 <h2>Figure Out The JSON Structure</h2>
 <p>The generated JSON looks like this:</p></p></p>
-<p><a href="http://peterkellner.net/wp/wp-content/uploads/2014/02/image1.png"><img title="image" style="border-left-width: 0px; border-right-width: 0px; border-bottom-width: 0px; display: inline; border-top-width: 0px" border="0" alt="image" src="http://peterkellner.net/wp/wp-content/uploads/2014/02/image_thumb1.png" width="331" height="453" /></a></p>
+<p><a href="/wp/wp-content/uploads/2014/02/image1.png"><img title="image" style="border-left-width: 0px; border-right-width: 0px; border-bottom-width: 0px; display: inline; border-top-width: 0px" border="0" alt="image" src="/wp/wp-content/uploads/2014/02/image_thumb1.png" width="331" height="453" /></a></p>
 <p>At this point, there are lots of ways to decode the JSON.&#160; My choice is to us <a href="http://json2csharp.com">http://json2csharp.com</a>, paste in my json data and it generates the classes I need to encode the JSON data into.</p>
-<p><a href="http://peterkellner.net/wp/wp-content/uploads/2014/02/image2.png"><img title="image" style="border-left-width: 0px; border-right-width: 0px; border-bottom-width: 0px; display: inline; border-top-width: 0px" border="0" alt="image" src="http://peterkellner.net/wp/wp-content/uploads/2014/02/image_thumb2.png" width="476" height="562" /></a> </p>
+<p><a href="/wp/wp-content/uploads/2014/02/image2.png"><img title="image" style="border-left-width: 0px; border-right-width: 0px; border-bottom-width: 0px; display: inline; border-top-width: 0px" border="0" alt="image" src="/wp/wp-content/uploads/2014/02/image_thumb2.png" width="476" height="562" /></a> </p>
 <p>Next, I create a WebAPI controller in ASP.NET and simply have with one method for POST.&#160; I add the above classes and then unwind the data when it comes in as follows.</p>
 <p>The controller I build (as a guess) looks like this: (I’m leaving out what I do with the data in the foreach.&#160; Reality is I’m going to stuff it in a database)</p>
 <pre class="csharpcode"><span class="kwrd">using</span> System;
@@ -114,8 +114,8 @@ tags: []
 <p>&#160;</p>
 <h2>Testing The WebAPI Rest Controller</h2>
 <p>To test the controller, I need to simulate a call that SendGrid will be issuing to me.&#160; I do that by using fiddler to compose a new query.&#160; Below is a screen shot of what that composed query looks like on my system.&#160; Notice I’ve set it to POST and I’ve pasted in the content JSON that SendGrid will be sending me (got it from the test post above)</p>
-<p><a href="http://peterkellner.net/wp/wp-content/uploads/2014/02/image3.png"><img title="image" style="border-left-width: 0px; border-right-width: 0px; border-bottom-width: 0px; display: inline; border-top-width: 0px" border="0" alt="image" src="http://peterkellner.net/wp/wp-content/uploads/2014/02/image_thumb3.png" width="610" height="501" /></a> </p>
+<p><a href="/wp/wp-content/uploads/2014/02/image3.png"><img title="image" style="border-left-width: 0px; border-right-width: 0px; border-bottom-width: 0px; display: inline; border-top-width: 0px" border="0" alt="image" src="/wp/wp-content/uploads/2014/02/image_thumb3.png" width="610" height="501" /></a> </p>
 <p>You can now see, when I press “Execute in fiddler” while <a href="http://www.visualstudio.com/">Visual Studio</a> is running in debug mode, my data is all coming in as I expect.</p>
-<p><a href="http://peterkellner.net/wp/wp-content/uploads/2014/02/image4.png"><img title="image" style="border-left-width: 0px; border-right-width: 0px; border-bottom-width: 0px; display: inline; border-top-width: 0px" border="0" alt="image" src="http://peterkellner.net/wp/wp-content/uploads/2014/02/image_thumb4.png" width="610" height="216" /></a> </p>
+<p><a href="/wp/wp-content/uploads/2014/02/image4.png"><img title="image" style="border-left-width: 0px; border-right-width: 0px; border-bottom-width: 0px; display: inline; border-top-width: 0px" border="0" alt="image" src="/wp/wp-content/uploads/2014/02/image_thumb4.png" width="610" height="216" /></a> </p>
 <p>&#160;</p></p></p>
 <p>That’s it! basically we’ve done it.&#160; HTHs.&#160; We’ve build a <a href="http://www.asp.net/web-api">WebAPI</a> controller using <a href="http://msdn.microsoft.com/en-us/library/hh156513.aspx">async</a> to capture data coming in as a JSON payload.</p>

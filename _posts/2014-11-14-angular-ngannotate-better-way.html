@@ -11,7 +11,7 @@ author:
 author_login: admin
 author_email: peter@peterkellner.net
 wordpress_id: 4104
-wordpress_url: http://peterkellner.net/?p=4104
+wordpress_url: https://peterkellner.net/?p=4104
 date: '2014-11-14 18:10:42 -0800'
 date_gmt: '2014-11-15 01:10:42 -0800'
 categories:
@@ -68,6 +68,6 @@ tags: []
         .pipe(gulp.dest(<span class="str">'public/dist'</span>))
         .pipe(notify({message: <span class="str">'Scripts task complete'</span>}));
 });</pre>
-<p><a href="http://peterkellner.net/wp/wp-content/uploads/2014/11/image.png"><img style="display: inline; border: 0px;" title="image" src="http://peterkellner.net/wp/wp-content/uploads/2014/11/image_thumb.png" alt="image" width="553" height="205" border="0" /></a></p>
+<p><a href="/wp/wp-content/uploads/2014/11/image.png"><img style="display: inline; border: 0px;" title="image" src="/wp/wp-content/uploads/2014/11/image_thumb.png" alt="image" width="553" height="205" border="0" /></a></p>
 <p>When I run the task above, the gulp diff command stops and shows me what ngAnnotate added to my JavaScript.  Then, I can go and add that myself and then my gulp build will work and it will not generate any errors.</p>
 <p>At the moment, I can’t figure out how to get this task to stop my gulp build process so I have to run this task by itself.  I’d love to hear how to fix that also.  This is all pretty new to me.</p>

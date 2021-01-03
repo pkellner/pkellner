@@ -12,7 +12,7 @@ author:
 author_login: admin
 author_email: peter@peterkellner.net
 wordpress_id: 1649
-wordpress_url: http://peterkellner.net/2011/11/10/entity-frameworks-codefirst-automatically-generates-foreign-keys-for-you/
+wordpress_url: https://peterkellner.net/2011/11/10/entity-frameworks-codefirst-automatically-generates-foreign-keys-for-you/
 date: '2011-11-10 23:24:11 -0800'
 date_gmt: '2011-11-11 06:24:11 -0800'
 categories:
@@ -34,10 +34,10 @@ tags: []
 <p>Notice that in the party class, there is a virtual ICollection of Presidents, and notice in the President class, there is a virtual reference to the Party.&#160; These combined make the relationship work and the foreign key created.</p>
 <p>If I look in my SQL Database, you’ll see a new foreign key is automatically created for me as Party_id.</p>
 <p>&#160;</p>
-<p><a href="http://peterkellner.net/wp/wp-content/uploads/2011/11/image8.png"><img style="background-image: none; border-bottom: 0px; border-left: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px" title="image" border="0" alt="image" src="http://peterkellner.net/wp/wp-content/uploads/2011/11/image_thumb7.png" width="205" height="244" /></a></p>
+<p><a href="/wp/wp-content/uploads/2011/11/image8.png"><img style="background-image: none; border-bottom: 0px; border-left: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px" title="image" border="0" alt="image" src="/wp/wp-content/uploads/2011/11/image_thumb7.png" width="205" height="244" /></a></p>
 <p>I’m not exactly sure how SqlExpressCE shows foreign keys, but I know it is there because when I try to delete a Party record that is associated with a President I get the following error:</p>
 <p>&#160;</p>
-<p><a href="http://peterkellner.net/wp/wp-content/uploads/2011/11/image9.png"><img style="background-image: none; border-bottom: 0px; border-left: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px" title="image" border="0" alt="image" src="http://peterkellner.net/wp/wp-content/uploads/2011/11/image_thumb8.png" width="343" height="248" /></a></p>
+<p><a href="/wp/wp-content/uploads/2011/11/image9.png"><img style="background-image: none; border-bottom: 0px; border-left: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px" title="image" border="0" alt="image" src="/wp/wp-content/uploads/2011/11/image_thumb8.png" width="343" height="248" /></a></p>
 <p>which tells me there is a constraint called Party_Presidents (my foreign key).</p>
 <p>&#160;</p>
-<p>So, it worked!&#160; If you want to see the full source for this, keep an eye on the series of articles I’m now writing (only the first one is done, but probably, by the time you find this, I’ll have others done that include this Presidents example.&#160; You can find the first one at the URL:&#160; <a title="http://peterkellner.net/2011/11/04/building-an-senchas-extjs-4-0-mvc-application-with-microsofts-asp-net-mvc3-series-basics/" href="http://peterkellner.net/2011/11/04/building-an-senchas-extjs-4-0-mvc-application-with-microsofts-asp-net-mvc3-series-basics/">http://peterkellner.net/2011/11/04/building-an-senchas-extjs-4-0-mvc-application-with-microsofts-asp-net-mvc3-series-basics/</a></p>
+<p>So, it worked!&#160; If you want to see the full source for this, keep an eye on the series of articles I’m now writing (only the first one is done, but probably, by the time you find this, I’ll have others done that include this Presidents example.&#160; You can find the first one at the URL:&#160; <a title="https://peterkellner.net/2011/11/04/building-an-senchas-extjs-4-0-mvc-application-with-microsofts-asp-net-mvc3-series-basics/" href="/2011/11/04/building-an-senchas-extjs-4-0-mvc-application-with-microsofts-asp-net-mvc3-series-basics/">https://peterkellner.net/2011/11/04/building-an-senchas-extjs-4-0-mvc-application-with-microsofts-asp-net-mvc3-series-basics/</a></p>

@@ -11,7 +11,7 @@ author:
 author_login: admin
 author_email: peter@peterkellner.net
 wordpress_id: 1556
-wordpress_url: http://peterkellner.net/2011/08/24/getting-extjs-4-date-format-to-behave-properly-in-grid-panel-with-asp-net-mvc3/
+wordpress_url: https://peterkellner.net/2011/08/24/getting-extjs-4-date-format-to-behave-properly-in-grid-panel-with-asp-net-mvc3/
 date: '2011-08-24 11:52:44 -0700'
 date_gmt: '2011-08-24 18:52:44 -0700'
 categories:
@@ -46,9 +46,9 @@ tags: []
 <div>&#160;</div>
 <div>When we run the app and press the “save” button, the actual post that goes back to the asp.net MVC3 controller looks like the following (notice the screen shot of the app first, then what happens when the Save button is pressed)</div>
 <div>&#160;</div>
-<div><a href="http://peterkellner.net/wp/wp-content/uploads/2011/08/image4.png"><img style="background-image: none; border-right-width: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px; padding-top: 0px" title="image" border="0" alt="image" src="http://peterkellner.net/wp/wp-content/uploads/2011/08/image_thumb3.png" width="608" height="320" /></a></div>
+<div><a href="/wp/wp-content/uploads/2011/08/image4.png"><img style="background-image: none; border-right-width: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px; padding-top: 0px" title="image" border="0" alt="image" src="/wp/wp-content/uploads/2011/08/image_thumb3.png" width="608" height="320" /></a></div>
 <div>&#160;</div>
-<div><a href="http://peterkellner.net/wp/wp-content/uploads/2011/08/image5.png"><img style="background-image: none; border-right-width: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px; padding-top: 0px" title="image" border="0" alt="image" src="http://peterkellner.net/wp/wp-content/uploads/2011/08/image_thumb4.png" width="466" height="395" /></a></div>
+<div><a href="/wp/wp-content/uploads/2011/08/image5.png"><img style="background-image: none; border-right-width: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px; padding-top: 0px" title="image" border="0" alt="image" src="/wp/wp-content/uploads/2011/08/image_thumb4.png" width="466" height="395" /></a></div>
 <div>&#160;</div>
 <div>You can see that the date is passed back as Date(1313996400000).&#160; This is actually UTC time so we will need to make sure we check for that on the server.&#160; It’s always a good idea to store all dates on the server in UTC time anyhow.</div>
 <div>&#160;</div>
@@ -56,22 +56,22 @@ tags: []
 <div>&#160;</div>
 <div>So let’s take a look at what is coming to the server.&#160; Remember that in the model, we defined what REST api is hit by a post from this model.&#160; In this case, it’s “update: 'SponsorListJobListing/Update',”.&#160; So, let’s debug into the C# (asp.net) side and see what is actually coming in.&#160; Here is what we see:</div>
 <div>&#160;</div>
-<div><a href="http://peterkellner.net/wp/wp-content/uploads/2011/08/image6.png"><img style="background-image: none; border-right-width: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px; padding-top: 0px" title="image" border="0" alt="image" src="http://peterkellner.net/wp/wp-content/uploads/2011/08/image_thumb5.png" width="624" height="324" /></a></div>
+<div><a href="/wp/wp-content/uploads/2011/08/image6.png"><img style="background-image: none; border-right-width: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px; padding-top: 0px" title="image" border="0" alt="image" src="/wp/wp-content/uploads/2011/08/image_thumb5.png" width="624" height="324" /></a></div>
 <div>&#160;</div>
 <div>Notice that the date comes in very simply as midnight on 8/22/2011 (the date we put in).&#160; The tricky part is we need to store this date as UTC so that when we end it back, it can get converted back to local.&#160; To do this, in our repository class, we have code to convert to UTC as follows:</div>
 <div>&#160;</div>
-<div><a href="http://peterkellner.net/wp/wp-content/uploads/2011/08/image7.png"><img style="background-image: none; border-right-width: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px; padding-top: 0px" title="image" border="0" alt="image" src="http://peterkellner.net/wp/wp-content/uploads/2011/08/image_thumb6.png" width="594" height="444" /></a></div>
+<div><a href="/wp/wp-content/uploads/2011/08/image7.png"><img style="background-image: none; border-right-width: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px; padding-top: 0px" title="image" border="0" alt="image" src="/wp/wp-content/uploads/2011/08/image_thumb6.png" width="594" height="444" /></a></div>
 <div>&#160;</div>
 <div>&#160;</div>
 <div>Your repository will look different, but this is a good example.&#160; Now, notice the StartRunDate will be 8/22/2011 at 7AM.</div>
 <div>&#160;</div>
-<div><a href="http://peterkellner.net/wp/wp-content/uploads/2011/08/image8.png"><img style="background-image: none; border-right-width: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px; padding-top: 0px" title="image" border="0" alt="image" src="http://peterkellner.net/wp/wp-content/uploads/2011/08/image_thumb7.png" width="620" height="76" /></a></div>
+<div><a href="/wp/wp-content/uploads/2011/08/image8.png"><img style="background-image: none; border-right-width: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px; padding-top: 0px" title="image" border="0" alt="image" src="/wp/wp-content/uploads/2011/08/image_thumb7.png" width="620" height="76" /></a></div>
 <p>&#160;</p>
 <p>I’m over simplifying a little because it’s calculating UTC based on the Servers time zone, not the browsers.&#160; It would be better to send the timezone of the browser also and then calculate UTC correctly in <a href="http://en.wikipedia.org/wiki/JavaScript">JavaScript</a>, but I just want to give you the idea here.&#160; In my case, I’m always running this app from California and my server is always inCalifornia so at least things stay consistent.&#160; I do realize I’m simplifying and you need to make sure you think this through.</p>
 <p>&#160;</p>
 <p>Now, when I query the server for the returned data using the same ExtJS data model, the data comes down as follows.&#160; In ASP.NET it looks like this:</p>
-<p><a href="http://peterkellner.net/wp/wp-content/uploads/2011/08/image9.png"><img style="background-image: none; border-right-width: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px; padding-top: 0px" title="image" border="0" alt="image" src="http://peterkellner.net/wp/wp-content/uploads/2011/08/image_thumb8.png" width="244" height="191" /></a></p>
+<p><a href="/wp/wp-content/uploads/2011/08/image9.png"><img style="background-image: none; border-right-width: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px; padding-top: 0px" title="image" border="0" alt="image" src="/wp/wp-content/uploads/2011/08/image_thumb8.png" width="244" height="191" /></a></p>
 <p>Which is actually different than what was pushed up.&#160; It seems though that when ExtJS displays this, it converts it to local time.</p>
 <p>Our browser Grid shows it like this (as we would expect)</p>
-<p><a href="http://peterkellner.net/wp/wp-content/uploads/2011/08/image10.png"><img style="background-image: none; border-right-width: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px; padding-top: 0px" title="image" border="0" alt="image" src="http://peterkellner.net/wp/wp-content/uploads/2011/08/image_thumb9.png" width="156" height="112" /></a></p>
+<p><a href="/wp/wp-content/uploads/2011/08/image10.png"><img style="background-image: none; border-right-width: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px; padding-top: 0px" title="image" border="0" alt="image" src="/wp/wp-content/uploads/2011/08/image_thumb9.png" width="156" height="112" /></a></p>
 <p>Hope this helps!</p>

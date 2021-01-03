@@ -17,7 +17,7 @@ excerpt: "<p>A Step by step tutorial on how to use WildCard Mapping for processi
   URLRewriter.Net.  Basically, how to resolve http://mydomain.com/Home to http://mydomain.com/HomeSite/Home.aspx
   which looks so much nicer.</p>"
 wordpress_id: 142
-wordpress_url: http://peterkellner.net/2008/08/24/urlrewrite-with-aspnet-urlrewriter-wildcard-mapping-iis6-iis7/
+wordpress_url: https://peterkellner.net/2008/08/24/urlrewrite-with-aspnet-urlrewriter-wildcard-mapping-iis6-iis7/
 date: '2008-08-24 22:19:02 -0700'
 date_gmt: '2008-08-25 03:19:02 -0700'
 categories:
@@ -38,7 +38,7 @@ tags: []
 <p><strong>The resource you are looking for has been removed, had its name changed, or is temporarily unavailable.</strong></p>
 <p><a href="http://msdn.microsoft.com/en-us/library/system.web.httpapplication.maprequesthandler.aspx">MapRequestHandler</a> StaticFile</p>
 <p>And the screen may show something like this.</p>
-<p><a href="http://peterkellner.net/wp/wp-content/uploads/2008/08/x3.png"><img style="border-right-width: 0px; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" border="0" alt="x" src="http://peterkellner.net/wp/wp-content/uploads/2008/08/x_thumb.png" width="537" height="397" /></a></p>
+<p><a href="/wp/wp-content/uploads/2008/08/x3.png"><img style="border-right-width: 0px; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" border="0" alt="x" src="/wp/wp-content/uploads/2008/08/x_thumb.png" width="537" height="397" /></a></p>
 <p>If this happens, read on. </p>
 <h2>Theory</h2>
 <p>The first thing to understand is that <a href="http://www.microsoft.com/WindowsServer2003/IIS/Default.mspx">IIS</a> by default will pass to the asp.net process only the requests that have a certain file extension.&#160; That is, <a href="http://www.eggheadcafe.com/articles/20030113.asp">aspx,ashx</a>,etc.&#160; Basically, only file extensions that have a handler defined for them to be processed by.&#160; Other URL's that don't meet the criteria are not passed to IIS.&#160; This includes no file extension at all.&#160; There is a good reason for this.&#160; One, it makes processing of things like images (jpg's, gif's, etc.) faster because they do not every have to be processed through the asp.net worker process.&#160; Secondly, it lowers the exposure of the asp.net worker process so that it is less likely to be compromised. </p>
@@ -47,13 +47,13 @@ tags: []
 <h2>How To Set Wild Card Mapping in IIS6</h2>
 <p>To Set Wild Care Mapping in IIS6 you need to do the following.</p>
 <p>Run inetmgr and navigate to the Properties page of the website you want to set.</p>
-<p><a href="http://peterkellner.net/wp/wp-content/uploads/2008/08/test.jpg"><img style="border-right-width: 0px; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" border="0" alt="test" src="http://peterkellner.net/wp/wp-content/uploads/2008/08/test_thumb.jpg" width="272" height="332" /></a>&#160;</p>
+<p><a href="/wp/wp-content/uploads/2008/08/test.jpg"><img style="border-right-width: 0px; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" border="0" alt="test" src="/wp/wp-content/uploads/2008/08/test_thumb.jpg" width="272" height="332" /></a>&#160;</p>
 <p>Then, from the properties page, click the Configuration button as shown below.</p>
-<p><a href="http://peterkellner.net/wp/wp-content/uploads/2008/08/t.jpg"><img style="border-right-width: 0px; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" border="0" alt="t" src="http://peterkellner.net/wp/wp-content/uploads/2008/08/t_thumb.jpg" width="280" height="281" /></a></p>
+<p><a href="/wp/wp-content/uploads/2008/08/t.jpg"><img style="border-right-width: 0px; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" border="0" alt="t" src="/wp/wp-content/uploads/2008/08/t_thumb.jpg" width="280" height="281" /></a></p>
 <p>Then, press the insert button on the configuration screen and see the following screen and then click on the insert button.</p>
-<p><a href="http://peterkellner.net/wp/wp-content/uploads/2008/08/t6.jpg"><img style="border-right-width: 0px; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" border="0" alt="t[6]" src="http://peterkellner.net/wp/wp-content/uploads/2008/08/t6_thumb.jpg" width="288" height="320" /></a></p>
+<p><a href="/wp/wp-content/uploads/2008/08/t6.jpg"><img style="border-right-width: 0px; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" border="0" alt="t[6]" src="/wp/wp-content/uploads/2008/08/t6_thumb.jpg" width="288" height="320" /></a></p>
 <p>Now, insert your asp.net isapi dll.&#160; On my system, the file is here:&#160; C:WINDOWSMicrosoft.NETFrameworkv2.0.50727aspnet_isapi.dll.&#160; Make sure to uncheck the box &quot;Verify that file exists&quot;.</p>
-<p><a href="http://peterkellner.net/wp/wp-content/uploads/2008/08/t9.jpg"><img style="border-right-width: 0px; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" border="0" alt="t[9]" src="http://peterkellner.net/wp/wp-content/uploads/2008/08/t9_thumb.jpg" width="430" height="126" /></a></p>
+<p><a href="/wp/wp-content/uploads/2008/08/t9.jpg"><img style="border-right-width: 0px; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" border="0" alt="t[9]" src="/wp/wp-content/uploads/2008/08/t9_thumb.jpg" width="430" height="126" /></a></p>
 <p>That's it! Now, all requests will be processed through you asp.net pipeline so you will be able to intercept anything on the URL you want.&#160; Be careful though, you may get more than you ask for! </p>
 <h2>How To Set Wildcard Mapping in IIS7</h2>
 <p>In IIS7 things are a little different.&#160; First thing you need to do is unlock the config section &quot;handlers&quot;. You do this by bring up a DOS prompt and entering the command: </p>
