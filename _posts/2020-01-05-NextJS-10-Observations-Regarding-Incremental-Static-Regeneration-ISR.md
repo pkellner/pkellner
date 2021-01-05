@@ -13,7 +13,11 @@ excerpt: NextJS 9 introduced Incremental Static Regeneration and further refined
 
 # Important Caveot
 
-All these observations are about what happen in production.  That is, after
+All these observations are about what happen in production.  You can read more about ISR on the next site here:
+
+[https://nextjs.org/docs/basic-features/data-fetching#incremental-static-regeneration](https://nextjs.org/docs/basic-features/data-fetching#incremental-static-regeneration)
+
+[Blog Post on NextJS Site](https://nextjs.org/blog/next-9-4)
 
 `npm run build; npm start`
 
