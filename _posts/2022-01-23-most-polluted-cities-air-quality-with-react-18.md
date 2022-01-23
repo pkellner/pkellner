@@ -2,37 +2,29 @@
 layout: post
 status: publish
 published: true
-title: NextJS 10 and Thoughts Around Incremental Static Regeneration (ISR)
+title: Build a Web Site With React 18 That Shows the Most Polluted Cities in the United States
 author: Peter Kellner
 display_name: Peter Kellner
 login: admin
 email: peter@peterkellner.net
 author_email: peter@peterkellner.net
-excerpt: NextJS 9 introduced Incremental Static Regeneration and further refined it in NextJS 10.  There is a lot to it's subtle behavior and I'm writing some notes about there here that I've found are not documented yet.
+excerpt: See the most polluted cities in the United States ranked by Air Quality as well as how to built that app in React 18
 ---
 
-![](../blogimages/2021-10-23-Fixing-an-ASPNET-to-IIS-Deployment-Error/i1.png)
-
-![](../blogimages/2021-10-23-Fixing-an-ASPNET-to-IIS-Deployment-Error/i2.png)
-
-![](../blogimages/2021-10-23-Fixing-an-ASPNET-to-IIS-Deployment-Error/i3.png)
-
-![](../blogimages/2021-10-23-Fixing-an-ASPNET-to-IIS-Deployment-Error/i4.png)
-
-![](../blogimages/2021-10-23-Fixing-an-ASPNET-to-IIS-Deployment-Error/i5.png)
 
 
-# Important Caveot
+# Check Out the Final Running React 18 App
 
-All these observations are about what happen in production.  You can read more about ISR on the next site here:
+You can browse to the final running URL here:  
 
-[https://nextjs.org/docs/basic-features/data-fetching#incremental-static-regeneration](https://nextjs.org/docs/basic-features/data-fetching#incremental-static-regeneration)
+[![Most Polluted Cities in Unites States](https://airquality.peterkellner.net/images/airquality-350x220.png)](https://airquality.peterkellner.net/)
 
-[Blog Post on NextJS Site](https://nextjs.org/blog/next-9-4)
+[https://airquality.peterkellner.net/](https://airquality.peterkellner.net/)
 
-`npm run build; npm start`
 
-The behavior in dev mode `npm run dev` is not important regarding production deployment or this post.  
+And, to see the source code for the React 18 app here:
+
+[https://github.com/pkellner/airquality](https://github.com/pkellner/airquality)
 
 # Observations (in no order)
 
