@@ -46,11 +46,11 @@ You can browse to the final running URL here:
 
 Here is the playground:
 
-![](/assets/posts/2022-02-11/as3-working-png)
+![]/assets/posts/2022-02-11/as3-working.png)
 
 And what the Redis data looks like
 
 ![](/assets/posts/2022-02-11/redis-insight-screenshot.png)
-'
+
 
 Enjoy!
