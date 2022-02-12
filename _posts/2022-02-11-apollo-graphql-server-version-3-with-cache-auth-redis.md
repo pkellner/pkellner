@@ -27,16 +27,16 @@ npm start
 And you are good to go. You'll get a GraphQL playground that you can type your queries into.  Try this one, or in the readme to test auth.
 
 ```
-{
-	hello {
-    value
+  {
+    hello {
+      value
+    }
+    membership {
+      id
+      firstName
+      lastName
+    }
   }
-  membership {
-    id
-    firstName
-    lastName
-  }
-}
 ```
 
 
