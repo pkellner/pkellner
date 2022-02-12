@@ -16,7 +16,7 @@ excerpt: This is a clean example of a GraphQL Apollo Server Version 3 working wi
 # The repository that includes the source
 
 
-https://github.com/pkellner/apollo-server-3-with-cache-redis
+[https://github.com/pkellner/apollo-server-3-with-cache-redis](https://github.com/pkellner/apollo-server-3-with-cache-redis)
 
 All you have to do is 
 
