@@ -3,7 +3,7 @@ layout: post
 status: publish
 published: true
 title: How To Return Non IQueryable Results That Include Entity Framework Context in Hot Chocolate GraphQL Server
-author:
+author: Peter Kellner
 display_name: Peter Kellner
 login: admin
 email: peter@peterkellner.net
