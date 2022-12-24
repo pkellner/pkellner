@@ -31,7 +31,7 @@ looks like this:
 
 **{YourDomain}/.well-known/webfinger**
 
-Or, in my case, https://peterkellner.net/.well-known/webfinger
+Or, in my case, [https://peterkellner.net/.well-known/webfinger](https://peterkellner.net/.well-known/webfinger)
 
 To get this file, you need to browse to your current Mastodon instance at a URL like this:
 
@@ -43,13 +43,13 @@ https://techhub.social/.well-known/webfinger?resource=acct:pkellner@techhub.soci
 
 Then, using wget, or however you want, copy that file to your own static server so it responds from the URL
 
-**{YourDomain}/.well-known/webfinger** ( https://peterkellner.net/.well-known/webfinger )
+**{YourDomain}/.well-known/webfinger** ( [https://peterkellner.net/.well-known/webfinger](https://peterkellner.net/.well-known/webfinger) )
 
 Because I use Jekyl and GitHub Pages, I had to also update my _config.yaml file to have the additional line:
 
 **include: [ ".well-known" ]**
 
-Here is the commit I did that with: https://github.com/pkellner/pkellner/commit/c384f4239fa602ff440bbe14bf106b0ca76ca6e3
+Here is the [commit](https://github.com/pkellner/pkellner/commit/c384f4239fa602ff440bbe14bf106b0ca76ca6e3) I did that with.
 
 but this may not be necessary for you.
 
@@ -61,5 +61,5 @@ See you at Mastodon!
 
 Everything I know I got from:
 
-https://blog.maartenballiauw.be/post/2022/11/05/mastodon-own-donain-without-hosting-server.html
+[https://blog.maartenballiauw.be/post/2022/11/05/mastodon-own-donain-without-hosting-server.html](https://blog.maartenballiauw.be/post/2022/11/05/mastodon-own-donain-without-hosting-server.html)
 
