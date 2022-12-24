@@ -28,6 +28,10 @@ twitter_username: pkellner
 github_username:  pkellner
 linkedin_username: peterkellner99
 google_analytics: UA-648264-1
+mastodon: pkellner@techhub.social
+
+# Include these files/folders that are excluded by default
+include: [ "/.well-known" ]
 
 #picture:
 #  ignore_missing_images: true"
