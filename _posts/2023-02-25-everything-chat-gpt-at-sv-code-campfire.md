@@ -23,7 +23,7 @@ Here is the live stream URL (starting at 9:15 AM Today, February 25th, 2023)
 
 And our Sessions
 
-<table style = 'MARGIN-LEFT: 3%' borderColor=#ff8000 cellSpacing=0 cellPadding=7 width='90%' border=1><TBODY>
+<TABLE>
 <TR>
 <TD width=356><A
 href='https://www.siliconvalley-codecamp.com/Session/campfire-1002/chatgpt-it-will-blow-your-mind'><B><FONT
@@ -55,8 +55,7 @@ size=4>Will ChatGPT Do X? Build Your Own Mini-ChatGPT and Then Decide for Yourse
 <TD><FONT size=4><B>Carson Lam</B></FONT></TD>
 <TD><IMG alt='Speaker: Carson Lam'
 src='https://www.siliconvalley-codecamp.com/attendeeimage/48197.jpg?format=jpg&width=40&Height=40&scale=both&mode=pad&Bgcolor=F6F4F6'></TD></TR>
-</TBODY>
-</table>
+</TABLE>
 
 
 ![](/assets/posts/2023-02-25/schedule.png)
