@@ -12,7 +12,7 @@ author:
 author_login: admin
 author_email: peter@peterkellner.net
 wordpress_id: 1973
-wordpress_url: http://peterkellner.net/?p=1973
+wordpress_url: https://peterkellner.net/?p=1973
 date: '2012-04-20 17:00:24 -0700'
 date_gmt: '2012-04-21 00:00:24 -0700'
 categories:
@@ -27,16 +27,16 @@ tags: []
 <tbody>
 <tr>
 <td valign="top" width="199">Part 1</td>
-<td valign="top" width="161"><a href="http://peterkellner.net/2011/11/04/building-an-senchas-extjs-4-0-mvc-application-with-microsofts-asp-net-mvc3-series-basics/">Basics (mostly server side)</a></td>
+<td valign="top" width="161"><a href="/2011/11/04/building-an-senchas-extjs-4-0-mvc-application-with-microsofts-asp-net-mvc3-series-basics/">Basics (mostly server side)</a></td>
 </tr>
 <tr>
 <td valign="top" width="219">Part 2 (this)</td>
-<td valign="top" width="170"><a href="http://peterkellner.net/2012/04/20/details-on-the-extjs-application-to-build-simple-crud-operation-using-models-and-stores/">ExtJS Client Side Details</a></td>
+<td valign="top" width="170"><a href="/2012/04/20/details-on-the-extjs-application-to-build-simple-crud-operation-using-models-and-stores/">ExtJS Client Side Details</a></td>
 </tr>
 </tbody>
 </table>
 <p>&nbsp;</p>
-<p><em>*For those who are intersted in this, I just posted a 3 part series on using ExtJS 4.2 with Microsoft's new WebAPI Restful Interface.  The new WebAPI is more efficient on the server side and the coding to REST makes the ExtJS side simpler</em>. (March 13, 2013)    <a title="Part 1" href="http://peterkellner.net/2013/03/13/building-a-simple-rest-controller-with-microsoft-visual-studio-2012-and-webapi/ ">Part 1</a></p>
+<p><em>*For those who are intersted in this, I just posted a 3 part series on using ExtJS 4.2 with Microsoft's new WebAPI Restful Interface.  The new WebAPI is more efficient on the server side and the coding to REST makes the ExtJS side simpler</em>. (March 13, 2013)    <a title="Part 1" href="/2013/03/13/building-a-simple-rest-controller-with-microsoft-visual-studio-2012-and-webapi/ ">Part 1</a></p>
 <p>In the first article, a very simple updater was build using <a href="http://www.sencha.com/">Sencha’s</a> <a href="http://www.sencha.com/products/extjs/">ExtJS</a> and Microsoft’s <a href="http://msdn.microsoft.com/en-us/data/aa937723">Entity Framework</a> <a href="http://blogs.msdn.com/b/adonet/archive/2011/04/11/ef-4-1-released.aspx">Code First</a>.  The focus was really on the server side while the client side project was included for reference.  The client side app was barely discussed.  In this article, we are going to discuss in more detail what is happening on the client side and how the <a href="http://www.sencha.com/products/extjs/">Sencha ExtJS</a> <a href="http://en.wikipedia.org/wiki/JavaScript">JavaScript</a> library helps us to implement these updates.</p>
 <p>&nbsp;</p>
 <h2>The Basics</h2>
@@ -123,7 +123,7 @@ Ext.application({
 });</pre>
 <p>Without going into to much detail, basically, what has been done above is a to create a simple <a href="http://docs.sencha.com/ext-js/4-0/#!/api/Ext.data.Model">model</a> (myModel) which contains a JsonReader and JsonWriter and proxy of course. This model has a couple fields in it (Id,Name and Email), then a simple <a href="http://docs.sencha.com/ext-js/4-0/#!/api/Ext.data.Store">store</a> is created that uses this model called myStore.  Once this store has been created, we simply call the store’s “add” method with a config object that represents the data, then calling sync() on that store forces an insert (or create) to be executed through the proxy.  If I look at Chrome’s JavaScript debugger (network tab), you can see from the picture below that indeed, the servers UserInfo/Create method has been called passing in the parameters Name and Email.</p>
 <p>&nbsp;</p>
-<p><a href="http://peterkellner.net/wp/wp-content/uploads/2012/04/image14.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border-width: 0px;" title="image" alt="image" src="http://peterkellner.net/wp/wp-content/uploads/2012/04/image_thumb12.png" width="516" height="192" border="0" /></a></p>
+<p><a href="/wp/wp-content/uploads/2012/04/image14.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border-width: 0px;" title="image" alt="image" src="/wp/wp-content/uploads/2012/04/image_thumb12.png" width="516" height="192" border="0" /></a></p>
 <p>&nbsp;</p>
 <p>It’s important to understand these steps because we will be using the store and model in a similar way when we update the data in our next section.</p>
 <p>&nbsp;</p>
@@ -131,7 +131,7 @@ Ext.application({
 <p>&nbsp;</p>
 <p>We are using the ExtJS MVC architecture for this app so all our procedural code is in the controller.  For the Ext.grid.Panel, all we have for the view is the following (app/view/List.js).</p>
 <p>&nbsp;</p>
-<p><a href="http://peterkellner.net/wp/wp-content/uploads/2012/04/image15.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border-width: 0px;" title="image" alt="image" src="http://peterkellner.net/wp/wp-content/uploads/2012/04/image_thumb13.png" width="322" height="179" border="0" /></a></p>
+<p><a href="/wp/wp-content/uploads/2012/04/image15.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border-width: 0px;" title="image" alt="image" src="/wp/wp-content/uploads/2012/04/image_thumb13.png" width="322" height="179" border="0" /></a></p>
 <p>&nbsp;</p>
 <pre class="csharpcode">Ext.define(<span class="str">'AM.view.user.List'</span>, {
     extend: <span class="str">'Ext.grid.Panel'</span>,

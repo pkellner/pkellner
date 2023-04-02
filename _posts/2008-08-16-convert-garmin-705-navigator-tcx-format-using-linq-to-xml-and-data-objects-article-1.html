@@ -15,7 +15,7 @@ excerpt: "<p>In this post, we will discuss what is necessary to convert the file
   from a Garmin 705 navigator to C# .net Data Objects.  We will use LINQ to XML to
   perform this function</p>"
 wordpress_id: 130
-wordpress_url: http://peterkellner.net/?p=353
+wordpress_url: https://peterkellner.net/?p=353
 date: '2008-08-16 16:51:35 -0700'
 date_gmt: '2008-08-16 23:51:35 -0700'
 categories:
@@ -26,7 +26,7 @@ categories:
 tags: []
 ---
 <div style="padding-bottom: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px" id="scid:fb3a1972-4489-4e52-abe7-25a00bb07fdf:49a18748-824c-4841-930e-2404c7ac586c" class="wlWriterSmartContent">
-<p>Solution File For VisualStudio 2008 <a href="http://peterkellner.net/wp/wp-content/uploads/2008/08/garminwebconversiononly.zip" target="_blank">GarminWebConversionOnly.zip</a></p>
+<p>Solution File For VisualStudio 2008 <a href="/wp/wp-content/uploads/2008/08/garminwebconversiononly.zip" target="_blank">GarminWebConversionOnly.zip</a></p>
 </p></div>
 <p>Several months ago, I bought a <a href="https://buy.garmin.com/shop/shop.do?pID=10885&amp;locale=en_US">Garmin 705</a> Navigator for my bike.&#160; As a gadget junkie, I always want to have the latest stuff.&#160; For years, I've used Polar Heartrate monitors, but the idea of having maps on my handle bars was just to much to pass up.&#160; Since the Garmin's output is an XML file I figure I have an obligation to unravel it, and what better tool to do this than Microsoft's LINQ to XML.&#160; Many months ago I posted a <a href="/2008/01/18/tivospaceviewerwithlinq/">similar article using LINQ to XML for showing the amount of space that was used on my TIVO by category</a>.&#160; This article is not quite an end to end solution like that one.&#160; It's just a first step.&#160; What we will show is the steps necessary to convert the TCS file in data objects which we can use in future posts for display with technologies such as windows live maps.</p>
 <p> <!--more-->
@@ -41,12 +41,12 @@ tags: []
 </tbody>
 </table></div></p>
 <p>So, let's begin.&#160; The first thing you need to do is plug your <a href="http://www.garmin.com/garmin/cms/site/us">Garmin</a>&#160; 705 into your USB port and you will see all the TCX files nicely arranged on the drive as follows.</p>
-<p><a href="http://peterkellner.net/wp/wp-content/uploads/2008/08/xxx.png"><img style="border-right-width: 0px; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" border="0" alt="xxx" src="http://peterkellner.net/wp/wp-content/uploads/2008/08/xxx-thumb.png" width="354" height="285" /></a></p>
+<p><a href="/wp/wp-content/uploads/2008/08/xxx.png"><img style="border-right-width: 0px; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" border="0" alt="xxx" src="/wp/wp-content/uploads/2008/08/xxx-thumb.png" width="354" height="285" /></a></p>
 <p>If you look at any of these files, you'll see an xml formatted file that begins like the following:</p>
-<p><a href="http://peterkellner.net/wp/wp-content/uploads/2008/08/ttt.png"><img style="border-right-width: 0px; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" border="0" alt="ttt" src="http://peterkellner.net/wp/wp-content/uploads/2008/08/ttt-thumb.png" width="360" height="426" /></a></p>
+<p><a href="/wp/wp-content/uploads/2008/08/ttt.png"><img style="border-right-width: 0px; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" border="0" alt="ttt" src="/wp/wp-content/uploads/2008/08/ttt-thumb.png" width="360" height="426" /></a></p>
 <p>You will notice it has a schema associated with it (xmlns=&quot;http://..&quot;).&#160; The schema docs can be found on Garmin's web site here:&#160; <a title="http://www8.garmin.com/xmlschemas/TrainingCenterDatabasev2.xsd" href="http://www8.garmin.com/xmlschemas/TrainingCenterDatabasev2.xsd">http://www8.garmin.com/xmlschemas/TrainingCenterDatabasev2.xsd</a></p>
 <p>Looking at the schema, it's clear that we need to build several c# classes to use that we will extract the xml data into.&#160; Below is a class diagram built with Visual Studio 2008 that shows the classes.</p>
-<p><a href="http://peterkellner.net/wp/wp-content/uploads/2008/08/z1.png"><img style="border-right-width: 0px; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" border="0" alt="z1" src="http://peterkellner.net/wp/wp-content/uploads/2008/08/z1-thumb.png" width="554" height="176" /></a></p>
+<p><a href="/wp/wp-content/uploads/2008/08/z1.png"><img style="border-right-width: 0px; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" border="0" alt="z1" src="/wp/wp-content/uploads/2008/08/z1-thumb.png" width="554" height="176" /></a></p>
 <p>I don't quite know the tricks for using the associated relationships necessary with the class builder to make this look pretty, but what we have is an Activity class that holds Laps by using a generic list of the Lap.&#160; Lap's contain Track's, Track's contain many TrackPoint's which are the locations, and each Trackpoint represents a geographical position.</p>
 <p>Here are what the classes look like.</p>
 <style type="text/css">

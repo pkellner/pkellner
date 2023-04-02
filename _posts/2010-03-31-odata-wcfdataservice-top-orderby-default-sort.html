@@ -15,7 +15,7 @@ excerpt: This post show a simple WCF Data Service (Formerly known as ADO.NET Dat
   data.  It goes on to show that using $top forces a server side sort of the data
   by the data's primary key before sending the data out to the client program.
 wordpress_id: 1165
-wordpress_url: http://peterkellner.net/2010/03/31/odata-wcfdataservice-top-orderby-default-sort/
+wordpress_url: https://peterkellner.net/2010/03/31/odata-wcfdataservice-top-orderby-default-sort/
 date: '2010-03-31 11:24:31 -0700'
 date_gmt: '2010-03-31 18:24:31 -0700'
 categories:
@@ -32,10 +32,10 @@ tags: []
 <p>What actually happens is when you use the orderby clause, the data will be sorted 100% of the time for you, whether you do it or not.</p>
 <p> <!--more-->
 <p>I put a small example together that shows that.&#160; I’ll briefly step through the parts of the code attached to this post that show that happening.&#160; First, the results:</p>
-<p><a href="http://peterkellner.net/FilesForWebDownload/ODataQueryOptiontopForcesDataToBeSortedB_9CBC/image.png"><img style="border-right-width: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="image" border="0" alt="image" src="http://peterkellner.net/FilesForWebDownload/ODataQueryOptiontopForcesDataToBeSortedB_9CBC/image_thumb.png" width="411" height="202" /></a></p>
+<p><a href="/FilesForWebDownload/ODataQueryOptiontopForcesDataToBeSortedB_9CBC/image.png"><img style="border-right-width: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="image" border="0" alt="image" src="/FilesForWebDownload/ODataQueryOptiontopForcesDataToBeSortedB_9CBC/image_thumb.png" width="411" height="202" /></a></p>
 <p>Here is the actual Visual Studio 2010 RC project you can run yourself:</p>
 <div style="padding-bottom: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; float: none; padding-top: 0px" id="scid:8eb9d37f-1541-4f29-b6f4-1eea890d4876:3b91b815-24f9-4c84-aa5e-cf26654049f6" class="wlWriterSmartContent">
-<div>Solution: <a href="http://peterkellner.net/FilesForWebDownload/ODataQueryOptiontopForcesDataToBeSortedB_9CBC/WCFServicesWithODataExample.zip" target="_self">WCFServicesWithODataExample.zip</a></div>
+<div>Solution: <a href="/FilesForWebDownload/ODataQueryOptiontopForcesDataToBeSortedB_9CBC/WCFServicesWithODataExample.zip" target="_self">WCFServicesWithODataExample.zip</a></div>
 </p></div>
 <p>Notice that when $top=5 is called, the data returned is sorted by the primary key.</p>
 <p>Now, here are the details of the project that shows this happening.</p>

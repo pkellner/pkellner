@@ -11,7 +11,7 @@ author:
 author_login: admin
 author_email: peter@peterkellner.net
 wordpress_id: 158
-wordpress_url: http://peterkellner.net/2008/09/09/mvc-tutorial-simple-generic-list-preview5/
+wordpress_url: https://peterkellner.net/2008/09/09/mvc-tutorial-simple-generic-list-preview5/
 date: '2008-09-09 13:35:28 -0700'
 date_gmt: '2008-09-09 18:35:28 -0700'
 categories:
@@ -26,20 +26,20 @@ tags: []
 <p> <!--more-->
 <p>So, as is normal, when I learn something new, the most obvious things just don't seem to work.&#160; In this case, I'm just trying to make a web page that shows a list of data on a page.&#160; I'm not going to try and teach MVC here, but if you are like me and struggled with this, this should help you get through some of the tough spots. My plan is to start a new MVC project with Visual Studio and show you what is necessary to generate the list.&#160; Instead of going after a database, I'm going to use an simple business object class so you can run this without connecting to a database.&#160; Not sure about you, but I never seem to be able to get the databases from example code working.&#160; Scott Guthrie uses the Northwind databases Product table, and after spending about 15 minutes searching, all I could find was a <a href="http://www.microsoft.com/downloads/details.aspx?FamilyID=06616212-0356-46A0-8DA2-EEBC53A68034&amp;displaylang=en">Northwind database from sqlserver 2000</a> that does not have a Product table.&#160; With my demo, you won't have to worry about that.&#160; By the way, here is the project if you want to download it in action.</p>
 <div style="padding-bottom: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px" id="scid:18d43e01-4549-4fde-8ca6-c7b4b7385fac:176475a3-eab9-41db-8107-c37ea0c2a70b" class="wlWriterSmartContent">
-<p>Download Solution - <a href="http://peterkellner.net/wp/wp-content/uploads/2008/09/Solution.zip">Solution.zip</a></p>
+<p>Download Solution - <a href="/wp/wp-content/uploads/2008/09/Solution.zip">Solution.zip</a></p>
 </p></div>
 <p>So, Here we go.&#160; First thing, Open Visual Studio 2008 and create a new MVC Project (not a web site, this will give you a csproj type file)</p>
-<p>&#160;<a href="http://peterkellner.net/wp/wp-content/uploads/2008/09/image1.png"><img style="border-right-width: 0px; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" border="0" alt="image" src="http://peterkellner.net/wp/wp-content/uploads/2008/09/image_thumb1.png" width="535" height="424" /></a></p>
+<p>&#160;<a href="/wp/wp-content/uploads/2008/09/image1.png"><img style="border-right-width: 0px; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" border="0" alt="image" src="/wp/wp-content/uploads/2008/09/image_thumb1.png" width="535" height="424" /></a></p>
 <p>Answer the next question YES because of course you want a Test Project.</p>
-<p><a href="http://peterkellner.net/wp/wp-content/uploads/2008/09/image_31.png"><img style="border-right-width: 0px; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" border="0" alt="image" src="http://peterkellner.net/wp/wp-content/uploads/2008/09/image_thumb_31.png" width="424" height="284" /></a></p>
+<p><a href="/wp/wp-content/uploads/2008/09/image_31.png"><img style="border-right-width: 0px; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" border="0" alt="image" src="/wp/wp-content/uploads/2008/09/image_thumb_31.png" width="424" height="284" /></a></p>
 <p>You should get a Solution that looks like this:</p>
-<p><a href="http://peterkellner.net/wp/wp-content/uploads/2008/09/image_4.png"><img style="border-right-width: 0px; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" border="0" alt="image" src="http://peterkellner.net/wp/wp-content/uploads/2008/09/image_thumb_4.png" width="197" height="330" /></a></p>
+<p><a href="/wp/wp-content/uploads/2008/09/image_4.png"><img style="border-right-width: 0px; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" border="0" alt="image" src="/wp/wp-content/uploads/2008/09/image_thumb_4.png" width="197" height="330" /></a></p>
 <p>Now, Add the business object that I will be using for this rest of this demonstration.&#160; It's in the project file, our you just download it here (put this in your Models Directory).</p>
 <div style="padding-bottom: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px" id="scid:fb3a1972-4489-4e52-abe7-25a00bb07fdf:73729366-c7a7-43f3-a538-5ec829978430" class="wlWriterSmartContent">
 <p>BusinessObjectClass.cs <a href="/FilesForWebDownload/ViewaLINQListwith.StepbyStepWithPreview5_7BE7/BusinessObjectClass.cs" target="_blank">BusinessObjectClass.cs</a></p>
 </p></div>
 <p>Now, let's create the MVC Controller.&#160; Highlight the Controller's Folder and say Add Item (TMI if I show you that).&#160; Here is the dialog.&#160; Create the name of your controller with the syntax {Name}Controller.&#160; In my case, the name is EmailListControler.cs.</p>
-<p><a href="http://peterkellner.net/wp/wp-content/uploads/2008/09/image_5.png"><img style="border-right-width: 0px; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" border="0" alt="image" src="http://peterkellner.net/wp/wp-content/uploads/2008/09/image_thumb_5.png" width="424" height="293" /></a></p>
+<p><a href="/wp/wp-content/uploads/2008/09/image_5.png"><img style="border-right-width: 0px; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" border="0" alt="image" src="/wp/wp-content/uploads/2008/09/image_thumb_5.png" width="424" height="293" /></a></p>
 <p>Add the following code to your EmailListController.cs file to retrieve some data and return it as a View (which will be processed by the View Page coming up).</p>
 <div class="csharpcode">
 <pre class="alt"><span class="kwrd">using</span> System.Collections.Generic;</pre>
@@ -102,12 +102,12 @@ tags: []
 }<br />
 .csharpcode .lnum { color: #606060; }</style>
 <p>Then, create a new folder called EmailList under the Views folder.</p>
-<p>&#160;<a href="http://peterkellner.net/wp/wp-content/uploads/2008/09/image_6.png"><img style="border-right-width: 0px; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" border="0" alt="image" src="http://peterkellner.net/wp/wp-content/uploads/2008/09/image_thumb_6.png" width="244" height="142" /></a></p>
+<p>&#160;<a href="/wp/wp-content/uploads/2008/09/image_6.png"><img style="border-right-width: 0px; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" border="0" alt="image" src="/wp/wp-content/uploads/2008/09/image_thumb_6.png" width="244" height="142" /></a></p>
 <p>Then, create a MVCViewPage in the EmailList folder called Index.aspx.</p>
-<p>&#160;<a href="http://peterkellner.net/wp/wp-content/uploads/2008/09/image_7.png"><img alt="image" src="http://peterkellner.net/wp/wp-content/uploads/2008/09/image_thumb_7.png" width="612" height="360" /></a></p>
+<p>&#160;<a href="/wp/wp-content/uploads/2008/09/image_7.png"><img alt="image" src="/wp/wp-content/uploads/2008/09/image_thumb_7.png" width="612" height="360" /></a></p>
 <p>(Actually, choose MVC View Content Page, not MVC View Page)</p>
 <p>Then, chose the Master Page to use as follows (there is only one):</p>
-<p><a href="http://peterkellner.net/wp/wp-content/uploads/2008/09/image_8.png"><img style="border-right-width: 0px; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" border="0" alt="image" src="http://peterkellner.net/wp/wp-content/uploads/2008/09/image_thumb_8.png" width="579" height="354" /></a></p>
+<p><a href="/wp/wp-content/uploads/2008/09/image_8.png"><img style="border-right-width: 0px; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" border="0" alt="image" src="/wp/wp-content/uploads/2008/09/image_thumb_8.png" width="579" height="354" /></a></p>
 <p>The View will be referring to the ViewData.Model which somehow is associated with how the code behind is implemented. Make sure you have the ViewPage look like the following and the data type specified as below.&#160; This is the file Index.aspx.cs which is in your email directory.</p>
 <div class="csharpcode">
 <pre class="alt"><span class="kwrd">using</span> System.Collections.Generic;</pre>
@@ -197,7 +197,7 @@ tags: []
 }<br />
 .csharpcode .lnum { color: #606060; }</style>
 <p>Notice that you have intellisense working on your foreach items.</p>
-<p>&#160;<a href="http://peterkellner.net/wp/wp-content/uploads/2008/09/image_9.png"><img alt="image" src="http://peterkellner.net/wp/wp-content/uploads/2008/09/image_thumb_9.png" width="554" height="141" /></a></p>
+<p>&#160;<a href="/wp/wp-content/uploads/2008/09/image_9.png"><img alt="image" src="/wp/wp-content/uploads/2008/09/image_thumb_9.png" width="554" height="141" /></a></p>
 <p>Finally, go to your Master Page and add a link for this new EmailList as follows.&#160; That is, change the file /Views/Shared/Site.Master</p>
 <div class="csharpcode">
 <pre class="alt">&lt;ul id=<span class="str">&quot;menu&quot;</span>&gt;              </pre>
@@ -233,5 +233,5 @@ tags: []
 .csharpcode .lnum { color: #606060; }</style>
 <p>As you can see, I don't quite grock the ActionLinke parameters so I just put in a standard anchor tag.&#160; Please comment below on what it should be to be able to reference /EmailList and I will update the article.&#160; For now, lunch is coming and I need to run.</p>
 <p>When you finally run that app, you get this for your new output.&#160; Notice the New Email List Tab.</p>
-<p><a href="http://peterkellner.net/wp/wp-content/uploads/2008/09/image_10.png"><img style="border-right-width: 0px; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" border="0" alt="image" src="http://peterkellner.net/wp/wp-content/uploads/2008/09/image_thumb_10.png" width="625" height="382" /></a></p>
+<p><a href="/wp/wp-content/uploads/2008/09/image_10.png"><img style="border-right-width: 0px; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" border="0" alt="image" src="/wp/wp-content/uploads/2008/09/image_thumb_10.png" width="625" height="382" /></a></p>
 <p>That's it for now.&#160; Hope this helps!</p>

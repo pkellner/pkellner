@@ -11,7 +11,7 @@ author:
 author_login: admin
 author_email: peter@peterkellner.net
 wordpress_id: 4406
-wordpress_url: http://peterkellner.net/?p=4406
+wordpress_url: https://peterkellner.net/?p=4406
 date: '2016-05-06 11:12:06 -0700'
 date_gmt: '2016-05-06 18:12:06 -0700'
 categories:
@@ -28,7 +28,8 @@ tags: []
 private static string GetAttendeeInfoString(JToken jToken, string attr)
 {
     return jToken[&quot;attendeeResults&quot;][attr].Value<string>();
-}</pre>
+}
+</pre>
 <p>Here is the generalized verison of the same code but only has to be written once.</p>
 <pre lang="c#">private static T GetAttendeeInfo<t>(JToken jToken, string attr)
 {

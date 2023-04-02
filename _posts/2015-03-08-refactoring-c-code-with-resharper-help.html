@@ -11,7 +11,7 @@ author:
 author_login: admin
 author_email: peter@peterkellner.net
 wordpress_id: 4208
-wordpress_url: http://peterkellner.net/?p=4208
+wordpress_url: https://peterkellner.net/?p=4208
 date: '2015-03-08 17:56:48 -0700'
 date_gmt: '2015-03-09 00:56:48 -0700'
 categories:
@@ -91,9 +91,9 @@ else
     }
 }</pre>
 <p>Next, through the helpfulness of JetBrain's <a href="https://www.jetbrains.com/resharper/">ReSharper</a>, I select the code I want to refactor and then right mouse button, say &quot;Extract Method&quot; and this is what I get:</p>
-<p><a href="http://peterkellner.net/wp/wp-content/uploads/2015/03/image.png"><img title="image" style="border-left-width: 0px; border-right-width: 0px; border-bottom-width: 0px; display: inline; border-top-width: 0px" border="0" alt="image" src="http://peterkellner.net/wp/wp-content/uploads/2015/03/image_thumb.png" width="570" height="252" /></a></p>
+<p><a href="/wp/wp-content/uploads/2015/03/image.png"><img title="image" style="border-left-width: 0px; border-right-width: 0px; border-bottom-width: 0px; display: inline; border-top-width: 0px" border="0" alt="image" src="/wp/wp-content/uploads/2015/03/image_thumb.png" width="570" height="252" /></a></p>
 <p>The method that is created is this:</p>
-<p><a href="http://peterkellner.net/wp/wp-content/uploads/2015/03/image4.png"><img title="image" style="border-left-width: 0px; border-right-width: 0px; border-bottom-width: 0px; display: inline; border-top-width: 0px" border="0" alt="image" src="http://peterkellner.net/wp/wp-content/uploads/2015/03/image4_thumb.png" width="573" height="395" /></a></p>
+<p><a href="/wp/wp-content/uploads/2015/03/image4.png"><img title="image" style="border-left-width: 0px; border-right-width: 0px; border-bottom-width: 0px; display: inline; border-top-width: 0px" border="0" alt="image" src="/wp/wp-content/uploads/2015/03/image4_thumb.png" width="573" height="395" /></a></p>
 <p>Which, when shown, changes the code to the following (notice that the method GetKeyValueFromStrip is created.</p>
 <pre lang="cs">var keyAppName = &quot;StripeTestSecretKey&quot;;
 

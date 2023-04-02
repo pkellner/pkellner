@@ -15,9 +15,9 @@ excerpt: |-
   In this article, it is shown how important it can be to use the CompileQuery class when using LINQ to SQL.  Doing a simple query in LINQ to SQL verses ADO.NET is shown to run 37 times slower without taking advantage of the Compile feature in LINQ to SQL.  If you are doing the same query over and over in LINQ to SQL, this is a no brainer.  I'm surprised I did not know this myself previously.
 
   <br/><br/>
-  <img src='http://peterkellner.net/FilesForWebDownload/LINQToSQLVerySlowPerformanceWithoutCompi_88A7/image.png' alt='Performance of LINQ to SQL compiled verses not and ADO.NET' />
+  <img src='https://peterkellner.net/FilesForWebDownload/LINQToSQLVerySlowPerformanceWithoutCompi_88A7/image.png' alt='Performance of LINQ to SQL compiled verses not and ADO.NET' />
 wordpress_id: 302
-wordpress_url: http://peterkellner.net/2009/05/06/linq-to-sql-slow-performance-compilequery-critical/
+wordpress_url: https://peterkellner.net/2009/05/06/linq-to-sql-slow-performance-compilequery-critical/
 date: '2009-05-06 10:23:25 -0700'
 date_gmt: '2009-05-06 17:23:25 -0700'
 categories:
@@ -46,7 +46,7 @@ tags: []
 <span class="kwrd">WHERE</span> 
   dbo.LinqTest.FileName = <span class="str">'MyVal'</span></pre>
 <h2>The Shocking Results</h2>
-<p><a href="http://peterkellner.net/wp/wp-content/uploads/2009/05/image.png"><img style="border-right-width: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="image" border="0" alt="image" src="http://peterkellner.net/wp/wp-content/uploads/2009/05/image_thumb.png" width="522" height="317" /></a></p>
+<p><a href="/wp/wp-content/uploads/2009/05/image.png"><img style="border-right-width: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="image" border="0" alt="image" src="/wp/wp-content/uploads/2009/05/image_thumb.png" width="522" height="317" /></a></p>
 <p>Or, for those graphically challenged (like search engines), Here is the actual data.</p>
 <table border="0" cellspacing="0" cellpadding="0" width="332">
 <tbody>
@@ -76,7 +76,7 @@ tags: []
 <p>I’ve read in several places that compiling your LINQ will help, but I have never heard anyone say how <u>drastic</u> the speed improvement can be.&#160; For example, in one of my favorite books (<a href="http://www.amazon.com/exec/obidos/ASIN/1933988169/petkelsblo-20">LINQ in Action</a>) by Fabrice Marguerie and others, he quotes on page 296&#160; a blog post by Rico Mariani titled <a href="http://blogs.msdn.com/ricom/archive/2007/06/22/dlinq-linq-to-sql-performance-part-1.aspx">DLINQ (Linq to SQL Performance (Part 1)</a> as saying using a compiled query offers nearly twice the performanced of a non-compiled query, and goes on to say that it brings the performance to within 93% of using a raw data reader.&#160;&#160; Well, suffice it to say I never ran the test myself.&#160; I could have lived with twice, but not 37 times.</p>
 <p>Here is the Project File Source: </p>
 <div style="padding-bottom: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; float: none; padding-top: 0px" id="scid:fb3a1972-4489-4e52-abe7-25a00bb07fdf:5092a85c-00d3-4251-820d-af7837a27d56" class="wlWriterSmartContent">
-<p><a href="http://peterkellner.net/wp/wp-content/uploads/2009/05/LINQ2SQL_CompiledQuery.zip">Project Source (Visual Studio 2008 Solution)</a></p>
+<p><a href="/wp/wp-content/uploads/2009/05/LINQ2SQL_CompiledQuery.zip">Project Source (Visual Studio 2008 Solution)</a></p>
 </div>
 <h2>How to Compile you SQL (seems like a duh kind of thing)</h2>
 <p>It’s actually not very hard.&#160; I’m attaching the Visual Studio 2008 project that I ran this test with to this post so you can run it for yourself as well as see an example of how to write the compiled LINQ code.&#160; Below is the method that actually does the work.&#160; I won’t include in this article the actual ADO.NET and LINQ to SQL not compiled code, but you can see those for yourself in the attached solution.</p>

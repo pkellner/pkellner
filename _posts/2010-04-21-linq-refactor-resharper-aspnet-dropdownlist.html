@@ -11,7 +11,7 @@ author:
 author_login: admin
 author_email: peter@peterkellner.net
 wordpress_id: 1274
-wordpress_url: http://peterkellner.net/2010/04/21/linq-refactor-resharper-aspnet-dropdownlist/
+wordpress_url: https://peterkellner.net/2010/04/21/linq-refactor-resharper-aspnet-dropdownlist/
 date: '2010-04-21 17:46:00 -0700'
 date_gmt: '2010-04-22 00:46:00 -0700'
 categories:
@@ -63,7 +63,7 @@ tags: []
 <p>Simply Amazing!&#160; <a href="http://www.hookedonlinq.com/TakeWhileOperator.ashx">TakeWhile</a> had not even occurred to me.</p>
 <p>(All while getting the <a href="http://www.siliconvalley-codecamp.com/">Silicon Valley Code Camp</a> Site Ready for our V5 Event, October 9th and 10th, 2010)</p>
 <p>So, to explain the problem a little better, on the <a href="http://www.siliconvalley-codecamp.com/">Silicon Valley Code Camp</a> web site (which, by the way is scheduled for October 9th and 10th, 2010 this year), we have an ASP.NET <a href="http://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.dropdownlist.aspx">DropDownList</a> in the upper right hand corner that the user can switch between different years. That is, say they want to see all the sessions in 2008’s code camp, they can simply change the dropdown and the site completely updates.&#160; When they do this, we don’t want to re-read the data table that contains the code camp years, we simply want to process the data that has already been stored in the <a href="http://msdn.microsoft.com/en-us/library/ms972976.aspx">ViewState</a> of the DropDownList and use that to figure out the key value of the table entry for the code camp year they selected.</p>
-<p><a href="http://peterkellner.net/FilesForWebDownload/ReS.0sLINQRefactoringContinuestobeAmazin_F9C9/image.png"><img style="border-right-width: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="image" border="0" alt="image" src="http://peterkellner.net/FilesForWebDownload/ReS.0sLINQRefactoringContinuestobeAmazin_F9C9/image_thumb.png" width="632" height="172" /></a> </p>
+<p><a href="/FilesForWebDownload/ReS.0sLINQRefactoringContinuestobeAmazin_F9C9/image.png"><img style="border-right-width: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="image" border="0" alt="image" src="/FilesForWebDownload/ReS.0sLINQRefactoringContinuestobeAmazin_F9C9/image_thumb.png" width="632" height="172" /></a> </p>
 <p>OK, if you didn’t follow all that, it really doesn’t matter.&#160; This blog post is simply about how clever ReSharper is and how much I enjoy what the tool does.&#160; It’s nice to have a tool teach me things!</p>
 <p>The complete commented code is below that includes some comments about how it actually works.&#160; I’m looking forward to several people posting comments letting me know that there is even a simpler way to do this.&#160;&#160; I love my job!</p>
 <p>&#160;</p>

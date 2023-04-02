@@ -12,7 +12,7 @@ author:
 author_login: admin
 author_email: peter@peterkellner.net
 wordpress_id: 1404
-wordpress_url: http://peterkellner.net/2010/11/09/if-you-use-backgroundworker-in-net-make-sure-you-wrap-your-worker-method-in-try-or-risk-missing-the-exception-thrown/
+wordpress_url: https://peterkellner.net/2010/11/09/if-you-use-backgroundworker-in-net-make-sure-you-wrap-your-worker-method-in-try-or-risk-missing-the-exception-thrown/
 date: '2010-11-09 14:57:42 -0800'
 date_gmt: '2010-11-09 21:57:42 -0800'
 categories:
@@ -29,14 +29,14 @@ tags: []
 <p></div>
 <p>and you run it in the debugger, it will not stop by default when the exception is thrown (like it would in single threaded code).</p>
 <p>So, I recommend doing the following and setting a break point to see the error.</p>
-<p><a href="http://peterkellner.net/FilesForWebDownload/If-You-Use-BackgroundThrea_BFD6/image.png"><img style="background-image: none; border-right-width: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px; padding-top: 0px" title="image" border="0" alt="image" src="http://peterkellner.net/FilesForWebDownload/If-You-Use-BackgroundThrea_BFD6/image_thumb.png" width="497" height="251" /></a></p>
+<p><a href="/FilesForWebDownload/If-You-Use-BackgroundThrea_BFD6/image.png"><img style="background-image: none; border-right-width: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px; padding-top: 0px" title="image" border="0" alt="image" src="/FilesForWebDownload/If-You-Use-BackgroundThrea_BFD6/image_thumb.png" width="497" height="251" /></a></p>
 <p>&#160;</p>
 <p>Another thing you can do is bump up where debug’s stops uisng the dialog:</p>
-<p><a href="http://peterkellner.net/FilesForWebDownload/If-You-Use-BackgroundThrea_BFD6/image_3.png"><img style="background-image: none; border-right-width: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px; padding-top: 0px" title="image" border="0" alt="image" src="http://peterkellner.net/FilesForWebDownload/If-You-Use-BackgroundThrea_BFD6/image_thumb_3.png" width="512" height="336" /></a></p>
+<p><a href="/FilesForWebDownload/If-You-Use-BackgroundThrea_BFD6/image_3.png"><img style="background-image: none; border-right-width: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px; padding-top: 0px" title="image" border="0" alt="image" src="/FilesForWebDownload/If-You-Use-BackgroundThrea_BFD6/image_thumb_3.png" width="512" height="336" /></a></p>
 <p>goes to:</p>
-<p><a href="http://peterkellner.net/FilesForWebDownload/If-You-Use-BackgroundThrea_BFD6/image_4.png"><img style="background-image: none; border-right-width: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px; padding-top: 0px" title="image" border="0" alt="image" src="http://peterkellner.net/FilesForWebDownload/If-You-Use-BackgroundThrea_BFD6/image_thumb_4.png" width="462" height="244" /></a></p>
+<p><a href="/FilesForWebDownload/If-You-Use-BackgroundThrea_BFD6/image_4.png"><img style="background-image: none; border-right-width: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px; padding-top: 0px" title="image" border="0" alt="image" src="/FilesForWebDownload/If-You-Use-BackgroundThrea_BFD6/image_thumb_4.png" width="462" height="244" /></a></p>
 <p>&#160;</p>
 <p>Then, you will get an error you expect.</p>
 <p>&#160;</p>
-<p><a href="http://peterkellner.net/FilesForWebDownload/If-You-Use-BackgroundThrea_BFD6/image_5.png"><img style="background-image: none; border-right-width: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px; padding-top: 0px" title="image" border="0" alt="image" src="http://peterkellner.net/FilesForWebDownload/If-You-Use-BackgroundThrea_BFD6/image_thumb_5.png" width="416" height="229" /></a></p>
+<p><a href="/FilesForWebDownload/If-You-Use-BackgroundThrea_BFD6/image_5.png"><img style="background-image: none; border-right-width: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px; padding-top: 0px" title="image" border="0" alt="image" src="/FilesForWebDownload/If-You-Use-BackgroundThrea_BFD6/image_thumb_5.png" width="416" height="229" /></a></p>
 <p>HTH’s!</p>

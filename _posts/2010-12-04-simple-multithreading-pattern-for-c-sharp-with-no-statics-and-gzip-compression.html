@@ -12,7 +12,7 @@ author:
 author_login: admin
 author_email: peter@peterkellner.net
 wordpress_id: 1418
-wordpress_url: http://peterkellner.net/2010/12/04/simple-multithreading-pattern-for-c-sharp-with-no-statics-and-gzip-compression/
+wordpress_url: https://peterkellner.net/2010/12/04/simple-multithreading-pattern-for-c-sharp-with-no-statics-and-gzip-compression/
 date: '2010-12-04 08:09:03 -0800'
 date_gmt: '2010-12-04 15:09:03 -0800'
 categories:
@@ -33,7 +33,7 @@ tags: []
 <h2>Some Code</h2>
 <p>So, to that end, Let’s create a main method as below.&#160; Notice that it creates a very simple anonymous method which executes the code cryptoCopress.CompressFile(…), then simply starts that thread.&#160; Once the thread starts, it simply waits for the thread to end by looping every 50 milliseconds on the thread.IsAlive method.&#160; Finally, when it returns, it simply looks at the cryptCompress object for the results.&#160; No Statics!</p>
 <div style="padding-bottom: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; float: none; padding-top: 0px" id="scid:8eb9d37f-1541-4f29-b6f4-1eea890d4876:dd5555c2-7bcc-4715-9cc2-b94a7ef4604b" class="wlWriterEditableSmartContent">
-<div>Code:<a href="http://peterkellner.net/FilesForWebDownload/A-Simple-MultiThreading-Pattern-For-C_6021/MultiThreadingInCSharpSimple.zip" target="_self">MultiThreadingInCSharpSimple.zip</a></div></p>
+<div>Code:<a href="/FilesForWebDownload/A-Simple-MultiThreading-Pattern-For-C_6021/MultiThreadingInCSharpSimple.zip" target="_self">MultiThreadingInCSharpSimple.zip</a></div></p>
 </div>
 <p>&#160;</p>
 <div id="codeSnippetWrapper">
@@ -46,6 +46,6 @@ tags: []
 <p>&#160;</p>
 <h2>The Results</h2>
 <p>When we run this, notice that it takes 3 iterations (or 150 milliseconds) to complete. I’m only compressing a small file so no surprise.&#160; The file is actually 2.7 Megabytes and compress to .7 Megabytes.</p>
-<p><a href="http://peterkellner.net/FilesForWebDownload/A-Simple-MultiThreading-Pattern-For-C_6021/image.png"><img style="background-image: none; border-bottom: 0px; border-left: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px" title="image" border="0" alt="image" src="http://peterkellner.net/FilesForWebDownload/A-Simple-MultiThreading-Pattern-For-C_6021/image_thumb.png" width="244" height="116" /></a></p>
+<p><a href="/FilesForWebDownload/A-Simple-MultiThreading-Pattern-For-C_6021/image.png"><img style="background-image: none; border-bottom: 0px; border-left: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px" title="image" border="0" alt="image" src="/FilesForWebDownload/A-Simple-MultiThreading-Pattern-For-C_6021/image_thumb.png" width="244" height="116" /></a></p>
 <p>&#160;</p>
 <p>That’s it for now! Hope this helps.</p>

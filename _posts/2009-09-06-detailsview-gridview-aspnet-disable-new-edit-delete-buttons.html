@@ -12,7 +12,7 @@ author:
 author_login: admin
 author_email: peter@peterkellner.net
 wordpress_id: 352
-wordpress_url: http://peterkellner.net/2009/09/06/detailsview-gridview-aspnet-disable-new-edit-delete-buttons/
+wordpress_url: https://peterkellner.net/2009/09/06/detailsview-gridview-aspnet-disable-new-edit-delete-buttons/
 date: '2009-09-06 17:27:24 -0700'
 date_gmt: '2009-09-07 00:27:24 -0700'
 categories:
@@ -68,7 +68,7 @@ tags: []
 <p>What you want is to say something like:</p>
 <p>“I only want admin’s to be able to add new rows so&#160; want to hide the “new” button based on that”</p>
 <p>So, first thing is to convert the field to a template from the following menu.&#160; You do this by using the little helper in the upper right hand corner of the detailsview (in design mode), chose Edit Fields, CommandField, then convert to template (as in the picture below).</p>
-<p><a href="http://peterkellner.net/FilesForWebDownload/HowtoDisableEditInsertNewButtonsinDeta.0_F26A/image.png"><img style="border-right-width: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="image" border="0" alt="image" src="http://peterkellner.net/FilesForWebDownload/HowtoDisableEditInsertNewButtonsinDeta.0_F26A/image_thumb.png" width="521" height="299" /></a></p>
+<p><a href="/FilesForWebDownload/HowtoDisableEditInsertNewButtonsinDeta.0_F26A/image.png"><img style="border-right-width: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="image" border="0" alt="image" src="/FilesForWebDownload/HowtoDisableEditInsertNewButtonsinDeta.0_F26A/image_thumb.png" width="521" height="299" /></a></p>
 <p>Then, you will have something like this:</p>
 <pre class="csharpcode"> &lt;asp:DetailsView ID=<span class="str">&quot;DetailsView1&quot;</span> runat=<span class="str">&quot;server&quot;</span> Height=<span class="str">&quot;50px&quot;</span> Width=<span class="str">&quot;125px&quot;</span> 
             AllowPaging=<span class="str">&quot;True&quot;</span> AutoGenerateRows=<span class="str">&quot;False&quot;</span> DataKeyNames=<span class="str">&quot;Id&quot;</span> 

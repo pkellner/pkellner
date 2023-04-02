@@ -15,7 +15,7 @@ excerpt: This article will show how to implement a showall item in a DropDownLis
   using GridView with ASP.NET 2.0.  It does it by dynamically changing the SelectParameters
   associated with a SqlDataSource.
 wordpress_id: 37
-wordpress_url: http://peterkellner.net/2006/10/14/how-to-show-all-items-using-a-dropdownlist-and-a-gridview-control-in-aspnet-20-with-vs2005/
+wordpress_url: https://peterkellner.net/2006/10/14/how-to-show-all-items-using-a-dropdownlist-and-a-gridview-control-in-aspnet-20-with-vs2005/
 date: '2006-10-14 11:35:58 -0700'
 date_gmt: '2006-10-14 18:35:58 -0700'
 categories:
@@ -26,7 +26,7 @@ tags: []
 <p>We often want to have a gridview which selects items based on a dropdownlist. It's trivial to do this in the VS2005 designer by simply first creating an SqlDataSource with a where clause, then with the sqldatasource wizard, assign the SelectedValue of the dropdownlist to the GridView.</p>
 <p>The application running looks like this:</p>
 <p> <!--more-->
-<p><img src="http://peterkellner.net/wp/wp-content/uploads/2006/10/simpleapprunning.jpg" width="512" height="453" /></p>
+<p><img src="/wp/wp-content/uploads/2006/10/simpleapprunning.jpg" width="512" height="453" /></p>
 <p>And the page source to do is simply this:</p>
 <style type="text/css">
 <p>.csharpcode, .csharpcode pre<br />
@@ -91,7 +91,7 @@ tags: []
 <span class="kwrd">&lt;/</span><span class="html">html</span><span class="kwrd">&gt;</span></pre>
 <p>However, what if you want to have a show all option in your DropDownList? My suggestion is to abandon (somewhat) the visual programming model (or at least that's the only way I can think of doing it) and add the SelectParameters in the Page_Load event of the page. In addition, to get all the rows to show, I suggest adding the Sql Injection trick which is add an OR to the sql. You can that make the OR always return true, or always return false. I do this by simply passing a 1=@CompareInteger to the Sql that always gets evaluated. Then dynamically set the CompareInteger to 1 or 999. 1 makes all the rows return, 999 forces the evaluation of the ProductName=@ProductName part of the Where clause.</p>
 <p>Here is what the application looks like running:</p>
-<p><img src="http://peterkellner.net/wp/wp-content/uploads/2006/10/apprunning.jpg" width="576" height="583" /></p>
+<p><img src="/wp/wp-content/uploads/2006/10/apprunning.jpg" width="576" height="583" /></p>
 <p>And here is the code that actually does the job.</p>
 <style type="text/css">
 <p>.csharpcode, .csharpcode pre<br />

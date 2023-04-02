@@ -11,7 +11,7 @@ author:
 author_login: admin
 author_email: peter@peterkellner.net
 wordpress_id: 484
-wordpress_url: http://peterkellner.net/2010/01/25/authentication-and-authorization-using-ria-services-article-7-of-7/
+wordpress_url: https://peterkellner.net/2010/01/25/authentication-and-authorization-using-ria-services-article-7-of-7/
 date: '2010-01-25 16:25:12 -0800'
 date_gmt: '2010-01-25 23:25:12 -0800'
 categories:
@@ -76,7 +76,7 @@ tags:
 <p>This article is very short.&#160; In the actual presentation, there was not much time to talk about this so a brief overview was done.&#160; Basically, it’s all standard WCF stuff.&#160; The idea is that the Silverlight Business Template adds logging in and supports Authentication just like an asp.net application does.&#160; It uses the DomainDataSource to do the bridging between the silverlight clientside app, and the web application.&#160; Authorization is built into the login module also so that you can assign attributes to your domainservice classes to restrict access.</p>
 <p> <!--more-->
 <p>That is, if you only want people who are logged in able to access one of your methods, you simply tag it as follows with the [RequiresAuthentication] attribute.</p>
-<p><a href="http://peterkellner.net/FilesForWebDownload/AuthenticationandAuthorizationUsingRIASe_E1CB/image.png"><img style="border-right-width: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="image" border="0" alt="image" src="http://peterkellner.net/FilesForWebDownload/AuthenticationandAuthorizationUsingRIASe_E1CB/image_thumb.png" width="694" height="222" /></a></p>
+<p><a href="/FilesForWebDownload/AuthenticationandAuthorizationUsingRIASe_E1CB/image.png"><img style="border-right-width: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="image" border="0" alt="image" src="/FilesForWebDownload/AuthenticationandAuthorizationUsingRIASe_E1CB/image_thumb.png" width="694" height="222" /></a></p>
 <p>If you only want a certain logged in user role to be able to access a certain method, you tag it as follows</p>
-<p><a href="http://peterkellner.net/FilesForWebDownload/AuthenticationandAuthorizationUsingRIASe_E1CB/image_3.png"><img style="border-right-width: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="image" border="0" alt="image" src="http://peterkellner.net/FilesForWebDownload/AuthenticationandAuthorizationUsingRIASe_E1CB/image_thumb_3.png" width="710" height="151" /></a></p>
+<p><a href="/FilesForWebDownload/AuthenticationandAuthorizationUsingRIASe_E1CB/image_3.png"><img style="border-right-width: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="image" border="0" alt="image" src="/FilesForWebDownload/AuthenticationandAuthorizationUsingRIASe_E1CB/image_thumb_3.png" width="710" height="151" /></a></p>
 <p>This of course solve the server side only.&#160; On the client side, you need to call methods that are exposed through the domain data.&#160; <a title="http://www.silverlightshow.net/items/Silverlight-3-with-Ria-Authentication-service.aspx" href="http://www.silverlightshow.net/items/Silverlight-3-with-Ria-Authentication-service.aspx">http://www.silverlightshow.net/items/Silverlight-3-with-Ria-Authentication-service.aspx</a> discusses much of this on the client side.</p>

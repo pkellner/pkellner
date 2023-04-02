@@ -40,7 +40,7 @@ tags: []
 <td>Peter Kellner</td>
 </tr>
 <tr>
-<td><a href="http://peterkellner.net">http://peterkellner.net</a></td>
+<td><a href="https://peterkellner.net">https://peterkellner.net</a></td>
 </tr>
 <tr>
 <td>March 2006</td>
@@ -53,7 +53,7 @@ tags: []
 <p>Microsoft Internet Information Services</p>
 </blockquote>
 <p>&#160;<a class="style2" href="http://livedemos.peterkellner.net/">Run Live Demonstration Of AJAX Technology</a></p>
-<p class="style2"><a href="http://peterkellner.net/download-manager/">Click Here for Source Code Associated With This Article</a>&#160; </p>
+<p class="style2"><a href="/download-manager/">Click Here for Source Code Associated With This Article</a>&#160; </p>
 <hr />
 <h4>Contents</h4>
 <p>Introduction    <br />What is AJAX and Atlas     <br />Background     <br />The AJAX Enhanced Version     <br />Technologies Used in AJAX Enhanced Version     <br />Steps Involved in Building (or upgrading) to AJAX using Atlas     <br />Using UpdatePanel ASP.NET Tag     <br />What is Really Happening     <br />Enhancing the TextBox for User Search     <br />Conclusions&#160; </p>
@@ -66,13 +66,13 @@ tags: []
 <p>&#160;&#160;&#160;&#160;<br />
 <h2>Background</h2>
 <p>Managing membership and roles for ASP.NET 2.0 using ObjectDataSource technology was developed in a previous article published by this author in MSDN ( <a href="http://msdn.microsoft.com/en-us/library/aa478947.aspx">http://msdn.microsoft.com/library/default.asp?url=/library/en-us/dnaspp/html/ASP2memroleman.asp</a> ). This article stepped through the inner workings of an ObjectDataSource that allowed for the easy creation of gridviews, dataviews, or any other databound control. It also presented a best practices solution in the form of a ASP.NET 2.0 web page (aspx file). The solution allowed for adding, modifying and deleting members, adding and deleting roles, as well as assigning users to roles. The solution is functionally similar to what comes with Visual Studio 2005 under the menu item &quot;Website / ASP.NET Configuration&quot;. The major benefit is that this solution works 100% with IIS 5.1 and 6.0 and gives the software engineer complete customization control of what is presented to the user. It would normally be set to administrator access only. Below is a screen shot of this application previously developed.</p>
-<p><a href="http://livedemos.peterkellner.net/AJAXDemo/DefaultNoAjax.aspx"><img border="1" src="http://peterkellner.net/wp/wp-content/uploads/2006/03/DefaultNoAjax.gif" width="450" height="245" /></a></p>
+<p><a href="http://livedemos.peterkellner.net/AJAXDemo/DefaultNoAjax.aspx"><img border="1" src="/wp/wp-content/uploads/2006/03/DefaultNoAjax.gif" width="450" height="245" /></a></p>
 <p><a href="http://livedemos.peterkellner.net/AJAXDemo/DefaultNoAjax.aspx"></a></p>
 <p>This application shown above has no AJAX technology in it. This means that every interaction you have with the web form requires a full page refresh of html from the web server. In this case, a picture is not worth very many words, but a URL will certainly make the point. Go to the URL: <a href="http://livedemos.peterkellner.net/AJAXDemo/Default.aspx">http://livedemos.peterkellner.net/AJAXDemo/Default.aspx</a> and play with the web site. Feel completely free to search on this data, add new users, add roles, assign and unassign roles as you please noticing at the time how the page reacts to changes. In particular, note the Search button on top for finding users. This search is a little different than you would normally expect. Instead of looking for exact matches, it effectively finds usernames that begin with what you have typed in the textbox when you press the search button. In the next section, the AJAX enhanced version, the search button is gone and as the username is typed into the textbox, the list of usernames will be automatically updated. This could have been done here also, however it would have caused a complete refresh of the page on every keystroke. Not only would the performance have been unacceptable, it would also have been unusable with all the flashing while typing. This is why in non-AJAX applications, there is almost always a button to press when data is finished being entered.</p>
 <p>While you are running the demonstration program, notice at the top of the page there is a link that takes you to the same application without AJAX. Notice that in this application, there is a button for search. Notice also when you check and uncheck the checkboxes to display Manage Roles or Create New Users, those sections turn on and off with a lot of screen refreshing. Also notice the difference when you edit users and assign or unassign roles. </p>
 <h2>The AJAX Enhanced Version</h2>
 <p>Without actually running the web application, the only visual change the user can see in the AJAX enhanced version of this application is that there is no search button above the user list. This is because with AJAX, as the user types in the search criteria, the list of users is automatically restricted to the search criteria defined by users that begin with what is typed. Notice in the screen shot below, ch is entered into the username textbox and just the usernames beginning with ch automatically appear. </p>
-<p><a href="http://livedemos.peterkellner.net/AJAXDemo/Default.aspx"><img border="1" src="http://peterkellner.net/wp/wp-content/uploads/2006/03/DefaultWithAjax.gif" width="450" height="245" /></a>&#160;</p>
+<p><a href="http://livedemos.peterkellner.net/AJAXDemo/Default.aspx"><img border="1" src="/wp/wp-content/uploads/2006/03/DefaultWithAjax.gif" width="450" height="245" /></a>&#160;</p>
 <h2>Technologies Used in AJAX Enhanced Version</h2>
 <p>Obviously, Microsoft's Atlas is the primary technology used to implement AJAX. Atlas has lots of functionality and capability, however in this article (and the code associated with the AJAX enhanced Membership Editor), there is just a small part of Atlas being used. Actually, there are only two technologies going on. One has to do with the updates on the screen not requiring complete html refreshes between postbacks, and the other has to do with extending the functionality of the TextBox control the user enters the name for search. Because the default TextBox has no event associated with characters changing (it only has an event which generates a postback for TextChanged) the TextBox has to be enhanced to deal with the javascript function OnTextChanged. </p>
 <h2>Steps Involved in Building (or upgrading) to AJAX using Atlas</h2>
@@ -106,7 +106,7 @@ tags: []
 <span class="kwrd">&lt;/</span><span class="html">atlas</span><span class="kwrd">&gt;</span></pre>
 <p></p>
 <p>The final thing to do is to surround all the areas on the aspx page with these UpdatePanel tags. Once this is done, VS2005 does a nice job of showing the UpdatePanel areas. The screen shot below shows the actual screen shot of the page used to manage members. Notice all the UpdatePanel tags displayed above the regions. Clicking on the image will display a large one which is much easier to see the details.</p>
-<p><a href="http://peterkellner.net/wp/wp-content/uploads/2006/03/vs2005UpdatePanels.gif"><img border="1" src="http://peterkellner.net/wp/wp-content/uploads/2006/03/vs2005UpdatePanels_small.gif" width="450" height="245" /></a></p>
+<p><a href="/wp/wp-content/uploads/2006/03/vs2005UpdatePanels.gif"><img border="1" src="/wp/wp-content/uploads/2006/03/vs2005UpdatePanels_small.gif" width="450" height="245" /></a></p>
 <p>Trigger tags go hand in hand with the UpdatePanel control. Essentially, you can nest trigger controls in the UpdatePanel control and that will specify when the UpdatePanel will actually be posted back. You can specify triggers in two ways. The first way is on some control event such as the EventName &quot;Click&quot; on the button control. The other way is on some control value changing. with that, you would specify the controlID and the property name. There are no examples of triggers in the article download. The code below is just an example of typical code.</p>
 <p></p>
 <pre class="csharpcode"><span class="kwrd">&lt;</span><span class="html">atlas</span> <span class="attr">:UpdatePanel</span> <span class="attr">ID</span><span class="kwrd">=&quot;Panel1&quot;</span> <span class="attr">runat</span><span class="kwrd">=&quot;server&quot;</span><span class="kwrd">&gt;</span>
