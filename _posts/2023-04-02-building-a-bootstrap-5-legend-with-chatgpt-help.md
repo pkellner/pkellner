@@ -13,7 +13,7 @@ excerpt: See the dialog between me (a software dev) talking to ChatGPT to build 
 
 # Introduction
 
-Lately, my mind has been 100% expanded by what ChatGPT can do to help me with my programming tasks. Especially tasks where I don't consider my an expert and I need some help. This morning, as I'm working on the demo for an upcoming course I'm working on titled "Server Component Fundamentals in React 18" for Pluralsight, I decided I needed a legend. Normally I don't do a wireframe for something so simple, but since I know you are not in my head, this is what I was thinking.
+Lately, my mind has been 100% expanded by what ChatGPT can do to help me with my programming tasks. Especially tasks where I don't consider myself an expert, and I need some help. This morning, as I'm working on the demo for an upcoming course titled "Server Component Fundamentals in React 18" for Pluralsight, I decided I needed a legend. Normally I don't do a wireframe for something so simple, but since I know you are not in my head, this is what I was thinking.
 
 ![](/assets/posts/2023-04-02-building-a-bootstrap-5-legend-with-chatgpt-help/0.png)
 
