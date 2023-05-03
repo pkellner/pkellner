@@ -16,6 +16,8 @@ Next.js and Vercel have emerged as popular tools for building fast, scalable, an
 
 To ensure optimal performance and resource management, it is crucial that built-in degradation and enhancement capabilities become a core feature in both Next.js and Vercel, integrated into their very DNA. This means that, instead of being an optional add-on, the default app behavior should automatically throttle based on load conditions.
 
+One example of this is an image control component that monitors its usage, CPU consumption, and adapts to a fallback image when the system is overwhelmed. Multiple fallback levels should be available, including a 404 error for worst-case scenarios.
+
 One way to achieve this is by using AI-driven monitoring and analytics. Vercel and Next.js could harness the power of artificial intelligence to monitor site usage and performance, learning to distinguish between normal and high loads. By understanding these patterns, the system could automatically trigger degradation during unusual events such as DDoS attacks, protecting the application and minimizing the impact on users.
 
 Additionally, a Suspense-like feature, such as FallbackOnHighLoad, could be introduced to allow developers to easily handle high load conditions by displaying a fallback component when the system is under heavy load.
