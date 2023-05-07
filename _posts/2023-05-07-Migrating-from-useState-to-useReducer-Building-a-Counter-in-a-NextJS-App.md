@@ -11,7 +11,6 @@ author_email: peter@peterkellner.net
 excerpt: In this tutorial, we migrated from useState to useReducer while building a counter interface in a Next.js app. This helps manage state updates more efficiently and scales better as app complexity grows. Additional tips include extracting the reducer, using the Context API for global state, adding custom middleware, and exploring other hooks.
 
 ---
-
 Introduction
 
 In this tutorial, we will demonstrate how to migrate from using `useState` to `useReducer` when creating a counter interface that allows you to increment, decrement, and reset the count value. This article is tailored for intermediate React developers looking to expand their knowledge of React hooks.
