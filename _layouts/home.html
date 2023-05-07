@@ -175,9 +175,8 @@ maxPostsToShow: 4
         <h2>Short List</h2>
         <ul>
           <li>
-            <strong>Pluralsight Author</strong><br />Authored nine Pluralsight
-            courses for developers. Topics include React, ASP.NET Core and
-            Security.
+            <strong>Pluralsight Author</strong><br />Authored 17 Pluralsight
+            courses for developers. Topics primarily focused on React and JavaScript.
           </li>
           <li>
             <strong>Microsoft Documentation Author</strong><br />Wrote many
@@ -240,7 +239,7 @@ maxPostsToShow: 4
 <!--        <blockquote>-->
 <!--          <p>-->
 <!--            “Peter delivers complex product solutions on time and on budget. He-->
-<!--            achieves this through a well rounded, insightful business-->
+<!--            achieves this through a well-rounded, insightful business-->
 <!--            perspective coupled with impressive technical depth and breadth.-->
 <!--            Even when we were faced with the most difficult of challenges, Peter-->
 <!--            was a resourceful problem solver with far-reaching connections into-->
@@ -262,7 +261,7 @@ maxPostsToShow: 4
         {{ content }}
 
         <!-- Home Post List -->
-        {% for post in site.posts limit : 3 %}
+        {% for post in site.posts limit : 5 %}
 
         <article class="post-preview">
           <a href="{{ post.url | prepend: site.baseurl | replace: '//', '/' }}">
