@@ -2,7 +2,7 @@
 layout: post
 status: publish
 published: true
-title: Migrating from useState to useReducer: Building a Counter in a Next.js App
+title: Migrating from useState to useReducer, Building a Counter in a Next.js App
 author: Peter Kellner
 display_name: Peter Kellner
 login: admin
