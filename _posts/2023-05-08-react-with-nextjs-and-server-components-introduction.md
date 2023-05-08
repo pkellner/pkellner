@@ -91,7 +91,7 @@ easily integrate server components into your Next.js 13 projects, optimizing you
 
 To learn more about server components, async components, and other features of Next.js 13, visit the official React and Next.js documentation:
 
-*   [React Docs](https://reactjs.org/docs/getting-started.html)
+*   [React Docs](https://react.dev/)
 *   [Next.js Docs](https://nextjs.org/docs/getting-started)
 
 As web development continues to evolve, staying up-to-date with the latest advancements and best practices is essential. By leveraging the power of Next.js 13 server components and async components, you can stay ahead of the curve and build cutting-edge web applications that delight your users.
