@@ -8,7 +8,7 @@ display_name: Peter Kellner
 login: admin
 email: peter@peterkellner.net
 author_email: peter@peterkellner.net
-excerpt: 
+excerpt: This article introduces React with Next.js and server components, detailing their benefits and implementation. It covers how server components enable reduced bundle sizes and improved performance, and how Next.js complements React by offering features like automatic routing, server rendering, and static site generation. The post also provides step-by-step setup instructions and examples.
 
 ---
 # Introduction
