@@ -11,19 +11,19 @@ author_email: peter@peterkellner.net
 excerpt: 
 
 ---
-##Introduction
+## Introduction
 
 Since their inception in 2014, server components have evolved to become a cornerstone of modern web development. As web applications grew more complex, developers were faced with the challenge of optimizing performance and delivering better user experiences. Server components emerged as a powerful solution, allowing developers to offload rendering tasks to the server-side and greatly reduce the amount of code shipped to the client.
 
 Over the years, server components have undergone significant improvements, and the release of Next.js 13 has taken them to new heights. In this article, we'll dive into how Next.js 13 works with server components and explore an example of fetching data from the Placeholder API using async components. We'll utilize the fetch API and avoid using the obsolete .server.js convention and polyfill.
 
-Understanding Server Components in Next.js 13
+## Understanding Server Components in Next.js 13
 
 Next.js 13 has introduced several optimizations and enhancements to server components. Among the most notable improvements is the ability to use async components, which allows developers to create responsive and highly efficient web applications.
 
 Async components enable developers to fetch data from external sources, such as APIs, without blocking the rendering of other components. This means that even when waiting for data to be fetched, the rest of the application can continue to render and provide a seamless user experience.
 
-Fetching Data from the Placeholder API
+## Fetching Data from the Placeholder API
 
 Let's dive into an example of using an async server component to fetch data from the Placeholder API. We'll start by creating a new Next.js 13 project and installing the required dependencies:
 
@@ -82,7 +82,7 @@ export default function Home() {
 
 With this setup, our application fetches data from the Placeholder API using an async server component, resulting in an efficient and responsive user experience.
 
-Conclusion
+## Conclusion
 
 Next.js 13 has taken server components to the next level by introducing optimizations such as async components. 
 By leveraging these features, developers can create highly efficient and responsive web applications that provide a seamless user experience. 
