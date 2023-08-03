@@ -13,7 +13,7 @@ excerpt: This tutorial guides you on how to use Dockerfile, docker-compose, and 
 ---
 # Building, Deploying, and Managing Docker Images with GitHub Actions
 
-Hello, I'm Peter Kellner, and today we're going to dive deep into how Docker files and docker-compose work together, how they integrate with GitHub actions, and why they are important for your deployment workflow.
+Hello, I'm Peter Kellner, and today we're going to dive deep into how Docker files and docker-compose work together, how they integrate with GitHub actions, and why they are important for your deployment workflow. I've brought in files from a current web site I'm working on to show you how it all works. There may be extra lines of code here you don't need, but I wanted to show you a real-world example.
 
 ## Dockerfile & docker-compose.yml
 
@@ -73,7 +73,7 @@ services:
     restart: always
     container_name: newsfairness
     environment:
-      DATABASE_URL: mysql://root:myPassword101@mysqlsecure:3306/mydb?sslaccept=accept_invalid_certs
+      DATABASE_URL: mysql://root:Abc123@mysqlsecure:3306/mydb?sslaccept=accept_invalid_certs
       MINUTES_TO_CACHE_RESPONSES: 3
       MINUTES_TO_GO_BACK_AND_DELETE_RECORDS: 2880
     ports:
@@ -137,8 +137,6 @@ jobs:
       - name: Run step if any of the listed files above change
         if: steps.changed-files-specific.outputs.any_changed == 'true'
         env:
-          DOCKER_USER: ${{secrets.DOCKER_USER}}
-          DOCKER_PASSWORD: ${{secrets.DOCKER_PASSWORD}}
           GH_TOKEN: ${{secrets.GH_TOKEN}}
           GH_USERNAME: ${{secrets.GH_USERNAME}}
           DATABASE_URL_EXTERNAL: ${{secrets.DATABASE_URL_EXTERNAL}}
