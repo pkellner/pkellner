@@ -8,7 +8,7 @@ display_name: Peter Kellner
 login: admin
 email: peter@peterkellner.net
 author_email: peter@peterkellner.net
-excerpt: n this guide, we secure a MySQL server to accept only SSL connections, minimizing the risk of data exposure. This setup ensures our apps connect securely, protecting sensitive data. By focusing on database connection security, we take a crucial step towards building trusted applications.
+excerpt: In this guide, we secure a MySQL server to accept only SSL connections, minimizing the risk of data exposure. This setup ensures our apps connect securely, protecting sensitive data. By focusing on database connection security, we take a crucial step towards building trusted applications.
 
 ---
 # Enforcing Encrypted Connections in MySQL with Docker
