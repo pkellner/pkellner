@@ -2,7 +2,7 @@
 layout: post
 status: publish
 published: true
-title: Mastering Prisma Logging with Dynamic Configuration: A Complete Guide
+title: Mastering Prisma Logging with Dynamic Configuration
 author: Peter Kellner
 display_name: Peter Kellner
 login: admin
@@ -11,7 +11,6 @@ author_email: peter@peterkellner.net
 excerpt: Master the art of flexible, dynamic logging in your Prisma setup with a powerful function—`getPrismaOptions()`. This function allows you to easily toggle between various logging levels without changing your code, offering a robust, maintainable, and environment-sensitive way to manage database operations. Learn how to set this up using an `.env` file, and understand why this approach can be a game-changer for your application's debugging and performance optimization needs.
 
 ---
-
 # Mastering Prisma Logging with Dynamic Configuration: A Complete Guide
 
 ## Introduction
