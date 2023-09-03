@@ -15,7 +15,7 @@ excerpt: Master the art of flexible, dynamic logging in your Prisma setup with a
 
 ## Introduction
 
-While developing applications that interface with databases, logging is a vital aspect. Prisma, a well-known ORM, offers logging options to capture database events, errors, and queries. But how can we make this more dynamic and controlled? In this post, we're dissecting a nifty function called `getPrismaOptions()` to flexibly manage logging configurations using environment variables. This function can return various logging configurations based on the setup in an `.env` file, giving us the power to toggle logging levels without altering code.
+While developing applications that interface with databases, logging is a vital aspect. [Prisma](https://www.prisma.io/), a well-known ORM, offers logging options to capture database events, errors, and queries. But how can we make this more dynamic and controlled? In this post, we're dissecting a nifty function called `getPrismaOptions()` to flexibly manage logging configurations using environment variables. This function can return various logging configurations based on the setup in an `.env` file, giving us the power to toggle logging levels without altering code.
 
 ## The getPrismaOptions Function Explained
 
