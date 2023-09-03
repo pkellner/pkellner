@@ -13,24 +13,24 @@ excerpt: When you're knee-deep in data transformations, the little things like c
 ---
 # Converting PascalCase to CamelCase in TypeScript: A Type-Safe Approach with CatList
 
-One of the advantages of [TypeScript](https://www.typescriptlang.org/) is type safety, which helps ensure your data behaves as you expect. A task that can come up fairly often is the conversion of object keys from [PascalCase](https://www.freecodecamp.org/news/programming-naming-conventions-explained/#:~:text=What%20is%20Pascal%20Case%3F,pascal%20case%3A%20FirstName%20and%20LastName%20.) to [camelCase](https://en.wikipedia.org/wiki/Camel_case). In this blog post, we'll explore how to accomplish this transformation while leveraging TypeScript's type-safe capabilities, specifically through the `Record` type and `Object.entries()` function.
+One of the advantages of [TypeScript](https://www.typescriptlang.org/) is type safety, which helps ensure your data behaves as you expect. A task that can come up fairly often is the conversion of object keys from PascalCase to [camelCase](https://en.wikipedia.org/wiki/Camel_case). In this blog post, we'll explore how to accomplish this transformation while leveraging TypeScript's type-safe capabilities, specifically through the [Record](https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type) type and `Object.entries()` function.
 
 ## Record Type in TypeScript: An Asset for Type Safety
 
 The `Record` type is an invaluable tool for creating type-safe objects in TypeScript. Consider the following line:
 
 ```typescript
-let camelCaseCats: Record<string, typeof session[keyof typeof session]> = {};
+let camelCaseCats: Record<string, typeof cat[keyof typeof cat]> = {};
 ```
 
-With `Record<K, T>`, we can dictate that the keys (`K`) will be strings and the values (`T`) will hold the same type as those in our `session` object. This is TypeScript’s built-in mechanism for guaranteeing that both the keys and values conform to the expected types.
+With `Record<K, T>`, we can dictate that the keys (`K`) will be strings and the values (`T`) will hold the same type as those in our `cat` object. This is TypeScript’s built-in mechanism for guaranteeing that both the keys and values conform to the expected types.
 
 ## Unlocking Object Iteration with Object.entries()
 
 The function `Object.entries()` is native to JavaScript and also usable in TypeScript. It takes an object and returns an array containing its own enumerable property `[key, value]` pairs, making object iteration a breeze.
 
 ```typescript
-for (const [key, value] of Object.entries(session)) {
+for (const [key, value] of Object.entries(cat)) {
   // Perform operations here
 }
 ```
@@ -69,9 +69,9 @@ function convertToCamelCase(str: string): string {
   return str.charAt(0).toLowerCase() + str.slice(1);
 }
 
-const camelCasedCats = catList.map(session => {
-  let camelCaseCats: Record<string, typeof session[keyof typeof session]> = {};
-  for (const [key, value] of Object.entries(session)) {
+const camelCasedCats = catList.map(cat => {
+  let camelCaseCats: Record<string, typeof cat[keyof typeof cat]> = {};
+  for (const [key, value] of Object.entries(cat)) {
     camelCaseCats[convertToCamelCase(key)] = value === null ? 'unassigned' : value;
   }
   return camelCaseCats;
