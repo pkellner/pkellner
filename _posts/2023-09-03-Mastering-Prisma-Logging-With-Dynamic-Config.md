@@ -23,48 +23,54 @@ While developing applications that interface with databases, logging is a vital 
 
 Firstly, let's look at the complete code for `getPrismaOptions()`.
 
-```javascript
-function getPrismaOptions(): { log: LogOption[] } {
-const queryLogging = process.env.PRISMA_EVENT_QUERY !== 'false'; // default true
-const errorLogging = process.env.PRISMA_STDOUT_ERROR !== 'false'; // default true
-const infoLogging = process.env.PRISMA_STDOUT_INFO === 'true'; // default false
-const warnLogging = process.env.PRISMA_STDOUT_WARN === 'true'; // default false
-
-const logOptions: LogOption[] = [];
-
-if (queryLogging) {
-logOptions.push({
-emit: "event",
-level: "query",
-});
-}
-
-if (errorLogging) {
-logOptions.push({
-emit: "stdout",
-level: "error",
-});
-}
-
-if (infoLogging) {
-logOptions.push({
-emit: "stdout",
-level: "info",
-});
-}
-
-if (warnLogging) {
-logOptions.push({
-emit: "stdout",
-level: "warn",
-});
-}
-
-return {
-log: logOptions,
+```typescript
+type LogOption = {
+  emit: "event" | "stdout";
+  level: "query" | "error" | "info" | "warn";
 };
+
+function getPrismaOptions(): { log: LogOption[] } {
+  const queryLogging = process.env.PRISMA_EVENT_QUERY !== "false"; // default true
+  const errorLogging = process.env.PRISMA_STDOUT_ERROR !== "false"; // default true
+  const infoLogging = process.env.PRISMA_STDOUT_INFO === "true"; // default false
+  const warnLogging = process.env.PRISMA_STDOUT_WARN === "true"; // default false
+
+  const logOptions: LogOption[] = [];
+
+  if (queryLogging) {
+    logOptions.push({
+      emit: "event",
+      level: "query",
+    });
+  }
+
+  if (errorLogging) {
+    logOptions.push({
+      emit: "stdout",
+      level: "error",
+    });
+  }
+
+  if (infoLogging) {
+    logOptions.push({
+      emit: "stdout",
+      level: "info",
+    });
+  }
+
+  if (warnLogging) {
+    logOptions.push({
+      emit: "stdout",
+      level: "warn",
+    });
+  }
+
+  return {
+    log: logOptions,
+  };
 }
 ```
+
 
 ### Setting Variables From an .env File
 
