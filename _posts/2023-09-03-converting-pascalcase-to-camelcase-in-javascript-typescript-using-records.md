@@ -82,6 +82,51 @@ console.log(camelCasedCats);
 
 Upon executing this code, `camelCasedCats` will become an array of objects with camelCased keys. TypeScript's type safety will be maintained thanks to the `Record` type.
 
+## Generalizing This Approach
+
+After implementing this logic specifically for our `catList` array, you might be wondering how to make this solution more generalized. Indeed, creating a reusable function to convert PascalCase to camelCase can be beneficial for various scenarios. So, let's see how we can build a generic utility function for this task.
+
+### Convertible: A Generic Type
+
+The first step is to define a generic type that describes the objects we'll be converting. In TypeScript, this could be designed like so:
+
+```typescript
+type Convertible<T> = Record<string, typeof T[keyof T]>;
+```
+
+Here, `Convertible<T>` serves as a blueprint for any object that has string keys and values of some type `T`.
+
+### Utility Function: `mapToCamelCaseObject`
+
+Next, we craft a utility function that utilizes this generic type:
+
+```typescript
+export const mapToCamelCaseObject = <T>(inputObject: Convertible<T>): Convertible<T> => {
+  let camelCaseResult: Convertible<T> = {};
+  const convertToCamelCase = (input: string): string => 
+    input.length === 0 ? '' : input.charAt(0).toLowerCase() + input.slice(1);
+
+  for (const [key, value] of Object.entries(inputObject)) {
+    camelCaseResult[convertToCamelCase(key)] = value === null ? 'unassigned' : value;
+  }
+  return camelCaseResult;
+};
+```
+
+In this function, `inputObject` is of type `Convertible<T>`, making the function applicable to a variety of object types. The conversion logic is the same as before, but now it's packaged into a reusable function.
+
+### Sample Usage
+
+Using this utility function is straightforward. Let's say you have an array of objects in PascalCase (e.g., `catList`), you could convert it to camelCase like so:
+
+```typescript
+// Assuming catList is already defined
+const camelCaseCats = catList.map(mapToCamelCaseObject);
+```
+
+By generalizing this approach, we've made it easy to apply PascalCase to camelCase conversion across different types of data structures. This keeps your code DRY (Don't Repeat Yourself) and makes it more maintainable and scalable.
+
+
 ## Conclusions
 
 We've seen how the task of converting object keys from PascalCase to camelCase can be performed in a type-safe manner using TypeScript. By leveraging the `Record` type, we ensure that our keys and values conform to the data types we expect, mitigating potential errors down the line. Coupled with `Object.entries()`, which facilitates straightforward iteration over object properties, we can accomplish this task with both efficiency and safety.
