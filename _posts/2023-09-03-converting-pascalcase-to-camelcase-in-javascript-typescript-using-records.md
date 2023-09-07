@@ -13,6 +13,8 @@ excerpt: When you're knee-deep in data transformations, the little things like c
 ---
 # Converting PascalCase to CamelCase in TypeScript: A Type-Safe Approach with CatList
 
+> 🚨 **Critical Warning (Updated on September 7th, 2023)**: Although the code examples and methodologies discussed in this blog post are technically correct, they exhibit serious shortcomings when deployed in real-world applications. For an in-depth look at these deficiencies, and how to address them, please read [this urgent follow-up post](https://peterkellner.net/2023/09/07/How-ChatGPT-Scares-Me-When-Writing-Code/).
+
 One of the advantages of [TypeScript](https://www.typescriptlang.org/) is type safety, which helps ensure your data behaves as you expect. A task that can come up fairly often is the conversion of object keys from PascalCase to [camelCase](https://en.wikipedia.org/wiki/Camel_case). In this blog post, we'll explore how to accomplish this transformation while leveraging TypeScript's type-safe capabilities, specifically through the [Record](https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type) type and `Object.entries()` function.
 
 ## Record Type in TypeScript: An Asset for Type Safety
