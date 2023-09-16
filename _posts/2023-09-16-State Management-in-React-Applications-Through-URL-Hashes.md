@@ -10,16 +10,14 @@ email: peter@peterkellner.net
 author_email: peter@peterkellner.net
 excerpt: Managing state in React applications can be streamlined using URL hashes. This article explores this concept with two examples—a basic toggle switch and a cookie catalog. We discuss the benefits of this method, including enhanced user experience and compatibility with server-side rendering. Learn how to maintain state effectively across React components.
 
+
 ---
-# Resolving TypeScript Import Errors in Next.js
 
-# State Management in React Applications Through URL Hashes: From Simple Switches to Dynamic Cookie Catalogs
-
-## Trivial Example: Crafting a Simple Toggle Switch in React
-
-### Introduction
+# State Management in React Applications Through URL Hashes
 
 Before we delve deep into more intricate examples, let's start with a straightforward one—a React functional component designed to toggle between "On" and "Off" states. This toggle switch initializes and updates its state based on the URL hash.
+
+## Trivial Example: Crafting a Simple Toggle Switch in React
 
 ### Code Snippet
 
