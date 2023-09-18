@@ -90,13 +90,13 @@ In `/app/page.tsx`, use the `use client` directive to run this file in the brows
 Here's the code that runs in your browser:
 
 ```jsx
-// Code for /app/page.tsx
+// Code for /app/page.tsx (see below for full code listing)
 ```
 
 And it's wrapped with this provider:
 
 ```jsx
-// Code for GoogleCaptchaWrapper
+// Code for GoogleCaptchaWrapper (see below for full code listing)
 ```
 
 Note that `GoogleReCaptchaProvider` must wrap any component that uses the hook `useGoogleReCaptcha`. The `HomeInside` component is required for better code organization.
@@ -106,7 +106,7 @@ Note that `GoogleReCaptchaProvider` must wrap any component that uses the hook `
 Here is the handler code that runs when the user submits the form:
 
 ```typescript
-// Code for /app/api/contactFormSubmit/route.ts
+// Code for /app/api/contactFormSubmit/route.ts (see below for full code listing)
 ```
 
 The server-side handler listens for a `POST` request at `http://localhost:3000/api/contactFormSubmit` when you're running the app locally.
