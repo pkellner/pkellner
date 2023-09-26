@@ -15,7 +15,7 @@ excerpt: I don't want to be tied to a particular Mastodon server for my Mastodon
 
 How many of us know people that are still using aol.com for their email? I know for me, when I see that
 I immediately think "dinosaur". I know that's bad, and I shouldn't pre-judge, but it's hard not to. That's why I
-created my own domain (peterkellner.net) a very long time ago. I allowed me to not have to keep telling people I've
+created my own domain ([peterkellner.net](https://peterkellner.net)) a very long time ago. I allowed me to not have to keep telling people I've
 changed my address. You don't know that my email is hosted on gmail, and that's just how I want it.
 
 We can do the same thing pretty easily with Mastodon. it took me about 3 hours to figure it out, but hopefully, you
