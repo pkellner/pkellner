@@ -2,13 +2,13 @@
 layout: post
 status: publish
 published: true
-title: ChatGPT Can Be Lazy And Not Think Out of the Box
+title: Effective Development Process with Two Branches, Dev and Prod
 author: Peter Kellner
 display_name: Peter Kellner
 login: admin
 email: peter@peterkellner.net
 author_email: peter@peterkellner.net
-excerpt: Navigating ChatGPT for database queries can be frustrating. In one instance, ChatGPT's solution for counting rows in a Prisma model proved problematic. Despite clarifications, the AI missed the mark, revealing its inability to completely rethink a problem. This behavior highlighted its shortcomings, resembling an approach worse than what one might expect from a junior programmer.
+excerpt: Transitioning a significant web platform, such as the SiliconValley-CodeCamp.com website, is no small feat. As I delve deep into modernizing the site, I've taken on the challenge of porting it to Next.js 13, leveraging the power of React and the latest addition of server components. The magnitude of this change underscores the necessity of a meticulous and reliable development process. Even as a solo developer on this project, the importance of a robust process cannot be overstated. In the world of web development, particularly when revamping major platforms, adhering to a trusted methodology ensures the website remains operational during development, ensuring a smooth transition for its users.
 
 ---
 
