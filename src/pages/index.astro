@@ -13,7 +13,7 @@ import { formatJekyllPost } from "../utils/astro-jekyl";
 
 // const posts = await getCollection("blog");
 
-const posts = (await getCollection('blog'))
+const posts = (await getCollection("blog"))
   .map(formatJekyllPost())
   .sort((a, b) => {
     // Use optional chaining and nullish coalescing operator to provide a default
@@ -21,7 +21,6 @@ const posts = (await getCollection('blog'))
     const dateB = b.data?.pubDate?.valueOf() ?? 0;
     return dateA - dateB;
   });
-
 
 const sortedPosts = getSortedPosts(posts);
 const featuredPosts = sortedPosts.filter(({ data }) => data.featured);
@@ -51,21 +50,41 @@ const recentPosts = sortedPosts.filter(({ data }) => !data.featured);
         </svg>
         <span class="sr-only">RSS Feed</span>
       </a>
-      <div class="max-w-4xl mx-auto px-4 py-2">
-        <h2 class="text-2xl font-bold text-gray-800 mb-4">Short List</h2>
+      <div class="mx-auto max-w-4xl px-4 py-2">
+        <h2 class="mb-4 text-2xl font-bold text-gray-800">Short List</h2>
         <ul class="list-disc space-y-4 pl-5">
           <li>
             <strong class="font-semibold">Pluralsight Author</strong><br />
-            Authored <a href="https://pluralsight.pxf.io/c/1196644/424552/7490?u=https%3A%2F%2Fwww.pluralsight.com%2Fauthors%2Fpeter-kellner" class="text-blue-600 hover:text-blue-800 underline">17 Pluralsight courses</a> for developers. Topics primarily focused on React and JavaScript.
+            Authored <a
+              href="https://pluralsight.pxf.io/c/1196644/424552/7490?u=https%3A%2F%2Fwww.pluralsight.com%2Fauthors%2Fpeter-kellner"
+              class="text-blue-600 underline hover:text-blue-800"
+              >19 Pluralsight courses</a
+            > for developers. Topics primarily focused on JavaScript Frameworks (React, Node, etc.).
           </li>
           <li>
-            <strong class="font-semibold">Microsoft Documentation Author</strong><br />Wrote 100's of pages of Microsoft's official documentation for ASP.NET Core and other topics including developing Chromium based extensions.
+            <strong class="font-semibold">Microsoft Documentation Author</strong
+            ><br />Created 100's of pages of Microsoft's official documentation
+            for ASP.NET Core and other topics including developing Chromium
+            based extensions.
           </li>
           <li>
-            <strong class="font-semibold">Microsoft MVP</strong><br />This award is given by Microsoft to "technology experts who passionately share their knowledge with the community", award years 2007-2018
+            <strong class="font-semibold">Microsoft MVP</strong><br />This award
+            is given by Microsoft to "technology experts who passionately share
+            their knowledge with the community", award years 2007-2018
           </li>
           <li>
-            <strong class="font-semibold">Conference Founder Including Silicon Valley Code Camp and AngularU</strong><br />Established <a href="https://siliconvalley-codecamp.com/" class="text-blue-600 hover:text-blue-800 underline">Silicon Valley Code Camp</a> in 2006 whose mission is to provide the highest quality content built around the topic of computer code. Code Camp draws thousands of attendees year after year with top sponsorship from Silicon Valley's companies including Microsoft, IBM, Google, PayPal, Twilio, and others. This annual event creates an environment to network and share knowledge.
+            <strong class="font-semibold"
+              >Conference Founder Including Silicon Valley Code Camp and
+              AngularU</strong
+            ><br />Established <a
+              href="https://siliconvalley-codecamp.com/"
+              class="text-blue-600 underline hover:text-blue-800"
+              >Silicon Valley Code Camp</a
+            > in 2006 whose mission is to provide the highest quality content built
+            around the topic of computer code. Code Camp draws thousands of attendees
+            year after year with top sponsorship from Silicon Valley's companies
+            including Microsoft, IBM, Google, PayPal, Twilio, and others. This annual
+            event creates an environment to network and share knowledge.
           </li>
         </ul>
       </div>
