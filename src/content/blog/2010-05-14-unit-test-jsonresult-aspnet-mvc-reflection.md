@@ -1,0 +1,60 @@
+---
+status: publish
+published: true
+pubDatetime: 2010-05-14T20:00:00.000Z
+title: Returning JsonResult From ASP.NET MVC 2.0 Controller and Unit Testing
+author:
+  display_name: Peter Kellner
+  login: admin
+  email: peter@peterkellner.net
+  url: ''
+author_login: admin
+author_email: peter@peterkellner.net
+wordpress_id: 1316
+wordpress_url: https://peterkellner.net/2010/05/14/unit-test-jsonresult-aspnet-mvc-reflection/
+date: '2010-05-14 21:19:31 -0700'
+date_gmt: '2010-05-15 04:19:31 -0700'
+categories:
+- ASP.NET 3.5
+- MVC
+- Reflection
+- JSON
+tags: []
+---
+<blockquote>
+<p>* I’m adding this comment after the post has been written to let anyone coming here know of another great post that goes further to explain no only what I’ve done here, but also two other ways including Mock and using Json Serialization.&#160; The Post is written by Ashic Mahtab, aka “<a href="http://forums.asp.net/members/HeartattacK.aspx">HeartattacK</a>” on the forums.&#160; His well written and informative article is here:&#160; ASP.NET MVC – Unit Testing JsonResult Returning Anonymous Types.</p>
+</blockquote>
+<p>This post will show how to return a simple Json result from an <a href="http://www.microsoft.com/downloads/details.aspx?FamilyID=c9ba1fe1-3ba8-439a-9e21-def90a8615a9&amp;displaylang=en">ASP.NET MVC 2.0</a> web project.&#160; It will show how to test that result inside a unit test and essentially pick apart the Json, just like a JavaScript (or other client) would do.&#160; It seems like it should be very simple (and indeed, once you see the answer it is), however there are lots of length discussions on the forums about this with all kinds of positives and negatives.&#160; The one I based my solution on is from Stack Overflow and is <a href="http://stackoverflow.com/questions/482363/should-my-mvc-controller-really-know-about-json">here</a>..&#160; My personal length discussion that did not really yield a satisfactory answer is <a href="http://social.msdn.microsoft.com/Forums/en-US/csharplanguage/thread/552b6dda-5e98-4012-8df2-70a845aab680/">here</a>.</p>
+<p>If you follow my method, you’ll be able to unit test a <a href="http://msdn.microsoft.com/en-us/library/system.web.mvc.jsonresult.aspx">JsonResult</a> created by an <a href="http://www.asp.net/(S(d35rmemuuono1wvm1gsp2n45))/mvc">MVC asp.net web application</a>. </p>
+<p> <!--more--><br />
+<h2>Controller Side (Server)</h2>
+<p>Let’s get started. First thing we need to do is have a controller that return a JsonResult.&#160; Below is the one I’m currently working on.&#160; Let me show the code, then explain it.</p>
+<p>&#160;</p>
+<div id="codeSnippetWrapper">
+<pre style="border-bottom-style: none; text-align: left; padding-bottom: 0px; line-height: 12pt; border-right-style: none; background-color: #f4f4f4; margin: 0em; padding-left: 0px; width: 100%; padding-right: 0px; font-family: &#39;Courier New&#39;, courier, monospace; direction: ltr; border-top-style: none; color: black; font-size: 8pt; border-left-style: none; overflow: visible; padding-top: 0px" id="codeSnippet"><span style="color: #0000ff">public</span> ActionResult Get(FormCollection form)<br />       {<br />           var query = <span style="color: #0000ff">new</span> FolderPairQuery();<br />           <span style="color: #0000ff">if</span> (form[<span style="color: #006080">&quot;query&quot;</span>] != <span style="color: #0000ff">null</span>)<br />           {<br />               query = form[<span style="color: #006080">&quot;query&quot;</span>].FromJson&lt;FolderPairQuery&gt;();<br />           }<br /><br />           <span style="color: #0000ff">if</span> (form[<span style="color: #006080">&quot;start&quot;</span>] != <span style="color: #0000ff">null</span> &amp;&amp; form[<span style="color: #006080">&quot;limit&quot;</span>] != <span style="color: #0000ff">null</span>)<br />           {<br />               query.Start = Convert.ToInt32(form[<span style="color: #006080">&quot;start&quot;</span>]);<br />               query.Limit = Convert.ToInt32(form[<span style="color: #006080">&quot;limit&quot;</span>]);<br />           }<br /><br />           var results = FolderPairManager.I.Get(query);<br />           <span style="color: #0000ff">return</span> Json(<span style="color: #0000ff">new</span><br />                           {<br />                               success = <span style="color: #0000ff">true</span>,<br />                               rows = results,<br />                               total = query.OutputTotal<br />                           }, JsonRequestBehavior.AllowGet);<br />       }</pre>
+</div>
+<div>&#160;</div>
+<p>This code is actually part of the file FolderPairController.cs.&#160; It returns an ActionResult (which in this case is JsonResult that derives from ActionResult).&#160; All the way to the return statement is just stuff that I do in my code to pull apart the passed in Request variables and process them.&#160; I only leave them in for context.&#160; It does not matter how you get your “results” and “total”, it just matters that you do. Then, the return statement is the part that is of interest.&#160; It’s basically returning an anonymous class which is actually a JsonResult.&#160; In System.Web.Mvc.Controller.cs, you will see that Json is defined as:</p>
+<p>&#160;</p>
+<div>
+<pre style="border-bottom-style: none; text-align: left; padding-bottom: 0px; line-height: 12pt; border-right-style: none; background-color: #f4f4f4; margin: 0em; padding-left: 0px; width: 100%; padding-right: 0px; font-family: &#39;Courier New&#39;, courier, monospace; direction: ltr; border-top-style: none; color: black; font-size: 8pt; border-left-style: none; overflow: visible; padding-top: 0px" id="codeSnippet"><span style="color: #0000ff">protected</span> <span style="color: #0000ff">internal</span> JsonResult Json(<span style="color: #0000ff">object</span> data, JsonRequestBehavior behavior);</pre>
+</div>
+<div>&#160;</div>
+<div>&#160;</div>
+<div>The first parameter is “object data” which means it can be anything, and in our case, it is an anonymous object.</div>
+<div>&#160;</div>
+<h2>Unit Test Side (Client)</h2>
+<div>&#160;</div>
+<div>So now, let’s take a look at the unit test itself.&#160; Again, let me show the code, then explain it.</div>
+<div>&#160;</div>
+<div id="codeSnippetWrapper">
+<pre style="border-bottom-style: none; text-align: left; padding-bottom: 0px; line-height: 12pt; border-right-style: none; background-color: #f4f4f4; margin: 0em; padding-left: 0px; width: 100%; padding-right: 0px; font-family: &#39;Courier New&#39;, courier, monospace; direction: ltr; border-top-style: none; color: black; font-size: 8pt; border-left-style: none; overflow: visible; padding-top: 0px" id="codeSnippet">[TestMethod]<br /><span style="color: #0000ff">public</span> <span style="color: #0000ff">void</span> InsertControllerTest()<br />{<br />    var pairName = <span style="color: #0000ff">string</span>.Format(<span style="color: #006080">&quot;FolderPair {0}&quot;</span>, <br />        (<span style="color: #0000ff">new</span> Random().Next(1, 10000)));<br />    var folderPairResults =<br />        <span style="color: #0000ff">new</span> List&lt;FolderPairResult&gt;()<br />            {<br />                <span style="color: #0000ff">new</span> FolderPairResult<br />                    {<br />                        ActionTypeId = 1,<br />                        CheckFileContent = <span style="color: #0000ff">true</span>,<br />                        ActiveForRunAll = <span style="color: #0000ff">true</span>,<br />                        ExcludeHiddenFiles = <span style="color: #0000ff">true</span>,<br />                        ExcludeReadOnly = <span style="color: #0000ff">true</span>,<br />                        ExcludeSystemFiles = <span style="color: #0000ff">true</span>,<br />                        FolderPairName = pairName,<br />                        LeftFolder = <span style="color: #006080">&quot;left&quot;</span>,<br />                        RightFolder = <span style="color: #006080">&quot;right&quot;</span>,<br />                        SaveOverWrittenRecycleBin = <span style="color: #0000ff">true</span>,<br />                        UsersId = 1<br />                    }<br />            };<br /><br /><br /><br />    <span style="color: #0000ff">string</span> jsonInsert = JsonConvert.SerializeObject(folderPairResults);<br /><br />    var form =<br />        <span style="color: #0000ff">new</span> FormCollection<br />            {<br />                {<span style="color: #006080">&quot;data&quot;</span>, jsonInsert}<br />            };<br /><br /><br />    <span style="color: #0000ff">using</span> (var controller = <span style="color: #0000ff">new</span> FolderPairController())<br />    {<br /><br />        controller.Insert(form);<br />    }<br /><br />    <span style="color: #008000">// verify it got inserted.</span><br />    var queryObj = <span style="color: #0000ff">new</span> FolderPairQuery { FolderPairName = pairName };<br />    <span style="color: #0000ff">string</span> json = JsonConvert.SerializeObject(queryObj);<br />    var formGet =<br />        <span style="color: #0000ff">new</span> FormCollection()<br />            {<br />                {<span style="color: #006080">&quot;query&quot;</span>, json}<br />            };<br /><br />    <span style="color: #0000ff">using</span> (var controller = <span style="color: #0000ff">new</span> FolderPairController())<br />    {<br />        var jsonResult1 = controller.Get(formGet) <span style="color: #0000ff">as</span> JsonResult;<br />        Assert.IsNotNull(jsonResult1,<span style="color: #006080">&quot;jsonResult1 is null which is bad&quot;</span>);<br />       <br />       <br />            List&lt;FolderPairResult&gt; folderPairResults1 =<br />                (List&lt;FolderPairResult&gt;)<br />                (jsonResult1.Data.GetType().GetProperty(<span style="color: #006080">&quot;rows&quot;</span>)).GetValue(jsonResult1.Data, <span style="color: #0000ff">null</span>);<br />            <span style="color: #0000ff">bool</span> success =<br />                (<span style="color: #0000ff">bool</span>)<br />                (jsonResult1.Data.GetType().GetProperty(<span style="color: #006080">&quot;success&quot;</span>)).GetValue(jsonResult1.Data, <span style="color: #0000ff">null</span>);<br />            <span style="color: #0000ff">int</span> total =<br />                (<span style="color: #0000ff">int</span>)<br />                (jsonResult1.Data.GetType().GetProperty(<span style="color: #006080">&quot;total&quot;</span>)).GetValue(jsonResult1.Data, <span style="color: #0000ff">null</span>);<br /><br />            Assert.IsTrue(folderPairResults1.Count == 1, <span style="color: #006080">&quot;Not one item returned&quot;</span>);<br />            Assert.IsTrue(folderPairResults1[0].FolderPairName.Equals(pairName),<br />                <span style="color: #006080">&quot;Wrong pairname returned&quot;</span>);<br />    }<br />}</pre>
+<p></div>
+<div>Up to the line “// verify it got inserted”, we simply are adding the record to the database in our unit test.&#160; I won’t go into detail about that in this post since it is not really the purpose here.&#160; I’m really just trying to show how to extract from the JsonResult the values that are returned from the server.</div>
+<div>&#160;</div>
+<div>So, notice the line “var jsonResult1 = controller.Get(formGet) as JsonResult;”.&#160; This line simply calls the controller’s get method with the appropriate query parameters and returns us a JsonResult.&#160; Now, let’s look at how to get the data out of that.&#160; It’s really quite simple using reflection.&#160; Each of the following three lines pulls the data out so that at the end, we have our typed data for rows,total and count.</div>
+<div>&#160;</div>
+<div>Hopefully, this will help you.&#160; Like I said in the beginning, there are lots of ways to do this.&#160; This just shows one that works for me.</div>
+<div>&#160;</div>
+<div>
+  </div>

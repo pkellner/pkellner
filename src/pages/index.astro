@@ -1,0 +1,167 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "@layouts/Layout.astro";
+import Header from "@components/Header.astro";
+import Footer from "@components/Footer.astro";
+import LinkButton from "@components/LinkButton.astro";
+import Hr from "@components/Hr.astro";
+import Card from "@components/Card";
+//import Socials from "@components/Socials.astro";
+import getSortedPosts from "@utils/getSortedPosts";
+//import { SOCIALS } from "@config";
+import { formatJekyllPost } from "../utils/astro-jekyl";
+
+// const posts = await getCollection("blog");
+
+const posts = (await getCollection('blog'))
+  .map(formatJekyllPost())
+  .sort((a, b) => {
+    // Use optional chaining and nullish coalescing operator to provide a default
+    const dateA = a.data?.pubDate?.valueOf() ?? 0;
+    const dateB = b.data?.pubDate?.valueOf() ?? 0;
+    return dateA - dateB;
+  });
+
+
+const sortedPosts = getSortedPosts(posts);
+const featuredPosts = sortedPosts.filter(({ data }) => data.featured);
+const recentPosts = sortedPosts.filter(({ data }) => !data.featured);
+
+//const socialCount = SOCIALS.filter(social => social.active).length;
+---
+
+<Layout>
+  <Header />
+  <main id="main-content">
+    <section id="hero">
+      <h1>Short Summary</h1>
+      <a
+        target="_blank"
+        href="/rss.xml"
+        class="rss-link"
+        aria-label="rss feed"
+        title="RSS Feed"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" class="rss-icon"
+          ><path
+            d="M19 20.001C19 11.729 12.271 5 4 5v2c7.168 0 13 5.832 13 13.001h2z"
+          ></path><path
+            d="M12 20.001h2C14 14.486 9.514 10 4 10v2c4.411 0 8 3.589 8 8.001z"
+          ></path><circle cx="6" cy="18" r="2"></circle>
+        </svg>
+        <span class="sr-only">RSS Feed</span>
+      </a>
+      <div class="max-w-4xl mx-auto px-4 py-2">
+        <h2 class="text-2xl font-bold text-gray-800 mb-4">Short List</h2>
+        <ul class="list-disc space-y-4 pl-5">
+          <li>
+            <strong class="font-semibold">Pluralsight Author</strong><br />
+            Authored <a href="https://pluralsight.pxf.io/c/1196644/424552/7490?u=https%3A%2F%2Fwww.pluralsight.com%2Fauthors%2Fpeter-kellner" class="text-blue-600 hover:text-blue-800 underline">17 Pluralsight courses</a> for developers. Topics primarily focused on React and JavaScript.
+          </li>
+          <li>
+            <strong class="font-semibold">Microsoft Documentation Author</strong><br />Wrote 100's of pages of Microsoft's official documentation for ASP.NET Core and other topics including developing Chromium based extensions.
+          </li>
+          <li>
+            <strong class="font-semibold">Microsoft MVP</strong><br />This award is given by Microsoft to "technology experts who passionately share their knowledge with the community", award years 2007-2018
+          </li>
+          <li>
+            <strong class="font-semibold">Conference Founder Including Silicon Valley Code Camp and AngularU</strong><br />Established <a href="https://siliconvalley-codecamp.com/" class="text-blue-600 hover:text-blue-800 underline">Silicon Valley Code Camp</a> in 2006 whose mission is to provide the highest quality content built around the topic of computer code. Code Camp draws thousands of attendees year after year with top sponsorship from Silicon Valley's companies including Microsoft, IBM, Google, PayPal, Twilio, and others. This annual event creates an environment to network and share knowledge.
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <Hr />
+
+    {
+      featuredPosts.length > 0 && (
+        <>
+          <section id="featured">
+            <h2>Featured</h2>
+            <ul>
+              {featuredPosts.map(({ data, slug }) => (
+                <Card
+                  href={`/${slug}/`}
+                  frontmatter={data}
+                  secHeading={false}
+                />
+              ))}
+            </ul>
+          </section>
+          {recentPosts.length > 0 && <Hr />}
+        </>
+      )
+    }
+
+    {
+      recentPosts.length > 0 && (
+        <section id="recent-posts">
+          <h2>Recent Posts</h2>
+          <ul>
+            {recentPosts.map(
+              ({ data, slug }, index) =>
+                index < 4 && (
+                  <Card
+                    href={`/${slug}/`}
+                    frontmatter={data}
+                    secHeading={false}
+                  />
+                )
+            )}
+          </ul>
+        </section>
+      )
+    }
+
+    <div class="all-posts-btn-wrapper">
+      <LinkButton href="/posts/">
+        All Posts
+        <svg xmlns="http://www.w3.org/2000/svg"
+          ><path
+            d="m11.293 17.293 1.414 1.414L19.414 12l-6.707-6.707-1.414 1.414L15.586 11H6v2h9.586z"
+          ></path>
+        </svg>
+      </LinkButton>
+    </div>
+  </main>
+
+  <Footer />
+</Layout>
+
+<style>
+  /* ===== Hero Section ===== */
+  #hero {
+    @apply pb-6 pt-8;
+  }
+  #hero h1 {
+    @apply my-4 inline-block text-3xl font-bold sm:my-8 sm:text-5xl;
+  }
+  #hero .rss-link {
+    @apply mb-6;
+  }
+  #hero .rss-icon {
+    @apply mb-2 h-6 w-6 scale-110 fill-skin-accent sm:mb-3 sm:scale-125;
+  }
+  #hero p {
+    @apply my-2;
+  }
+  .social-wrapper {
+    @apply mt-4 flex flex-col sm:flex-row sm:items-center;
+  }
+  .social-links {
+    @apply mb-1 mr-2 whitespace-nowrap sm:mb-0;
+  }
+
+  /* ===== Featured & Recent Posts Sections ===== */
+  #featured,
+  #recent-posts {
+    @apply pb-6 pt-12;
+  }
+  #featured h2,
+  #recent-posts h2 {
+    @apply text-2xl font-semibold tracking-wide;
+  }
+  .all-posts-btn-wrapper {
+    @apply my-8 text-center;
+  }
+</style>

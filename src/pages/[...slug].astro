@@ -1,0 +1,68 @@
+---
+import { getCollection } from "astro:content";
+import Posts from "@layouts/Posts.astro";
+import PostDetails from "@layouts/PostDetails.astro";
+import getSortedPosts from "@utils/getSortedPosts";
+import getPageNumbers from "@utils/getPageNumbers";
+import getPagination from "@utils/getPagination";
+import { formatJekyllPost } from "../utils/astro-jekyl";
+
+
+
+
+export async function getStaticPaths() {
+
+  const posts = await getCollection("blog");
+  // Call formatJekyllPost without arguments or with desired options
+
+  const formatFunction = formatJekyllPost();
+  const postResult = posts
+    .map(formatFunction) // Use the returned function to format each post
+    .map(post => ({
+      params: { slug: post.slug },
+      props: post,
+    }));
+
+  const pagePaths = getPageNumbers(posts.length).map(pageNum => ({
+    params: { slug: `posts/${String(pageNum)}` },
+  }));
+
+  const routePatterns = [...postResult, ...pagePaths];
+  return routePatterns;
+}
+
+const post = Astro.props;
+const { slug } = Astro.params;
+
+//console.log("/[...slug].astro: slug", slug,"post", post);
+
+//console.log("/blog/[...slug].astro.js", Astro.params, Astro.props);
+
+//const { Content } = await post.render();
+
+const posts = await getCollection("blog");
+
+
+const formatFunction = formatJekyllPost();
+const postResults = posts
+  .map(formatFunction);
+
+
+const sortedPosts = getSortedPosts(postResults);
+
+const pageNumber = parseInt(slug.split('/')[1], 10);
+
+const pagination = getPagination({
+  posts: sortedPosts,
+  page: pageNumber,
+});
+
+const isEmptyObject = (obj : any) => Object.keys(obj).length === 0;
+
+---
+
+{!isEmptyObject(post) ? <PostDetails post={post} /> : <Posts {...pagination} />}
+
+
+
+
