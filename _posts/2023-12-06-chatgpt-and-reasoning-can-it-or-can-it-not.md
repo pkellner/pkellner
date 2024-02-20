@@ -2,7 +2,7 @@
 layout: post
 status: publish
 published: true
-title: Can ChatGPT Reason? A Real-Life Example, You Decide
+title: Can ChatGPT Reason? A Real-Life Example, You Decide for Yourself
 author: Peter Kellner
 display_name: Peter Kellner
 login: admin
