@@ -32,10 +32,10 @@ services:
     volumes:
       - ./data:/var/lib/mysql
     environment:
-      - MYSQL_ROOT_PASSWORD=Abc123
-      - MYSQL_DATABASE=test
-      - MYSQL_USER=test
-      - MYSQL_PASSWORD=test
+      - MYSQL_ROOT_PASSWORD=Abc123abc
+      - MYSQL_DATABASE=mydb
+      - MYSQL_USER=user1
+      - MYSQL_PASSWORD=abc123
     ports:
       - 3306:3306
 ```

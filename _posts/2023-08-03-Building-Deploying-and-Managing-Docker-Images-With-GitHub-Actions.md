@@ -13,7 +13,7 @@ excerpt: This tutorial guides you on how to use Dockerfile, docker-compose, and 
 ---
 # Building, Deploying, and Managing Docker Images with GitHub Actions
 
-Hello, I'm Peter Kellner, and today we're going to dive deep into how Docker files and docker-compose work together, how they integrate with GitHub actions, and why they are important for your deployment workflow. I've brought in files from a current web site I'm working on to show you how it all works. There may be extra lines of code here you don't need, but I wanted to show you a real-world example.
+Hello, I'm Peter Kellner, and today we're going to dive deep into how Docker files and docker-compose work together, how they integrate with GitHub actions, and why they are important for your deployment workflow. I've brought in files from a current website I'm working on to show you how it all works. There may be extra lines of code here you don't need, but I wanted to show you a real-world example.
 
 ## Dockerfile & docker-compose.yml
 
