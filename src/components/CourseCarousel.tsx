@@ -52,6 +52,8 @@ export default function CourseCarousel() {
   const prevSlide = () =>
     setActiveIndex(current => (current - 1 + courses.length) % courses.length);
 
+
+
   return (
     <div className="relative w-full overflow-hidden">
       {" "}
@@ -63,24 +65,28 @@ export default function CourseCarousel() {
           transform: `translateX(-${(activeIndex * 100) / courses.length}%)`,
         }}
       >
-        {courses.map((course, index) => (
-          <div
-            key={index}
-            className="w-full flex-none" // Make sure each slide is flex-none and takes full width of the carousel viewport
-            style={{ width: `${100 / courses.length}%` }}
-          >
-            {" "}
-            {/* Adjust each slide's width */}
-            <a href={`https:\\${course.link} `}target="_blank" rel="noreferrer">
-              <img
-                src={`/courseimages/${course.slug}.png`} // Updated image source
-                alt={course.title}
-                className="h-80 w-full object-contain" // Set a fixed height for images and make them contain within that height
-                style={{ objectFit: "contain", objectPosition: "center" }} // Ensures image fits nicely
-              />
-            </a>
-          </div>
-        ))}
+        {courses.map((course, index) => {
+          const str = `https://${course.link}`;
+          return (
+            <div
+              key={index}
+              className="w-full flex-none" // Make sure each slide is flex-none and takes full width of the carousel viewport
+              style={{width: `${100 / courses.length}%`}}
+            >
+              {" "}
+              {/* Adjust each slide's width */}
+              <a href={str} target="_blank" rel="noreferrer">
+                <img
+                  src={`/courseimages/${course.slug}.png`} // Updated image source
+                  alt={course.title}
+                  className="h-80 w-full object-contain" // Set a fixed height for images and make them contain within that height
+                  style={{objectFit: "contain", objectPosition: "center"}} // Ensures image fits nicely
+                />
+                <br/>{str}
+              </a>
+            </div>
+          );
+        })}
       </div>
       <button
         onClick={prevSlide}
