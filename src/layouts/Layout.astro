@@ -109,9 +109,7 @@ const socialImageURL = new URL(
 
     <script is:inline src="/toggle-theme.js"></script>
     <!-- Google tag (gtag.js) -->
-    <script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=UA-648264-1"
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-648264-1"
     ></script>
     <script is:inline>
       window.dataLayer = window.dataLayer || [];
@@ -122,6 +120,10 @@ const socialImageURL = new URL(
 
       gtag("config", "UA-648264-1");
     </script>
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/@alpinejs/collapse@3.x.x/dist/cdn.min.js"
+    ></script>
   </head>
   <body>
     <slot />

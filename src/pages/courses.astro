@@ -1,0 +1,139 @@
+---
+import Layout from "@layouts/Layout.astro";
+import Header from "@components/Header.astro";
+import Footer from "@components/Footer.astro";
+
+const courses = [
+  {
+    title: "What is React",
+    link: "pluralsight.pxf.io/2r6ORa",
+    slug: "what-is-react",
+    short:
+      "Learn what React is and help you understand why React is the number one JavaScript library for building JavaScript apps in a browser.",
+    long: "React is the number one JavaScript library for building JavaScript apps in a browser. In this course, What Is React?, you’ll learn all about the component-based nature of React and how that translates into highly performant and easy to use web applications. First, you’ll explore the nature of React and how it addresses building component-based web apps. Next, you’ll discover how React is based on a virtual DOM that efficiently maintains an application's user interface to mirror that virtual DOM. Finally, you’ll learn how React uses the powerful JSX syntax to represent components and the actual UI of a running web app. When you’re finished with this course, you’ll have an excellent understanding of why React is the most popular JavaScript library for building web apps, as well as what it takes to build a React app.",
+  },
+  {
+    title: "React 18 Components",
+    link: "pluralsight.pxf.io/GmB2a2",
+    slug: "react-18-working-components",
+    short:
+      "Learn you how to build React apps that use components in the best possible way while minimizing computer resources and maximizing browser UI experience.",
+    long: "Creating UIs in React is all about creating independent components that seamlessly work together to present a consistent view across your React web app. In this course, Working with Components in React 18, you will gain the ability to architect and build high quality react apps. First, you will explore the various primitive methods for sharing props and state between components, as well as sharing data more globally with the Context API. Next, you’ll learn how to best handle errors in React components to make sure your users continue to have a great experience with your apps. Finally, you will discover how you can improve your app performance through minimizing over-rendering and other UI improvements. When you are finished with this course, you will have the skills and knowledge of React component design needed to leverage re-usability and ensure consistency in your apps and code with fewer bugs.",
+  },
+  {
+    title: "React 18 Hooks",
+    link: "pluralsight.pxf.io/g1K49X",
+    slug: "react-18-using-hooks",
+    short:
+      "This course will teach you how to best use React Hooks, how to build your own Hooks, and how to combine Hooks together to make awesome React apps.",
+    long: "Learn everything you need to use React Hooks in your React apps, as well as how to build your own custom Hooks to satisfy your own state and component lifecycle management. In this course, Using Hooks in React 18, you’ll learn to use React Hooks in your function components as well as understand the motivation behind hooks. First, you’ll explore what a React Hook actually is by building your own useState Hook from scratch. Next, you’ll discover the built-in React Hooks provided by the React Facebook team. Finally, you’ll learn how to combine the built-in Hooks and Hooks you build yourself, as well as third-party Hooks into real world React apps. When you’re finished with this course, you’ll have the skills and knowledge of React Hooks needed to build highly performant, easily maintainable React apps that provide an awesome user experience to your end users.",
+  },
+  {
+    title: "React Server Component Fundamentals",
+    link: "pluralsight.pxf.io/m5aYj1",
+    slug: "react-18-server-component-fundamentals",
+    short:
+      "Learn how React Server Components can improve the quality of your React apps and architecture.",
+    long: "Good app design means fewer bugs, lower maintenance costs, and happier users. In this course, Server Component Fundamentals in React 18, you’ll learn about React Server Components and how you can use them to provide a better user experience. First, you’ll dive into the technology behind server components so that using them makes sense. Next, you’ll explore how to build Server Components that work with async data sources. Finally, you’ll learn how to incorporate Server Components in a real-world app so that your apps provide great browser user experiences and are easy to build. When you’re finished with this course, you’ll have all the knowledge and tools necessary to build apps with React Server and Client Components that provide excellent and performant UIs for your users.",
+  },
+  {
+    title: "Working with Data in React",
+    link: "pluralsight.pxf.io/QyrWB6",
+    slug: "react-working-data",
+    short:
+      "Learn how to construct React apps adept at managing all data seamlessly. You'll also learn about the React concurrent rendering feature, Suspense, which enables superior user experiences.",
+    long: "React applications running in browsers often need to retrieve remote data, which could be from databases, web servers, or other sources. Understanding the best methods for incorporating this data into your production application is crucial. In the course Working with Data in React, you will explore how to leverage React's latest concurrent rendering features. First, you'll explore Server Components and Server Actions to establish a data connection. Then, you will see best practices that facilitate development and maintenance and enable outstanding user interfaces. Finally, you will learn to provide performant experiences for users of your browser applications. By the end of this course, you will be able to ensure that your applications adhere to the highest standards.",
+  },
+];
+---
+
+<Layout>
+  <Header />
+  <main id="main-content">
+    <section id="hero">
+      <h1>Course List</h1>
+      <div class="mx-auto max-w-4xl px-4 py-2">
+        <h2 class="mb-4 text-2xl font-bold text-gray-800">React Courses</h2>
+        <div class="space-y-8">
+          {
+            courses.map(course => (
+              <div class="border-b pb-4">
+                <a
+                  href={`https://${course.link}`}
+                  target="_blank"
+                  class="text-lg text-blue-600 underline hover:text-blue-800"
+                >
+                  {course.title}
+                </a>
+                <p class="mt-2 text-gray-700">{course.short}</p>
+                <button
+                  onclick="this.nextElementSibling.classList.toggle('hidden')"
+                  class="mt-3 text-sm text-blue-600 hover:text-blue-800"
+                >
+                  Read more
+                </button>
+                <p class="mt-2 hidden text-gray-600">{course.long}</p>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+    <section id="featured">
+      <h2>All 19 Courses on Pluralsight including GraphQL, .Net, and ExtJS</h2>
+      <div class="all-posts-btn-wrapper">
+        <a
+          href="https://app.pluralsight.com/profile/author/peter-kellner"
+          target="_blank"
+          class="inline-block px-4 py-2 text-white bg-blue-600 rounded-md hover:bg-blue-800"
+        >
+          View All Courses
+        </a>
+
+      </div>
+    </section>
+  </main>
+</Layout>
+
+<Footer />
+
+<style>
+  /* ===== Hero Section ===== */
+  #hero {
+    @apply pb-6 pt-8;
+  }
+  #hero h1 {
+    @apply my-4 inline-block text-3xl font-bold sm:my-8 sm:text-5xl;
+  }
+  #hero .rss-link {
+    @apply mb-6;
+  }
+  #hero .rss-icon {
+    @apply mb-2 h-6 w-6 scale-110 fill-skin-accent sm:mb-3 sm:scale-125;
+  }
+  #hero p {
+    @apply my-2;
+  }
+  .social-wrapper {
+    @apply mt-4 flex flex-col sm:flex-row sm:items-center;
+  }
+  .social-links {
+    @apply mb-1 mr-2 whitespace-nowrap sm:mb-0;
+  }
+
+  /* ===== Featured & Recent Posts Sections ===== */
+  #featured,
+  #recent-posts {
+    @apply pb-6 pt-12;
+  }
+  #featured h2,
+  #recent-posts h2 {
+    @apply text-2xl font-semibold tracking-wide;
+  }
+  .all-posts-btn-wrapper {
+    @apply my-8 text-center;
+  }
+  button {
+    @apply font-medium;
+  }
+</style>

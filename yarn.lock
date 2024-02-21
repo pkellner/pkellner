@@ -20,6 +20,11 @@
     "@jridgewell/gen-mapping" "^0.3.0"
     "@jridgewell/trace-mapping" "^0.3.9"
 
+"@astrojs/alpinejs@^0.4.0":
+  version "0.4.0"
+  resolved "https://registry.npmjs.org/@astrojs/alpinejs/-/alpinejs-0.4.0.tgz"
+  integrity sha512-68BY1CA0XuielLW3WdX2sfh9F4sSTnFqQ//IE9AditbiYJ77HJDb4uZx07pTFDtr1jOMU7lCvH+iS9gmNafM1g==
+
 "@astrojs/check@^0.5.4":
   version "0.5.4"
   resolved "https://registry.npmjs.org/@astrojs/check/-/check-0.5.4.tgz"
@@ -647,6 +652,11 @@
   resolved "https://registry.npmjs.org/@tsconfig/node16/-/node16-1.0.4.tgz"
   integrity sha512-vxhUy4J8lyeyinH7Azl1pdd43GJhZH/tP2weN8TntQblOY+A0XbT8DJk1/oCPuOOyg/Ja757rG0CgHcWC8OfMA==
 
+"@types/alpinejs@^3.0.0", "@types/alpinejs@^3.13.6":
+  version "3.13.6"
+  resolved "https://registry.npmjs.org/@types/alpinejs/-/alpinejs-3.13.6.tgz"
+  integrity sha512-BMi1/2uQz7mp30VFn69SzjN7YwQ0QzE4Hn3RMBt4iMpQeasdbMiImv1f5yvK1bYmvjIyG/YFg+CgPxbjIXZk0g==
+
 "@types/babel__core@^7.20.4", "@types/babel__core@^7.20.5":
   version "7.20.5"
   resolved "https://registry.npmjs.org/@types/babel__core/-/babel__core-7.20.5.tgz"
@@ -987,6 +997,18 @@
   resolved "https://registry.npmjs.org/@vscode/l10n/-/l10n-0.0.18.tgz"
   integrity sha512-KYSIHVmslkaCDyw013pphY+d7x1qV8IZupYfeIfzNA+nsaWHbn5uPuQRvdRFsa9zFzGeudPuoGoZ1Op4jrJXIQ==
 
+"@vue/reactivity@~3.1.1":
+  version "3.1.5"
+  resolved "https://registry.npmjs.org/@vue/reactivity/-/reactivity-3.1.5.tgz"
+  integrity sha512-1tdfLmNjWG6t/CsPldh+foumYFo3cpyCHgBYQ34ylaMsJ+SNHQ1kApMIa8jN+i593zQuaw3AdWH0nJTARzCFhg==
+  dependencies:
+    "@vue/shared" "3.1.5"
+
+"@vue/shared@3.1.5":
+  version "3.1.5"
+  resolved "https://registry.npmjs.org/@vue/shared/-/shared-3.1.5.tgz"
+  integrity sha512-oJ4F3TnvpXaQwZJNF3ZK+kLPHKarDmJjJ6jyzVNDKH9md1dptjC7lWR//jrGuLdek/U6iltWxqAnYOu8gCiOvA==
+
 acorn-jsx@^5.3.2:
   version "5.3.2"
   resolved "https://registry.npmjs.org/acorn-jsx/-/acorn-jsx-5.3.2.tgz"
@@ -1021,6 +1043,13 @@ ajv@^8.11.0:
     json-schema-traverse "^1.0.0"
     require-from-string "^2.0.2"
     uri-js "^4.2.2"
+
+alpinejs@^3.0.0, alpinejs@^3.13.5:
+  version "3.13.5"
+  resolved "https://registry.npmjs.org/alpinejs/-/alpinejs-3.13.5.tgz"
+  integrity sha512-1d2XeNGN+Zn7j4mUAKXtAgdc4/rLeadyTMWeJGXF5DzwawPBxwTiBhFFm6w/Ei8eJxUZeyNWWSD9zknfdz1kEw==
+  dependencies:
+    "@vue/reactivity" "~3.1.1"
 
 ansi-align@^3.0.1:
   version "3.0.1"

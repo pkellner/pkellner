@@ -6,10 +6,14 @@ import Footer from "@components/Footer.astro";
 import LinkButton from "@components/LinkButton.astro";
 import Hr from "@components/Hr.astro";
 import Card from "@components/Card";
-//import Socials from "@components/Socials.astro";
 import getSortedPosts from "@utils/getSortedPosts";
-//import { SOCIALS } from "@config";
 import { formatJekyllPost } from "../utils/astro-jekyl";
+import CourseCarousel from "../components/CourseCarousel";
+
+
+
+
+
 
 // const posts = await getCollection("blog");
 
@@ -28,13 +32,37 @@ const featuredPosts = sortedPosts.filter(({ data }) => data.featured);
 const recentPosts = sortedPosts.filter(({ data }) => !data.featured);
 
 //const socialCount = SOCIALS.filter(social => social.active).length;
+
+
 ---
+
 
 <Layout>
   <Header />
   <main id="main-content">
-    <section id="hero">
-      <h1>Short Summary</h1>
+
+      <section id="featured">
+          <div class="max-w-4xl mx-auto px-4 py-2">
+              <h2 class="text-2xl font-bold text-gray-800 mb-4 text-center ">Popular Courses</h2>
+              <CourseCarousel client:load />
+              <div class="all-posts-btn-wrapper">
+                  <a
+                          href="https://app.pluralsight.com/profile/author/peter-kellner"
+                          target="_blank"
+                          class="inline-block px-4 py-2 text-white bg-blue-600 rounded-md hover:bg-blue-800"
+                  >
+                      View All Courses
+                  </a>
+
+              </div>
+          </div>
+      </section>
+
+      <Hr />
+
+
+
+    <section id="featured">
       <a
         target="_blank"
         href="/rss.xml"
@@ -52,7 +80,7 @@ const recentPosts = sortedPosts.filter(({ data }) => !data.featured);
         <span class="sr-only">RSS Feed</span>
       </a>
       <div class="max-w-4xl mx-auto px-4 py-2">
-        <h2 class="text-2xl font-bold text-gray-800 mb-4">Short List</h2>
+        <h2 class="text-2xl font-bold text-gray-800 mb-4">Short Bio</h2>
         <ul class="list-disc space-y-4 pl-5">
           <li>
             <strong class="font-semibold">Pluralsight Author</strong><br />
@@ -162,6 +190,6 @@ const recentPosts = sortedPosts.filter(({ data }) => !data.featured);
     @apply text-2xl font-semibold tracking-wide;
   }
   .all-posts-btn-wrapper {
-    @apply my-8 text-center;
+    @apply my-4 text-center;
   }
 </style>
