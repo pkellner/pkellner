@@ -82,7 +82,6 @@ export default function CourseCarousel() {
                   className="h-80 w-full object-contain" // Set a fixed height for images and make them contain within that height
                   style={{objectFit: "contain", objectPosition: "center"}} // Ensures image fits nicely
                 />
-                <br/>{str}
               </a>
             </div>
           );
