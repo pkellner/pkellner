@@ -12,6 +12,15 @@ export async function getStaticPaths() {
 
   const formatFunction = formatJekyllPost();
 
+  // this is so that preview works in frontmatter vs code plugin
+  const postResultWithDashesOnly = posts.map((post) => {
+    return {
+      params: { slug: post.slug },
+      props: { post },
+    };
+
+  });
+
   const pages = posts
     // .filter(x =>
     //   x.slug.includes("my-typescript-skills-improving-and-best-practice")
@@ -24,6 +33,7 @@ export async function getStaticPaths() {
       };
     });
 
+
   const postResult = pages.map(({ slug, post }) => {
     const postFormatted = formatFunction(post);
     return {
@@ -32,11 +42,13 @@ export async function getStaticPaths() {
     };
   });
 
+  
+
   const pagePaths = getPageNumbers(posts.length).map(pageNum => ({
     params: { slug: `posts/${String(pageNum)}` },
   }));
 
-  return [...postResult, ...pagePaths];
+  return [...postResult, ...postResultWithDashesOnly, ...pagePaths];
 }
 
 const { post } = Astro.props;
