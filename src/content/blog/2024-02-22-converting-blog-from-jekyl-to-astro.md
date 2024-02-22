@@ -2,7 +2,7 @@
 title: Converting Blog From jekyl to astro
 pubDatetime: 2024-02-22T14:43:57.876Z
 preview: ""
-draft: true
+draft: false
 tags: [astro]
 description: "Just an a public service announcement that I've converted my blog peterkellner.net from Jekyl to AstroBuild,still on Github Pages"
 categories: []
