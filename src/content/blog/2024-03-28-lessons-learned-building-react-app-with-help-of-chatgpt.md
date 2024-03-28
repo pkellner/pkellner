@@ -1,10 +1,8 @@
 ---
-
-
 title: Lessons Learned Using ChatGPT for React Programming
 description: Using ChatGPT for React programming offers valuable insights but requires careful management of component size, adherence to code optimizations, clear instructions, and regular review. It's crucial to balance AI assistance with manual oversight to ensure performance and maintain coding standards.
 pubDatetime: 2024-03-28T17:41:50.469Z
-preview: ""
+preview: /postimages2024/preview.png
 draft: false
 tags:
   - react
@@ -15,12 +13,8 @@ categories:
   - chatgpt
 type: default
 slug: 2024-03-28-2024-03-28-lessons-learned-building-react-app-with-help-of-chatgpt
-
-
 ---
-# Lessons Learned Using ChatGPT for React Programming: A Deep Dive
 
-In the evolving landscape of web development, React and TypeScript have become staples for creating robust and scalable applications. My recent project, a complex React/TypeScript application interfacing with various technologies like IMAP mail servers, Prisma, Redis, and MySQL, has been both a proving ground and a learning experience. Throughout this journey, leveraging ChatGPT has provided insights, solutions, and, importantly, lessons on its optimal use. Here, I delve deeper into these lessons, offering detailed advice and examples to help fellow developers navigate and maximize their use of ChatGPT in React programming.
 
 # Building a Custom Email Rule Processing App with React: Transitioning from Gmail to iCloud
 
@@ -36,31 +30,31 @@ To give you a better understanding of the application's functionality and user i
 
 Upon launching the app, users are greeted with a straightforward decision: to log in or register. This initial screen sets the tone for the app's user-friendly design, guiding new users to create an account while offering returning users a quick path to access their settings.
 
-![Choose Login or Register Screen](#) *Image size recommendation: 800x600 pixels*
+![](/postimages2024/2024-03-28-lessons-learned-building-react-app-with-help-of-chatgpt/1.png)
 
 ### Screenshot 2: Registration Screen
 
 The registration process is designed to be as seamless as possible, featuring validation checks and automatic lookups for the top 50 IMAP server definitions. This not only simplifies the setup for users transitioning from popular email services but also ensures that their server settings are accurately configured from the start.
 
-![Registration Screen](#) *Image size recommendation: 800x600 pixels*
+![](/postimages2024/2024-03-28-lessons-learned-building-react-app-with-help-of-chatgpt/2.png)
 
 ### Screenshot 3: Drag and Drop Email Management
 
 One of the application's standout features is the ability to drag and drop emails into folders, mirroring the intuitive organization method many users appreciate in Gmail. This page offers a visual and interactive way to sort emails, enhancing the overall user experience.
 
-![Drag and Drop Email Management](#) *Image size recommendation: 800x600 pixels*
+![](/postimages2024/2024-03-28-lessons-learned-building-react-app-with-help-of-chatgpt/3a.gif)
 
 ### Screenshot 4: Rule Addition Confirmation
 
 After adding a new rule, users are presented with a confirmation screen that includes a visual cue of the "moving message," indicating that the rule is being processed. This immediate feedback reassures users that their actions have taken effect.
 
-![Rule Addition Confirmation](#) *Image size recommendation: 800x600 pixels*
+![](/postimages2024/2024-03-28-lessons-learned-building-react-app-with-help-of-chatgpt/4.png)
 
 ### Screenshot 5: List of Rules
 
 Finally, the core of the application is the rules management page, where users can view, create, and edit their email sorting rules. This list is the heart of the app's functionality, providing a clear overview of all active rules and their criteria.
 
-![List of Rules](#) *Image size recommendation: 800x600 pixels*
+![](/postimages2024/2024-03-28-lessons-learned-building-react-app-with-help-of-chatgpt/5.png)
 
 
 ### Running App
