@@ -42,7 +42,7 @@ The registration process is designed to be as seamless as possible, featuring va
 
 One of the application's standout features is the ability to drag and drop emails into folders, mirroring the intuitive organization method many users appreciate in Gmail. This page offers a visual and interactive way to sort emails, enhancing the overall user experience.
 
-![](/postimages2024/2024-03-28-lessons-learned-building-react-app-with-help-of-chatgpt/3b.gif)
+![](/postimages2024/2024-03-28-lessons-learned-building-react-app-with-help-of-chatgpt/3c.gif)
 
 ### Screenshot 4: Rule Addition Confirmation
 
