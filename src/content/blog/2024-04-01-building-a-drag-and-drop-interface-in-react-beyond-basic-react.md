@@ -3,13 +3,13 @@ title: "Building a Drag-and-Drop Interface in React: Beyond Basic React"
 description: Explore drag-and-drop in React, leveraging `useRef` for direct DOM interactions and efficient state management in interactive applications.
 pubDatetime: 2024-04-01T14:56:05.198Z
 preview: /postimages2024/draganddropexamplemailprogram.png
-draft: true
+draft: false
 tags:
-    - nextjs
-    - react
-    - draganddrop
+  - nextjs
+  - react
+  - draganddrop
 categories:
-    - react
+  - react
 type: default
 ---
 # Building a Drag-and-Drop Interface in React: Beyond Basic React
