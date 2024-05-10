@@ -17,7 +17,7 @@ type: default
 
 If you are as excited as me about the [React 19](https://react.dev/blog/2024/04/25/react-19) release as me, and just can't wait to try out all the cool new features, read on! [Ricky Hanlon](https://twitter.com/rickhanlonii), on of my favorite dev's on the React core team, has written a very complete [React 19 Upgrade Guide](https://react.dev/blog/2024/04/25/react-19-upgrade-guide) on the new React blog.
 
-If you have reason to run React without a build system (like next.js for example), you may have followed the previous recommendation from the React team at [React 18 CDN Links](https://legacy.reactjs.org/docs/cdn-links.html)[https://unpkg.com/](https://unpkg.com/) basically said you can simply down the scripts as follows and use the very cool unpkg.com (written by another [Michael Jackson](https://twitter.com/mjackson)library authors Michael Jackson), and then you could write code as follows to use the React library to render a list of 3 numbers to the browser.
+If you have reason to run React without a build system (like next.js for example), you may have followed the previous recommendation from the React team at [React 18 CDN Links](https://legacy.reactjs.org/docs/cdn-links.html)[https://unpkg.com/](https://unpkg.com/) basically said you can simply down the scripts as follows and use the very cool unpkg.com (written by another [Michael Jackson](https://twitter.com/mjackson) library authors Michael Jackson), and then you could write code as follows to use the React library to render a list of 3 numbers to the browser.
 
 ## Using a CDN the Old Way with React 18
 
@@ -60,7 +60,7 @@ As Ricky says in the upgrade guide
 
 > UMD was widely used in the past as a convenient way to load React without a build step. Now, there are modern alternatives for loading modules as scripts in HTML documents. Starting with React 19, React will no longer produce UMD builds to reduce the complexity of its testing and release process.
 
-The means that you can't simply change the reference `https://unpkg.com/react-dom@18/umd/react-dom.development.js` to simply include `@19` and expect it to work.  Ricky goes on to say *"we recommend using an ESM-based CDN such as esm.sh."*  If you are like me, and those are just not enough words to get you to make it work, this blog post is for you. 
+That means that you can't simply change the reference `https://unpkg.com/react-dom@18/umd/react-dom.development.js` to simply include `@19` and expect it to work.  Ricky goes on to say *"we recommend using an ESM-based CDN such as esm.sh."*  If you are like me, and those are just not enough words to get you to make it work, this blog post is for you. 
 
 ## Using a CDN the New Way with React 19 and esm.sh
 
@@ -93,7 +93,7 @@ I've spent an hour or so figuring out exactly how to make my little example work
 </html>
 ```
 
-I'm guessing now that you see how the import works, you can figure everything else out about how to use `esm.sh`. Here is some more details on everything I learned in my little investigation.
+I'm guessing now that you see how the `import` works, you can figure everything else out about how to use `esm.sh`. Here is some more details on everything I learned in my little investigation.
 
 ## Background on esm.sh and the New React 19 Story Around Using It
 
@@ -115,7 +115,7 @@ By using `esm.sh`, developers can easily incorporate npm packages into their web
 
 ### Here Is How To Find the Right Package to Use.
 
-If you are wondering how I find a reference to the right pack to use, that is, in my example above, I could not simply use what Ricky put in his blog post:
+If you are wondering how I find a reference to the right package to use, that is, in my example above, I could not simply use what Ricky put in his blog post:
 
 ``` HTML
 <script type="module">
@@ -125,11 +125,11 @@ If you are wondering how I find a reference to the right pack to use, that is, i
 </script>
 ```
 
-because there is not @react@19 yet. Instead, I needed to go to the npm package manage site for react and use one of the React beta's for React 19.  The URL I went to for this is:  
+because there is no @react@19 yet. Instead, I needed to go to the npm package manage site for react and use one of the React beta's for React 19.  The URL I went to for this is:  
 
 [`https://www.npmjs.com/package/react](https://www.npmjs.com/package/react)
 
-Then, where is hows all the versions:
+Then, in the upper right is a link that takes you to the 1758 versions (those are all the versions of React that have even been published including betas and everything else).
 
 ![](/postimages2024/umd-build-2.png)
 
