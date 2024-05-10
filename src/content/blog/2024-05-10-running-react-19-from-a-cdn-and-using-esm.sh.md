@@ -133,11 +133,11 @@ Then, in the upper right is a link that takes you to the 1758 versions (those ar
 
 ![](/postimages2024/umd-build-2.png)
 
-I [click on that](https://www.npmjs.com/package/react?activeTab=versions), and it shows me a list of the "Current Tags", which is what I choose which React 19 beta I want.
+I [click on that](https://www.npmjs.com/package/react?activeTab=versions), and it shows me a list of the "Current Tags", which is where I choose which React 19 version I want. I chose the beta because React 19 production has not shipped... yet.
 
 ![](/postimages2024/umd-build-3.png)
 
-Now, from that, you can see what made me include the exact version of React 19 beta I wanted.
+Now, from that, you can see what caused me to include the exact version of React 19 I wanted.
 
 It's just 
 
@@ -146,9 +146,10 @@ import React from "https://esm.sh/react@19.0.0-beta-04b058868c-20240508/?dev"
 import ReactDOMClient from "https://esm.sh/react-dom@19.0.0-beta-04b058868c-20240508/client/?dev"
 ```
 
-And from that it's clear what you import into your HTML.
+From that, it's clear what you need to import into your HTML.
 
-Hope this helps! (back to my regularly scheduled programming)
+
+**Hope this helps!** (back to my regularly scheduled programming)
 
 
 
