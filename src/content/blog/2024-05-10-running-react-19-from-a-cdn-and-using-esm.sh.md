@@ -15,9 +15,9 @@ type: default
 
 [abc](https://ab)
 
-If you are as excited as me about the [React 19](https://react.dev/blog/2024/04/25/react-19) release as me, and just can't wait to try out all the cool new features, read on! [Ricky Hanlon](https://twitter.com/rickhanlonii), on of my favorite dev's on the React core team, has written a very complete [React 19 Upgrade Guide](https://react.dev/blog/2024/04/25/react-19-upgrade-guide) on the new React blog.
+If you are as excited as me about the [React 19](https://react.dev/blog/2024/04/25/react-19) release as me, and just can't wait to try out all the cool new features, read on! [Ricky Hanlon](https://twitter.com/rickhanlonii), one of my favorite dev's on the React core team, has written a very complete [React 19 Upgrade Guide](https://react.dev/blog/2024/04/25/react-19-upgrade-guide) on the new React blog.
 
-If you have reason to run React without a build system (like next.js for example), you may have followed the previous recommendation from the React team at [React 18 CDN Links](https://legacy.reactjs.org/docs/cdn-links.html)[https://unpkg.com/](https://unpkg.com/) basically said you can simply down the scripts as follows and use the very cool unpkg.com (written by another [Michael Jackson](https://twitter.com/mjackson) library authors Michael Jackson), and then you could write code as follows to use the React library to render a list of 3 numbers to the browser.
+If you have reason to run React without a build system (like [next.js](https://nextjs.org/) for example), you may have followed the previous recommendation from the React team at [React 18 CDN Links](https://legacy.reactjs.org/docs/cdn-links.html). This basically says you can simply download the scripts as follows and use the very cool [unpkg.com](https://unpkg.com/) (written by [Michael Jackson](https://twitter.com/mjackson), another of my favorite library authors), and then you could write code as follows to use the React library to render a list of 3 numbers to the browser.
 
 ## Using a CDN the Old Way with React 18
 
