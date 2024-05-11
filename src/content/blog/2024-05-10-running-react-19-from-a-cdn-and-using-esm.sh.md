@@ -21,7 +21,7 @@ If you have reason to run React without a build system (like [next.js](https://n
 
 ## Using a CDN the Old Way with React 18
 
-``` HTML
+``` xhtml
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -68,7 +68,7 @@ I've spent an hour or so figuring out exactly how to make my little example work
 
 
 
-``` HTML
+``` xhtml
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
@@ -117,7 +117,7 @@ By using `esm.sh`, developers can easily incorporate npm packages into their web
 
 If you are wondering how I find a reference to the right package to use, that is, in my example above, I could not simply use what Ricky put in his blog post:
 
-``` HTML
+``` xhtml
 <script type="module">
   import React from "https://esm.sh/react@19/?dev"
   import ReactDOMClient from "https://esm.sh/react-dom@19/client?dev"
