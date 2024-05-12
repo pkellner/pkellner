@@ -68,7 +68,7 @@ I've spent an hour or so figuring out exactly how to make my little example work
 
 
 
-``` xhtml
+```html
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
@@ -117,7 +117,7 @@ By using `esm.sh`, developers can easily incorporate npm packages into their web
 
 If you are wondering how I find a reference to the right package to use, that is, in my example above, I could not simply use what Ricky put in his blog post:
 
-``` xhtml
+```html
 <script type="module">
   import React from "https://esm.sh/react@19/?dev"
   import ReactDOMClient from "https://esm.sh/react-dom@19/client?dev"
@@ -141,7 +141,7 @@ Now, from that, you can see what caused me to include the exact version of React
 
 It's just 
 
-``` JavaScript
+```JavaScript
 import React from "https://esm.sh/react@19.0.0-beta-04b058868c-20240508/?dev"
 import ReactDOMClient from "https://esm.sh/react-dom@19.0.0-beta-04b058868c-20240508/client/?dev"
 ```
