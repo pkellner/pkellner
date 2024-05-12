@@ -3,7 +3,7 @@ title: OBS Recording Resolution 4K Even Though Display is 1080P
 description: Set OBS base resolution to 4K and output to 1080P to capture entire screen on Retina MacBooks.
 pubDatetime: 2024-05-12T01:27:29.043Z
 preview: /postimages2024/obs-scale.png
-draft: true
+draft: false
 tags:
     - obs
 categories:
