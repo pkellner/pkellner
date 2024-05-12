@@ -13,7 +13,7 @@ type: default
 
 # Running React 19 From a CDN and using esm.sh
 
-[abc](https://ab)
+![](/postimages2024/umd-build-1.png)
 
 If you are as excited as me about the [React 19](https://react.dev/blog/2024/04/25/react-19) release as me, and just can't wait to try out all the cool new features, read on! [Ricky Hanlon](https://twitter.com/rickhanlonii), one of my favorite dev's on the React core team, has written a very complete [React 19 Upgrade Guide](https://react.dev/blog/2024/04/25/react-19-upgrade-guide) on the new React blog.
 
