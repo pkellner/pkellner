@@ -141,7 +141,7 @@ Now, from that, you can see what caused me to include the exact version of React
 
 It's just 
 
-```JavaScript
+```javascript
 import React from "https://esm.sh/react@19.0.0-beta-04b058868c-20240508/?dev"
 import ReactDOMClient from "https://esm.sh/react-dom@19.0.0-beta-04b058868c-20240508/client/?dev"
 ```
