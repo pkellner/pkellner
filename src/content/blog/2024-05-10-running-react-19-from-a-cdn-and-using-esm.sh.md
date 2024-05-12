@@ -21,7 +21,7 @@ If you have reason to run React without a build system (like [next.js](https://n
 
 ## Using a CDN the Old Way with React 18
 
-``` xhtml
+```html
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
