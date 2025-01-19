@@ -26,22 +26,30 @@ Below is the complete script. We’ve **obscured the real passwords**, so be sur
 ## The Script
 
 ```bash
+
 #!/bin/bash
 
 LOG_FILE="./env-setup.log"
 
-# Obscured keys; replace with your real values
-OPENAI_API_KEY="sk-****"
-GH_TOKEN="ghp_****"
+# Export these variables in the main shell environment
+export OPENAI_API_KEY="sk-proj--***"
+export GH_TOKEN="ghp_***"
 
 echo "Setting OPENAI_API_KEY and GH_TOKEN, then logging in to Docker... (working in background)"
 echo "Check \"$LOG_FILE\" for details if anything seems off."
 
 # Function to check if OpenAI API key is valid.
 check_openai_key() {
+  response=$(curl -s \
+    https://api.openai.com/v1/models \
+    -H "Authorization: Bearer $OPENAI_API_KEY")
+
   http_status=$(curl -s -o /dev/null -w "%{http_code}" \
     https://api.openai.com/v1/models \
     -H "Authorization: Bearer $OPENAI_API_KEY")
+
+  echo "Full response: $response" >> "$LOG_FILE"
+  echo "HTTP Status: $http_status" >> "$LOG_FILE"
 
   if [ "$http_status" -ne 200 ]; then
     echo "Error: Unable to validate OPENAI_API_KEY (HTTP $http_status)" | tee -a "$LOG_FILE"
@@ -63,17 +71,18 @@ check_openai_key() {
   if ! export GH_TOKEN="$GH_TOKEN"; then
     echo "Error: Failed to set GH_TOKEN." | tee -a "$LOG_FILE"
   else
-    echo "Success: GH_TOKEN set successfully." >> "$LOG_FILE"
+    echo "Success: GH_TOKEN set successfully." > "$LOG_FILE"
   fi
 
   # 3. Docker login
-  # If token is invalid, you'll see "Error: Docker login failed." in console.
   if ! echo "$GH_TOKEN" | docker login ghcr.io -u pkellner --password-stdin >/dev/null 2>&1; then
     echo "Error: Docker login failed." | tee -a "$LOG_FILE"
   else
     echo "Success: Docker login succeeded." >> "$LOG_FILE"
   fi
 } & disown
+
+
 ```
 
 ---
