@@ -2,7 +2,7 @@ name: Astro Deploy to GitHub Pages
 
 on:
   push:
-    branches: [astroprod]
+    branches: [astroprod]   # Adjust if needed
   workflow_dispatch:
 
 permissions:
@@ -14,10 +14,10 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
+      - name: Check out repository
         uses: actions/checkout@v4
 
-      - name: Setup Node.js
+      - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 18
@@ -29,6 +29,7 @@ jobs:
       - name: Build Astro project
         run: pnpm run build
 
+      # Upload the build output to a Pages artifact
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v2
         with:
