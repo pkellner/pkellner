@@ -1,18 +1,20 @@
 ---
 title: Bluesky Lists Integration For Silicon Valley Code Camp Speakers and Attendees
 description: Announcing seamless Bluesky List integration for all Silicon Valley Code Camp participants.
-pubDatetime: 2025-02-1T01:25:20-08:00
-
-preview: ""
-draft: true
+pubDatetime: 2025-02-18T13:58:01.849Z
+preview: /postimages2025/speakers-list.png
+draft: false
 tags:
   - bluesky
   - bulesky-lists
   - silicon-valley-code-camp
   - silicon-valley-code-campfire
 categories:
-  - macos
+  - community
+  - bluesky
 type: default
+keywords:
+  - bluesky
 ---
 
 
@@ -30,14 +32,15 @@ Log into the [Silicon Valley Code Camp site](https://www.siliconvalley-codecamp.
 <p>&#160;</p>
 
 ## What is Bluesky?
-If you haven’t heard of [Bluesky](https://bsky.app/) yet, it’s one of the newest social platforms built on decentralized principles, where users can connect, follow each other, and build communities without the worry of vendor lock-in or algorithmic confusion. It’s making waves in the tech world—especially among early adopters who want more control over their online identity and social presence. 
+If you haven’t heard of [Bluesky](https://bsky.app/) yet, it’s one of the newest social platforms built on decentralized principles, where users can connect, follow each other, and build communities without the worry of vendor lock-in or algorithmic confusion. It’s popular in the tech world—especially among early adopters who want more control over their online identity and social presence. 
 
-The best part is that **being on a public Bluesky list** can significantly increase your exposure. Imagine having an official “Attendees of Silicon Valley Code Camp” or “Speakers at Silicon Valley Code Camp” list you can point your followers to. This effectively boosts your digital footprint and positions you as an influential figure in our community. If you’re looking to build connections, share your expertise, or even raise your professional profile, Bluesky is a great tool to have in your arsenal.
+The best part is that **being on a public Bluesky list** can significantly increase your exposure. Imagine having an official “Attendees of Silicon Valley Code Camp” or “Speakers at Silicon Valley Code Camp” list you can point your followers to. This effectively boosts your digital footprint and positions you as an influential figure in our community. If you’re looking to build connections, share your expertise, or even raise your professional profile, [Bluesky](https://bsky.app/) is a great tool to have in your arsenal.
 
 <p>&#160;</p>
 
 ## Don’t Have a Bluesky Account Yet?
-Since Bluesky is still in early-access, you might need an invite code from someone already on the platform. You can often find folks handing out invites on various tech forums, social groups, or you might reach out to someone you know who’s already on Bluesky. Once you’ve created an account, you’ll have a handle similar to `yourname.bsky.social`. That handle is all you need to link your identity on the Silicon Valley Code Camp site. 
+If you don’t have a **Bluesky** account yet, now is the time to sign up! Simply visit [bsky.app](https://bsky.app/) and create an account. Once you're in, follow relevant lists and start engaging with the community to expand your professional network. Your **Bluesky handle** (e.g., `yourname.bsky.social`) is all you need to link your identity on the Silicon Valley Code Camp site.
+
 
 If you’re on the fence about joining yet another social platform, let me just say: Bluesky isn’t just another social platform. It focuses on:
 - **Decentralization:** Freedom to move your data anywhere you like.  
@@ -73,7 +76,8 @@ Here’s the best part: **it’s super easy** to get onto one of these lists.
 
 1. **Log into the Silicon Valley Code Camp Site**  
    - Head over to [siliconvalley-codecamp.com](https://www.siliconvalley-codecamp.com/) and click on the **Login** button.  
-   - If you don’t remember your credentials, just hit the **Forgot Password** link. You’ll be sent to a page that allows you to reset everything quickly.
+   - If you don’t remember your credentials, just hit the **Forgot Password** link. You’ll be sent to a page that allows you to reset everything quickly. If you are a past speaker and have changed your email, simply contact Peter Kellner and ask for your email to be updated with at least your first name, last name and old email address if you still have it, or even a link to your session on the site. If you are a past attendee, you can do the same. Or, if it's easier, just signup for a new account on the home page and then go through the login / forgot password steps to get a new password. 
+  
 
 2. **Access Your Profile**  
    - Once you’re logged in, the login button should be replaced by your name at the top right of the page. Click on your name to go to your profile page.
@@ -83,7 +87,7 @@ Here’s the best part: **it’s super easy** to get onto one of these lists.
    - Click **Update** to save your changes.
 
 4. **Wait 30 Minutes**  
-   - Give the system a little time (about 30 minutes) to refresh. After that, your handle will appear on the correct list:
+   - Sometimes, the system takes about 30 minutes to refresh (sometimes, right away). After that, your handle will appear on the correct list:
      - **Speakers List** if you’ve ever presented at Silicon Valley Code Camp  
      - **Attendees List** if you’ve joined us but haven’t spoken  
 
