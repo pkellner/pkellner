@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>BorregoCRC Board of Directors</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+            overflow-x: hidden;
+            min-height: 100%;
+        }
+
+        h1 {
+            margin-top: 20px;
+            font-size: 1.8rem;
+            color: #333;
+        }
+
+        h2 {
+            margin-top: 15px;
+            margin-bottom: 10px;
+            font-size: 1.4rem;
+            color: #444;
+        }
+
+        hr {
+            width: 80%;
+            margin: 20px auto;
+            border: 0;
+            height: 1px;
+            background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+            clear: both;
+        }
+
+        .list-container {
+            width: 90%;
+            max-width: 800px;
+            margin: 0 auto 20px;
+            padding: 10px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        #simple-list {
+            margin: 10px auto;
+            padding: 0;
+            list-style-type: none;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        #simple-list li {
+            width: 33%;
+            margin-bottom: 10px;
+            padding: 5px;
+            box-sizing: border-box;
+            text-align: center;
+        }
+
+        #container-wrapper {
+            position: relative;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 20px 0;
+        }
+
+        #container {
+            position: relative;
+            width: 35vmin;
+            height: 35vmin;
+        }
+
+        .item {
+            position: absolute;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            pointer-events: none;
+            transition: transform 0.3s;
+        }
+
+        .digit {
+            font-size: 0.8rem;
+            white-space: nowrap;
+            margin: 0;
+            padding: 0;
+        }
+
+        #centerImage {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 10vmin;
+            height: 10vmin;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 2px solid #333;
+            opacity: 0;
+            transition: opacity 0.2s;
+            z-index: 10;
+        }
+
+        #centerImage img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        #controls {
+            margin: 20px 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            width: 100%;
+            max-width: 800px;
+        }
+
+        #controls label {
+            margin: 0 5px;
+            white-space: nowrap;
+        }
+
+        #toggleButton {
+            padding: 5px 15px;
+            font-size: 1rem;
+            margin-left: 10px;
+        }
+
+        footer {
+            margin-top: 40px;
+            padding: 15px;
+            background-color: #ddd;
+            width: 100%;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+
+<h1>BorregoCRC Board of Directors</h1>
+
+<h2>Simple HTML List</h2>
+<div class="list-container">
+    <ol id="simple-list">
+        <!-- Will be populated with JavaScript -->
+    </ol>
+</div>
+
+<hr>
+
+<h2>Advanced Styled List</h2>
+
+<div id="container-wrapper">
+    <div id="container">
+        <div id="centerImage"><img src="/api/placeholder/100/100" alt="Current Image"></div>
+    </div>
+</div>
+
+<div id="controls">
+    <label>Speed Control: <input type="range" min="1" max="20" value="4" id="speedSlider"></label>
+    <label>Grow Factor Time: <input type="range" min="1" max="5" value="4" id="growFactorTime"></label>
+    <button id="toggleButton">Pause</button>
+</div>
+
+<footer>
+    For Borrego High School Kids Learning Computer Programming
+</footer>
+
+<!-- jQuery (CDN) -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+  $(document).ready(function() {
+
+    const members = [
+      { id: 101, name: 'Susan Percival', gender: 'female' },
+      { id: 102, name: 'Diane Johnson', gender: 'female' },
+      { id: 103, name: 'Lorry Seagrim', gender: 'female' },
+      { id: 104, name: 'Dale Jones', gender: 'male' },
+      { id: 105, name: 'Martha Deichler', gender: 'female' },
+      { id: 106, name: 'Jim Wermers', gender: 'male' },
+      { id: 107, name: 'Sylvia Maas', gender: 'female' },
+      { id: 108, name: 'Chesney Hoagland Fuchs', gender: 'female' },
+      { id: 109, name: 'Dick Troy', gender: 'male' },
+      { id: 110, name: 'Eddie Rivera', gender: 'male' }
+    ];
+
+    // Instead of using external images that might be blocked, use placeholder images
+    // This will work in the preview window
+    function getPlaceholderImage(member) {
+      // Generate a consistent color based on the member's name
+      const hash = member.name.split('').reduce((acc, char) => acc + char.charCodeAt(0), 0);
+      const hue = hash % 360;
+      const saturation = 60 + (hash % 30);
+      const lightness = member.gender === 'male' ? 40 : 60;
+
+      // Create SVG with smaller dimensions
+      return `<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100">
+        <rect width="100" height="100" fill="hsl(${hue}, ${saturation}%, ${lightness}%)" />
+        <text x="50" y="55" font-family="Arial" font-size="14" fill="white" text-anchor="middle">${member.name.split(' ').map(n => n[0]).join('')}</text>
+      </svg>`;
+    }
+
+    const imageCache = {}; // We'll store SVG strings instead of external images
+
+    // Populate the simple HTML list
+    const $simpleList = $('#simple-list');
+    members.forEach(member => {
+      // Add number in parentheses before the name
+      const index = members.indexOf(member) + 1;
+      $simpleList.append(`<li>${index}. ${member.name}</li>`);
+    });
+
+    // Calculate center positions based on container dimensions
+    const $container = $('#container');
+    const containerSize = $container.width();
+    const radius = containerSize / 3;
+    const centerX = containerSize / 2;
+    const centerY = containerSize / 2;
+
+    // Track which member is at the top position
+    let topMember = null;
+
+    // Preload all member images into the cache
+    members.forEach(member => {
+      const $item = $(`
+          <div class="item" id="item-${member.id}">
+            <p class="digit">${member.name}</p>
+          </div>
+        `);
+      $container.append($item);
+
+      // Create and cache SVG image
+      imageCache[member.name] = getPlaceholderImage(member);
+    });
+
+    let angle = 0;
+    let speed = 0.004;
+    let growFactorTime = 4;
+    let isPaused = false;
+
+    // Function to update the center image with SVG
+    function updateCenterImage(memberName) {
+      if (memberName && imageCache[memberName]) {
+        const svgString = imageCache[memberName];
+        const blob = new Blob([svgString], {type: 'image/svg+xml'});
+        const url = URL.createObjectURL(blob);
+        $('#centerImage img').attr('src', url);
+        $('#centerImage').css({ opacity: 1 });
+
+        // Clean up the object URL after the image loads
+        $('#centerImage img').on('load', function() {
+          URL.revokeObjectURL(url);
+        });
+      }
+    }
+
+    // Initialize with an image showing for the first member
+    setTimeout(() => {
+      updateCenterImage(members[0].name);
+      topMember = members[0].name;
+    }, 100);
+
+    function animate() {
+      if (isPaused) return;
+
+      angle += speed;
+      let closestToTop = null;
+      let minDiffTop = Infinity;
+
+      members.forEach((member, index) => {
+        const offsetAngle = angle + (index * (2 * Math.PI / members.length));
+        const x = centerX + radius * Math.cos(offsetAngle);
+        const y = centerY + radius * Math.sin(offsetAngle);
+
+        const $currentItem = $(`#item-${member.id}`);
+        $currentItem.css({ left: `${x}px`, top: `${y}px` });
+
+        const normalizedAngle = offsetAngle % (2 * Math.PI);
+        const diffTop = Math.abs(normalizedAngle - Math.PI / 2);
+        const threshold = 0.05 * growFactorTime;
+
+        // Track which member is closest to the top position
+        if (diffTop < minDiffTop) {
+          minDiffTop = diffTop;
+          closestToTop = member;
+        }
+
+        if (diffTop < threshold) {
+          $currentItem.css({ transform: 'scale(1.3) translate(-50%, -50%)' });
+        } else {
+          $currentItem.css({ transform: 'scale(1) translate(-50%, -50%)' });
+        }
+      });
+
+      // Update the center image to display the member closest to the top
+      if (closestToTop && minDiffTop < 0.05 * growFactorTime) {
+        if (topMember !== closestToTop.name) {
+          updateCenterImage(closestToTop.name);
+          topMember = closestToTop.name;
+        }
+      } else {
+        $('#centerImage').css({ opacity: 0 });
+        topMember = null;
+      }
+
+      requestAnimationFrame(animate);
+    }
+
+    // Start the animation after a short delay to ensure everything is ready
+    setTimeout(() => {
+      animate();
+    }, 200);
+
+    $('#speedSlider').on('input', function() {
+      speed = $(this).val() / 1000;
+    });
+
+    $('#growFactorTime').on('input', function() {
+      growFactorTime = $(this).val();
+    });
+
+    $('#toggleButton').on('click', function() {
+      isPaused = !isPaused;
+      $(this).text(isPaused ? 'Go' : 'Pause');
+      if (!isPaused) animate();
+    });
+  });
+</script>
+</body>
+</html>
