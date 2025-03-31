@@ -77,7 +77,7 @@ export default function CourseCarousel() {
               {/* Adjust each slide's width */}
               <a href={str} target="_blank" rel="noreferrer">
                 <img
-                  src={`/courseimages/${course.slug}.png`} // Updated image source
+                  src={`/courseimages/raw/${course.slug}.png`} // Updated image source
                   alt={course.title}
                   className="h-80 w-full object-contain" // Set a fixed height for images and make them contain within that height
                   style={{objectFit: "contain", objectPosition: "center"}} // Ensures image fits nicely
