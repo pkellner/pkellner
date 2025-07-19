@@ -8,7 +8,7 @@ This is Peter Kellner's personal blog built with AstroPaper theme (v4.4.0), a mi
 
 ## Key Technologies
 
-- **Framework**: Astro 4.4.0 (Static Site Generator)
+- **Framework**: Astro 5.12.0 (Static Site Generator)
 - **Languages**: TypeScript, JavaScript, CSS
 - **UI Components**: React 18.2.0, AlpineJS 3.13.5
 - **Styling**: TailwindCSS 3.4.1 with Typography plugin
@@ -78,10 +78,13 @@ npm run cz
 ## Development Guidelines
 
 ### Code Style
-- ESLint configured with TypeScript support
+- ESLint configured with TypeScript support (flat config format)
 - Prettier with Astro and TailwindCSS plugins
 - Markdown linting with markdownlint
 - Use conventional commits (enforced via commitizen)
+
+### Testing Builds
+**IMPORTANT**: Always run both `npm run build` and `npm run dev` to ensure there are no errors or warnings before committing changes.
 
 ### Adding New Posts
 1. Create a new `.md` file in `src/content/blog/`

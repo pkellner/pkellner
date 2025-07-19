@@ -32,7 +32,7 @@ Log into the [Silicon Valley Code Camp site](https://www.siliconvalley-codecamp.
 <p>&#160;</p>
 
 ## What is Bluesky?
-If you haven’t heard of [Bluesky](https://bsky.app/) yet, it’s one of the newest social platforms built on decentralized principles, where users can connect, follow each other, and build communities without the worry of vendor lock-in or algorithmic confusion. It’s popular in the tech world—especially among early adopters who want more control over their online identity and social presence. 
+If you haven’t heard of [Bluesky](https://bsky.app/) yet, it is one of the newest social platforms built on decentralized principles, where users can connect, follow each other, and build communities without the worry of vendor lock-in or algorithmic confusion. It’s popular in the tech world—especially among early adopters who want more control over their online identity and social presence. 
 
 The best part is that **being on a public Bluesky list** can significantly increase your exposure. Imagine having an official “Attendees of Silicon Valley Code Camp” or “Speakers at Silicon Valley Code Camp” list you can point your followers to. This effectively boosts your digital footprint and positions you as an influential figure in our community. If you’re looking to build connections, share your expertise, or even raise your professional profile, [Bluesky](https://bsky.app/) is a great tool to have in your arsenal.
 
