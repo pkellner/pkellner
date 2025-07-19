@@ -20,7 +20,7 @@ export default function Card({ href, frontmatter, secHeading = true }: Props) {
     <li className="list-none">
       <a
         href={href}
-        className="group block p-6 rounded-xl bg-skin-card border border-skin-line hover:border-skin-accent hover:shadow-soft transition-all duration-200 hover:-translate-y-0.5"
+        className="post-card group block p-6 rounded-xl bg-skin-card border border-skin-line hover:border-skin-accent hover:shadow-soft transition-all duration-200 hover:-translate-y-0.5"
       >
         <div className="flex flex-col gap-3">
           {secHeading ? (

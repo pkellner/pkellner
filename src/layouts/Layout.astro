@@ -1,6 +1,7 @@
 ---
 import { LOCALE, SITE } from "@config";
 import "@styles/base.css";
+import { ClientRouter } from "astro:transitions";
 
 const googleSiteVerification = import.meta.env.PUBLIC_GOOGLE_SITE_VERIFICATION;
 
@@ -116,6 +117,32 @@ const socialImageURL = new URL(
       defer
       src="https://cdn.jsdelivr.net/npm/@alpinejs/collapse@3.x.x/dist/cdn.min.js"
     ></script>
+    <ClientRouter />
+    <script>
+      // Enhanced transitions
+      document.addEventListener('astro:before-preparation', () => {
+        const loader = document.createElement('div');
+        loader.className = 'page-loader';
+        document.body.appendChild(loader);
+      });
+      
+      document.addEventListener('astro:after-preparation', () => {
+        const loader = document.querySelector('.page-loader');
+        if (loader) {
+          setTimeout(() => loader.remove(), 300);
+        }
+      });
+      
+      document.addEventListener('astro:page-load', () => {
+        // Animate elements on page load
+        const animateElements = document.querySelectorAll('.animate-in');
+        animateElements.forEach((el, index) => {
+          const element = el as HTMLElement;
+          element.style.animationDelay = `${index * 0.1}s`;
+          element.classList.add('animated');
+        });
+      });
+    </script>
   </head>
   <body>
     <slot />

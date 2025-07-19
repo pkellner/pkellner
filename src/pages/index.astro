@@ -9,7 +9,6 @@ import getSortedPosts from "@utils/getSortedPosts";
 import { formatJekyllPost } from "../utils/astro-jekyl";
 import CourseCarousel from "../components/CourseCarousel";
 import MyServices from "../components/MyServices";
-import { SITE } from "@config";
 
 const posts = (await getCollection('blog'))
   .map(formatJekyllPost())
@@ -28,7 +27,7 @@ const recentPosts = sortedPosts.filter(({ data }) => !data.featured);
   <Header />
   <main id="main-content">
     <!-- Hero Section -->
-    <section id="hero" class="relative overflow-hidden">
+    <section id="hero" class="hero-section relative overflow-hidden">
       <div class="hero-gradient"></div>
       <div class="container-wide relative section-spacing">
         <div class="max-w-4xl mx-auto text-center animate-in">
@@ -234,7 +233,7 @@ const recentPosts = sortedPosts.filter(({ data }) => !data.featured);
                 Hand-picked articles on web development and software engineering
               </p>
             </div>
-            <div class="grid gap-6">
+            <div class="grid gap-6 stagger">
               {featuredPosts.map(({ data, slug }) => (
                 <Card
                   href={`/${slug}/`}
@@ -259,7 +258,7 @@ const recentPosts = sortedPosts.filter(({ data }) => !data.featured);
                 Latest thoughts on technology, development, and best practices
               </p>
             </div>
-            <div class="grid gap-6">
+            <div class="grid gap-6 stagger">
               {recentPosts.slice(0, 4).map(({ data, slug }) => (
                 <Card
                   href={`/${slug}`}

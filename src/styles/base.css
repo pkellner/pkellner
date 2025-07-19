@@ -295,3 +295,187 @@
     box-shadow: 0 2px 20px -5px rgba(0, 0, 0, 0.5);
   }
 }
+
+/* View Transitions API animations */
+@layer components {
+  /* Default page transition */
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation-duration: 0.3s;
+    animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  ::view-transition-old(root) {
+    animation-name: fade-out-scale-down;
+  }
+
+  ::view-transition-new(root) {
+    animation-name: fade-in-scale-up;
+  }
+
+  /* Header persistence */
+  header {
+    view-transition-name: site-header;
+  }
+
+  /* Logo persistence */
+  .logo {
+    view-transition-name: site-logo;
+  }
+
+  /* Navigation persistence */
+  #nav-menu {
+    view-transition-name: site-nav;
+  }
+
+  /* Footer persistence */
+  footer {
+    view-transition-name: site-footer;
+  }
+
+  /* Post card animations */
+  .post-card {
+    view-transition-name: post-card;
+  }
+
+  /* Hero section transition */
+  .hero-section {
+    view-transition-name: hero-section;
+  }
+
+  /* Main content area transition */
+  #main-content {
+    view-transition-name: main-content;
+  }
+
+  /* Animations */
+  @keyframes fade-out-scale-down {
+    from {
+      opacity: 1;
+      transform: scale(1);
+    }
+    to {
+      opacity: 0;
+      transform: scale(0.95);
+    }
+  }
+
+  @keyframes fade-in-scale-up {
+    from {
+      opacity: 0;
+      transform: scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  @keyframes slide-out-left {
+    from {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    to {
+      opacity: 0;
+      transform: translateX(-20px);
+    }
+  }
+
+  @keyframes slide-in-right {
+    from {
+      opacity: 0;
+      transform: translateX(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes fade-out {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+    }
+  }
+
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  /* Reduced motion support */
+  @media (prefers-reduced-motion: reduce) {
+    ::view-transition-old(root),
+    ::view-transition-new(root) {
+      animation-duration: 0.01s;
+    }
+  }
+
+  /* Page loader */
+  .page-loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(
+      90deg,
+      rgba(var(--color-gradient-start), 0.3) 0%,
+      rgba(var(--color-gradient-end), 0.8) 50%,
+      rgba(var(--color-gradient-start), 0.3) 100%
+    );
+    z-index: 9999;
+    animation: shimmer 1.5s linear infinite;
+    transform-origin: left center;
+  }
+
+  @keyframes shimmer {
+    0% {
+      transform: translateX(-100%) scaleX(1);
+    }
+    100% {
+      transform: translateX(100%) scaleX(1);
+    }
+  }
+
+  /* Animate in elements */
+  .animate-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  }
+
+  .animate-in.animated {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Stagger animations for lists */
+  .stagger > * {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.6s ease-out forwards;
+  }
+
+  .stagger > *:nth-child(1) { animation-delay: 0.1s; }
+  .stagger > *:nth-child(2) { animation-delay: 0.2s; }
+  .stagger > *:nth-child(3) { animation-delay: 0.3s; }
+  .stagger > *:nth-child(4) { animation-delay: 0.4s; }
+  .stagger > *:nth-child(5) { animation-delay: 0.5s; }
+  .stagger > *:nth-child(n+6) { animation-delay: 0.6s; }
+
+  @keyframes fadeInUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
