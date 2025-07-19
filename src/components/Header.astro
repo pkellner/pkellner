@@ -1,6 +1,5 @@
 ---
 import { LOGO_IMAGE, SITE } from "@config";
-import Hr from "./Hr.astro";
 import LinkButton from "./LinkButton.astro";
 
 export interface Props {
@@ -10,27 +9,35 @@ export interface Props {
 const { activeNav } = Astro.props;
 ---
 
-<header>
+<header class="fixed top-0 left-0 right-0 z-50 glass border-b border-skin-line-light">
   <a id="skip-to-content" href="#main-content">Skip to content</a>
-  <div class="nav-container">
+  <div class="nav-container container-wide">
     <div class="top-nav-wrap">
-      <a href="/" class="logo whitespace-nowrap">
-        {
-          LOGO_IMAGE.enable ? (
-            <img
-              src={`/assets/${LOGO_IMAGE.svg ? "logo.svg" : "logo.png"}`}
-              alt={SITE.title}
-              width={LOGO_IMAGE.width}
-              height={LOGO_IMAGE.height}
-            />
-          ) : (
-            SITE.title
-          )
-        }
+      <a href="/" class="logo group flex items-center gap-3 whitespace-nowrap">
+        <div class="logo-icon">
+          {
+            LOGO_IMAGE.enable ? (
+              <img
+                src={`/assets/${LOGO_IMAGE.svg ? "logo.svg" : "logo.png"}`}
+                alt={SITE.title}
+                width={LOGO_IMAGE.width}
+                height={LOGO_IMAGE.height}
+                class="hover-lift"
+              />
+            ) : (
+              <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-skin-gradient-start to-skin-gradient-end flex items-center justify-center text-white font-bold text-xl hover-lift">
+                PK
+              </div>
+            )
+          }
+        </div>
+        <span class="text-xl font-bold text-skin-base group-hover:text-skin-accent transition-colors">
+          {SITE.title}
+        </span>
       </a>
       <nav id="nav-menu">
         <button
-          class="hamburger-menu focus-outline"
+          class="hamburger-menu rounded-lg p-2 hover:bg-skin-card md:hidden outline-2 outline-offset-1 outline-skin-fill focus-visible:no-underline focus-visible:outline-dashed"
           aria-label="Open Menu"
           aria-expanded="false"
           aria-controls="menu-items"
@@ -42,54 +49,60 @@ const { activeNav } = Astro.props;
             viewBox="0 0 24 24"
             fill="none"
             stroke="currentColor"
-            stroke-width="1.5"
+            stroke-width="2"
             stroke-linecap="round"
             stroke-linejoin="round"
             class="menu-icon"
           >
-            <line x1="7" y1="12" x2="21" y2="12" class="line"></line>
-            <line x1="3" y1="6" x2="21" y2="6" class="line"></line>
-            <line x1="12" y1="18" x2="21" y2="18" class="line"></line>
-            <line x1="18" y1="6" x2="6" y2="18" class="close"></line>
-            <line x1="6" y1="6" x2="18" y2="18" class="close"></line>
+            <line x1="3" y1="6" x2="21" y2="6" class="line top"></line>
+            <line x1="3" y1="12" x2="21" y2="12" class="line middle"></line>
+            <line x1="3" y1="18" x2="21" y2="18" class="line bottom"></line>
+            <line x1="18" y1="6" x2="6" y2="18" class="close left"></line>
+            <line x1="6" y1="6" x2="18" y2="18" class="close right"></line>
           </svg>
         </button>
-        <ul id="menu-items" class="display-none sm:flex">
+        <ul id="menu-items" class="menu-items display-none md:flex">
           <li>
-            <a href="/posts/" class={activeNav === "posts" ? "active" : ""}>
-              Posts
-            </a>
-          </li>
-            <li>
-                <a href="/courses/" class={activeNav === "courses" ? "active" : ""}>
-                    Courses
-                </a>
-            </li>
-          <li>
-            <a href="/contact/" class={activeNav === "contact" ? "active" : ""}>
-              Contact
+            <a href="/posts/" class={`nav-link ${activeNav === "posts" ? "active" : ""}`}>
+              <span>Posts</span>
             </a>
           </li>
           <li>
-            <a href="/about/" class={activeNav === "about" ? "active" : ""}>
-              About
+            <a href="/courses/" class={`nav-link ${activeNav === "courses" ? "active" : ""}`}>
+              <span>Courses</span>
             </a>
           </li>
+          <li>
+            <a href="/contact/" class={`nav-link ${activeNav === "contact" ? "active" : ""}`}>
+              <span>Contact</span>
+            </a>
+          </li>
+          <li>
+            <a href="/about/" class={`nav-link ${activeNav === "about" ? "active" : ""}`}>
+              <span>About</span>
+            </a>
+          </li>
+          <li class="nav-separator"></li>
           <li>
             <LinkButton
               href="/search/"
-              className={`focus-outline p-3 sm:p-1 ${
-                activeNav === "search" ? "active" : ""
-              } flex`}
+              className={`nav-icon-btn ${activeNav === "search" ? "active" : ""}`}
               ariaLabel="search"
               title="Search"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                class="scale-125 sm:scale-100"
-                ><path
-                  d="M19.023 16.977a35.13 35.13 0 0 1-1.367-1.384c-.372-.378-.596-.653-.596-.653l-2.8-1.337A6.962 6.962 0 0 0 16 9c0-3.859-3.14-7-7-7S2 5.141 2 9s3.14 7 7 7c1.763 0 3.37-.66 4.603-1.739l1.337 2.8s.275.224.653.596c.387.363.896.854 1.384 1.367l1.358 1.392.604.646 2.121-2.121-.646-.604c-.379-.372-.885-.866-1.391-1.36zM9 14c-2.757 0-5-2.243-5-5s2.243-5 5-5 5 2.243 5 5-2.243 5-5 5z"
-                ></path>
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <circle cx="11" cy="11" r="8"></circle>
+                <path d="m21 21-4.35-4.35"></path>
               </svg>
               <span class="sr-only">Search</span>
             </LinkButton>
@@ -99,16 +112,24 @@ const { activeNav } = Astro.props;
               <li>
                 <button
                   id="theme-btn"
-                  class="focus-outline"
-                  title="Toggles light & dark"
-                  aria-label="auto"
+                  class="nav-icon-btn"
+                  title="Toggle theme"
+                  aria-label="Toggle theme"
                   aria-live="polite"
                 >
-                  <svg xmlns="http://www.w3.org/2000/svg" id="moon-svg">
-                    <path d="M20.742 13.045a8.088 8.088 0 0 1-2.077.271c-2.135 0-4.14-.83-5.646-2.336a8.025 8.025 0 0 1-2.064-7.723A1 1 0 0 0 9.73 2.034a10.014 10.014 0 0 0-4.489 2.582c-3.898 3.898-3.898 10.243 0 14.143a9.937 9.937 0 0 0 7.072 2.93 9.93 9.93 0 0 0 7.07-2.929 10.007 10.007 0 0 0 2.583-4.491 1.001 1.001 0 0 0-1.224-1.224zm-2.772 4.301a7.947 7.947 0 0 1-5.656 2.343 7.953 7.953 0 0 1-5.658-2.344c-3.118-3.119-3.118-8.195 0-11.314a7.923 7.923 0 0 1 2.06-1.483 10.027 10.027 0 0 0 2.89 7.848 9.972 9.972 0 0 0 7.848 2.891 8.036 8.036 0 0 1-1.484 2.059z" />
+                  <svg xmlns="http://www.w3.org/2000/svg" id="moon-svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
                   </svg>
-                  <svg xmlns="http://www.w3.org/2000/svg" id="sun-svg">
-                    <path d="M6.993 12c0 2.761 2.246 5.007 5.007 5.007s5.007-2.246 5.007-5.007S14.761 6.993 12 6.993 6.993 9.239 6.993 12zM12 8.993c1.658 0 3.007 1.349 3.007 3.007S13.658 15.007 12 15.007 8.993 13.658 8.993 12 10.342 8.993 12 8.993zM10.998 19h2v3h-2zm0-17h2v3h-2zm-9 9h3v2h-3zm17 0h3v2h-3zM4.219 18.363l2.12-2.122 1.415 1.414-2.12 2.122zM16.24 6.344l2.122-2.122 1.414 1.414-2.122 2.122zM6.342 7.759 4.22 5.637l1.415-1.414 2.12 2.122zm13.434 10.605-1.414 1.414-2.122-2.122 1.414-1.414z" />
+                  <svg xmlns="http://www.w3.org/2000/svg" id="sun-svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="5"></circle>
+                    <line x1="12" y1="1" x2="12" y2="3"></line>
+                    <line x1="12" y1="21" x2="12" y2="23"></line>
+                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                    <line x1="1" y1="12" x2="3" y2="12"></line>
+                    <line x1="21" y1="12" x2="23" y2="12"></line>
+                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                   </svg>
                 </button>
               </li>
@@ -118,85 +139,102 @@ const { activeNav } = Astro.props;
       </nav>
     </div>
   </div>
-  <Hr />
 </header>
+<div class="header-spacer"></div>
 
 <style>
+  .header-spacer {
+    @apply h-16 md:h-20;
+  }
+
   #skip-to-content {
-    @apply absolute -top-full left-16 z-50 bg-skin-accent px-3 py-2 text-skin-inverted transition-all focus:top-4;
+    @apply absolute -top-full left-16 z-50 bg-skin-accent px-4 py-2 rounded-lg text-white font-medium transition-all focus:top-4 shadow-lg;
   }
-  .nav-container {
-    @apply mx-auto flex max-w-3xl flex-col items-center justify-between sm:flex-row;
-  }
+  
+  
   .top-nav-wrap {
-    @apply relative flex w-full items-start justify-between p-4 sm:items-center sm:py-8;
+    @apply flex items-center justify-between h-16 md:h-20;
   }
+  
   .logo {
-    @apply absolute py-1 text-xl font-semibold sm:static sm:text-2xl;
+    @apply z-10;
   }
-  .hamburger-menu {
-    @apply self-end p-2 sm:hidden;
-  }
+  
   .hamburger-menu svg {
-    @apply h-6 w-6 scale-125 fill-skin-base;
+    @apply h-6 w-6;
   }
 
   nav {
-    @apply flex w-full flex-col items-center sm:ml-2 sm:flex-row sm:justify-end sm:space-x-4 sm:py-0;
+    @apply relative;
   }
-  nav ul {
-    @apply mt-4 grid w-44 grid-cols-2 grid-rows-4 gap-x-2 gap-y-2 sm:ml-0 sm:mt-0 sm:w-auto sm:gap-x-5 sm:gap-y-0;
+  
+  .menu-items {
+    @apply absolute right-0 top-12 bg-skin-fill border border-skin-line rounded-xl shadow-lg p-2 min-w-[200px]
+    md:relative md:top-0 md:flex md:items-center md:gap-1 md:bg-transparent md:border-0 md:shadow-none md:p-0 md:min-w-0;
   }
-  nav ul li {
-    @apply col-span-2 flex items-center justify-center;
+  
+  .menu-items li {
+    @apply block md:inline-block;
   }
-  nav ul li a {
-    @apply w-full px-4 py-3 text-center font-medium hover:text-skin-accent sm:my-0 sm:px-2 sm:py-1;
+  
+  .nav-link {
+    @apply block px-4 py-2 rounded-lg text-skin-base font-medium transition-all duration-200
+    hover:bg-skin-card hover:text-skin-accent
+    md:px-3 md:py-1.5;
   }
-  nav ul li:nth-last-child(2) a {
-    @apply w-auto;
+  
+  .nav-link.active {
+    @apply text-skin-accent bg-skin-accent bg-opacity-10;
   }
-  nav ul li:nth-last-child(1),
-  nav ul li:nth-last-child(2) {
-    @apply col-span-1;
+  
+  .nav-link span {
+    @apply relative;
   }
-  nav a.active {
-    @apply underline decoration-wavy decoration-2 underline-offset-4;
+  
+  .nav-link.active span::after {
+    @apply content-[''] absolute -bottom-0.5 left-0 right-0 h-0.5 bg-skin-accent rounded-full;
   }
-  nav a.active svg {
-    @apply fill-skin-accent;
+  
+  .nav-separator {
+    @apply hidden md:block w-px h-6 mx-2;
+    background-color: rgb(var(--color-border));
   }
-
-  nav button {
-    @apply p-1;
+  
+  .nav-icon-btn {
+    @apply flex items-center justify-center w-10 h-10 rounded-lg text-skin-base transition-all duration-200
+    hover:bg-skin-card hover:text-skin-accent outline-2 outline-offset-1 outline-skin-fill focus-visible:no-underline focus-visible:outline-dashed;
   }
-  nav button svg {
-    @apply h-6 w-6 fill-skin-base hover:fill-skin-accent;
-  }
-  #theme-btn {
-    @apply p-3 sm:p-1;
-  }
-  #theme-btn svg {
-    @apply scale-125 hover:rotate-12 sm:scale-100;
+  
+  .nav-icon-btn.active {
+    @apply text-skin-accent;
   }
 
   .menu-icon line {
-    @apply transition-opacity duration-75 ease-in-out;
+    @apply transition-all duration-300 ease-out;
+    transform-origin: center;
   }
+  
   .menu-icon .close {
     opacity: 0;
   }
+  
   .menu-icon.is-active .line {
-    @apply opacity-0;
+    opacity: 0;
   }
+  
   .menu-icon.is-active .close {
-    @apply opacity-100;
+    opacity: 1;
+  }
+  
+  @media (max-width: 767px) {
+    .menu-items li:not(:last-child) {
+      @apply border-b border-skin-line-light;
+    }
   }
 </style>
 
 <script>
   function toggleNav() {
-    // Toggle menu
     const menuBtn = document.querySelector(".hamburger-menu");
     const menuIcon = document.querySelector(".menu-icon");
     const menuItems = document.querySelector("#menu-items");
@@ -211,10 +249,19 @@ const { activeNav } = Astro.props;
       );
       menuItems?.classList.toggle("display-none");
     });
+
+    // Close menu when clicking outside
+    document.addEventListener("click", (e) => {
+      const target = e.target as HTMLElement;
+      if (!menuBtn?.contains(target) && !menuItems?.contains(target)) {
+        menuIcon?.classList.remove("is-active");
+        menuBtn?.setAttribute("aria-expanded", "false");
+        menuBtn?.setAttribute("aria-label", "Open Menu");
+        menuItems?.classList.add("display-none");
+      }
+    });
   }
 
   toggleNav();
-
-  // Runs on view transitions navigation
   document.addEventListener("astro:after-swap", toggleNav);
 </script>
