@@ -25,6 +25,9 @@ pnpm-debug.log*
 # ignore Jampack cache files
 .jampack/
 
+# OG image cache - NOT ignored so it persists for GitHub Pages builds
+# public/og-cache/
+
 # yarn
 .yarn/*
 !.yarn/patches
