@@ -20,7 +20,7 @@ export default function postOgImage({ post, images }: PostOgProps) {
   }
 
   // Otherwise render the styled title card
-  return renderTitleCard(title, author, tags);
+  return renderTitleCard(title, author, tags, pubDate);
 }
 
 function renderWithImages(
@@ -262,8 +262,9 @@ function renderWithImages(
 
 function renderTitleCard(
   title: string,
-  author: { author_login?: string; display_name?: string },
-  tags: string[]
+  _author: { author_login?: string; display_name?: string },
+  tags: string[],
+  pubDate?: Date
 ) {
   return (
     <div
@@ -306,31 +307,12 @@ function renderTitleCard(
           display: "flex",
           flexDirection: "column",
           justifyContent: "center",
-          alignItems: "flex-start",
+          alignItems: "center",
           padding: "60px 80px",
-          height: "100%",
+          flex: 1,
           position: "relative",
         }}
       >
-        {/* Tags at top */}
-        <div style={{ display: "flex", gap: "12px", marginBottom: "32px" }}>
-          {tags.map((tag, i) => (
-            <span
-              key={i}
-              style={{
-                background: "rgba(99,102,241,0.3)",
-                color: "#a5b4fc",
-                padding: "8px 20px",
-                borderRadius: "24px",
-                fontSize: 22,
-                fontWeight: 500,
-              }}
-            >
-              #{tag}
-            </span>
-          ))}
-        </div>
-
         {/* Title */}
         <p
           style={{
@@ -341,45 +323,58 @@ function renderTitleCard(
             lineHeight: 1.15,
             maxWidth: "1000px",
             textShadow: "0 4px 8px rgba(0,0,0,0.3)",
+            textAlign: "center",
           }}
         >
           {title.length > 90 ? title.substring(0, 87) + "..." : title}
         </p>
+      </div>
 
-        {/* Author and site */}
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            gap: "20px",
-            marginTop: "48px",
-            fontSize: 28,
-          }}
-        >
-          {/* Author avatar placeholder */}
-          <div
-            style={{
-              width: "56px",
-              height: "56px",
-              borderRadius: "50%",
-              background: "linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%)",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              color: "#ffffff",
-              fontSize: 24,
-              fontWeight: "bold",
-            }}
-          >
-            {(author?.display_name || "PK").charAt(0).toUpperCase()}
+      {/* Bottom bar with date, tags, and site */}
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+          padding: "20px 40px",
+          width: "100%",
+          position: "relative",
+        }}
+      >
+        <span style={{ fontSize: 22, color: "#94a3b8", minWidth: "180px" }}>
+          {pubDate ? pubDate.toLocaleDateString("en-US", {
+            year: "numeric",
+            month: "long",
+            day: "numeric"
+          }) : ""}
+        </span>
+
+        {tags.length > 0 ? (
+          <div style={{ display: "flex", gap: "8px", justifyContent: "center", flex: 1, overflow: "hidden" }}>
+            {tags.slice(0, 3).map((tag, i) => (
+              <span
+                key={i}
+                style={{
+                  background: "rgba(99,102,241,0.3)",
+                  color: "#a5b4fc",
+                  padding: "4px 12px",
+                  borderRadius: "12px",
+                  fontSize: 18,
+                  fontWeight: 500,
+                  whiteSpace: "nowrap",
+                }}
+              >
+                #{tag.length > 12 ? tag.substring(0, 10) + "…" : tag}
+              </span>
+            ))}
           </div>
-          <div style={{ display: "flex", flexDirection: "column" }}>
-            <span style={{ fontWeight: "bold", color: "#ffffff" }}>
-              {author?.display_name || author?.author_login || "Peter Kellner"}
-            </span>
-            <span style={{ color: "#94a3b8", fontSize: 22 }}>{SITE.title}</span>
-          </div>
-        </div>
+        ) : (
+          <div style={{ flex: 1 }} />
+        )}
+
+        <span style={{ fontWeight: "bold", color: "#ffffff", fontSize: 22, minWidth: "180px", textAlign: "right" }}>
+          {SITE.title}
+        </span>
       </div>
 
       {/* Bottom accent line */}
