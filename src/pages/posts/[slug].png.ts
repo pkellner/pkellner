@@ -82,7 +82,15 @@ export const GET: APIRoute = async ({ props }) => {
 
   // Extract and load images from the markdown
   const imagePaths = extractImagesFromMarkdown(rawContent);
+  if (imagePaths.length > 0) {
+    console.log(`[OG] Found ${imagePaths.length} images in ${slug}:`, imagePaths.slice(0, 3));
+  }
   const images = await loadImagesForOg(imagePaths, publicDir);
+  if (images.length > 0) {
+    console.log(`[OG] Loaded ${images.length} images for ${slug}`);
+  } else if (imagePaths.length > 0) {
+    console.log(`[OG] WARNING: Found image paths but failed to load any for ${slug}`);
+  }
 
   // Generate the OG image
   const pngBuffer = await generateOgImageForPost(post, images);

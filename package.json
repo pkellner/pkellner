@@ -5,7 +5,7 @@
     "dev": "astro dev",
     "start": "astro dev",
     "build": "astro check && astro build",
-    "buildclear": "rimraf dist && astro check && astro build",
+    "buildclear": "rimraf dist public/og-cache && astro check && astro build",
     "preview": "astro preview",
     "sync": "astro sync",
     "astro": "astro",

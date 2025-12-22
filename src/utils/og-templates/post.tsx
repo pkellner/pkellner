@@ -12,10 +12,11 @@ export default function postOgImage({ post, images }: PostOgProps) {
   const title = post.data.title;
   const author = post.data.author;
   const tags = post.data.tags?.slice(0, 3) || [];
+  const pubDate = post.data.pubDatetime ? new Date(post.data.pubDatetime) : undefined;
 
   // If we have images, render the collage layout
   if (images && images.length > 0) {
-    return renderWithImages(title, author, tags, images);
+    return renderWithImages(title, author, tags, images, pubDate);
   }
 
   // Otherwise render the styled title card
@@ -24,9 +25,10 @@ export default function postOgImage({ post, images }: PostOgProps) {
 
 function renderWithImages(
   title: string,
-  author: { author_login?: string; display_name?: string },
+  _author: { author_login?: string; display_name?: string },
   tags: string[],
-  images: Buffer[]
+  images: Buffer[],
+  pubDate?: Date
 ) {
   const imageCount = Math.min(images.length, 3);
 
@@ -47,7 +49,7 @@ function renderWithImages(
           display: "flex",
           width: "100%",
           height: "65%",
-          gap: "4px",
+          gap: "24px",
           padding: "16px 16px 8px 16px",
         }}
       >
@@ -141,13 +143,13 @@ function renderWithImages(
                 height: "100%",
                 display: "flex",
                 flexDirection: "column",
-                gap: "4px",
+                gap: "12px",
               }}
             >
               <div
                 style={{
                   width: "100%",
-                  height: "50%",
+                  flex: 1,
                   display: "flex",
                   borderRadius: "12px",
                   overflow: "hidden",
@@ -166,7 +168,7 @@ function renderWithImages(
               <div
                 style={{
                   width: "100%",
-                  height: "50%",
+                  flex: 1,
                   display: "flex",
                   borderRadius: "12px",
                   overflow: "hidden",
@@ -207,6 +209,8 @@ function renderWithImages(
             maxHeight: "100px",
             overflow: "hidden",
             textShadow: "0 2px 4px rgba(0,0,0,0.3)",
+            textAlign: "center",
+            width: "100%",
           }}
         >
           {title.length > 80 ? title.substring(0, 77) + "..." : title}
@@ -220,40 +224,36 @@ function renderWithImages(
             width: "100%",
           }}
         >
-          <div style={{ display: "flex", gap: "8px" }}>
-            {tags.map((tag, i) => (
+          <span style={{ fontSize: 22, color: "#94a3b8", minWidth: "180px" }}>
+            {pubDate ? pubDate.toLocaleDateString("en-US", {
+              year: "numeric",
+              month: "long",
+              day: "numeric"
+            }) : ""}
+          </span>
+
+          <div style={{ display: "flex", gap: "8px", justifyContent: "center", flex: 1, overflow: "hidden" }}>
+            {tags.slice(0, 3).map((tag, i) => (
               <span
                 key={i}
                 style={{
-                  background: "rgba(255,255,255,0.15)",
-                  color: "#e0e0e0",
+                  background: "rgba(99,102,241,0.3)",
+                  color: "#a5b4fc",
                   padding: "4px 12px",
-                  borderRadius: "16px",
+                  borderRadius: "12px",
                   fontSize: 18,
+                  fontWeight: 500,
+                  whiteSpace: "nowrap",
                 }}
               >
-                #{tag}
+                #{tag.length > 12 ? tag.substring(0, 10) + "…" : tag}
               </span>
             ))}
           </div>
 
-          <div
-            style={{
-              display: "flex",
-              alignItems: "center",
-              gap: "16px",
-              fontSize: 22,
-              color: "#b0b0b0",
-            }}
-          >
-            <span style={{ fontWeight: "bold", color: "#ffffff" }}>
-              {author?.display_name || author?.author_login || "Peter Kellner"}
-            </span>
-            <span>•</span>
-            <span style={{ fontWeight: "bold", color: "#94a3b8" }}>
-              {SITE.title}
-            </span>
-          </div>
+          <span style={{ fontWeight: "bold", color: "#ffffff", fontSize: 22, minWidth: "180px", textAlign: "right" }}>
+            {SITE.title}
+          </span>
         </div>
       </div>
     </div>
