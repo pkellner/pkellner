@@ -52,18 +52,26 @@ function svgBufferToPngBuffer(svg: string) {
 }
 
 /**
- * Extract image paths from markdown content
+ * Extract image paths from markdown content (supports both markdown and HTML syntax)
  */
 export function extractImagesFromMarkdown(content: string): string[] {
-  const imageRegex = /!\[.*?\]\((\/[^)]+)\)/g;
   const images: string[] = [];
-  let match;
 
-  while ((match = imageRegex.exec(content)) !== null) {
+  // Match markdown syntax: ![alt](/path/to/image)
+  const markdownRegex = /!\[.*?\]\((\/[^)]+)\)/g;
+  let match;
+  while ((match = markdownRegex.exec(content)) !== null) {
     images.push(match[1]);
   }
 
-  return images;
+  // Match HTML img tags: <img ... src="/path/to/image" ... />
+  const htmlRegex = /<img[^>]+src=["'](\/[^"']+)["'][^>]*>/gi;
+  while ((match = htmlRegex.exec(content)) !== null) {
+    images.push(match[1]);
+  }
+
+  // Remove duplicates and return
+  return [...new Set(images)];
 }
 
 /**
