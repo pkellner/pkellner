@@ -30,7 +30,7 @@ If you just want to see if your ISPs are up or down without logging into your So
 
 I live in Borrego Springs, a small desert community in Southern California. It's a beautiful place—surrounded by Anza-Borrego Desert State Park, with dark skies perfect for stargazing and temperatures that remind you why air conditioning exists.
 
-![Borrego Springs Desert Landscape](/postimages2024/2025-12-22-snmp-monitor-isps/borrego-springs-desert.jpg)
+![Anza-Borrego Desert landscape](/postimages2024/2025-12-22-snmp-monitor-isps/borrego-springs-desert.jpg)
 
 However, living in a remote desert location comes with its challenges, and reliable internet is one of them. My primary ISP (Zito Media) goes down more often than I'd like to admit. Sometimes it's for a few minutes, sometimes for hours. When you work from home as a software developer, this is more than just an inconvenience—it's a productivity killer.
 
@@ -59,7 +59,7 @@ When my internet feels sluggish, my first thought is often: "Is Zito down again?
 4. Drill down to Failover & Load Balancing
 5. Look at the status of each WAN interface group
 
-![SonicWall Admin Interface - Load Balancing](/postimages2024/2025-12-22-snmp-monitor-isps/sonicwall-admin-loadbalancing.png)
+![SonicWall Admin Interface - Failover & Load Balancing](/postimages2024/2025-12-22-snmp-monitor-isps/sonicwall-admin-loadbalancing.png)
 
 This process takes several minutes and requires remembering the admin credentials, dealing with session timeouts, and clicking through multiple menus. What I really wanted was a simple dashboard I could glance at to see the status of both ISPs immediately.
 
