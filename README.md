@@ -1,3 +1,16 @@
+# Peter Kellner's Blog (peterkellner.net)
+
+> **⚠️ Pre-Deployment Checklist**
+>
+> Before deploying new blog posts, ensure:
+> 1. Run `npm run build` - builds the site and generates OG images for new posts
+> 2. Run `npm run dev` - verify no errors or warnings in development
+> 3. Check that new posts have `draft: false` in frontmatter (or `draft: true` to hide)
+> 4. Commit generated OG images in `public/og-cache/` along with your post
+> 5. Push to deploy
+
+---
+
 # AstroPaper 📄
 
 ![AstroPaper](public/astropaper-og.jpg)
@@ -156,3 +169,29 @@ Licensed under the MIT License, Copyright © 2023
 ---
 
 Made with 🤍 by [Sat Naing](https://satnaing.dev) 👨🏻‍💻 and [contributors](https://github.com/satnaing/astro-paper/graphs/contributors).
+
+---
+
+## 📋 Deployment Reminder
+
+**Before deploying any changes:**
+
+```bash
+# 1. Build the site (generates OG images for new posts)
+npm run build
+
+# 2. Verify no errors in development
+npm run dev
+
+# 3. Check git status for generated files
+git status
+
+# 4. Stage and commit all changes including OG images
+git add .
+git commit -m "Add new blog post: [title]"
+
+# 5. Push to deploy
+git push
+```
+
+**Note:** The build step generates Open Graph images in `public/og-cache/`. These must be committed along with your blog posts for social media previews to work correctly.

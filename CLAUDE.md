@@ -87,10 +87,62 @@ npm run cz
 **IMPORTANT**: Always run both `npm run build` and `npm run dev` to ensure there are no errors or warnings before committing changes.
 
 ### Adding New Posts
-1. Create a new `.md` file in `src/content/blog/`
-2. Include required frontmatter fields
-3. Use `draft: true` for work-in-progress posts
-4. Run build to ensure no TypeScript errors
+
+**Full details in [BLOG-GUIDELINES.md](./BLOG-GUIDELINES.md)** - Read this for comprehensive patterns and examples.
+
+#### Blog Post Checklist
+
+1. **Create file**: `src/content/blog/YYYY-MM-DD-kebab-case-title.md`
+2. **Required frontmatter**:
+   ```yaml
+   ---
+   title: Descriptive Title with Key Technologies
+   description: Compelling 1-2 sentence summary for SEO (150-160 chars)
+   pubDatetime: 2025-01-15T10:00:00.000Z
+   draft: false
+   tags: [primary-tech, secondary-tech, topic]
+   ogImage: /images/your-post-og.png  # Optional custom OG
+   ---
+   ```
+3. **Post structure**:
+   - **TL;DR section first** (2-3 sentences MAX - just the core takeaway, maybe one link)
+   - **Fun image right after TL;DR** (same image used for OG - visually represents the topic)
+   - Clear H2/H3 sections
+   - Code blocks with syntax highlighting
+   - Tables for comparisons
+   - Links to external resources (Wikipedia, official docs) for SEO
+4. **Run build**: `npm run build` to generate OG images and verify
+
+#### Creating Fun OG Images (IMPORTANT)
+
+Every blog post should have a custom, engaging OG image for social media sharing:
+
+1. **Create SVG** at `src/assets/images/your-post-og.svg` (1200x630 pixels)
+   - Dark gradient backgrounds work well
+   - Include visual elements representing the topic (icons, tech logos)
+   - Large readable title text
+   - Keep it fun and eye-catching
+
+2. **Build converts to PNG**: The `prebuild` script auto-converts SVGs with `og` in filename to PNG
+
+3. **Reference in frontmatter**: `ogImage: /images/your-post-og.png`
+
+Example SVG structure:
+```svg
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <rect width="1200" height="630" fill="#1a1a2e"/>
+  <!-- Visual elements for topic -->
+  <text x="600" y="550" font-size="38" fill="#fff" text-anchor="middle">Title Here</text>
+</svg>
+```
+
+#### SEO: Add Hyperlinks
+
+Link key terms throughout posts for SEO:
+- **Technologies**: `[MySQL](https://www.mysql.com/)`, `[Docker](https://www.docker.com/)`
+- **AWS services**: `[AWS Secrets Manager](https://aws.amazon.com/secrets-manager/)`
+- **Concepts**: `[environment variables](https://en.wikipedia.org/wiki/Environment_variable)`
+- **Tools**: `[HashiCorp Vault](https://www.vaultproject.io/)`
 
 ### Deployment
 - Site deploys to peterkellner.net
