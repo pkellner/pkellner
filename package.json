@@ -4,7 +4,7 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "prebuild": "node scripts/convert-og-svgs.js",
+    "prebuild": "node scripts/convert-og-svgs.mjs",
     "build": "astro check && astro build",
     "buildclear": "rimraf dist public/og-cache && astro check && astro build",
     "preview": "astro preview",

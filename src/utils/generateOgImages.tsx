@@ -7,23 +7,19 @@ import fs from "node:fs";
 import path from "node:path";
 import sharp from "sharp";
 
-const fetchFonts = async () => {
-  // Regular Font
-  const fontFileRegular = await fetch(
-    "https://www.1001fonts.com/download/font/ibm-plex-mono.regular.ttf"
+const loadLocalFonts = () => {
+  // Load fonts from local files to avoid network dependency during build
+  const fontRegular = fs.readFileSync(
+    path.join(process.cwd(), "public/fonts/IBMPlexMono-Regular.ttf")
   );
-  const fontRegular: ArrayBuffer = await fontFileRegular.arrayBuffer();
-
-  // Bold Font
-  const fontFileBold = await fetch(
-    "https://www.1001fonts.com/download/font/ibm-plex-mono.bold.ttf"
+  const fontBold = fs.readFileSync(
+    path.join(process.cwd(), "public/fonts/IBMPlexMono-Bold.ttf")
   );
-  const fontBold: ArrayBuffer = await fontFileBold.arrayBuffer();
 
   return { fontRegular, fontBold };
 };
 
-const { fontRegular, fontBold } = await fetchFonts();
+const { fontRegular, fontBold } = loadLocalFonts();
 
 const options: SatoriOptions = {
   width: 1200,

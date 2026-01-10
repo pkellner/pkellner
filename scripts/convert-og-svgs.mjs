@@ -8,12 +8,12 @@
  * 2. Converts them to PNG using @resvg/resvg-js (already in project dependencies)
  * 3. Saves the PNG to public/images/ with the same name
  *
- * Run: node scripts/convert-og-svgs.js
+ * Run: node scripts/convert-og-svgs.mjs
  */
 
-const { Resvg } = require("@resvg/resvg-js");
-const fs = require("fs");
-const path = require("path");
+import { Resvg } from "@resvg/resvg-js";
+import fs from "node:fs";
+import path from "node:path";
 
 const ASSETS_DIR = path.join(process.cwd(), "src", "assets", "images");
 const PUBLIC_DIR = path.join(process.cwd(), "public", "images");
