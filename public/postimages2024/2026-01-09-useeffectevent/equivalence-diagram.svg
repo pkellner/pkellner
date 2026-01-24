@@ -62,9 +62,9 @@
     <text x="-165" y="0" font-family="Monaco, monospace" font-size="10" fill="#f8fafc">});</text>
 
     <text x="-165" y="30" font-family="Monaco, monospace" font-size="10" fill="#64748b">// That's it! React handles:</text>
-    <text x="-165" y="45" font-family="Monaco, monospace" font-size="10" fill="#64748b">//   - Creating stable wrapper</text>
-    <text x="-165" y="60" font-family="Monaco, monospace" font-size="10" fill="#64748b">//   - Maintaining internal ref</text>
-    <text x="-165" y="75" font-family="Monaco, monospace" font-size="10" fill="#64748b">//   - Syncing on each render</text>
+    <text x="-165" y="45" font-family="Monaco, monospace" font-size="10" fill="#64748b">//   - Maintaining shared ref</text>
+    <text x="-165" y="60" font-family="Monaco, monospace" font-size="10" fill="#64748b">//   - Syncing on each render</text>
+    <text x="-165" y="75" font-family="Monaco, monospace" font-size="10" fill="#64748b">//   - All fns read same ref</text>
 
     <!-- Line count indicator -->
     <rect x="130" y="80" width="45" height="22" rx="4" fill="#22c55e"/>
