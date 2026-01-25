@@ -268,6 +268,8 @@ function Dashboard({ teamId }: { teamId: string }) {
 Before `useEffectEvent`, the standard pattern was to mirror values into a `useRef`:
 
 ```tsx
+import { useEffect, useLayoutEffect, useState, useRef } from "react";
+
 function Dashboard({ teamId }: { teamId: string }) {
   const [includeArchived, setIncludeArchived] = useState(false);
   const [data, setData] = useState(null);
@@ -275,8 +277,9 @@ function Dashboard({ teamId }: { teamId: string }) {
   // Step 1: Create a ref
   const includeArchivedRef = useRef(includeArchived);
 
-  // Step 2: Keep ref in sync with state
-  useEffect(() => {
+  // Step 2: Keep ref in sync with state using useLayoutEffect
+  // This runs synchronously BEFORE useEffect, guaranteeing the ref is current
+  useLayoutEffect(() => {
     includeArchivedRef.current = includeArchived;
   }, [includeArchived]);
 
@@ -299,13 +302,36 @@ function Dashboard({ teamId }: { teamId: string }) {
 }
 ```
 
-**This works**, but:
+**Why `useLayoutEffect` instead of `useEffect`?**
+
+You might wonder: "Can't I just use two `useEffect` hooks in order? The first one syncs the ref, the second one reads it."
+
+In practice, this often works. React typically runs effects in declaration order. But here's the catch: **the [React documentation](https://react.dev/reference/react/useEffect) does not explicitly guarantee execution order between multiple `useEffect` hooks**. The docs state that effects run after the component commits, but the precise ordering between multiple effects—especially across concurrent rendering, Suspense boundaries, or future React versions—is not part of React's public API contract.
+
+`useLayoutEffect` provides an explicit guarantee. From the [React docs](https://react.dev/reference/react/useLayoutEffect):
+
+> "`useLayoutEffect` is a version of `useEffect` that fires before the browser repaints the screen."
+>
+> "React guarantees that the code inside `useLayoutEffect` and any state updates scheduled inside it will be processed before the browser repaints the screen."
+
+This means the execution order is well-defined:
+
+1. Component renders
+2. React commits changes to DOM
+3. `useLayoutEffect` runs synchronously → ref is synced
+4. Browser paints the screen
+5. `useEffect` runs → reads the already-updated ref
+
+By using `useLayoutEffect` for the sync, you're relying on documented, guaranteed behavior rather than observed-but-unspecified implementation details.
+
+**The downsides of this pattern:**
 - Extra `useRef` declaration
-- Extra `useEffect` to keep it synced
+- Extra `useLayoutEffect` to keep it synced
 - Remember to read `.current` not the state directly
 - Repeat for every value you need to "escape"
+- Easy to accidentally use `useEffect` instead (which might work... until it doesn't)
 
-`useEffectEvent` automates this exact pattern.
+`useEffectEvent` automates this exact pattern and eliminates these footguns.
 
 ---
 
