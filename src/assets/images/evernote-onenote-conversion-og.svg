@@ -1,0 +1,231 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a1a2e"/>
+      <stop offset="100%" style="stop-color:#16213e"/>
+    </linearGradient>
+    <linearGradient id="flameOuter" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" style="stop-color:#cc2200"/>
+      <stop offset="35%" style="stop-color:#ff4500"/>
+      <stop offset="70%" style="stop-color:#ff8c00"/>
+      <stop offset="100%" style="stop-color:#ffb347"/>
+    </linearGradient>
+    <linearGradient id="flameInner" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" style="stop-color:#ff6b35"/>
+      <stop offset="50%" style="stop-color:#ffa500"/>
+      <stop offset="100%" style="stop-color:#ffd700"/>
+    </linearGradient>
+    <linearGradient id="flameCore" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" style="stop-color:#ffcc00"/>
+      <stop offset="100%" style="stop-color:#ffffcc"/>
+    </linearGradient>
+    <linearGradient id="greenGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#22c55e"/>
+      <stop offset="100%" style="stop-color:#16a34a"/>
+    </linearGradient>
+    <linearGradient id="purpleGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#8b5cf6"/>
+      <stop offset="100%" style="stop-color:#7c3aed"/>
+    </linearGradient>
+    <linearGradient id="billGreen" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#7ec87e"/>
+      <stop offset="100%" style="stop-color:#4a8a4a"/>
+    </linearGradient>
+    <linearGradient id="billTan" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#dcc477"/>
+      <stop offset="100%" style="stop-color:#b89a42"/>
+    </linearGradient>
+    <radialGradient id="fireAmbient" cx="50%" cy="60%" r="50%">
+      <stop offset="0%" style="stop-color:#ff6b00;stop-opacity:0.25"/>
+      <stop offset="100%" style="stop-color:#ff6b00;stop-opacity:0"/>
+    </radialGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="fireGlow">
+      <feGaussianBlur stdDeviation="8" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="softGlow">
+      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bgGrad)"/>
+
+  <!-- Subtle decorative circles -->
+  <g opacity="0.04" stroke="#00d4aa" stroke-width="0.5">
+    <circle cx="600" cy="268" r="220" fill="none"/>
+    <circle cx="600" cy="268" r="340" fill="none"/>
+  </g>
+
+  <!-- Warm ambient glow behind fire -->
+  <ellipse cx="600" cy="298" rx="240" ry="200" fill="url(#fireAmbient)"/>
+
+  <!-- Free While in Beta Testing badge -->
+  <g transform="translate(600, 58)">
+    <rect x="-175" y="-20" width="350" height="42" rx="21" fill="#f59e0b"/>
+    <text x="0" y="8" font-family="Arial, sans-serif" font-size="21" font-weight="bold" fill="#fff" text-anchor="middle">Free While in Beta Testing</text>
+  </g>
+
+  <!-- ============================================ -->
+  <!-- LEFT: Evernote notebook                      -->
+  <!-- ============================================ -->
+  <g filter="url(#glow)">
+    <g transform="translate(65, 148)">
+      <rect x="0" y="0" width="180" height="185" rx="14" fill="url(#greenGrad)"/>
+      <!-- Content lines -->
+      <rect x="24" y="24" width="132" height="12" rx="3" fill="#fff" opacity="0.7"/>
+      <rect x="24" y="48" width="100" height="12" rx="3" fill="#fff" opacity="0.5"/>
+      <rect x="24" y="72" width="115" height="12" rx="3" fill="#fff" opacity="0.5"/>
+      <rect x="24" y="96" width="85" height="12" rx="3" fill="#fff" opacity="0.4"/>
+      <!-- Image area -->
+      <rect x="24" y="120" width="132" height="48" rx="6" fill="#fff" opacity="0.25"/>
+    </g>
+    <!-- Evernote label — BIG, well above bottom -->
+    <text x="155" y="378" font-family="Arial, sans-serif" font-size="32" font-weight="bold" fill="#4ade80" text-anchor="middle">Evernote</text>
+  </g>
+
+  <!-- ============================================ -->
+  <!-- RIGHT: OneNote notebook                      -->
+  <!-- ============================================ -->
+  <g filter="url(#glow)">
+    <g transform="translate(955, 148)">
+      <rect x="0" y="0" width="180" height="185" rx="14" fill="url(#purpleGrad)"/>
+      <!-- Big N -->
+      <text x="90" y="108" font-family="Arial, sans-serif" font-size="88" font-weight="bold" fill="#fff" text-anchor="middle" opacity="0.9">N</text>
+      <!-- Lines below N -->
+      <rect x="24" y="128" width="132" height="9" rx="3" fill="#fff" opacity="0.4"/>
+      <rect x="24" y="148" width="100" height="9" rx="3" fill="#fff" opacity="0.3"/>
+      <rect x="24" y="168" width="115" height="9" rx="3" fill="#fff" opacity="0.3"/>
+    </g>
+    <!-- OneNote label — BIG, matching -->
+    <text x="1045" y="378" font-family="Arial, sans-serif" font-size="32" font-weight="bold" fill="#a78bfa" text-anchor="middle">OneNote</text>
+  </g>
+
+  <!-- ============================================ -->
+  <!-- Arrows: Evernote → fire → OneNote            -->
+  <!-- ============================================ -->
+  <g stroke="#00d4aa" stroke-width="4" opacity="0.65">
+    <line x1="278" y1="253" x2="430" y2="253" stroke-dasharray="14 8"/>
+    <polygon points="425,253 406,243 406,263" fill="#00d4aa"/>
+    <line x1="770" y1="253" x2="922" y2="253" stroke-dasharray="14 8"/>
+    <polygon points="917,253 898,243 898,263" fill="#00d4aa"/>
+  </g>
+
+  <!-- ============================================ -->
+  <!-- CENTER: Burning money bonfire                -->
+  <!-- ============================================ -->
+
+  <g transform="translate(0, 38)">
+  <!-- Money pile (behind flames at the base) -->
+  <!-- Bill 1 — bottom, tilted right -->
+  <g transform="rotate(15, 630, 365)">
+    <rect x="540" y="345" width="160" height="60" rx="6" fill="url(#billGreen)" opacity="0.55"/>
+    <rect x="548" y="353" width="144" height="44" rx="4" fill="none" stroke="#3a7a3a" stroke-width="2" opacity="0.5"/>
+    <circle cx="620" cy="375" r="15" fill="none" stroke="#3a7a3a" stroke-width="1.5" opacity="0.4"/>
+  </g>
+  <!-- Bill 2 — tilted left -->
+  <g transform="rotate(-10, 570, 358)">
+    <rect x="500" y="338" width="155" height="58" rx="6" fill="url(#billTan)" opacity="0.6"/>
+    <rect x="508" y="346" width="139" height="42" rx="4" fill="none" stroke="#8a7530" stroke-width="2" opacity="0.5"/>
+    <circle cx="578" cy="367" r="14" fill="none" stroke="#8a7530" stroke-width="1.5" opacity="0.4"/>
+  </g>
+  <!-- Bill 3 — center, slight tilt -->
+  <g transform="rotate(3, 600, 350)">
+    <rect x="520" y="330" width="160" height="58" rx="6" fill="url(#billGreen)" opacity="0.7"/>
+    <rect x="528" y="338" width="144" height="42" rx="4" fill="none" stroke="#3a7a3a" stroke-width="2" opacity="0.55"/>
+    <circle cx="600" cy="359" r="14" fill="none" stroke="#3a7a3a" stroke-width="1.5" opacity="0.45"/>
+    <!-- Corner ornament circles -->
+    <circle cx="543" cy="350" r="5" fill="#3a7a3a" opacity="0.25"/>
+    <circle cx="667" cy="350" r="5" fill="#3a7a3a" opacity="0.25"/>
+    <circle cx="543" cy="372" r="5" fill="#3a7a3a" opacity="0.25"/>
+    <circle cx="667" cy="372" r="5" fill="#3a7a3a" opacity="0.25"/>
+  </g>
+  <!-- Bill 4 — top bill -->
+  <g transform="rotate(-2, 595, 342)">
+    <rect x="518" y="320" width="158" height="56" rx="6" fill="url(#billTan)" opacity="0.8"/>
+    <rect x="526" y="328" width="142" height="40" rx="4" fill="none" stroke="#8a7530" stroke-width="2" opacity="0.55"/>
+    <circle cx="597" cy="348" r="14" fill="none" stroke="#8a7530" stroke-width="1.5" opacity="0.45"/>
+    <circle cx="540" cy="340" r="5" fill="#8a7530" opacity="0.2"/>
+    <circle cx="654" cy="340" r="5" fill="#8a7530" opacity="0.2"/>
+    <circle cx="540" cy="358" r="5" fill="#8a7530" opacity="0.2"/>
+    <circle cx="654" cy="358" r="5" fill="#8a7530" opacity="0.2"/>
+  </g>
+
+  <!-- Scattered falling bills -->
+  <g transform="rotate(-35, 455, 375)" opacity="0.3">
+    <rect x="415" y="358" width="100" height="38" rx="4" fill="url(#billGreen)"/>
+    <rect x="421" y="364" width="88" height="26" rx="3" fill="none" stroke="#3a7a3a" stroke-width="1.5"/>
+  </g>
+  <g transform="rotate(30, 755, 370)" opacity="0.25">
+    <rect x="715" y="353" width="95" height="36" rx="4" fill="url(#billTan)"/>
+    <rect x="721" y="359" width="83" height="24" rx="3" fill="none" stroke="#8a7530" stroke-width="1.5"/>
+  </g>
+
+  <!-- Fire (on top of bills) -->
+  <g filter="url(#fireGlow)">
+    <!-- Far-left small flame -->
+    <path d="M468 355 Q448 310 472 268 Q460 248 480 215 Q488 200 492 215 Q505 248 495 268 Q515 310 498 355 Z" fill="url(#flameOuter)" opacity="0.5"/>
+    <!-- Far-right small flame -->
+    <path d="M732 355 Q750 310 730 268 Q740 248 722 215 Q714 200 710 215 Q698 248 708 268 Q690 310 705 355 Z" fill="url(#flameOuter)" opacity="0.5"/>
+
+    <!-- Left secondary flame -->
+    <path d="M502 355 Q478 295 512 240 Q495 205 525 155 Q535 135 542 155 Q560 205 545 240 Q575 295 555 355 Z" fill="url(#flameOuter)" opacity="0.7"/>
+    <!-- Right secondary flame -->
+    <path d="M698 355 Q720 295 690 240 Q705 205 678 155 Q668 135 662 155 Q645 205 658 240 Q630 295 648 355 Z" fill="url(#flameOuter)" opacity="0.7"/>
+
+    <!-- Main center flame (tallest, widest) -->
+    <path d="M545 355 Q518 280 558 220 Q540 175 572 115 Q585 82 600 68 Q615 82 628 115 Q658 175 642 220 Q680 280 655 355 Z" fill="url(#flameOuter)" opacity="0.9"/>
+
+    <!-- Inner left flame -->
+    <path d="M530 355 Q515 305 540 255 Q528 230 548 185 Q555 170 560 185 Q572 230 563 255 Q583 305 570 355 Z" fill="url(#flameInner)" opacity="0.65"/>
+    <!-- Inner right flame -->
+    <path d="M670 355 Q683 305 662 255 Q672 230 655 185 Q648 170 643 185 Q632 230 640 255 Q622 305 635 355 Z" fill="url(#flameInner)" opacity="0.65"/>
+
+    <!-- Inner center flame -->
+    <path d="M565 355 Q550 290 575 235 Q563 205 585 150 Q594 128 600 115 Q606 128 615 150 Q635 205 625 235 Q648 290 635 355 Z" fill="url(#flameInner)" opacity="0.85"/>
+
+    <!-- Hot core (brightest) -->
+    <path d="M582 355 Q574 305 590 255 Q584 235 595 195 Q600 178 605 195 Q614 235 610 255 Q625 305 618 355 Z" fill="url(#flameCore)" opacity="0.75"/>
+  </g>
+
+  <!-- Embers / sparks -->
+  <g filter="url(#softGlow)">
+    <circle cx="570" cy="95" r="3.5" fill="#ffd700" opacity="0.7"/>
+    <circle cx="630" cy="80" r="3" fill="#ffaa00" opacity="0.6"/>
+    <circle cx="555" cy="130" r="2.5" fill="#ffd700" opacity="0.5"/>
+    <circle cx="648" cy="115" r="2.5" fill="#ffcc00" opacity="0.55"/>
+    <circle cx="540" cy="160" r="2" fill="#ff8c00" opacity="0.4"/>
+    <circle cx="665" cy="145" r="2" fill="#ff8c00" opacity="0.4"/>
+    <circle cx="585" cy="60" r="2" fill="#ffd700" opacity="0.45"/>
+    <circle cx="618" cy="55" r="1.5" fill="#ffd700" opacity="0.35"/>
+  </g>
+  </g><!-- end translate(0, 38) -->
+
+  <!-- ============================================ -->
+  <!-- Title text (bottom)                          -->
+  <!-- ============================================ -->
+  <text x="600" y="508" font-family="Arial, sans-serif" font-size="54" font-weight="bold" fill="#ffffff" text-anchor="middle">Stop Paying Evernote</text>
+  <text x="600" y="566" font-family="Arial, sans-serif" font-size="30" fill="#f59e0b" text-anchor="middle" font-weight="bold">Evernote to OneNote Converter</text>
+
+  <!-- Decorative sparkles -->
+  <g fill="#00d4aa" opacity="0.3">
+    <polygon points="48,478 52,490 64,490 54,498 58,510 48,502 38,510 42,498 32,490 44,490"/>
+    <polygon points="1152,130 1156,142 1168,142 1158,150 1162,162 1152,154 1142,162 1146,150 1136,142 1148,142"/>
+    <polygon points="345,115 348,123 356,123 350,128 352,136 345,131 338,136 340,128 334,123 342,123"/>
+    <polygon points="862,480 865,488 873,488 867,493 869,501 862,496 855,501 857,493 851,488 859,488"/>
+  </g>
+</svg>

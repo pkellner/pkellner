@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 350" width="1100" height="350">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#1e293b"/>
+    </linearGradient>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#00d4aa"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1100" height="350" rx="12" fill="url(#bg)"/>
+
+  <!-- Box 1: ENEX File (green) -->
+  <rect x="60" y="60" width="130" height="100" rx="14" fill="#22c55e" opacity="0.92"/>
+  <!-- File icon -->
+  <rect x="103" y="78" width="34" height="44" rx="3" fill="none" stroke="#fff" stroke-width="2.5"/>
+  <polyline points="123,78 123,90 137,90" fill="none" stroke="#fff" stroke-width="2.5"/>
+  <line x1="110" y1="100" x2="130" y2="100" stroke="#fff" stroke-width="2"/>
+  <line x1="110" y1="107" x2="130" y2="107" stroke="#fff" stroke-width="2"/>
+  <line x1="110" y1="114" x2="125" y2="114" stroke="#fff" stroke-width="2"/>
+  <!-- Label -->
+  <text x="125" y="195" font-family="Arial, sans-serif" font-size="15" fill="#ffffff" text-anchor="middle" font-weight="bold">ENEX File</text>
+
+  <!-- Arrow 1 -->
+  <line x1="205" y1="110" x2="268" y2="110" stroke="#00d4aa" stroke-width="2.5" stroke-dasharray="8,5" marker-end="url(#arrowhead)"/>
+
+  <!-- Box 2: Upload (blue) -->
+  <rect x="280" y="60" width="130" height="100" rx="14" fill="#3b82f6" opacity="0.92"/>
+  <!-- Cloud upload icon -->
+  <path d="M325,120 Q325,102 340,102 Q342,92 355,92 Q368,92 368,104 Q378,104 378,114 Q378,122 370,122 L332,122 Q325,122 325,120 Z" fill="none" stroke="#fff" stroke-width="2.5"/>
+  <line x1="350" y1="108" x2="350" y2="120" stroke="#fff" stroke-width="2.5"/>
+  <polyline points="344,113 350,107 356,113" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Label -->
+  <text x="345" y="195" font-family="Arial, sans-serif" font-size="15" fill="#ffffff" text-anchor="middle" font-weight="bold">Upload</text>
+
+  <!-- Arrow 2 -->
+  <line x1="425" y1="110" x2="488" y2="110" stroke="#00d4aa" stroke-width="2.5" stroke-dasharray="8,5" marker-end="url(#arrowhead)"/>
+
+  <!-- Box 3: Parse & Extract (blue) -->
+  <rect x="500" y="60" width="130" height="100" rx="14" fill="#3b82f6" opacity="0.92"/>
+  <!-- Gear/cog icon -->
+  <circle cx="565" cy="108" r="16" fill="none" stroke="#fff" stroke-width="2.5"/>
+  <circle cx="565" cy="108" r="7" fill="none" stroke="#fff" stroke-width="2"/>
+  <!-- Gear teeth -->
+  <line x1="565" y1="88" x2="565" y2="93" stroke="#fff" stroke-width="3" stroke-linecap="round"/>
+  <line x1="565" y1="123" x2="565" y2="128" stroke="#fff" stroke-width="3" stroke-linecap="round"/>
+  <line x1="545" y1="108" x2="550" y2="108" stroke="#fff" stroke-width="3" stroke-linecap="round"/>
+  <line x1="580" y1="108" x2="585" y2="108" stroke="#fff" stroke-width="3" stroke-linecap="round"/>
+  <line x1="551" y1="94" x2="554.5" y2="97.5" stroke="#fff" stroke-width="3" stroke-linecap="round"/>
+  <line x1="575.5" y1="118.5" x2="579" y2="122" stroke="#fff" stroke-width="3" stroke-linecap="round"/>
+  <line x1="579" y1="94" x2="575.5" y2="97.5" stroke="#fff" stroke-width="3" stroke-linecap="round"/>
+  <line x1="554.5" y1="118.5" x2="551" y2="122" stroke="#fff" stroke-width="3" stroke-linecap="round"/>
+  <!-- Label -->
+  <text x="565" y="195" font-family="Arial, sans-serif" font-size="15" fill="#ffffff" text-anchor="middle" font-weight="bold">Parse &amp; Extract</text>
+
+  <!-- Arrow 3 -->
+  <line x1="645" y1="110" x2="708" y2="110" stroke="#00d4aa" stroke-width="2.5" stroke-dasharray="8,5" marker-end="url(#arrowhead)"/>
+
+  <!-- Box 4: Queue Notes (blue) -->
+  <rect x="720" y="60" width="130" height="100" rx="14" fill="#3b82f6" opacity="0.92"/>
+  <!-- Stack of cards icon -->
+  <rect x="760" y="86" width="40" height="30" rx="4" fill="none" stroke="#fff" stroke-width="2" opacity="0.5"/>
+  <rect x="755" y="92" width="40" height="30" rx="4" fill="none" stroke="#fff" stroke-width="2" opacity="0.7"/>
+  <rect x="750" y="98" width="40" height="30" rx="4" fill="none" stroke="#fff" stroke-width="2.5"/>
+  <line x1="756" y1="109" x2="782" y2="109" stroke="#fff" stroke-width="1.5"/>
+  <line x1="756" y1="115" x2="778" y2="115" stroke="#fff" stroke-width="1.5"/>
+  <line x1="756" y1="121" x2="770" y2="121" stroke="#fff" stroke-width="1.5"/>
+  <!-- Label -->
+  <text x="785" y="195" font-family="Arial, sans-serif" font-size="15" fill="#ffffff" text-anchor="middle" font-weight="bold">Queue Notes</text>
+
+  <!-- Arrow 4 -->
+  <line x1="865" y1="110" x2="928" y2="110" stroke="#00d4aa" stroke-width="2.5" stroke-dasharray="8,5" marker-end="url(#arrowhead)"/>
+
+  <!-- Box 5: OneNote (purple) -->
+  <rect x="940" y="60" width="130" height="100" rx="14" fill="#7b2d8e" opacity="0.92"/>
+  <!-- "N" letter icon -->
+  <rect x="983" y="85" width="44" height="50" rx="6" fill="none" stroke="#fff" stroke-width="2.5"/>
+  <text x="1005" y="120" font-family="Arial, sans-serif" font-size="32" fill="#ffffff" text-anchor="middle" font-weight="bold">N</text>
+  <!-- Label -->
+  <text x="1005" y="195" font-family="Arial, sans-serif" font-size="15" fill="#ffffff" text-anchor="middle" font-weight="bold">OneNote</text>
+
+  <!-- Bottom subtitle -->
+  <text x="550" y="310" font-family="system-ui, sans-serif" font-size="16" fill="#00d4aa" text-anchor="middle" font-style="italic">Server-side processing — close your browser anytime</text>
+</svg>

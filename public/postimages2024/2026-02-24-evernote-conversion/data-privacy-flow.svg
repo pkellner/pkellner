@@ -1,0 +1,108 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 300" width="1100" height="300" font-family="Arial, sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#1e293b"/>
+    </linearGradient>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#00d4aa"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1100" height="300" rx="16" ry="16" fill="url(#bg)"/>
+
+  <!-- ===== NODE 1: Your Browser (left) ===== -->
+  <!-- .enex label above laptop -->
+  <text x="130" y="58" font-size="13" fill="#94a3b8" text-anchor="middle" font-style="italic">.enex</text>
+
+  <!-- Laptop icon -->
+  <!-- Screen -->
+  <rect x="95" y="68" width="70" height="48" rx="4" ry="4" fill="none" stroke="#e2e8f0" stroke-width="2"/>
+  <!-- Screen inner glow -->
+  <rect x="101" y="74" width="58" height="36" rx="2" ry="2" fill="#1e3a5f" opacity="0.6"/>
+  <!-- Screen content lines -->
+  <line x1="108" y1="84" x2="148" y2="84" stroke="#00d4aa" stroke-width="1.5" opacity="0.7"/>
+  <line x1="108" y1="92" x2="142" y2="92" stroke="#00d4aa" stroke-width="1.5" opacity="0.5"/>
+  <line x1="108" y1="100" x2="150" y2="100" stroke="#00d4aa" stroke-width="1.5" opacity="0.4"/>
+  <!-- Base -->
+  <rect x="85" y="118" width="90" height="6" rx="3" ry="3" fill="none" stroke="#e2e8f0" stroke-width="2"/>
+
+  <!-- Label -->
+  <text x="130" y="150" font-size="15" fill="#ffffff" text-anchor="middle" font-weight="bold">Your Browser</text>
+
+  <!-- ===== ARROW 1: Browser → Processing ===== -->
+  <!-- Dashed arrow line -->
+  <line x1="210" y1="100" x2="410" y2="100" stroke="#00d4aa" stroke-width="2" stroke-dasharray="8,5" marker-end="url(#arrowhead)"/>
+
+  <!-- Lock icon on arrow -->
+  <!-- Lock body -->
+  <rect x="298" y="92" width="14" height="11" rx="2" ry="2" fill="#00d4aa"/>
+  <!-- Lock shackle -->
+  <path d="M301,92 V87 A4,4 0 0 1 309,87 V92" fill="none" stroke="#00d4aa" stroke-width="2"/>
+  <!-- Keyhole -->
+  <circle cx="305" cy="97" r="2" fill="#0f172a"/>
+
+  <!-- Label above arrow -->
+  <text x="310" y="78" font-size="12" fill="#94a3b8" text-anchor="middle">TLS Encrypted</text>
+
+  <!-- ===== NODE 2: Secure Processing (center) ===== -->
+  <!-- AES-256-GCM label above -->
+  <text x="530" y="52" font-size="12" fill="#3b82f6" text-anchor="middle" font-weight="bold">AES-256-GCM</text>
+
+  <!-- Server icon -->
+  <rect x="495" y="64" width="70" height="60" rx="5" ry="5" fill="none" stroke="#e2e8f0" stroke-width="2"/>
+  <!-- Server horizontal lines -->
+  <line x1="495" y1="84" x2="565" y2="84" stroke="#e2e8f0" stroke-width="1.5"/>
+  <line x1="495" y1="104" x2="565" y2="104" stroke="#e2e8f0" stroke-width="1.5"/>
+  <!-- Server dots (indicator lights) -->
+  <circle cx="508" cy="74" r="3" fill="#00d4aa"/>
+  <circle cx="518" cy="74" r="3" fill="#3b82f6"/>
+  <circle cx="508" cy="94" r="3" fill="#00d4aa"/>
+  <circle cx="518" cy="94" r="3" fill="#3b82f6"/>
+  <circle cx="508" cy="114" r="3" fill="#00d4aa"/>
+  <circle cx="518" cy="114" r="3" fill="#94a3b8" opacity="0.5"/>
+
+  <!-- Lock overlay on server -->
+  <rect x="540" y="106" width="18" height="14" rx="3" ry="3" fill="#00d4aa" opacity="0.9"/>
+  <path d="M544,106 V101 A5,5 0 0 1 554,101 V106" fill="none" stroke="#00d4aa" stroke-width="2"/>
+  <circle cx="549" cy="112" r="2.5" fill="#0f172a"/>
+
+  <!-- Label -->
+  <text x="530" y="150" font-size="15" fill="#ffffff" text-anchor="middle" font-weight="bold">Encrypted Processing</text>
+
+  <!-- ===== ARROW 2: Processing → OneNote ===== -->
+  <!-- Dashed arrow line -->
+  <line x1="610" y1="100" x2="800" y2="100" stroke="#00d4aa" stroke-width="2" stroke-dasharray="8,5" marker-end="url(#arrowhead)"/>
+
+  <!-- Label above arrow -->
+  <text x="705" y="82" font-size="12" fill="#94a3b8" text-anchor="middle">Microsoft Graph API</text>
+
+  <!-- ===== NODE 3: Your OneNote (right) ===== -->
+  <!-- Notebook icon -->
+  <rect x="830" y="62" width="60" height="68" rx="5" ry="5" fill="#7b2d8e" stroke="#9b4dca" stroke-width="2"/>
+  <!-- Notebook spine -->
+  <rect x="826" y="68" width="8" height="56" rx="2" ry="2" fill="#6b1d7e"/>
+  <!-- Notebook binding rings -->
+  <circle cx="830" cy="78" r="3" fill="none" stroke="#c084fc" stroke-width="1.5"/>
+  <circle cx="830" cy="93" r="3" fill="none" stroke="#c084fc" stroke-width="1.5"/>
+  <circle cx="830" cy="108" r="3" fill="none" stroke="#c084fc" stroke-width="1.5"/>
+  <!-- "N" letter -->
+  <text x="862" y="106" font-size="32" fill="#ffffff" text-anchor="middle" font-weight="bold">N</text>
+
+  <!-- Label -->
+  <text x="860" y="152" font-size="15" fill="#ffffff" text-anchor="middle" font-weight="bold">Your OneNote</text>
+
+  <!-- ===== BOTTOM BANNER ===== -->
+  <rect x="120" y="195" width="860" height="46" rx="10" ry="10" fill="#0f172a" stroke="#1e3a5f" stroke-width="1.5"/>
+
+  <!-- Shield icon (circle with checkmark) -->
+  <circle cx="175" cy="218" r="14" fill="none" stroke="#00d4aa" stroke-width="2"/>
+  <polyline points="167,218 173,224 184,212" fill="none" stroke="#00d4aa" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- Banner text -->
+  <text x="200" y="223" font-size="14" fill="#cbd5e1">
+    <tspan fill="#e2e8f0" font-weight="600">Data held for processing only</tspan>
+    <tspan fill="#94a3b8"> — not retained for any ongoing purpose</tspan>
+  </text>
+</svg>

@@ -1,0 +1,149 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 420" width="1100" height="420">
+  <defs>
+    <linearGradient id="bgGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#1e293b"/>
+    </linearGradient>
+    <linearGradient id="arrowGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#3b82f6"/>
+      <stop offset="100%" stop-color="#00d4aa"/>
+    </linearGradient>
+    <filter id="shadow">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#000" flood-opacity="0.4"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1100" height="420" fill="url(#bgGrad)"/>
+
+  <!-- Title -->
+  <text x="550" y="38" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="#ffffff" text-anchor="middle">Conversion Platform Overview</text>
+
+  <!-- ============================================ -->
+  <!-- ROW 1: Upload → S3 Storage → AES Encryption -->
+  <!-- ============================================ -->
+
+  <!-- Upload box -->
+  <g transform="translate(40, 70)" filter="url(#shadow)">
+    <rect x="0" y="0" width="180" height="100" rx="10" fill="#1e293b" stroke="#22c55e" stroke-width="2"/>
+    <!-- Upload icon -->
+    <path d="M75,25 L90,45 L82,45 L82,65 L68,65 L68,45 L60,45 Z" fill="#22c55e" opacity="0.7"/>
+    <text x="90" y="85" font-family="Arial, sans-serif" font-size="15" font-weight="bold" fill="#ffffff" text-anchor="middle">Upload</text>
+  </g>
+  <text x="130" y="188" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8" text-anchor="middle">HTTPS / TLS</text>
+
+  <!-- Arrow 1 -->
+  <line x1="230" y1="120" x2="310" y2="120" stroke="url(#arrowGrad)" stroke-width="3" stroke-dasharray="8,4"/>
+  <polygon points="310,114 326,120 310,126" fill="#00d4aa"/>
+
+  <!-- S3 Cloud Storage box -->
+  <g transform="translate(340, 70)" filter="url(#shadow)">
+    <rect x="0" y="0" width="200" height="100" rx="10" fill="#1e293b" stroke="#3b82f6" stroke-width="2"/>
+    <!-- Cloud icon -->
+    <ellipse cx="85" cy="32" rx="22" ry="14" fill="none" stroke="#3b82f6" stroke-width="2"/>
+    <ellipse cx="105" cy="36" rx="16" ry="10" fill="none" stroke="#3b82f6" stroke-width="1.5" opacity="0.6"/>
+    <text x="100" y="68" font-family="Arial, sans-serif" font-size="15" font-weight="bold" fill="#ffffff" text-anchor="middle">Cloud Storage</text>
+    <text x="100" y="86" font-family="Arial, sans-serif" font-size="12" fill="#3b82f6" text-anchor="middle">Amazon S3</text>
+  </g>
+  <text x="440" y="188" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8" text-anchor="middle">Scalable to any file size</text>
+
+  <!-- Arrow 2 -->
+  <line x1="550" y1="120" x2="630" y2="120" stroke="url(#arrowGrad)" stroke-width="3" stroke-dasharray="8,4"/>
+  <polygon points="630,114 646,120 630,126" fill="#00d4aa"/>
+
+  <!-- AES Encryption box -->
+  <g transform="translate(660, 70)" filter="url(#shadow)">
+    <rect x="0" y="0" width="200" height="100" rx="10" fill="#1e293b" stroke="#f59e0b" stroke-width="2"/>
+    <!-- Lock icon -->
+    <rect x="78" y="32" width="28" height="24" rx="4" fill="#f59e0b" opacity="0.7"/>
+    <path d="M83,32 L83,24 Q92,12 101,24 L101,32" fill="none" stroke="#f59e0b" stroke-width="3" stroke-linecap="round"/>
+    <circle cx="92" cy="42" r="3" fill="#0f172a"/>
+    <text x="100" y="78" font-family="Arial, sans-serif" font-size="15" font-weight="bold" fill="#ffffff" text-anchor="middle">AES-256-GCM</text>
+    <text x="100" y="93" font-family="Arial, sans-serif" font-size="11" fill="#f59e0b" text-anchor="middle">Encryption</text>
+  </g>
+  <text x="760" y="188" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8" text-anchor="middle">Bank-grade security</text>
+
+  <!-- ============================================ -->
+  <!-- ROW 2: Worker Pool → Microsoft → OneNote     -->
+  <!-- ============================================ -->
+
+  <!-- Vertical connector from Encryption to Workers -->
+  <line x1="760" y1="175" x2="760" y2="220" stroke="#334155" stroke-width="2" stroke-dasharray="5,3"/>
+  <polygon points="756,220 760,232 764,220" fill="#334155"/>
+
+  <!-- Vertical connector from S3 to Workers (S3 feeds workers too) -->
+  <line x1="440" y1="175" x2="440" y2="250" stroke="#334155" stroke-width="1.5" stroke-dasharray="5,3"/>
+  <line x1="440" y1="250" x2="490" y2="275" stroke="#334155" stroke-width="1.5" stroke-dasharray="5,3"/>
+
+  <!-- Worker Pool box (large, showing parallel nature) -->
+  <g transform="translate(40, 240)" filter="url(#shadow)">
+    <rect x="0" y="0" width="520" height="130" rx="10" fill="#1e293b" stroke="#00d4aa" stroke-width="2"/>
+    <text x="260" y="28" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#00d4aa" text-anchor="middle">Parallel Worker Pool</text>
+
+    <!-- Worker boxes inside -->
+    <g transform="translate(20, 40)">
+      <rect x="0" y="0" width="85" height="55" rx="6" fill="#0f172a" stroke="#00d4aa" stroke-width="1.5"/>
+      <circle cx="25" cy="22" r="10" fill="none" stroke="#00d4aa" stroke-width="1.5"/>
+      <circle cx="25" cy="22" r="4" fill="#00d4aa" opacity="0.4"/>
+      <text x="55" y="20" font-family="Arial, sans-serif" font-size="11" fill="#ffffff" text-anchor="middle">Worker</text>
+      <text x="55" y="38" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#00d4aa" text-anchor="middle">1</text>
+    </g>
+    <g transform="translate(115, 40)">
+      <rect x="0" y="0" width="85" height="55" rx="6" fill="#0f172a" stroke="#00d4aa" stroke-width="1.5"/>
+      <circle cx="25" cy="22" r="10" fill="none" stroke="#00d4aa" stroke-width="1.5"/>
+      <circle cx="25" cy="22" r="4" fill="#00d4aa" opacity="0.4"/>
+      <text x="55" y="20" font-family="Arial, sans-serif" font-size="11" fill="#ffffff" text-anchor="middle">Worker</text>
+      <text x="55" y="38" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#00d4aa" text-anchor="middle">2</text>
+    </g>
+    <g transform="translate(210, 40)">
+      <rect x="0" y="0" width="85" height="55" rx="6" fill="#0f172a" stroke="#00d4aa" stroke-width="1.5"/>
+      <circle cx="25" cy="22" r="10" fill="none" stroke="#00d4aa" stroke-width="1.5"/>
+      <circle cx="25" cy="22" r="4" fill="#00d4aa" opacity="0.4"/>
+      <text x="55" y="20" font-family="Arial, sans-serif" font-size="11" fill="#ffffff" text-anchor="middle">Worker</text>
+      <text x="55" y="38" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#00d4aa" text-anchor="middle">3</text>
+    </g>
+    <g transform="translate(305, 40)">
+      <rect x="0" y="0" width="85" height="55" rx="6" fill="#0f172a" stroke="#00d4aa" stroke-width="1.5"/>
+      <circle cx="25" cy="22" r="10" fill="none" stroke="#00d4aa" stroke-width="1.5"/>
+      <circle cx="25" cy="22" r="4" fill="#00d4aa" opacity="0.4"/>
+      <text x="55" y="20" font-family="Arial, sans-serif" font-size="11" fill="#ffffff" text-anchor="middle">Worker</text>
+      <text x="55" y="38" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#00d4aa" text-anchor="middle">N</text>
+    </g>
+    <!-- Dots indicating more workers -->
+    <text x="415" y="72" font-family="Arial, sans-serif" font-size="22" fill="#00d4aa" opacity="0.6">...</text>
+
+    <text x="260" y="120" font-family="Arial, sans-serif" font-size="11" fill="#64748b" text-anchor="middle">Retry logic, rate limiting, simultaneous conversions</text>
+  </g>
+
+  <!-- Arrow 3: Workers → Microsoft Graph API -->
+  <line x1="570" y1="305" x2="660" y2="305" stroke="url(#arrowGrad)" stroke-width="3" stroke-dasharray="8,4"/>
+  <polygon points="660,299 676,305 660,311" fill="#00d4aa"/>
+
+  <!-- Microsoft Graph API + OneNote box -->
+  <g transform="translate(690, 240)" filter="url(#shadow)">
+    <rect x="0" y="0" width="370" height="130" rx="10" fill="#1e293b" stroke="#7b2d8e" stroke-width="2"/>
+
+    <!-- Graph API label -->
+    <text x="185" y="28" font-family="Arial, sans-serif" font-size="13" fill="#a855f7" text-anchor="middle">Microsoft Graph API</text>
+
+    <!-- OneNote icon -->
+    <rect x="30" y="42" width="50" height="60" rx="6" fill="#7b2d8e"/>
+    <line x1="37" y1="48" x2="37" y2="96" stroke="#9b4dca" stroke-width="2"/>
+    <text x="58" y="82" font-family="Arial, sans-serif" font-size="30" font-weight="bold" fill="#ffffff" text-anchor="middle">N</text>
+
+    <!-- OneNote text -->
+    <text x="225" y="62" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#ffffff" text-anchor="middle">Your OneNote</text>
+    <text x="225" y="82" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#ffffff" text-anchor="middle">Notebooks</text>
+    <text x="225" y="105" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8" text-anchor="middle">Stored securely in OneDrive</text>
+  </g>
+
+  <!-- Bottom banner -->
+  <rect x="40" y="388" width="1020" height="24" rx="6" fill="#0f172a" stroke="#334155" stroke-width="1"/>
+  <text x="550" y="405" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8" text-anchor="middle">
+    <tspan fill="#e2e8f0">AES-256-GCM encrypted</tspan>
+    <tspan fill="#475569" dx="20">|</tspan>
+    <tspan fill="#e2e8f0" dx="20">All transfers over TLS</tspan>
+    <tspan fill="#475569" dx="20">|</tspan>
+    <tspan fill="#e2e8f0" dx="20">Automatic cleanup after conversion</tspan>
+  </text>
+</svg>

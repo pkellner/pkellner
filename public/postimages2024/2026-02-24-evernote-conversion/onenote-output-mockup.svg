@@ -1,0 +1,115 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 700" width="1200" height="700">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f8fafc;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#e2e8f0;stop-opacity:1" />
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="2" stdDeviation="4" flood-opacity="0.1"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="700" fill="url(#bgGrad)"/>
+
+  <!-- Browser Chrome -->
+  <rect x="40" y="30" width="1120" height="640" rx="8" fill="#ffffff" filter="url(#shadow)"/>
+  <rect x="40" y="30" width="1120" height="40" rx="8" fill="#f1f5f9"/>
+  <rect x="40" y="62" width="1120" height="8" fill="#f1f5f9"/>
+
+  <!-- Browser buttons -->
+  <circle cx="65" cy="50" r="6" fill="#ef4444"/>
+  <circle cx="85" cy="50" r="6" fill="#f59e0b"/>
+  <circle cx="105" cy="50" r="6" fill="#22c55e"/>
+
+  <!-- URL bar -->
+  <rect x="200" y="40" width="500" height="24" rx="4" fill="#ffffff"/>
+  <text x="220" y="57" font-family="system-ui, sans-serif" font-size="12" fill="#64748b">onenote.com/notebooks/My Notebook/Recipes</text>
+
+  <!-- Navigation -->
+  <rect x="40" y="70" width="1120" height="50" fill="#1e293b"/>
+  <text x="70" y="102" font-family="system-ui, sans-serif" font-size="16" font-weight="bold" fill="#ffffff">OneNote</text>
+  <rect x="160" y="88" width="100" height="28" rx="4" fill="#334155"/>
+  <text x="177" y="107" font-family="system-ui, sans-serif" font-size="13" fill="#ffffff" font-weight="600">My Notebook</text>
+  <text x="285" y="107" font-family="system-ui, sans-serif" font-size="13" fill="#94a3b8">Work Notes</text>
+  <text x="385" y="107" font-family="system-ui, sans-serif" font-size="13" fill="#94a3b8">Archive</text>
+
+  <!-- Left Sidebar -->
+  <rect x="40" y="120" width="200" height="550" fill="#f1f5f9"/>
+  <text x="60" y="152" font-family="system-ui, sans-serif" font-size="11" font-weight="600" fill="#94a3b8" letter-spacing="0.5">SECTIONS</text>
+
+  <!-- Sidebar items -->
+  <rect x="40" y="164" width="200" height="36" fill="#f1f5f9"/>
+  <rect x="40" y="164" width="3" height="36" fill="transparent"/>
+  <circle cx="62" cy="182" r="4" fill="#7c3aed"/>
+  <text x="76" y="187" font-family="system-ui, sans-serif" font-size="13" fill="#475569">General</text>
+
+  <!-- Active sidebar item -->
+  <rect x="40" y="200" width="200" height="36" fill="#ede9fe"/>
+  <rect x="40" y="200" width="3" height="36" fill="#7c3aed"/>
+  <circle cx="62" cy="218" r="4" fill="#7c3aed"/>
+  <text x="76" y="223" font-family="system-ui, sans-serif" font-size="13" fill="#7c3aed" font-weight="600">Recipes</text>
+
+  <rect x="40" y="236" width="200" height="36" fill="#f1f5f9"/>
+  <circle cx="62" cy="254" r="4" fill="#7c3aed"/>
+  <text x="76" y="259" font-family="system-ui, sans-serif" font-size="13" fill="#475569">Travel</text>
+
+  <rect x="40" y="272" width="200" height="36" fill="#f1f5f9"/>
+  <circle cx="62" cy="290" r="4" fill="#7c3aed"/>
+  <text x="76" y="295" font-family="system-ui, sans-serif" font-size="13" fill="#475569">Projects</text>
+
+  <!-- Main Content Area -->
+  <rect x="240" y="120" width="920" height="550" fill="#ffffff"/>
+
+  <!-- Metadata Header -->
+  <rect x="265" y="135" width="870" height="60" rx="6" fill="#f0f4f8"/>
+  <text x="285" y="158" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="#475569">Converted from Evernote on Feb 24, 2026</text>
+  <text x="285" y="178" font-family="system-ui, sans-serif" font-size="11" fill="#94a3b8">Created: January 15, 2024  |  Author: Sarah  |  Source: evernote.com</text>
+
+  <!-- Tag Pills -->
+  <rect x="265" y="207" width="68" height="24" rx="12" fill="#dcfce7"/>
+  <text x="281" y="223" font-family="system-ui, sans-serif" font-size="11" font-weight="500" fill="#166534">recipes</text>
+
+  <rect x="343" y="207" width="72" height="24" rx="12" fill="#ffedd5"/>
+  <text x="358" y="223" font-family="system-ui, sans-serif" font-size="11" font-weight="500" fill="#9a3412">cooking</text>
+
+  <rect x="425" y="207" width="76" height="24" rx="12" fill="#dbeafe"/>
+  <text x="440" y="223" font-family="system-ui, sans-serif" font-size="11" font-weight="500" fill="#1e40af">favorites</text>
+
+  <!-- Note Title -->
+  <text x="265" y="268" font-family="system-ui, sans-serif" font-size="24" font-weight="bold" fill="#1e293b">Grandma's Chocolate Chip Cookies</text>
+
+  <!-- Body Text -->
+  <text x="265" y="298" font-family="system-ui, sans-serif" font-size="13" fill="#64748b">This is Grandma's famous chocolate chip cookie recipe, passed down through three generations.</text>
+  <text x="265" y="318" font-family="system-ui, sans-serif" font-size="13" fill="#64748b">The secret is using brown butter and letting the dough rest overnight in the refrigerator.</text>
+  <text x="265" y="338" font-family="system-ui, sans-serif" font-size="13" fill="#64748b">Makes about 4 dozen cookies. Perfect for holidays and family gatherings.</text>
+
+  <!-- Embedded Image Placeholder -->
+  <rect x="265" y="358" width="870" height="170" rx="8" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1"/>
+  <!-- Mountain/Sun icon -->
+  <rect x="640" y="400" width="60" height="50" rx="4" fill="#e2e8f0"/>
+  <!-- Sun -->
+  <circle cx="685" cy="415" r="8" fill="#cbd5e1"/>
+  <!-- Mountain -->
+  <polygon points="645,445 670,410 695,445" fill="#cbd5e1"/>
+  <polygon points="665,445 680,425 695,445" fill="#94a3b8"/>
+  <text x="670" y="475" font-family="system-ui, sans-serif" font-size="12" fill="#94a3b8" text-anchor="middle">cookie-photo.jpg</text>
+  <text x="670" y="492" font-family="system-ui, sans-serif" font-size="11" fill="#cbd5e1" text-anchor="middle">2.4 MB</text>
+
+  <!-- Attachment Card -->
+  <rect x="265" y="545" width="400" height="60" rx="6" fill="#ffffff" stroke="#e2e8f0" stroke-width="1"/>
+  <!-- PDF Icon -->
+  <rect x="280" y="555" width="36" height="40" rx="3" fill="#fef2f2" stroke="#fca5a5" stroke-width="1"/>
+  <text x="288" y="580" font-family="system-ui, sans-serif" font-size="11" font-weight="bold" fill="#ef4444">PDF</text>
+  <!-- File info -->
+  <text x="328" y="575" font-family="system-ui, sans-serif" font-size="13" font-weight="500" fill="#1e293b">original-recipe-scan.pdf</text>
+  <text x="328" y="593" font-family="system-ui, sans-serif" font-size="11" fill="#94a3b8">1.8 MB</text>
+  <!-- Download arrow -->
+  <line x1="630" y1="568" x2="630" y2="585" stroke="#94a3b8" stroke-width="1.5"/>
+  <polyline points="624,580 630,587 636,580" fill="none" stroke="#94a3b8" stroke-width="1.5"/>
+  <line x1="622" y1="590" x2="638" y2="590" stroke="#94a3b8" stroke-width="1.5"/>
+
+  <!-- Mockup Watermark -->
+  <rect x="480" y="640" width="240" height="24" rx="4" fill="#f1f5f9"/>
+  <text x="510" y="657" font-family="system-ui, sans-serif" font-size="11" fill="#94a3b8">MOCKUP RENDERING</text>
+</svg>

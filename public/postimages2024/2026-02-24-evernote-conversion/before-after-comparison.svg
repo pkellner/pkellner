@@ -1,0 +1,220 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 550" width="1200" height="550" font-family="system-ui, -apple-system, sans-serif">
+  <defs>
+    <!-- Background gradient -->
+    <linearGradient id="bgGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#f8fafc"/>
+      <stop offset="100%" stop-color="#e2e8f0"/>
+    </linearGradient>
+    <!-- Drop shadow filter -->
+    <filter id="shadow" x="-4%" y="-4%" width="108%" height="112%">
+      <feDropShadow dx="0" dy="3" stdDeviation="6" flood-color="#000" flood-opacity="0.15"/>
+    </filter>
+    <!-- Lighter shadow for inner elements -->
+    <filter id="shadowLight" x="-2%" y="-2%" width="104%" height="108%">
+      <feDropShadow dx="0" dy="1" stdDeviation="2" flood-color="#000" flood-opacity="0.1"/>
+    </filter>
+    <!-- Arrow gradient -->
+    <linearGradient id="arrowGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#00d4aa"/>
+      <stop offset="100%" stop-color="#00b894"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="550" fill="url(#bgGrad)" rx="0"/>
+
+  <!-- ============================================ -->
+  <!-- LEFT PANEL — BEFORE: EVERNOTE                -->
+  <!-- ============================================ -->
+  <g transform="translate(30, 20)">
+    <!-- Panel container -->
+    <rect width="530" height="490" rx="12" fill="#fff" filter="url(#shadow)"/>
+
+    <!-- Green accent header bar -->
+    <rect width="530" height="44" rx="12" fill="#22c55e"/>
+    <rect y="32" width="530" height="12" fill="#22c55e"/>
+    <text x="265" y="28" font-size="15" font-weight="700" fill="#fff" text-anchor="middle" letter-spacing="1.5">BEFORE: EVERNOTE</text>
+
+    <!-- Mini browser chrome -->
+    <g transform="translate(16, 56)">
+      <!-- Title bar -->
+      <rect width="498" height="28" rx="6" fill="#dcfce7"/>
+      <!-- Traffic light dots -->
+      <circle cx="16" cy="14" r="5" fill="#22c55e"/>
+      <circle cx="34" cy="14" r="5" fill="#86efac"/>
+      <circle cx="52" cy="14" r="5" fill="#bbf7d0"/>
+      <text x="250" y="18" font-size="11" fill="#166534" text-anchor="middle" font-weight="500">Evernote</text>
+
+      <!-- Main content area -->
+      <rect y="32" width="498" height="388" rx="6" fill="#fafafa" stroke="#e5e7eb" stroke-width="1"/>
+
+      <!-- Sidebar -->
+      <rect x="1" y="33" width="120" height="386" rx="0" fill="#f0fdf4" stroke="#e5e7eb" stroke-width="0.5"/>
+      <rect x="1" y="33" width="120" height="1" fill="#dcfce7"/>
+
+      <!-- Sidebar heading -->
+      <text x="14" y="56" font-size="9" font-weight="700" fill="#166534" letter-spacing="0.8">NOTEBOOKS</text>
+
+      <!-- Notebook items -->
+      <rect x="8" y="64" width="106" height="24" rx="4" fill="#dcfce7"/>
+      <rect x="14" y="72" width="8" height="8" rx="2" fill="#22c55e"/>
+      <text x="28" y="80" font-size="10" fill="#166534" font-weight="600">Recipes</text>
+
+      <rect x="14" y="98" width="8" height="8" rx="2" fill="#86efac"/>
+      <text x="28" y="106" font-size="10" fill="#4ade80">Travel</text>
+
+      <rect x="14" y="118" width="8" height="8" rx="2" fill="#86efac"/>
+      <text x="28" y="126" font-size="10" fill="#4ade80">Work</text>
+
+      <rect x="14" y="138" width="8" height="8" rx="2" fill="#86efac"/>
+      <text x="28" y="146" font-size="10" fill="#4ade80">Personal</text>
+
+      <!-- Content area (right of sidebar) -->
+      <g transform="translate(130, 42)">
+        <!-- Note title -->
+        <text x="12" y="18" font-size="15" font-weight="700" fill="#1a1a1a">Grandma's Chocolate Chip</text>
+        <text x="12" y="36" font-size="15" font-weight="700" fill="#1a1a1a">Cookies</text>
+
+        <!-- Tags -->
+        <rect x="12" y="46" width="56" height="20" rx="10" fill="#dcfce7"/>
+        <text x="40" y="60" font-size="9" fill="#166534" text-anchor="middle" font-weight="500">recipes</text>
+        <rect x="74" y="46" width="58" height="20" rx="10" fill="#dcfce7"/>
+        <text x="103" y="60" font-size="9" fill="#166534" text-anchor="middle" font-weight="500">cooking</text>
+
+        <!-- Divider -->
+        <line x1="12" y1="76" x2="348" y2="76" stroke="#e5e7eb" stroke-width="1"/>
+
+        <!-- Body text lines -->
+        <text x="12" y="96" font-size="11" fill="#6b7280">Preheat oven to 375 F. In a large bowl, cream together</text>
+        <text x="12" y="112" font-size="11" fill="#6b7280">the butter, white sugar, and brown sugar until smooth...</text>
+
+        <!-- Image placeholder -->
+        <rect x="12" y="126" width="140" height="95" rx="6" fill="#e5e7eb" stroke="#d1d5db" stroke-width="1"/>
+        <!-- Mountain icon -->
+        <polygon points="50,200 82,165 95,180 115,155 140,200" fill="#9ca3af" transform="translate(-5,-40)"/>
+        <circle cx="55" cy="152" r="8" fill="#9ca3af"/>
+
+        <!-- Attachment indicator -->
+        <g transform="translate(12, 232)">
+          <!-- Paperclip icon (simplified) -->
+          <rect width="130" height="24" rx="4" fill="#f0fdf4" stroke="#86efac" stroke-width="1"/>
+          <path d="M12,8 L12,16 A4,4 0 0,0 20,16 L20,8 A2,2 0 0,0 16,8 L16,14" fill="none" stroke="#22c55e" stroke-width="1.5" stroke-linecap="round"/>
+          <text x="28" y="16" font-size="9" fill="#166534">1 attachment</text>
+        </g>
+      </g>
+    </g>
+  </g>
+
+  <!-- ============================================ -->
+  <!-- CENTER ARROW                                 -->
+  <!-- ============================================ -->
+  <g transform="translate(575, 220)">
+    <!-- Arrow body -->
+    <rect x="0" y="15" width="50" height="20" rx="4" fill="url(#arrowGrad)"/>
+    <!-- Arrow head -->
+    <polygon points="50,5 50,45 80,25" fill="url(#arrowGrad)"/>
+    <!-- Label -->
+    <text x="40" y="68" font-size="12" font-weight="700" fill="#00b894" text-anchor="middle" letter-spacing="0.5">Converted</text>
+  </g>
+
+  <!-- ============================================ -->
+  <!-- RIGHT PANEL — AFTER: ONENOTE                 -->
+  <!-- ============================================ -->
+  <g transform="translate(640, 20)">
+    <!-- Panel container -->
+    <rect width="530" height="490" rx="12" fill="#fff" filter="url(#shadow)"/>
+
+    <!-- Purple accent header bar -->
+    <rect width="530" height="44" rx="12" fill="#7b2d8e"/>
+    <rect y="32" width="530" height="12" fill="#7b2d8e"/>
+    <text x="265" y="28" font-size="15" font-weight="700" fill="#fff" text-anchor="middle" letter-spacing="1.5">AFTER: ONENOTE</text>
+
+    <!-- Mini browser chrome -->
+    <g transform="translate(16, 56)">
+      <!-- Title bar -->
+      <rect width="498" height="28" rx="6" fill="#f3e8ff"/>
+      <!-- Traffic light dots -->
+      <circle cx="16" cy="14" r="5" fill="#7b2d8e"/>
+      <circle cx="34" cy="14" r="5" fill="#a855f7"/>
+      <circle cx="52" cy="14" r="5" fill="#d8b4fe"/>
+      <text x="250" y="18" font-size="11" fill="#581c87" text-anchor="middle" font-weight="500">OneNote</text>
+
+      <!-- Main content area -->
+      <rect y="32" width="498" height="388" rx="6" fill="#fafafa" stroke="#e5e7eb" stroke-width="1"/>
+
+      <!-- Sidebar -->
+      <rect x="1" y="33" width="120" height="386" rx="0" fill="#faf5ff" stroke="#e5e7eb" stroke-width="0.5"/>
+      <rect x="1" y="33" width="120" height="1" fill="#e9d5ff"/>
+
+      <!-- Sidebar heading -->
+      <text x="14" y="56" font-size="9" font-weight="700" fill="#581c87" letter-spacing="0.8">SECTIONS</text>
+
+      <!-- Section items -->
+      <rect x="8" y="64" width="106" height="24" rx="4" fill="#f3e8ff"/>
+      <rect x="8" y="64" width="3" height="24" rx="1" fill="#7b2d8e"/>
+      <text x="20" y="80" font-size="10" fill="#581c87" font-weight="600">General</text>
+
+      <rect x="8" y="94" width="106" height="24" rx="4" fill="#ede9fe"/>
+      <rect x="8" y="94" width="3" height="24" rx="1" fill="#a855f7"/>
+      <text x="20" y="110" font-size="10" fill="#7c3aed" font-weight="600">Recipes</text>
+
+      <rect x="14" y="126" width="8" height="8" rx="2" fill="#d8b4fe"/>
+      <text x="28" y="134" font-size="10" fill="#a855f7">Travel</text>
+
+      <rect x="14" y="146" width="8" height="8" rx="2" fill="#d8b4fe"/>
+      <text x="28" y="154" font-size="10" fill="#a855f7">Work</text>
+
+      <!-- Content area (right of sidebar) -->
+      <g transform="translate(130, 42)">
+        <!-- Converted metadata header -->
+        <rect x="0" y="0" width="355" height="24" rx="4" fill="#f0f9ff"/>
+        <text x="12" y="16" font-size="9" fill="#0369a1" font-weight="500">Converted from Evernote  |  Jan 15, 2024</text>
+
+        <!-- Note title -->
+        <text x="12" y="50" font-size="15" font-weight="700" fill="#1a1a1a">Grandma's Chocolate Chip</text>
+        <text x="12" y="68" font-size="15" font-weight="700" fill="#1a1a1a">Cookies</text>
+
+        <!-- Tags as colored pills -->
+        <rect x="12" y="78" width="56" height="20" rx="10" fill="#ede9fe"/>
+        <text x="40" y="92" font-size="9" fill="#7c3aed" text-anchor="middle" font-weight="500">recipes</text>
+        <rect x="74" y="78" width="58" height="20" rx="10" fill="#fce7f3"/>
+        <text x="103" y="92" font-size="9" fill="#be185d" text-anchor="middle" font-weight="500">cooking</text>
+
+        <!-- Divider -->
+        <line x1="12" y1="108" x2="348" y2="108" stroke="#e5e7eb" stroke-width="1"/>
+
+        <!-- Body text lines (same content) -->
+        <text x="12" y="128" font-size="11" fill="#6b7280">Preheat oven to 375 F. In a large bowl, cream together</text>
+        <text x="12" y="144" font-size="11" fill="#6b7280">the butter, white sugar, and brown sugar until smooth...</text>
+
+        <!-- Image placeholder (same) -->
+        <rect x="12" y="158" width="140" height="95" rx="6" fill="#e5e7eb" stroke="#d1d5db" stroke-width="1"/>
+        <!-- Mountain icon -->
+        <polygon points="50,232 82,197 95,212 115,187 140,232" fill="#9ca3af" transform="translate(-5,-40)"/>
+        <circle cx="55" cy="184" r="8" fill="#9ca3af"/>
+
+        <!-- Attachment card with PDF icon -->
+        <g transform="translate(12, 264)">
+          <rect width="160" height="32" rx="6" fill="#faf5ff" stroke="#d8b4fe" stroke-width="1"/>
+          <!-- PDF icon -->
+          <rect x="8" y="6" width="18" height="20" rx="2" fill="#ef4444"/>
+          <text x="17" y="20" font-size="7" fill="#fff" text-anchor="middle" font-weight="700">PDF</text>
+          <!-- File name -->
+          <text x="32" y="16" font-size="9" fill="#374151" font-weight="500">recipe-card.pdf</text>
+          <text x="32" y="26" font-size="8" fill="#9ca3af">245 KB</text>
+        </g>
+      </g>
+    </g>
+  </g>
+
+  <!-- ============================================ -->
+  <!-- BOTTOM: CHECKMARK + PRESERVATION MESSAGE     -->
+  <!-- ============================================ -->
+  <g transform="translate(600, 522)">
+    <!-- Teal checkmark circle -->
+    <circle cx="-190" cy="-2" r="10" fill="#00d4aa"/>
+    <polyline points="-196,0 -192,4 -184,-4" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <!-- Message -->
+    <text x="-174" y="3" font-size="14" font-weight="600" fill="#475569" text-anchor="start">Formatting, images, tags, and attachments — all preserved</text>
+  </g>
+</svg>
