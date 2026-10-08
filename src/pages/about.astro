@@ -4,9 +4,19 @@ import PageHead from "@components/PageHead.astro";
 import Credentials from "@components/Credentials.astro";
 import { SITE } from "@config";
 import { getPosts } from "@utils/collection";
-import { TIMELINE } from "../data/site";
+import { PLURALSIGHT_PROFILE, TIMELINE } from "../data/site";
 
 const count = (await getPosts()).length;
+
+const SEVENTY_THIRD = "https://www.73rdstreet.com";
+const ARROW_OUT = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg>';
+const ARROW_IN = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>';
+const FACTS: { big: string; text: string; href: string; site: string; color: "red" | "amber" | "green" | "blue"; tone?: "blue" | "green" }[] = [
+  { big: "500+", text: "customers served by 73rd Street Associates", href: SEVENTY_THIRD, site: "73rdstreet.com", color: "blue", tone: "blue" },
+  { big: "19", text: "Pluralsight courses, close to a million subscribers on the platform", href: PLURALSIGHT_PROFILE, site: "pluralsight.com", color: "red" },
+  { big: "2006", text: "first Silicon Valley Code Camp", href: "https://siliconvalley-codecamp.com/", site: "siliconvalley-codecamp.com", color: "green", tone: "green" },
+  { big: String(count), text: "posts on this blog since 2005", href: "/posts/", site: "Read the archive", color: "amber" },
+];
 
 // Stamped at build time, which on GitHub is the deploy. GITHUB_SHA is set by Actions.
 const deployedAt = new Date();
@@ -24,29 +34,41 @@ const commit = process.env.GITHUB_SHA?.slice(0, 7);
           {
             TIMELINE.map(t => (
               <li class="rv">
-                <span class="yr" style={`--c:var(--${t.color});--oc:var(--on-${t.color})`}>{t.when}</span>
-                <div>
-                  <h3>{t.title}</h3>
-                  <p>{t.text}</p>
-                </div>
+                <a class="tl-item" href={t.href} style={`--c:var(--${t.color})`}>
+                  <span class="yr" style={`--c:var(--${t.color});--oc:var(--on-${t.color})`}>{t.when}</span>
+                  <div>
+                    <h3>{t.title}</h3>
+                    <p>{t.text}</p>
+                    <span class="cred-go">
+                      {t.site}
+                      <Fragment set:html={t.href.startsWith("/") ? ARROW_IN : ARROW_OUT} />
+                    </span>
+                  </div>
+                </a>
               </li>
             ))
           }
         </ol>
       </div>
       <div class="facts">
-        <div class="card rv fact-blue"><b>500+</b><span>customers served by 73rd Street Associates</span></div>
-        <div class="card rv"><b>19</b><span>Pluralsight courses, close to a million subscribers on the platform</span></div>
-        <div class="card rv fact-green"><b>2006</b><span>first Silicon Valley Code Camp</span></div>
-        <div class="card rv"><b>{count}</b><span>posts on this blog since 2005</span></div>
-        <div class="card rv">
+        {
+          FACTS.map(f => (
+            <a class:list={["card rv fact", f.tone && `fact-${f.tone}`]} href={f.href} data-badge={f.big} style={`--c:var(--${f.color});--oc:var(--on-${f.color})`}>
+              <b>{f.big}</b>
+              <span>{f.text}</span>
+              <span class="cred-go">{f.site}<Fragment set:html={f.href.startsWith("/") ? ARROW_IN : ARROW_OUT} /></span>
+            </a>
+          ))
+        }
+        <a class="card rv fact" href={SEVENTY_THIRD} data-badge="1985" style="--c:var(--blue);--oc:var(--on-blue)">
           <h3 class="h3" style="margin-bottom:10px">What 73rd Street built</h3>
           <ul class="built">
             <li>University clinic scheduling and a turnkey physician office management system.</li>
             <li>Electronic billing that aggregated insurance claims, sent them securely to a central location and routed them to the right carriers.</li>
             <li>A two-year project replacing the online processing of a Florida insurance company with $200 million in annual revenue: a three-tier system running every business process, from adjudicating claims and billing groups to paying commission-based brokers. Delivered and signed off <b>on schedule</b>.</li>
           </ul>
-        </div>
+          <span class="cred-go">73rdstreet.com<Fragment set:html={ARROW_OUT} /></span>
+        </a>
       </div>
     </div>
   </section>
@@ -66,6 +88,10 @@ const commit = process.env.GITHUB_SHA?.slice(0, 7);
   .fact-blue { background: var(--blue); color: var(--on-blue); }
   .fact-green { background: var(--green); color: var(--on-green); }
   .fact-blue span, .fact-green span { color: inherit; opacity: 0.88; }
+  .fact { display: grid; gap: 4px; text-decoration: none; color: var(--fg); transition: transform 0.45s var(--spring), box-shadow 0.35s var(--ease); }
+  .fact-blue, .fact-green { color: var(--oc); }
+  .fact:hover { transform: translateY(-4px) rotate(-0.5deg); box-shadow: 8px 8px 0 var(--shadow); }
+  .fact .cred-go { color: inherit; padding-top: 10px; }
   .built { margin: 0; padding-left: 1.2em; list-style: disc; color: var(--fg-2); display: grid; gap: 8px; font-size: 0.95rem; }
   .built b { color: var(--fg); }
   .deployed { margin-top: clamp(40px, 6vw, 64px); text-align: center; font: 500 0.72rem var(--mono); letter-spacing: 0.04em; color: var(--fg-2); opacity: 0.75; }

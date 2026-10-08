@@ -588,9 +588,13 @@ button.dia-pk { padding: 0; font: inherit; }
 .about { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr); gap: 48px; align-items: start; }
 .tl { list-style: none; margin: 0; padding: 0; display: grid; gap: 0; position: relative; }
 .tl::before { content: ""; position: absolute; left: 31px; top: 10px; bottom: 10px; width: 3px; background: repeating-linear-gradient(var(--fg-2) 0 6px, transparent 6px 12px); opacity: 0.5; }
-.tl li { position: relative; display: grid; grid-template-columns: 64px minmax(0, 1fr); gap: 20px; padding-block: 16px; }
+.tl li { position: relative; }
+.tl-item { display: grid; grid-template-columns: 64px minmax(0, 1fr); gap: 20px; padding: 16px 12px 16px 0; text-decoration: none; color: inherit; border-radius: 18px; transition: background-color 0.3s var(--ease), transform 0.35s var(--ease); }
+.tl-item:hover { background: color-mix(in srgb, var(--c) 9%, transparent); transform: translateX(4px); }
+.tl-item .cred-go { padding-top: 8px; }
+.tl-item:hover .cred-go svg { transform: translate(3px, -3px); }
 .tl .yr { position: relative; z-index: 1; display: grid; place-items: center; width: 64px; height: 64px; border: 2px solid var(--line); border-radius: 18px; background: var(--c); color: var(--oc); box-shadow: 3px 3px 0 var(--shadow); font: 850 0.86rem/1 var(--display); font-stretch: 115%; letter-spacing: -0.03em; transform: rotate(-4deg); transition: transform 0.5s var(--spring); text-align: center; }
-.tl li:hover .yr { transform: rotate(4deg) scale(1.08); }
+.tl-item:hover .yr { transform: rotate(4deg) scale(1.08); }
 .tl h3 { font: 750 1.08rem/1.25 var(--display); font-stretch: 106%; margin-top: 10px; }
 .tl p { color: var(--fg-2); font-size: 0.95rem; margin-top: 4px; }
 .facts { display: grid; gap: 14px; }
@@ -761,8 +765,9 @@ html.pk-cin::before {
   to { clip-path: inset(0 round 0); background-color: var(--band-ink); }
 }
 /* The card pops in once the shape has filled the screen, never half-clipped. */
-.pk-depart--card .pk-depart-card { box-shadow: 8px 8px 0 var(--accent, var(--amber)); animation-delay: 0.48s; }
-.pk-depart--card .pk-depart-tile { background: var(--accent, #ffffff); color: var(--on-accent, #10131c); width: auto; min-width: 58px; padding-inline: 12px; font-size: 17px; }
+.pk-depart--badge .pk-depart-card { box-shadow: 8px 8px 0 var(--accent, var(--amber)); }
+.pk-depart--card .pk-depart-card { animation-delay: 0.48s; }
+.pk-depart--badge .pk-depart-tile { background: var(--accent, #ffffff); color: var(--on-accent, #10131c); width: auto; min-width: 58px; padding-inline: 12px; font-size: 17px; }
 /* Linked cards press in when tapped. */
 a.card:active { transform: translate(3px, 3px) scale(0.985); box-shadow: 2px 2px 0 var(--shadow); transition-duration: 0.08s; }
 .pk-depart-tile {

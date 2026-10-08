@@ -195,11 +195,17 @@ function showDeparture(a: HTMLAnchorElement, x: number, y: number) {
     el.style.setProperty("--r", `${innerWidth - r.right}px`);
     el.style.setProperty("--b", `${innerHeight - r.bottom}px`);
     el.style.setProperty("--l", `${r.left}px`);
-    const color = card.style.getPropertyValue("--c");
-    const onColor = card.style.getPropertyValue("--oc");
-    const badge = card.querySelector<HTMLElement>(".yr");
-    el.style.setProperty("--accent", badge?.style.getPropertyValue("--c") || color || "var(--amber)");
-    el.style.setProperty("--on-accent", badge?.style.getPropertyValue("--oc") || onColor || "#10131c");
+  }
+  // Links that carry a badge (credential cards, timeline years, fact numbers) show it on
+  // the departure card in their own color.
+  const badgeEl = a.querySelector<HTMLElement>(".yr");
+  const badgeText = a.dataset.badge ?? badgeEl?.textContent?.trim();
+  if (badgeText) {
+    el.classList.add("pk-depart--badge");
+    el.style.setProperty("--accent", badgeEl?.style.getPropertyValue("--c") || a.style.getPropertyValue("--c") || "var(--amber)");
+    el.style.setProperty("--on-accent", badgeEl?.style.getPropertyValue("--oc") || a.style.getPropertyValue("--oc") || "#10131c");
+  } else if (card) {
+    el.style.setProperty("--accent", card.style.getPropertyValue("--c") || "var(--amber)");
   }
   el.setAttribute("role", "status");
   el.setAttribute("aria-live", "polite");
@@ -217,8 +223,7 @@ function showDeparture(a: HTMLAnchorElement, x: number, y: number) {
       </div>
     </div>`;
   el.querySelector("b")!.textContent = name;
-  const badge = card?.querySelector(".yr")?.textContent?.trim();
-  if (badge) el.querySelector(".pk-depart-tile")!.textContent = badge;
+  if (badgeText) el.querySelector(".pk-depart-tile")!.textContent = badgeText;
   // Show where the visitor ends up, not the affiliate redirect in between.
   el.querySelector(".pk-depart-host")!.textContent = bareHost(new URL(REDIRECT_TARGETS[a.host] ?? a.href).host);
   el.querySelector<HTMLAnchorElement>(".pk-depart-slow a")!.href = a.href;

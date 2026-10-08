@@ -93,16 +93,19 @@ export interface Milestone {
   color: BrandColor;
   title: string;
   text: string;
+  href: string;
+  /** Short label for the link. */
+  site: string;
 }
 
 /** Newest first. */
 export const TIMELINE: Milestone[] = [
-  { when: "Now", color: "amber", title: "Author, teacher, consultant", text: "Nineteen Pluralsight courses, official Microsoft documentation for ASP.NET Core, and independent consulting on full-stack JavaScript and React." },
-  { when: "2007", color: "red", title: "First of twelve Microsoft MVP awards", text: "Recognized every year through 2018 for sharing technical knowledge with the community." },
-  { when: "2006", color: "blue", title: "Started Silicon Valley Code Camp", text: "A weekend of free sessions for developers. It grew to thousands of attendees, most recently hosted at PayPal HQ in 2019." },
-  { when: "2000", color: "green", title: "Sold 73rd Street Associates", text: "A large insurance company purchased the company’s assets." },
-  { when: "1985", color: "amber", title: "Founded 73rd Street Associates", text: "Founder, president, CTO and developer. Clinic scheduling, insurance company management and a turnkey physician office system for 500+ customers nationwide." },
-  { when: "Cornell", color: "red", title: "Mechanical & Aerospace Engineering", text: "Bachelors and Masters degrees from Cornell University in Ithaca, New York." },
+  { when: "Now", color: "amber", title: "Author, teacher, consultant", text: "Nineteen Pluralsight courses, official Microsoft documentation for ASP.NET Core, and independent consulting on full-stack JavaScript and React.", href: "/contact/", site: "Work with me" },
+  { when: "2007", color: "red", title: "First of twelve Microsoft MVP awards", text: "Recognized every year through 2018 for sharing technical knowledge with the community.", href: "https://mvp.microsoft.com/", site: "mvp.microsoft.com" },
+  { when: "2006", color: "blue", title: "Started Silicon Valley Code Camp", text: "A weekend of free sessions for developers. It grew to thousands of attendees, most recently hosted at PayPal HQ in 2019.", href: "https://siliconvalley-codecamp.com/", site: "siliconvalley-codecamp.com" },
+  { when: "2000", color: "green", title: "Sold 73rd Street Associates", text: "A large insurance company purchased the company’s assets.", href: "https://www.73rdstreet.com", site: "73rdstreet.com" },
+  { when: "1985", color: "amber", title: "Founded 73rd Street Associates", text: "Founder, president, CTO and developer. Clinic scheduling, insurance company management and a turnkey physician office system for 500+ customers nationwide.", href: "https://www.73rdstreet.com", site: "73rdstreet.com" },
+  { when: "Cornell", color: "red", title: "Mechanical & Aerospace Engineering", text: "Bachelors and Masters degrees from Cornell University in Ithaca, New York.", href: "https://www.mae.cornell.edu/", site: "mae.cornell.edu" },
 ];
 
 export interface Social {
