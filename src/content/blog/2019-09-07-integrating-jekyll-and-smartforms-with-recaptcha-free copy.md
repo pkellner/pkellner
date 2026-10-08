@@ -65,7 +65,7 @@ form: true
 ---
 ```
 
-{% highlight html %} 
+```html
 <script src="https://www.google.com/recaptcha/api.js"></script>
 
 <p>Want to get in touch? Fill out the form below to send me a message and I will get back to you as soon as possible!</p>
@@ -104,7 +104,7 @@ form: true
   </div>
   <div class="g-recaptcha" data-sitekey="6LdUIbcUAAAAABjv3-v5Y9coWrg7yBT57KetkvRk"></div>
 </form>
-{% endhighlight %}
+```
 
 Notice the script tag pointing to the google api and then just above the form tag at the bottom, the g-recaptcha div tag with my site key in it.
 

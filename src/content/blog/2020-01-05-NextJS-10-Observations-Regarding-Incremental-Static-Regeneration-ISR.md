@@ -50,7 +50,7 @@ then a few seconds after you first refresh, you'll start getting real 404's.  If
 
 Below is where you set `notFound`:
 
-{% highlight javascript %}
+```javascript
 export async function getStaticProps(context) {
   const res = await fetch(`https://.../data`)
   const data = await res.json()
@@ -65,7 +65,7 @@ export async function getStaticProps(context) {
     props: {}, // will be passed to the page component as props
   }
 }
-  {% endhighlight %}
+```
 
 ## If You Disable JavaScript On Client Browser, No Regen Occurs on Server
 

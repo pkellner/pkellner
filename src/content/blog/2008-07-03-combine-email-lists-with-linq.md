@@ -70,7 +70,7 @@ tags: []
 </ul>
 <p>&#160;</p>
 <h2>The Code</h2>
-<p>Below is the C# version 3.0 (.Net 3.5 and asp.net 3.5) that performs this function described in the problem above.&#160; The next section &quot;The Explanation&quot; gives more details on what i s happening.</p>
+<p>Below is the C# version 3.0 (.Net 3.5 and asp.net 3.5) that performs this function described in the problem above.&#160; The next section &quot;The Explanation&quot; gives more details on what is happening.</p>
 <p>&#160;</p>
 <div class="csharpcode">
 <pre class="alt"><span class="lnum">   1:  </span><span class="kwrd">using</span> System.Linq;</pre>

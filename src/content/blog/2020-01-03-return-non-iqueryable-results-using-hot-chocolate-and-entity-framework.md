@@ -26,7 +26,7 @@ pattern recommended by the Hot Chocolate team here:
 
 Your code likely looks as follows:
 
-{% highlight c# %}
+```csharp
 namespace WebAppReactCRA.GraphQL.CodeCampYears
 {
     [ExtendObjectType(Name = "Query")]
@@ -43,7 +43,7 @@ namespace WebAppReactCRA.GraphQL.CodeCampYears
         }
     }
 }
-{% endhighlight %}
+```
 
 This works great when you are just using Entity Framework and returning an IQueryable
 which is what typically you get when you work with EF.
@@ -67,7 +67,7 @@ Let's do it.
 For those in a hurry, here is the solution.  I'll explain it after this if it's not obvious to you what I've
 done.
 
-{% highlight c# %}
+```csharp
 [ExtendObjectType(Name = "Query")]
 public class CodeCampYearQueries
 {
@@ -132,7 +132,7 @@ public class SpeakerCountByYear
     public string Year { get; set; }
     public int SpeakerCount { get; set; }
 }
-{% endhighlight %}
+```
 
 Here's the explanation:
 

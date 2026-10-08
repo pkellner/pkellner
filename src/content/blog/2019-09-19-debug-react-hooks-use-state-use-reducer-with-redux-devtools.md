@@ -23,7 +23,7 @@ Below is a the JavaSript and you can find the full github repo with this example
 
 And the associated code is below.  Notice how `useState` and `useReducer` are imported from `reinspect` and not `react`.
 
-{% highlight javascript %} 
+```javascript
 import React from "react";
 import ReactDOM from "react-dom";
 
@@ -66,7 +66,7 @@ function Counter() {
 }
 
 ReactDOM.render(<Counter />, document.querySelector("#root"));
-{% endhighlight %}
+```
 
 There are just two things that you need to do in your code to make `useState` and `useReducer` work in your app.
 
