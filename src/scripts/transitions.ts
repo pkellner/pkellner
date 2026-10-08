@@ -187,7 +187,8 @@ function showDeparture(a: HTMLAnchorElement, x: number, y: number) {
   const el = document.createElement("div");
   el.className = "pk-depart";
   // A card grows into the screen (a container transform) and keeps its color and badge.
-  const card = a.matches(".card") ? a : null;
+  // A card with several links (.cred--multi) grows from whichever link was clicked.
+  const card = a.matches(".card") ? a : a.closest<HTMLElement>(".cred--multi");
   if (card) {
     const r = card.getBoundingClientRect();
     el.classList.add("pk-depart--card");
@@ -198,7 +199,7 @@ function showDeparture(a: HTMLAnchorElement, x: number, y: number) {
   }
   // Links that carry a badge (credential cards, timeline years, fact numbers) show it on
   // the departure card in their own color.
-  const badgeEl = a.querySelector<HTMLElement>(".yr");
+  const badgeEl = (card ?? a).querySelector<HTMLElement>(".yr");
   const badgeText = a.dataset.badge ?? badgeEl?.textContent?.trim();
   if (badgeText) {
     el.classList.add("pk-depart--badge");

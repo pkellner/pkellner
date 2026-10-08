@@ -77,11 +77,13 @@ export interface Credential {
   href?: string;
   /** Short label for the link, shown on the card. */
   site?: string;
+  /** More links shown on the card, such as an example of the work. */
+  extras?: { href: string; label: string }[];
 }
 
 export const CREDENTIALS: Credential[] = [
   { badge: "20×", color: "red", title: "Pluralsight author", text: "Authored 20 courses on React, JavaScript and modern web development.", href: PLURALSIGHT_PROFILE, site: "pluralsight.com" },
-  { badge: "MS", color: "blue", title: "Microsoft documentation author", text: "Wrote hundreds of pages of official documentation for ASP.NET Core and Chromium-based extensions.", href: "https://github.com/dotnet/AspNetCore.Docs/pulls?q=is%3Apr+author%3Apkellner", site: "github.com" },
+  { badge: "MS", color: "blue", title: "Microsoft documentation author", text: "Wrote hundreds of pages of official documentation for ASP.NET Core and Chromium-based extensions.", href: "https://github.com/dotnet/AspNetCore.Docs/pulls?q=is%3Apr+author%3Apkellner", site: "github.com", extras: [{ href: "https://learn.microsoft.com/en-us/aspnet/core/mvc/views/tag-helpers/built-in/cache-tag-helper", label: "Example: Cache Tag Helper" }] },
   { badge: "MVP", color: "green", title: "Microsoft MVP, 2007–2018", text: "Recognized by the Microsoft MVP program for twelve years of sharing technical knowledge.", href: "https://mvp.microsoft.com/", site: "mvp.microsoft.com" },
   { badge: "2006", color: "amber", title: "Conference founder", text: "Founded Silicon Valley Code Camp, drawing thousands of developers each year with sponsors like Google, Microsoft, IBM and PayPal.", href: "https://siliconvalley-codecamp.com/", site: "siliconvalley-codecamp.com" },
   { badge: "1985", color: "blue", title: "Software company founder", text: "Founded 73rd Street Associates: clinic scheduling, insurance management and medical claims software for 500+ customers. Sold in 2000.", href: "https://www.73rdstreet.com", site: "73rdstreet.com" },

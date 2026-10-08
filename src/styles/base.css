@@ -425,6 +425,11 @@ button.dia-pk { padding: 0; font: inherit; }
 }
 .cred-go svg { width: 14px; height: 14px; transition: transform 0.35s var(--spring); }
 .cred--link:hover .cred-go svg, .cred--link:focus-visible .cred-go svg { transform: translate(3px, -3px); }
+/* A card with more than one link: the main link covers the card, the others sit above it. */
+.cred-links { display: flex; flex-wrap: wrap; gap: 0 18px; margin-top: auto; }
+.cred--multi .cred-main::after { content: ""; position: absolute; inset: 0; border-radius: inherit; }
+.cred--multi .cred-extra { position: relative; z-index: 1; }
+.cred--multi:focus-within { transform: rotate(0) translateY(-5px); box-shadow: 9px 9px 0 var(--c, var(--shadow)); }
 
 /* ---------- page headers ---------- */
 .ph { padding-block: clamp(44px, 6vw, 80px) clamp(40px, 5vw, 64px); border-bottom: 2px solid var(--line); overflow: hidden; }
