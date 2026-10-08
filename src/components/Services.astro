@@ -1,0 +1,23 @@
+---
+import { SERVICES } from "../data/site";
+
+const ICONS = {
+  teach: '<path d="M2 8l10-5 10 5-10 5z"/><path d="M6 10.5V16c3 2.5 9 2.5 12 0v-5.5"/>',
+  review: '<path d="m8 7-5 5 5 5M16 7l5 5-5 5M13.5 4l-3 16"/>',
+  arch: '<rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="8.5" y="14" width="7" height="7" rx="1.5"/><path d="M6.5 10v2h11v-2M12 12v2"/>',
+};
+---
+
+<div class="trio">
+  {
+    SERVICES.map(s => (
+      <div class="card svc rv">
+        <div class="svc-ic" style={`--c:var(--${s.color});--oc:var(--on-${s.color})`}>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" set:html={ICONS[s.icon]} />
+        </div>
+        <h3 class="h3">{s.title}</h3>
+        <p>{s.text}</p>
+      </div>
+    ))
+  }
+</div>

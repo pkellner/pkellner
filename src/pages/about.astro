@@ -1,0 +1,62 @@
+---
+import Layout from "@layouts/Layout.astro";
+import PageHead from "@components/PageHead.astro";
+import Credentials from "@components/Credentials.astro";
+import { SITE } from "@config";
+import { getPosts } from "@utils/collection";
+import { TIMELINE } from "../data/site";
+
+const count = (await getPosts()).length;
+---
+
+<Layout title={`About | ${SITE.title}`} activeNav="about" description="Peter Kellner: independent software consultant, Pluralsight author, Silicon Valley Code Camp founder and former Microsoft MVP.">
+  <PageHead color="amber" crumbs={[{ label: "about" }]} title="About Peter" sub="Independent software consultant and full-stack technology leader. Engineer by training, company founder by accident, teacher by choice." />
+  <section class="band">
+    <div class="wrap about">
+      <div>
+        <h2 class="h2 dot rv" style="margin-bottom:26px">The short version</h2>
+        <ol class="tl" reversed>
+          {
+            TIMELINE.map(t => (
+              <li class="rv">
+                <span class="yr" style={`--c:var(--${t.color});--oc:var(--on-${t.color})`}>{t.when}</span>
+                <div>
+                  <h3>{t.title}</h3>
+                  <p>{t.text}</p>
+                </div>
+              </li>
+            ))
+          }
+        </ol>
+      </div>
+      <div class="facts">
+        <div class="card rv fact-blue"><b>500+</b><span>customers served by 73rd Street Associates</span></div>
+        <div class="card rv"><b>19</b><span>Pluralsight courses, close to a million subscribers on the platform</span></div>
+        <div class="card rv fact-green"><b>2006</b><span>first Silicon Valley Code Camp</span></div>
+        <div class="card rv"><b>{count}</b><span>posts on this blog since 2005</span></div>
+        <div class="card rv">
+          <h3 class="h3" style="margin-bottom:10px">What 73rd Street built</h3>
+          <ul class="built">
+            <li>University clinic scheduling and a turnkey physician office management system.</li>
+            <li>Electronic billing that aggregated insurance claims, sent them securely to a central location and routed them to the right carriers.</li>
+            <li>A three-tier system running every business process of a $200 million insurance company, from adjudicating claims to paying commissioned brokers. Delivered <b>on schedule</b>.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="band band--2">
+    <div class="wrap">
+      <div class="head rv"><div><h2 class="h2 dot">Credentials</h2></div></div>
+      <Credentials />
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .fact-blue { background: var(--blue); color: var(--on-blue); }
+  .fact-green { background: var(--green); color: var(--on-green); }
+  .fact-blue span, .fact-green span { color: inherit; opacity: 0.88; }
+  .built { margin: 0; padding-left: 1.2em; list-style: disc; color: var(--fg-2); display: grid; gap: 8px; font-size: 0.95rem; }
+  .built b { color: var(--fg); }
+</style>

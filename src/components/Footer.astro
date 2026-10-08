@@ -1,160 +1,46 @@
 ---
-import Socials from "./Socials.astro";
-import { SITE } from "@config";
-
-const currentYear = new Date().getFullYear();
-
-export interface Props {
-  noMarginTop?: boolean;
-}
-
-const { noMarginTop = false } = Astro.props;
+const year = new Date().getFullYear();
 ---
 
-<footer class={`footer-section ${noMarginTop ? "" : "mt-auto"}`}>
-  <div class="footer-gradient"></div>
-  <div class="footer-content">
-    <div class="container-wide">
-      <div class="footer-grid">
-        <!-- Brand Column -->
-        <div class="footer-brand">
-          <a href="/" class="logo-footer group">
-            <div class="logo-icon-footer">
-              <div class="w-12 h-12 rounded-lg bg-gradient-to-br from-skin-gradient-start to-skin-gradient-end flex items-center justify-center text-white font-bold text-2xl">
-                PK
-              </div>
-            </div>
-            <div class="brand-text">
-              <h3 class="text-xl font-bold text-skin-base">{SITE.title}</h3>
-              <p class="text-sm text-skin-muted mt-1">{SITE.desc}</p>
-            </div>
-          </a>
-        </div>
-
-        <!-- Quick Links -->
-        <div class="footer-links">
-          <h4 class="footer-heading">Quick Links</h4>
-          <ul class="footer-list">
-            <li><a href="/posts/" class="footer-link">Blog Posts</a></li>
-            <li><a href="/courses/" class="footer-link">Courses</a></li>
-            <li><a href="/about/" class="footer-link">About Me</a></li>
-            <li><a href="/contact/" class="footer-link">Contact</a></li>
-          </ul>
-        </div>
-
-        <!-- Resources -->
-        <div class="footer-links">
-          <h4 class="footer-heading">Resources</h4>
-          <ul class="footer-list">
-            <li><a href="/rss.xml" class="footer-link">RSS Feed</a></li>
-            <li><a href="/tags/" class="footer-link">Browse Tags</a></li>
-            <li><a href="/search/" class="footer-link">Search</a></li>
-            <li><a href="/sitemap-index.xml" class="footer-link">Sitemap</a></li>
-          </ul>
-        </div>
-
-        <!-- Connect -->
-        <div class="footer-connect">
-          <h4 class="footer-heading">Connect</h4>
-          <Socials />
-          <div class="newsletter-signup mt-6">
-            <p class="text-sm text-skin-muted mb-3">Stay updated with my latest posts</p>
-            <a href="/rss.xml" class="btn-secondary inline-flex items-center gap-2">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M4 11a9 9 0 0 1 9 9"></path>
-                <path d="M4 4a16 16 0 0 1 16 16"></path>
-                <circle cx="5" cy="19" r="1"></circle>
-              </svg>
-              Subscribe via RSS
-            </a>
-          </div>
-        </div>
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-big"><span class="fw-p">Peter</span>Kellner<span class="fw-d">.</span>net<small>Code, courses &amp; community since 2005</small></div>
+    <div class="foot-cols">
+      <div>
+        <h4>The blog</h4>
+        <p>Peter Kellner writes about React, Next.js, AI-assisted development and the tools that ship real software. He also runs Silicon Valley Code Camp.</p>
       </div>
-
-      <!-- Bottom Bar -->
-      <div class="footer-bottom">
-        <div class="copyright">
-          <span>© {currentYear} {SITE.author}</span>
-          <span class="separator">•</span>
-          <span>All rights reserved</span>
-        </div>
-        <div class="footer-badges">
-          <span class="badge badge-primary">Built with Astro</span>
-          <span class="badge badge-primary">Open Source</span>
-        </div>
+      <div>
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="/posts/">All posts</a></li>
+          <li><a href="/tags/">Tags</a></li>
+          <li><a href="/search/">Search</a></li>
+          <li><a href="/courses/">Courses</a></li>
+        </ul>
       </div>
+      <div>
+        <h4>Peter</h4>
+        <ul>
+          <li><a href="/about/">About</a></li>
+          <li><a href="/contact/">Hire me</a></li>
+          <li><a href="https://siliconvalley-codecamp.com/">Code Camp</a></li>
+          <li><a href="/rss.xml">RSS feed</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Elsewhere</h4>
+        <ul>
+          <li><a href="https://github.com/pkellner" rel="me">GitHub</a></li>
+          <li><a href="https://www.linkedin.com/in/peterkellner99/" rel="me">LinkedIn</a></li>
+          <li><a href="https://x.com/pkellner" rel="me">X / Twitter</a></li>
+          <li><a href="https://techhub.social/@pkellner" rel="me">Mastodon</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bot">
+      <span>© 2005–{year} Peter Kellner · Built with Astro</span>
+      <span>Took a wrong turn? <a href="/404.html">See the 404 page</a></span>
     </div>
   </div>
 </footer>
-
-<style>
-  .footer-section {
-    @apply relative bg-skin-card border-t border-skin-line;
-  }
-
-  .footer-gradient {
-    @apply absolute inset-0 bg-gradient-to-br from-skin-gradient-start/5 via-transparent to-skin-gradient-end/5 pointer-events-none;
-  }
-
-  .footer-content {
-    @apply relative z-10 py-12;
-  }
-
-  .footer-grid {
-    @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12;
-  }
-
-  .footer-brand {
-    @apply lg:col-span-1;
-  }
-
-  .logo-footer {
-    @apply flex items-start gap-3;
-  }
-
-  .logo-icon-footer {
-    @apply transition-transform duration-200 group-hover:scale-110;
-  }
-
-  .brand-text {
-    @apply flex-1;
-  }
-
-  .footer-heading {
-    @apply text-sm font-semibold text-skin-base uppercase tracking-wider mb-4;
-  }
-
-  .footer-list {
-    @apply space-y-3;
-  }
-
-  .footer-link {
-    @apply text-sm text-skin-muted hover:text-skin-accent transition-colors duration-200 block;
-  }
-
-  .footer-bottom {
-    @apply pt-8 border-t border-skin-line flex flex-col md:flex-row items-center justify-between gap-4;
-  }
-
-  .copyright {
-    @apply text-sm text-skin-muted flex items-center gap-2;
-  }
-
-  .separator {
-    @apply text-skin-muted opacity-50;
-  }
-
-  .footer-badges {
-    @apply flex gap-2;
-  }
-
-  @media (max-width: 768px) {
-    .footer-grid {
-      @apply gap-8;
-    }
-    
-    .footer-brand {
-      @apply col-span-1;
-    }
-  }
-</style>

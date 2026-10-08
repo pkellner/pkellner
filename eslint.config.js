@@ -21,7 +21,7 @@ export default [
   },
   js.configs.recommended,
   {
-    files: ['src/**/*.{ts,tsx,js,jsx}'],
+    files: ['src/**/*.{ts,tsx,js,jsx}', 'tests/**/*.ts', 'vitest.config.ts'],
     languageOptions: {
       parser: typescriptParser,
       parserOptions: {
@@ -43,6 +43,12 @@ export default [
       '@typescript-eslint/triple-slash-reference': 'off',
       '@typescript-eslint/no-empty-object-type': 'off',
       'no-undef': 'off' // TypeScript handles this
+    }
+  },
+  {
+    files: ['scripts/**/*.mjs'],
+    languageOptions: {
+      globals: globals.node
     }
   }
 ];

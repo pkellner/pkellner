@@ -1,0 +1,45 @@
+---
+import type { BrandColor } from "@utils/posts";
+
+export interface Props {
+  color: BrandColor;
+  /** Breadcrumb trail after the site name, each with an optional link. */
+  crumbs: { label: string; href?: string }[];
+  title: string;
+  /** Leave off the red period when the title already ends in punctuation. */
+  noDot?: boolean;
+  sub?: string;
+  deco?: boolean;
+}
+
+const { color, crumbs, title, noDot = false, sub, deco = true } = Astro.props;
+---
+
+<section class={`ph band--${color} dots`} style="position:relative">
+  {
+    deco && (
+      <>
+        <i class="deco deco--1" />
+        <i class="deco deco--2" />
+        <i class="deco deco--3" />
+        <i class="deco deco--4" />
+      </>
+    )
+  }
+  <div class="wrap">
+    <nav class="ph-crumb" aria-label="Breadcrumb">
+      <a href="/">peterkellner.net</a>
+      {
+        crumbs.map(c => (
+          <>
+            <span aria-hidden="true">/</span>
+            {c.href ? <a href={c.href}>{c.label}</a> : <span aria-current="page">{c.label}</span>}
+          </>
+        ))
+      }
+    </nav>
+    <h1 class:list={["h1", { dot: !noDot }]}>{title}</h1>
+    {sub && <p class="sub">{sub}</p>}
+    <slot />
+  </div>
+</section>

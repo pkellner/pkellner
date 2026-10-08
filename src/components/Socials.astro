@@ -1,35 +1,15 @@
 ---
-import { SOCIALS } from "@config";
-import LinkButton from "./LinkButton.astro";
-import socialIcons from "@assets/socialIcons";
+import { SOCIALS } from "../data/site";
 
-export interface Props {
-  centered?: boolean;
-}
-
-const { centered = false } = Astro.props;
+const TILT = ["-6deg", "4deg", "-3deg", "5deg", "-4deg"];
 ---
 
-<div class={`social-icons ${centered ? "flex" : ""}`}>
+<div class="socials">
   {
-    SOCIALS.filter(social => social.active).map(social => (
-      <LinkButton
-        href={social.href}
-        className="link-button"
-        title={social.linkTitle}
-      >
-        <Fragment set:html={socialIcons[social.name]} />
-        <span class="sr-only">{social.linkTitle}</span>
-      </LinkButton>
+    SOCIALS.map((s, i) => (
+      <a class="soc" href={s.href} rel="me noopener" target="_blank" aria-label={s.name} style={`--c:${s.color};--r:${TILT[i % TILT.length]}`}>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" set:html={s.icon} />
+      </a>
     ))
   }
 </div>
-
-<style>
-  .social-icons {
-    @apply flex-wrap justify-center gap-1;
-  }
-  .link-button {
-    @apply p-2 hover:rotate-6 sm:p-1;
-  }
-</style>

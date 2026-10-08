@@ -1,24 +1,72 @@
 ---
-import { getCollection } from "astro:content";
-import Header from "@components/Header.astro";
-import Footer from "@components/Footer.astro";
 import Layout from "@layouts/Layout.astro";
-import Main from "@layouts/Main.astro";
-import Tag from "@components/Tag.astro";
-import getUniqueTags from "@utils/getUniqueTags";
+import PageHead from "@components/PageHead.astro";
 import { SITE } from "@config";
+import { getPosts, topicCounts } from "@utils/collection";
+import { colorFor } from "@utils/posts";
 
-const posts = await getCollection("blog");
-
-let tags = getUniqueTags(posts);
+const posts = await getPosts();
+const topics = topicCounts(posts).sort((a, b) => b.count - a.count || a.name.localeCompare(b.name));
+const maxLog = Math.log(Math.max(...topics.map(t => t.count)) + 1);
 ---
 
-<Layout title={`Tags | ${SITE.title}`}>
-  <Header activeNav="tags" />
-  <Main pageTitle="Tags" pageDesc="All the tags used in posts.">
-    <ul>
-      {tags.map(({ tag }) => <Tag {tag} size="lg" />)}
-    </ul>
-  </Main>
-  <Footer />
+<Layout title={`Tags | ${SITE.title}`} activeNav="tags" description={`${topics.length} topics across ${posts.length} posts on PeterKellner.net.`}>
+  <PageHead color="green" crumbs={[{ label: "tags" }]} title="Every topic" sub={`${topics.length} topics across ${posts.length} posts. The bigger the tag, the more I have written about it.`} />
+  <section class="band band--tight">
+    <div class="wrap">
+      <div class="tools-row">
+        <div class="field">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.5-3.5"></path></svg>
+          <input id="tag-q" type="search" placeholder="Find a tag…" aria-label="Find a tag" />
+        </div>
+        <div class="seg" role="group" aria-label="Sort tags">
+          <button type="button" data-sort="count" aria-pressed="true">Most used</button>
+          <button type="button" data-sort="az" aria-pressed="false">A–Z</button>
+        </div>
+      </div>
+      <div class="cloud" id="cloud">
+        {
+          topics.map((t, i) => {
+            const c = colorFor(t.name);
+            const size = 0.82 + (Math.log(t.count + 1) / maxLog) * 1.25;
+            const tilt = (((t.name.length * 7 + t.count) % 7) - 3) * 0.6;
+            return (
+              <a class="tg" href={`/tags/${t.slug}/`} data-name={t.name.toLowerCase()} data-count={t.count} style={`--fs:${size.toFixed(2)}rem;--c:var(--${c});--oc:var(--on-${c});--r:${tilt}deg;--i:${Math.min(i, 40)}`}>
+                #{t.name}<small>{t.count}</small>
+              </a>
+            );
+          })
+        }
+      </div>
+      <div class="empty" id="tag-empty" hidden><b>No tag by that name.</b>Search posts instead with ⌘K.</div>
+    </div>
+  </section>
 </Layout>
+
+<script>
+  const cloud = document.getElementById("cloud")!;
+  const tags = [...cloud.querySelectorAll<HTMLElement>(".tg")];
+  const input = document.getElementById("tag-q") as HTMLInputElement;
+  const empty = document.getElementById("tag-empty")!;
+  const sorts = [...document.querySelectorAll<HTMLButtonElement>("[data-sort]")];
+
+  input.addEventListener("input", () => {
+    const q = input.value.trim().toLowerCase();
+    let n = 0;
+    tags.forEach(t => {
+      t.hidden = !t.dataset.name!.includes(q);
+      if (!t.hidden) n++;
+    });
+    empty.hidden = n > 0;
+  });
+
+  sorts.forEach(b =>
+    b.addEventListener("click", () => {
+      sorts.forEach(x => x.setAttribute("aria-pressed", String(x === b)));
+      const az = b.dataset.sort === "az";
+      tags
+        .sort((x, y) => (az ? x.dataset.name!.localeCompare(y.dataset.name!) : Number(y.dataset.count) - Number(x.dataset.count) || x.dataset.name!.localeCompare(y.dataset.name!)))
+        .forEach(t => cloud.appendChild(t));
+    })
+  );
+</script>

@@ -1,49 +1,52 @@
 ---
-import { type CollectionEntry } from "astro:content";
 import Layout from "@layouts/Layout.astro";
-import Main from "@layouts/Main.astro";
-import Header from "@components/Header.astro";
-import Footer from "@components/Footer.astro";
-import Card from "@components/Card";
+import PageHead from "@components/PageHead.astro";
+import PostCard from "@components/PostCard.astro";
+import PostRow from "@components/PostRow.astro";
 import Pagination from "@components/Pagination.astro";
 import { SITE } from "@config";
+import { colorFor, formatDate } from "@utils/posts";
+import type { PostView } from "@utils/collection";
 
 export interface Props {
   currentPage: number;
   totalPages: number;
-  paginatedPosts: CollectionEntry<"blog">[];
+  paginatedPosts: PostView[];
   tag: string;
   tagName: string;
+  total: number;
+  first: Date;
+  last: Date;
+  /** Topics that most often appear alongside this one. */
+  near: { slug: string; name: string }[];
 }
 
-const { currentPage, totalPages, paginatedPosts, tag, tagName } = Astro.props;
+const { currentPage, totalPages, paginatedPosts, tag, tagName, total, first, last, near } = Astro.props;
+const showCards = currentPage === 1 && paginatedPosts.length > 2;
+const cards = showCards ? paginatedPosts.slice(0, 3) : [];
+const rows = showCards ? paginatedPosts.slice(3) : paginatedPosts;
 ---
 
-<Layout title={`Tag: ${tagName} | ${SITE.title}`}>
-  <Header activeNav="tags" />
-  <Main
-    pageTitle={[`Tag:`, `${tagName}`]}
-    titleTransition={tag}
-    pageDesc={`All the articles with the tag "${tagName}".`}
+<Layout title={`#${tagName}${currentPage > 1 ? `, page ${currentPage}` : ""} | ${SITE.title}`} activeNav="tags" description={`${total} posts tagged ${tagName} on PeterKellner.net.`}>
+  <PageHead
+    color={colorFor(tagName)}
+    crumbs={[{ label: "tags", href: "/tags/" }, { label: tagName }]}
+    title={`#${tagName}`}
+    noDot
+    sub={`${total} ${total === 1 ? "post" : "posts"} from ${formatDate(first)} to ${formatDate(last)}, newest first.`}
   >
-    <h1 slot="title" transition:name={tag}>{`Tag:${tag}`}</h1>
-    <ul>
-      {
-        paginatedPosts.map(({ data, slug }) => (
-          <Card href={`/posts/${slug}/`} frontmatter={data} />
-        ))
-      }
-    </ul>
-  </Main>
-
-  <Pagination
-    {currentPage}
-    {totalPages}
-    prevUrl={`/tags/${tag}${
-      currentPage - 1 !== 1 ? "/" + (currentPage - 1) : ""
-    }/`}
-    nextUrl={`/tags/${tag}/${currentPage + 1}/`}
-  />
-
-  <Footer noMarginTop={totalPages > 1} />
+    {near.length > 0 && <div class="chips" style="margin-top:22px">{near.map(t => <a class="chip" href={`/tags/${t.slug}/`}>#{t.name}</a>)}</div>}
+  </PageHead>
+  <section class="band band--tight">
+    <div class="wrap">
+      {cards.length > 0 && <div class="bento" style="margin-bottom:34px">{cards.map(p => <PostCard post={p} />)}</div>}
+      <div class="rows">{rows.map((p, i) => <PostRow post={p} i={i} />)}</div>
+      <Pagination
+        currentPage={currentPage}
+        totalPages={totalPages}
+        prevUrl={currentPage - 1 <= 1 ? `/tags/${tag}/` : `/tags/${tag}/${currentPage - 1}/`}
+        nextUrl={`/tags/${tag}/${currentPage + 1}/`}
+      />
+    </div>
+  </section>
 </Layout>

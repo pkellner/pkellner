@@ -7,7 +7,7 @@ export const SITE: Site = {
   title: "Peter Kellner's Blog",
   ogImage: "peterkellnerlogo.png",
   lightAndDarkMode: true,
-  postPerPage: 5,
+  postPerPage: 20,
   scheduledPostMargin: 15 * 60 * 1000, // 15 minutes
 };
 

@@ -11,7 +11,9 @@
     "sync": "astro sync",
     "astro": "astro",
     "cz": "cz",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "test": "vitest run",
+    "test:dist": "node scripts/check-dist.mjs"
   },
   "dependencies": {
     "@astrojs/alpinejs": "^0.4.9",
@@ -51,7 +53,8 @@
     "prettier-plugin-tailwindcss": "0.6.14",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "rimraf": "^6.1.2"
+    "rimraf": "^6.1.2",
+    "vitest": "^3.2.4"
   },
   "config": {
     "commitizen": {

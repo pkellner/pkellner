@@ -1,0 +1,34 @@
+---
+import Cover from "@components/Cover.astro";
+import { formatDate } from "@utils/posts";
+import type { PostView } from "@utils/collection";
+
+export interface Props {
+  post: PostView;
+  featured?: boolean;
+  class?: string;
+}
+
+const { post, featured = false, class: cls = "" } = Astro.props;
+---
+
+<a class:list={["card pc", { feat: featured }, cls]} href={post.url}>
+  <div class="pc-cover"><Cover post={post} eager={featured} /></div>
+  <div class="pc-body">
+    <div class="pc-meta" style={`--c:var(--${post.color})`}>
+      {featured && <span class="chip chip--red">Latest</span>}
+      <i></i><time datetime={post.date.toISOString()}>{formatDate(post.date)}</time> · {post.minutes} min
+    </div>
+    <h3>{post.title}</h3>
+    {post.summary && <p>{post.summary}</p>}
+    {
+      post.topics.length > 0 && (
+        <div class="pc-tags">
+          {post.topics.slice(0, 3).map(t => (
+            <span class="chip">#{t}</span>
+          ))}
+        </div>
+      )
+    }
+  </div>
+</a>

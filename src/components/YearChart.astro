@@ -1,0 +1,33 @@
+---
+export interface Props {
+  years: { year: number; count: number }[];
+}
+
+const { years } = Astro.props;
+const max = Math.max(...years.map(y => y.count));
+const peak = years.find(y => y.count === max)!;
+---
+
+<div class="chart rv">
+  <div class="chart-cols" style={`grid-template-columns:repeat(${years.length},minmax(0,1fr))`}>
+    {
+      years.map(y => (
+        <a
+          class:list={["col", { peak: y === peak }]}
+          href={`/posts/#y${y.year}`}
+          style={`--h:${Math.round((y.count / max) * 100)}%`}
+          aria-label={`${y.year}: ${y.count} posts`}
+        >
+          <i />
+          <em>
+            {y.year} · {y.count}
+          </em>
+        </a>
+      ))
+    }
+  </div>
+  <div class="chart-x" style={`grid-template-columns:repeat(${years.length},minmax(0,1fr))`} aria-hidden="true">
+    {years.map(y => <span>’{String(y.year).slice(2)}</span>)}
+  </div>
+  <p class="chart-note">Posts per year. The busiest was {peak.year} with {peak.count} posts.</p>
+</div>

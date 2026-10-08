@@ -1,0 +1,32 @@
+---
+import { BRAND_COLORS } from "@utils/posts";
+import type { PostView } from "@utils/collection";
+
+export interface Props {
+  post: PostView;
+  eager?: boolean;
+}
+
+const { post, eager = false } = Astro.props;
+const i = BRAND_COLORS.indexOf(post.color);
+const c2 = BRAND_COLORS[(i + 1) % 4];
+const c3 = BRAND_COLORS[(i + 2) % 4];
+const year = post.date.getUTCFullYear();
+const word = (post.topics[0] ?? "notes").replace(/-/g, " ");
+---
+
+{
+  post.og ? (
+    <img src={post.og} alt="" width="1200" height="630" loading={eager ? "eager" : "lazy"} decoding="async" />
+  ) : (
+    <div class="gc" style={`--c:var(--${post.color});--oc:var(--on-${post.color});--c2:var(--${c2});--c3:var(--${c3})`} aria-hidden="true">
+      <i class="gc-d gc-d1" />
+      <i class="gc-d gc-d2" />
+      <span class="gc-tag">{year} · {post.minutes} min read</span>
+      <span class="gc-word">
+        {word}
+        <small>peterkellner.net/{year}</small>
+      </span>
+    </div>
+  )
+}

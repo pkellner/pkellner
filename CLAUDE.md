@@ -36,6 +36,13 @@ npm run preview
 # Lint code
 npm run lint
 
+# Unit tests (Vitest): sorting, permalinks, topics, search
+npm test
+
+# Smoke tests against the built site in dist/ (run after npm run build):
+# pages exist, lists are newest first, drafts hidden, theme links resolve
+npm run test:dist
+
 # Format code (no npm script, use directly)
 npx prettier --write .
 
@@ -84,7 +91,7 @@ npm run cz
 - Use conventional commits (enforced via commitizen)
 
 ### Testing Builds
-**IMPORTANT**: Always run both `npm run build` and `npm run dev` to ensure there are no errors or warnings before committing changes.
+**IMPORTANT**: Always run both `npm run build` and `npm run dev` to ensure there are no errors or warnings before committing changes. Then run `npm test` and `npm run test:dist`.
 
 ### Adding New Posts
 
@@ -150,7 +157,10 @@ Link key terms throughout posts for SEO:
 - Ensure all changes pass `npm run build` before committing
 
 ## Important Notes
-- No test framework is currently set up
+- Tests: Vitest unit tests live in `tests/`; `scripts/check-dist.mjs` checks the built site
+- Theme: tokens and components are in `src/styles/base.css`; page data (courses, services, credentials, timeline) is in `src/data/site.ts`
+- Post lists come from `getPosts()` in `src/utils/collection.ts`, always newest first by publish date
+- A post's topics are its `tags` plus its WordPress-era `categories`
 - Both npm and yarn lock files exist (prefer npm)
 - Docker setup available via docker-compose.yml
 - The theme is self-documented - blog posts serve as documentation

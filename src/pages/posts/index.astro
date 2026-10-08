@@ -1,27 +1,128 @@
 ---
-import { getCollection } from "astro:content";
-import Posts from "@layouts/Posts.astro";
-import getSortedPosts from "@utils/getSortedPosts";
-import getPagination from "@utils/getPagination";
-import { formatJekyllPost } from "../../utils/astro-jekyl";
+import Layout from "@layouts/Layout.astro";
+import PageHead from "@components/PageHead.astro";
+import PostRow from "@components/PostRow.astro";
+import { SITE } from "@config";
+import { getPosts } from "@utils/collection";
+import { formatDate, yearCounts } from "@utils/posts";
 
-const posts = (await getCollection('blog'))
-  .map(formatJekyllPost())
-  .sort((a, b) => {
-    // Ensure both dates are defined or provide a fallback
-    const dateA = a.data.pubDate ? a.data.pubDate.valueOf() : 0;
-    const dateB = b.data.pubDate ? b.data.pubDate.valueOf() : 0;
-    return dateA - dateB;
-  });
-
-
-const sortedPosts = getSortedPosts(posts);
-
-const pagination = getPagination({
-  posts: sortedPosts,
-  page: 1,
-  isIndex: true,
-});
+const posts = await getPosts();
+const years = yearCounts(posts.map(p => p.entry));
+const max = Math.max(...years.map(y => y.count));
+// Newest year first, matching the list.
+const groups = [...years].reverse().filter(y => y.count > 0).map(y => ({
+  year: y.year,
+  posts: posts.filter(p => p.date.getUTCFullYear() === y.year),
+}));
+const first = posts[posts.length - 1];
 ---
 
-<Posts {...pagination} />
+<Layout title={`All posts | ${SITE.title}`} activeNav="posts" description={`Every post on PeterKellner.net, newest first: ${posts.length} posts since ${first ? formatDate(first.date) : "2005"}.`}>
+  <PageHead
+    color="blue"
+    crumbs={[{ label: "posts" }]}
+    title="The archive"
+    sub={`${posts.length} posts since ${first ? formatDate(first.date) : "2005"}, newest first. Pick a year with the bars or type to narrow the list.`}
+  />
+  <section class="band band--tight">
+    <div class="wrap" id="archive">
+      <div class="yr-pick" id="yr-pick" role="group" aria-label="Filter by year" style={`grid-template-columns:repeat(${years.length + 1},minmax(0,1fr))`}>
+        <button type="button" class="all" data-year="all" aria-pressed="true" style="--h:100%" aria-label="All years"><i></i></button>
+        {
+          years.map(y => (
+            <button type="button" data-year={y.year} aria-pressed="false" style={`--h:${Math.max(3, Math.round((y.count / max) * 100))}%`} title={`${y.year}: ${y.count} posts`} aria-label={`${y.year}, ${y.count} posts`} disabled={y.count === 0}>
+              <i />
+            </button>
+          ))
+        }
+      </div>
+      <div class="yr-lbl" id="yr-lbl" aria-hidden="true" style={`grid-template-columns:repeat(${years.length + 1},minmax(0,1fr))`}>
+        <span class="on">All</span>
+        {years.map(y => <span>’{String(y.year).slice(2)}</span>)}
+      </div>
+
+      <div class="tools-row">
+        <div class="field">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.5-3.5"></path></svg>
+          <input id="arch-q" type="search" placeholder="Filter titles and topics…" aria-label="Filter posts by title or topic" />
+        </div>
+        <span class="mono muted" id="arch-count" style="font-size:.8rem" aria-live="polite">{posts.length} posts</span>
+      </div>
+
+      <div id="arch-list">
+        {
+          groups.map(g => (
+            <div class="yr-group" id={`y${g.year}`} data-year={g.year}>
+              <div class="yr-head">
+                <h2>{g.year}</h2>
+                <span>{g.posts.length} posts</span>
+              </div>
+              <div class="rows">
+                {g.posts.map((p, i) => (
+                  <PostRow post={p} i={i} />
+                ))}
+              </div>
+            </div>
+          ))
+        }
+        <div class="empty" id="arch-empty" hidden><b>Nothing matches.</b>Try a shorter word, or pick All years.</div>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<script>
+  const pick = document.getElementById("yr-pick")!;
+  const buttons = [...pick.querySelectorAll<HTMLButtonElement>("button")];
+  const labels = [...document.querySelectorAll<HTMLElement>("#yr-lbl span")];
+  const groups = [...document.querySelectorAll<HTMLElement>(".yr-group")];
+  const input = document.getElementById("arch-q") as HTMLInputElement;
+  const count = document.getElementById("arch-count")!;
+  const empty = document.getElementById("arch-empty")!;
+  let year = "all";
+
+  function apply() {
+    const terms = input.value.toLowerCase().split(/\s+/).filter(Boolean);
+    let shown = 0;
+    for (const g of groups) {
+      let inGroup = 0;
+      const yearOk = year === "all" || g.dataset.year === year;
+      for (const row of g.querySelectorAll<HTMLElement>(".row")) {
+        const ok = yearOk && terms.every(t => row.dataset.title!.includes(t));
+        row.hidden = !ok;
+        if (ok) inGroup++;
+      }
+      g.hidden = inGroup === 0;
+      const n = g.querySelector(".yr-head span");
+      if (n) n.textContent = `${inGroup} posts`;
+      shown += inGroup;
+    }
+    count.textContent = `${shown} ${shown === 1 ? "post" : "posts"}${year !== "all" ? ` in ${year}` : ""}`;
+    empty.hidden = shown > 0;
+  }
+
+  function select(y: string) {
+    year = y;
+    buttons.forEach((b, i) => {
+      const on = b.dataset.year === y;
+      b.setAttribute("aria-pressed", String(on));
+      labels[i]?.classList.toggle("on", on);
+    });
+    apply();
+  }
+
+  pick.addEventListener("click", e => {
+    const b = (e.target as Element).closest<HTMLButtonElement>("button");
+    if (!b) return;
+    select(b.dataset.year!);
+    history.replaceState(null, "", b.dataset.year === "all" ? location.pathname : `#y${b.dataset.year}`);
+  });
+  input.addEventListener("input", apply);
+
+  // /posts/#y2009 (from the home page chart) opens filtered to that year.
+  const m = location.hash.match(/^#y(\d{4})$/);
+  if (m) {
+    select(m[1]);
+    document.getElementById("archive")?.scrollIntoView();
+  }
+</script>

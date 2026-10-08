@@ -1,40 +1,35 @@
 ---
-import type { CollectionEntry } from "astro:content";
 import Layout from "@layouts/Layout.astro";
-import Main from "@layouts/Main.astro";
-import Header from "@components/Header.astro";
-import Footer from "@components/Footer.astro";
+import PageHead from "@components/PageHead.astro";
+import PostRow from "@components/PostRow.astro";
 import Pagination from "@components/Pagination.astro";
-import Card from "@components/Card";
 import { SITE } from "@config";
+import type { PostView } from "@utils/collection";
 
 export interface Props {
   currentPage: number;
   totalPages: number;
-  paginatedPosts: CollectionEntry<"blog">[];
+  paginatedPosts: PostView[];
 }
 
 const { currentPage, totalPages, paginatedPosts } = Astro.props;
 ---
 
-<Layout title={`Posts | ${SITE.title}`}>
-  <Header activeNav="posts" />
-  <Main pageTitle="Posts" pageDesc="All the articles I've posted.">
-    <ul class="stagger">
-      {
-        paginatedPosts.map(({ data, slug }) => (
-          <Card href={`/${slug}`} frontmatter={data} />
-        ))
-      }
-    </ul>
-  </Main>
-
-  <Pagination
-    {currentPage}
-    {totalPages}
-    prevUrl={`/posts/${currentPage - 1 !== 1 ? "/" + (currentPage - 1) : ""}/`}
-    nextUrl={`/posts/${currentPage + 1}/`}
-  />
-
-  <Footer noMarginTop={totalPages > 1} />
+<Layout title={`Posts, page ${currentPage} | ${SITE.title}`} activeNav="posts">
+  <PageHead color="blue" crumbs={[{ label: "posts", href: "/posts/" }, { label: `page ${currentPage}` }]} title={`Page ${currentPage} of ${totalPages}`} noDot sub="Newest first. The full archive with year filters is one click away." deco={false}>
+    <div class="cta" style="margin-top:22px"><a class="btn" href="/posts/">Open the full archive</a></div>
+  </PageHead>
+  <section class="band band--tight">
+    <div class="wrap">
+      <div class="rows">
+        {paginatedPosts.map((p, i) => <PostRow post={p} i={i} />)}
+      </div>
+      <Pagination
+        currentPage={currentPage}
+        totalPages={totalPages}
+        prevUrl={currentPage - 1 <= 1 ? "/posts/" : `/posts/${currentPage - 1}/`}
+        nextUrl={`/posts/${currentPage + 1}/`}
+      />
+    </div>
+  </section>
 </Layout>

@@ -1,0 +1,46 @@
+---
+import Layout from "@layouts/Layout.astro";
+import PageHead from "@components/PageHead.astro";
+import Services from "@components/Services.astro";
+import Socials from "@components/Socials.astro";
+import { SITE } from "@config";
+import { EMAIL } from "../data/site";
+
+const COPY = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h8"/></svg>';
+---
+
+<Layout title={`Contact | ${SITE.title}`} activeNav="contact" description="Coaching, code reviews and architectural guidance for JavaScript and React teams.">
+  <PageHead color="green" crumbs={[{ label: "contact" }]} title="How can I help?" noDot sub="Coaching for developers and teams working in JavaScript and React. Ask about special pricing for NGOs and non-profits.">
+    <div class="mail">
+      <a class="mail-addr" id="mail-addr" href={`mailto:${EMAIL}`}>{EMAIL}</a>
+      <button class="btn btn--sm" type="button" data-copy={EMAIL} data-copy-fallback="#mail-addr"><Fragment set:html={COPY} /><span>Copy address</span></button>
+    </div>
+  </PageHead>
+  <section class="band">
+    <div class="wrap">
+      <div class="head rv">
+        <div>
+          <h2 class="h2 dot">What a session looks like</h2>
+          <p class="sub muted">Direct access to someone who has shipped production software since 1985. Bring the problem you are stuck on; leave with code that works and the reasoning behind it.</p>
+        </div>
+      </div>
+      <Services />
+    </div>
+  </section>
+  <section class="band band--ink band--tight">
+    <div class="wrap online">
+      <div>
+        <h2 class="h2">Or find me online<span style="color:var(--amber)">.</span></h2>
+        <p>GitHub, LinkedIn, X, Mastodon and the Code Camp YouTube channel.</p>
+      </div>
+      <Socials />
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .mail-addr { text-decoration: none; }
+  .online { display: flex; flex-wrap: wrap; gap: 24px; align-items: center; justify-content: space-between; }
+  .online .h2 { font-size: clamp(1.5rem, 3vw, 2.2rem); }
+  .online p { color: var(--on-ink-2); margin-top: 8px; }
+</style>

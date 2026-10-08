@@ -1,0 +1,29 @@
+---
+import { formatDate } from "@utils/posts";
+import type { PostView } from "@utils/collection";
+
+export interface Props {
+  post: PostView;
+  /** Position in the list, for the staggered entrance. */
+  i?: number;
+}
+
+const { post, i = 0 } = Astro.props;
+---
+
+<a class="row" href={post.url} style={`--c:var(--${post.color});--i:${Math.min(i, 14)}`} data-title={`${post.title} ${post.topics.join(" ")}`.toLowerCase()}>
+  <time datetime={post.date.toISOString()}>{formatDate(post.date)}</time>
+  <div>
+    <h3>{post.title}</h3>
+    <span class="rd">{post.minutes} min read</span>
+  </div>
+  {
+    post.topics.length > 0 && (
+      <div class="row-t">
+        {post.topics.slice(0, 3).map(t => (
+          <span class="chip">#{t}</span>
+        ))}
+      </div>
+    )
+  }
+</a>

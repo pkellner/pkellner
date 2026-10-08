@@ -1,0 +1,37 @@
+---
+export interface Props {
+  postCount: number;
+}
+
+const { postCount } = Astro.props;
+const ARROWS = ["M17 17 7 7M7 15V7h8", "M7 17 17 7M9 7h8v8", "M17 7 7 17M7 9v8h8", "M7 7l10 10M17 9v8H9"];
+// Grid order TL, TR, BL, BR; rotated 45° that is top, right, left, bottom, the logo's layout.
+const QUADS = [
+  { href: "/posts/", label: "Blog", small: `${postCount} posts` },
+  { href: "/courses/", label: "Courses", small: "19 on Pluralsight" },
+  { href: "/about/", label: "About", small: "Since 1985" },
+  { href: "/contact/", label: "Hire me", small: "Coaching" },
+];
+---
+
+<div class="dia-stage">
+  <div class="dia" id="dia">
+    <div class="dia-grid">
+      {
+        QUADS.map((q, i) => (
+          <a class="q" href={q.href}>
+            <svg class="q-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round">
+              <path d={ARROWS[i]} />
+            </svg>
+            <span class="q-l">
+              <b>{q.label}</b>
+              <small>{q.small}</small>
+            </span>
+          </a>
+        ))
+      }
+    </div>
+    <button class="dia-pk" type="button" aria-label="Spin the diamond"><span>PK</span></button>
+  </div>
+  <p class="dia-cap">The logo is the menu. Pick a corner.</p>
+</div>

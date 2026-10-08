@@ -7,14 +7,13 @@ import rehypeExternalLinks from "rehype-external-links";
 import sitemap from "@astrojs/sitemap";
 import { SITE } from "./src/config";
 
-import alpinejs from "@astrojs/alpinejs";
 
 // https://astro.build/config
 export default defineConfig({
   site: SITE.website,
   integrations: [tailwind({
     applyBaseStyles: false
-  }), react(), sitemap(), alpinejs()],
+  }), react(), sitemap()],
   markdown: {
     remarkPlugins: [remarkToc, [remarkCollapse, {
       test: "Table of contents"

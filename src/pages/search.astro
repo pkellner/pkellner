@@ -1,36 +1,69 @@
 ---
-import { getCollection } from "astro:content";
-import { SITE } from "@config";
 import Layout from "@layouts/Layout.astro";
-import Main from "@layouts/Main.astro";
-import Header from "@components/Header.astro";
-import Footer from "@components/Footer.astro";
-import SearchBar from "@components/Search";
-import getSortedPosts from "@utils/getSortedPosts";
-import { formatJekyllPost } from "../utils/astro-jekyl";
+import PageHead from "@components/PageHead.astro";
+import { SITE } from "@config";
+import { getPosts } from "@utils/collection";
 
-// Retrieve all published articles
-
-const postsOri = await getCollection("blog", ({ data }) => !data.draft);
-
-const formatFunction = formatJekyllPost();
-const posts = postsOri.map(formatFunction);
-
-const sortedPosts = getSortedPosts(posts);
-
-// List of items to search in
-const searchList = sortedPosts.map(({ data, slug }) => ({
-  title: data.title,
-  description: data.description,
-  data,
-  slug,
-}));
+const count = (await getPosts()).length;
+const POPULAR = ["react hooks", "next.js", "claude", "linq", "sencha", "docker"];
 ---
 
-<Layout title={`Search | ${SITE.title}`}>
-  <Header activeNav="search" />
-  <Main pageTitle="Search" pageDesc="Search any article ...">
-    <SearchBar client:load searchList={searchList} />
-  </Main>
-  <Footer />
+<Layout title={`Search | ${SITE.title}`} activeNav="search" description={`Search all ${count} posts on PeterKellner.net.`}>
+  <PageHead color="amber" crumbs={[{ label: "search" }]} title="Search the blog" sub={`Titles, topics and summaries across all ${count} posts. Press ⌘K on any page to search without leaving it.`} deco={false} />
+  <section class="band band--tight search-page">
+    <div class="wrap" style="max-width:900px">
+      <form class="field" style="max-width:none" role="search" action="/search/">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.5-3.5"></path></svg>
+        <input id="sp-q" name="q" type="search" placeholder="Try “suspense”, “docker mysql” or “silverlight”" aria-label="Search posts" autocomplete="off" />
+      </form>
+      <div class="hint muted">Popular: {POPULAR.map(s => <button class="chip" type="button" data-q={s}>{s}</button>)}</div>
+      <p class="mono muted" id="sp-count" style="font-size:.8rem;margin:22px 0 12px" aria-live="polite">Start typing to search.</p>
+      <div class="pal-list" id="sp-list"></div>
+      <noscript><p>Search needs JavaScript. You can still browse <a href="/posts/">every post</a> or <a href="/tags/">every topic</a>.</p></noscript>
+    </div>
+  </section>
 </Layout>
+
+<script>
+  import { loadIndex, resultHtml } from "../scripts/search-client";
+  import { escapeHtml, searchPosts, searchTerms } from "../utils/search";
+
+  const input = document.getElementById("sp-q") as HTMLInputElement;
+  const list = document.getElementById("sp-list")!;
+  const count = document.getElementById("sp-count")!;
+
+  async function run() {
+    const q = input.value.trim();
+    if (!q) {
+      count.textContent = "Start typing to search.";
+      list.innerHTML = "";
+      return;
+    }
+    const index = await loadIndex();
+    const found = searchPosts(index, q);
+    const terms = searchTerms(q);
+    count.textContent = `${found.length} ${found.length === 1 ? "result" : "results"}`;
+    list.innerHTML =
+      found.slice(0, 40).map((p, i) => resultHtml(p, terms, i)).join("") ||
+      `<div class="empty"><b>No posts match “${escapeHtml(q)}”.</b>Fewer words usually helps.</div>`;
+    const url = new URL(location.href);
+    url.searchParams.set("q", q);
+    history.replaceState(null, "", url);
+  }
+
+  input.closest("form")!.addEventListener("submit", e => {
+    e.preventDefault();
+    run();
+  });
+  input.addEventListener("input", run);
+  document.querySelectorAll<HTMLElement>("[data-q]").forEach(b =>
+    b.addEventListener("click", () => {
+      input.value = b.dataset.q!;
+      run();
+      input.focus();
+    })
+  );
+  input.value = new URLSearchParams(location.search).get("q") ?? "";
+  run();
+  input.focus({ preventScroll: true });
+</script>

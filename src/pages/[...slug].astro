@@ -1,75 +1,42 @@
 ---
-import { getCollection } from "astro:content";
+import { getCollection, type CollectionEntry } from "astro:content";
 import Posts from "@layouts/Posts.astro";
 import PostDetails from "@layouts/PostDetails.astro";
-import getSortedPosts from "@utils/getSortedPosts";
 import getPageNumbers from "@utils/getPageNumbers";
 import getPagination from "@utils/getPagination";
-import { formatJekyllPost } from "../utils/astro-jekyl";
+import getSortedPosts from "@utils/getSortedPosts";
+import { getPosts } from "@utils/collection";
+import { postPath } from "@utils/posts";
 
 export async function getStaticPaths() {
-  const posts = await getCollection("blog");
+  const posts = getSortedPosts(await getCollection("blog"));
 
-  const formatFunction = formatJekyllPost();
-
-  // this is so that preview works in frontmatter vs code plugin
-  const postResultWithDashesOnly = posts.map((post) => {
-    return {
-      params: { slug: post.slug },
-      props: { post },
-    };
-
-  });
-
-  const pages = posts
-    // .filter(x =>
-    //   x.slug.includes("my-typescript-skills-improving-and-best-practice")
-    // )
-    .map(post => {
-      const updatedPost = formatFunction(post);
-      return {
-        slug: updatedPost.slug.toString(), //post.slug.toString() + "/", // "2023/12/5/my-typescript-skills-improving-and-best-practices/",
-        post: updatedPost,
-      };
-    });
-
-
-  const postResult = pages.map(({ slug, post }) => {
-    const postFormatted = formatFunction(post);
-    return {
-      params: { slug },
-      props: { post: postFormatted },
-    };
-  });
-
-  
-
-  const pagePaths = getPageNumbers(posts.length).map(pageNum => ({
-    params: { slug: `posts/${String(pageNum)}` },
+  // Each post lives at /YYYY/MM/DD/slug/ and, for links from the old WordPress
+  // export, at /YYYY-MM-DD-slug/ as well.
+  const byDate = posts.map(post => ({
+    params: { slug: postPath(post.id).slice(1, -1) },
+    props: { post },
+  }));
+  const byFileName = posts.map(post => ({
+    params: { slug: post.slug },
+    props: { post },
+  }));
+  const pages = getPageNumbers(posts.length).map(n => ({
+    params: { slug: `posts/${n}` },
+    props: { page: n },
   }));
 
-  return [...postResult, ...postResultWithDashesOnly, ...pagePaths];
+  return [...byDate, ...byFileName, ...pages];
 }
 
-const { post } = Astro.props;
-const { slug } = Astro.params;
+interface Props {
+  post?: CollectionEntry<"blog">;
+  page?: number;
+}
 
-const posts = await getCollection("blog");
-
-const formatFunction = formatJekyllPost();
-const postResults = posts.map(formatFunction);
-
-const sortedPosts = getSortedPosts(postResults);
-
-const pageNumber = parseInt(slug.split("/")[1], 10);
-
-const pagination = getPagination({
-  posts: sortedPosts,
-  page: pageNumber,
-});
-
-const isEmptyObject = (obj: any) =>
-  !obj ? true : Object.keys(obj).length === 0;
+const { post, page } = Astro.props;
+const all = await getPosts();
+const pagination = post ? null : getPagination({ posts: all, page: page ?? 1 });
 ---
 
-{!isEmptyObject(post) ? <PostDetails post={post} /> : <Posts {...pagination} />}
+{post ? <PostDetails post={post} /> : <Posts {...pagination!} />}
