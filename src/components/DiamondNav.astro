@@ -20,12 +20,15 @@ const QUADS = [
       {
         QUADS.map((q, i) => (
           <a class="q" href={q.href}>
-            <svg class="q-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round">
-              <path d={ARROWS[i]} />
-            </svg>
-            <span class="q-l">
-              <b>{q.label}</b>
-              <small>{q.small}</small>
+            {/* The face moves on hover; the link itself stays put so the pointer never slips off its edge. */}
+            <span class="q-face">
+              <svg class="q-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" aria-hidden="true">
+                <path d={ARROWS[i]} />
+              </svg>
+              <span class="q-l">
+                <b>{q.label}</b>
+                <small>{q.small}</small>
+              </span>
             </span>
           </a>
         ))

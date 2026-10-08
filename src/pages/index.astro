@@ -158,25 +158,77 @@ const ARROW = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke
     });
   }
 
-  // The diamond leans toward the pointer.
+  // The diamond leans toward the pointer on a spring. The pointer only sets a target; one
+  // animation frame loop eases toward it, so the motion is smooth however unevenly mouse
+  // events arrive, and it settles back with a little give when the pointer leaves.
   const dia = document.getElementById("dia");
-  if (dia && !reduce && matchMedia("(pointer: fine)").matches) {
-    const stage = dia.parentElement!;
+  const stage = dia?.parentElement;
+  if (dia && stage && !reduce && matchMedia("(pointer: fine)").matches) {
+    const MAX_TILT = 11; // degrees at the stage edge
+    const STIFFNESS = 120;
+    const DAMPING = 15; // about 0.7 of critical: one soft overshoot, no wobble
+    const target = { x: 0, y: 0 };
+    const angle = { x: 0, y: 0 };
+    const speed = { x: 0, y: 0 };
+    let box = stage.getBoundingClientRect();
+    let frame = 0;
+    let last = 0;
+    const tick = (now: number) => {
+      const dt = Math.min(0.032, (now - last) / 1000);
+      last = now;
+      for (const k of ["x", "y"] as const) {
+        speed[k] += (STIFFNESS * (target[k] - angle[k]) - DAMPING * speed[k]) * dt;
+        angle[k] += speed[k] * dt;
+      }
+      dia.style.transform = `rotateX(${angle.y.toFixed(3)}deg) rotateY(${angle.x.toFixed(3)}deg)`;
+      const moving = Math.abs(target.x - angle.x) + Math.abs(target.y - angle.y) + Math.abs(speed.x) + Math.abs(speed.y) > 0.02;
+      frame = moving ? requestAnimationFrame(tick) : 0;
+    };
+    const run = () => {
+      if (frame) return;
+      last = performance.now();
+      frame = requestAnimationFrame(tick);
+    };
+    const measure = () => (box = stage.getBoundingClientRect());
+    stage.addEventListener("pointerenter", measure);
+    addEventListener("scroll", measure, { passive: true });
+    addEventListener("resize", measure);
     stage.addEventListener("pointermove", e => {
-      const r = stage.getBoundingClientRect();
-      const x = (e.clientX - r.left) / r.width - 0.5;
-      const y = (e.clientY - r.top) / r.height - 0.5;
-      dia.style.transform = `rotateY(${x * 16}deg) rotateX(${-y * 16}deg)`;
+      target.x = ((e.clientX - box.left) / box.width - 0.5) * 2 * MAX_TILT;
+      target.y = -((e.clientY - box.top) / box.height - 0.5) * 2 * MAX_TILT;
+      run();
     });
-    stage.addEventListener("pointerleave", () => (dia.style.transform = ""));
+    stage.addEventListener("pointerleave", () => {
+      target.x = target.y = 0;
+      run();
+    });
   }
 
-  // The PK tile spins the corners and throws confetti.
-  document.querySelector(".dia-pk")?.addEventListener("click", e => {
-    if (!dia) return;
-    dia.classList.remove("spin");
-    void dia.offsetWidth;
-    dia.classList.add("spin");
+  // The PK tile turns a full circle on a spring (each click adds a turn, so fast clicks keep
+  // spinning instead of restarting), the corners breathe out and back, and confetti flies.
+  const pk = document.querySelector<HTMLElement>(".dia-pk");
+  let turns = 0;
+  pk?.addEventListener("click", e => {
+    turns += 1;
+    pk.style.rotate = `${45 + turns * 360}deg`;
+    if (!reduce && dia) {
+      const ease = getComputedStyle(pk).getPropertyValue("--pop-ease").trim() || "ease-out";
+      dia.querySelectorAll<HTMLElement>(".q-face").forEach((face, i) => {
+        if (face.getAnimations().some(a => a.id === "breathe")) return;
+        const q = getComputedStyle(face.parentElement!);
+        const ox = Number(q.getPropertyValue("--ox"));
+        const oy = Number(q.getPropertyValue("--oy"));
+        const a = face.animate(
+          [
+            { transform: "translate3d(0, 0, 0)", easing: "cubic-bezier(0.2, 0.7, 0.3, 1)" },
+            { transform: `translate3d(${ox * 22}px, ${oy * 22}px, 36px)`, offset: 0.26, easing: ease },
+            { transform: "translate3d(0, 0, 0)" },
+          ],
+          { duration: 1000, delay: i * 45, composite: "add" }
+        );
+        a.id = "breathe";
+      });
+    }
     const ev = e as MouseEvent;
     burst(ev.clientX, ev.clientY, 20);
   });
