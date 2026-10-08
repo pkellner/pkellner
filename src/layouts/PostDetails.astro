@@ -1,5 +1,5 @@
 ---
-import type { CollectionEntry } from "astro:content";
+import { render, type CollectionEntry } from "astro:content";
 import Layout from "@layouts/Layout.astro";
 import Cover from "@components/Cover.astro";
 import PostCard from "@components/PostCard.astro";
@@ -14,7 +14,7 @@ export interface Props {
 }
 
 const { post } = Astro.props;
-const { Content, headings } = await post.render();
+const { Content, headings } = await render(post);
 
 const all = await getPosts();
 const view = all.find(p => p.id === post.id) ?? toView(post);

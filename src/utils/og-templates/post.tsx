@@ -46,8 +46,8 @@ function renderWithImages(
       {/* Image collage section - top 65% */}
       <div
         style={{
+          // No width: the row stretches to fit. width 100% plus padding overflows in newer satori.
           display: "flex",
-          width: "100%",
           height: "65%",
           gap: "24px",
           padding: "16px 16px 8px 16px",
@@ -78,7 +78,9 @@ function renderWithImages(
           <>
             <div
               style={{
-                width: "50%",
+                // Share the row; 50% columns plus the gap overflow in newer satori.
+                flex: 1,
+                minWidth: 0,
                 height: "100%",
                 display: "flex",
                 borderRadius: "12px",
@@ -97,7 +99,9 @@ function renderWithImages(
             </div>
             <div
               style={{
-                width: "50%",
+                // Share the row; 50% columns plus the gap overflow in newer satori.
+                flex: 1,
+                minWidth: 0,
                 height: "100%",
                 display: "flex",
                 borderRadius: "12px",
@@ -120,7 +124,9 @@ function renderWithImages(
           <>
             <div
               style={{
-                width: "50%",
+                // Share the row; 50% columns plus the gap overflow in newer satori.
+                flex: 1,
+                minWidth: 0,
                 height: "100%",
                 display: "flex",
                 borderRadius: "12px",
@@ -139,7 +145,9 @@ function renderWithImages(
             </div>
             <div
               style={{
-                width: "50%",
+                // Share the row; 50% columns plus the gap overflow in newer satori.
+                flex: 1,
+                minWidth: 0,
                 height: "100%",
                 display: "flex",
                 flexDirection: "column",
@@ -224,7 +232,7 @@ function renderWithImages(
             width: "100%",
           }}
         >
-          <span style={{ fontSize: 22, color: "#94a3b8", minWidth: "180px" }}>
+          <span style={{ fontSize: 22, color: "#94a3b8", minWidth: "180px", flexShrink: 0 }}>
             {pubDate ? pubDate.toLocaleDateString("en-US", {
               year: "numeric",
               month: "long",
@@ -251,7 +259,7 @@ function renderWithImages(
             ))}
           </div>
 
-          <span style={{ fontWeight: "bold", color: "#ffffff", fontSize: 22, minWidth: "180px", textAlign: "right" }}>
+          <span style={{ fontWeight: "bold", color: "#ffffff", fontSize: 22, minWidth: "180px", textAlign: "right", flexShrink: 0 }}>
             {SITE.title}
           </span>
         </div>
@@ -337,11 +345,11 @@ function renderTitleCard(
           justifyContent: "space-between",
           alignItems: "center",
           padding: "20px 40px",
-          width: "100%",
+          // No width: width 100% plus padding overflows in newer satori.
           position: "relative",
         }}
       >
-        <span style={{ fontSize: 22, color: "#94a3b8", minWidth: "180px" }}>
+        <span style={{ fontSize: 22, color: "#94a3b8", minWidth: "180px", flexShrink: 0 }}>
           {pubDate ? pubDate.toLocaleDateString("en-US", {
             year: "numeric",
             month: "long",
@@ -372,7 +380,7 @@ function renderTitleCard(
           <div style={{ flex: 1 }} />
         )}
 
-        <span style={{ fontWeight: "bold", color: "#ffffff", fontSize: 22, minWidth: "180px", textAlign: "right" }}>
+        <span style={{ fontWeight: "bold", color: "#ffffff", fontSize: 22, minWidth: "180px", textAlign: "right", flexShrink: 0 }}>
           {SITE.title}
         </span>
       </div>

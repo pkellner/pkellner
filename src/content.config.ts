@@ -1,20 +1,21 @@
-// import { SITE } from "@config";
-import { defineCollection, z } from "astro:content";
+import { defineCollection } from "astro:content";
+import { glob } from "astro/loaders";
+import { z } from "astro/zod";
 
 const blog = defineCollection({
-  type: "content",
+  loader: glob({ pattern: "**/[^_]*.md", base: "./src/content/blog" }),
   schema: ({ image }) =>
     z.object({
       author: z
         .object({
           display_name: z.string(),
           login: z.string(),
-          email: z.string().email(),
+          email: z.email(),
           url: z.string().optional(),
           author_login: z.string().optional(),
-          author_email: z.string().email().optional(),
+          author_email: z.email().optional(),
           wordpress_id: z.number().optional(),
-          wordpress_url: z.string().url().optional(),
+          wordpress_url: z.url().optional(),
         })
         .default({
           display_name: "Peter Kellner",
@@ -22,7 +23,7 @@ const blog = defineCollection({
           email: "peter@peterkellner.net",
           url: "",
         }),
-      pubDatetime: z.date().optional(), // This is already required by default as no .optional() or .nullable() is applied
+      pubDatetime: z.date().optional(),
       modDatetime: z.date().optional().nullable(),
       title: z.string(),
       featured: z.boolean().optional(),
@@ -32,25 +33,23 @@ const blog = defineCollection({
       categories: z.array(z.coerce.string()).optional(),
       ogImage: image()
         .refine(img => img.width >= 1200 && img.height >= 630, {
-          message: "OpenGraph image must be at least 1200 X 630 pixels!",
+          error: "OpenGraph image must be at least 1200 X 630 pixels!",
         })
         .or(z.string())
         .optional(),
-      description: z.string().optional(), // This is already required by default as no .optional() or .nullable() is applied
+      description: z.string().optional(),
       canonicalURL: z.string().optional(),
       permalink: z.string().optional(),
       date: z
         .string()
         .optional()
-        .transform((str) => str ? new Date(str) : undefined),
+        .transform(str => (str ? new Date(str) : undefined)),
       pubDate: z
         .string()
         .or(z.date())
         .optional()
-        .transform((val) => val ? new Date(val) : undefined),
+        .transform(val => (val ? new Date(val) : undefined)),
     }),
-
 });
-
 
 export const collections = { blog };

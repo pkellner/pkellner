@@ -15,6 +15,11 @@ import {
 export { postsWithTopic, topicCounts, type TopicCount } from "./posts";
 
 /** What every card, row and list needs to know about a post, computed once per build. */
+/** The post's file name, e.g. "2024-12-31-my-post.md". Its URL comes from this. */
+export function fileNameOf(entry: CollectionEntry<"blog">): string {
+  return (entry.filePath ?? entry.id).split("/").pop()!;
+}
+
 export interface PostView {
   id: string;
   url: string;
@@ -32,7 +37,7 @@ export function toView(entry: CollectionEntry<"blog">): PostView {
   const topics = topicsOf(entry.data);
   return {
     id: entry.id,
-    url: postPath(entry.id),
+    url: postPath(fileNameOf(entry)),
     title: decodeEntities(entry.data.title),
     date: publishedAt(entry.data),
     topics,

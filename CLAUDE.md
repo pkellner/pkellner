@@ -8,12 +8,14 @@ This is Peter Kellner's personal blog built with AstroPaper theme (v4.4.0), a mi
 
 ## Key Technologies
 
-- **Framework**: Astro 5.12.0 (Static Site Generator)
-- **Languages**: TypeScript, JavaScript, CSS
-- **UI Components**: React 18.2.0, AlpineJS 3.13.5
-- **Styling**: TailwindCSS 3.4.1 with Typography plugin
-- **Search**: FuseJS for fuzzy search
-- **Image Generation**: Dynamic OG images using Satori
+- **Framework**: Astro 7 (static site generator, Vite 8); requires Node 22.12+ (`.nvmrc` pins 24)
+- **Languages**: TypeScript 6, JavaScript, CSS
+- **Content**: content collection with the `glob()` loader, configured in `src/content.config.ts`
+- **Markdown**: remark/rehype pipeline via `unified()` from `@astrojs/markdown-remark` in `astro.config.ts`
+- **Styling**: hand-written theme in `src/styles/base.css` on Tailwind CSS 4 (`@tailwindcss/vite`)
+- **Search**: `/search-index.json` plus a small built-in matcher (`src/utils/search.ts`)
+- **Image Generation**: Dynamic OG images using Satori + React 19 (`src/utils/og-templates/`), cached in `public/og-cache/`
+- **Tests**: Vitest 5
 
 ## Common Development Commands
 

@@ -5,7 +5,7 @@ import PostDetails from "@layouts/PostDetails.astro";
 import getPageNumbers from "@utils/getPageNumbers";
 import getPagination from "@utils/getPagination";
 import getSortedPosts from "@utils/getSortedPosts";
-import { getPosts } from "@utils/collection";
+import { fileNameOf, getPosts } from "@utils/collection";
 import { postPath } from "@utils/posts";
 
 export async function getStaticPaths() {
@@ -14,11 +14,11 @@ export async function getStaticPaths() {
   // Each post lives at /YYYY/MM/DD/slug/ and, for links from the old WordPress
   // export, at /YYYY-MM-DD-slug/ as well.
   const byDate = posts.map(post => ({
-    params: { slug: postPath(post.id).slice(1, -1) },
+    params: { slug: postPath(fileNameOf(post)).slice(1, -1) },
     props: { post },
   }));
   const byFileName = posts.map(post => ({
-    params: { slug: post.slug },
+    params: { slug: post.id },
     props: { post },
   }));
   const pages = getPageNumbers(posts.length).map(n => ({

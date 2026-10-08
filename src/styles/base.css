@@ -3,8 +3,7 @@
    colors, every object a rounded tile with an ink outline and a hard shadow, diamonds as the
    recurring mark, and a diamond-shaped wipe between pages (cross-document view transitions). */
 
-@tailwind base;
-@tailwind components;
+@import "tailwindcss";
 
 /* Layout concept: the PK logo diamond as the system. Color-blocked bands in the four logo
    colors, every object a rounded tile with an ink outline and a hard shadow, diamonds as the
@@ -718,4 +717,3 @@ html { scroll-padding-top: 90px; }
 .pk-prose .csharpcode .preproc, .pk-prose .csharpcode .asp { color: #c792ea; }
 .pk-prose .wlWriterSmartContent, .pk-prose .wlWriterEditableSmartContent { margin-block: 1.4em; }
 
-@tailwind utilities;

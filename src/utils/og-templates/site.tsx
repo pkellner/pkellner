@@ -31,6 +31,8 @@ export default () => {
 
       <div
         style={{
+          // Positioned so it paints above the absolute shadow box, as it did in older satori.
+          position: "relative",
           border: "4px solid #000",
           background: "#fefbfb",
           borderRadius: "4px",

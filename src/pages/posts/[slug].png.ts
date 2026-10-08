@@ -53,7 +53,7 @@ export const GET: APIRoute = async ({ props }) => {
   // Paths
   const contentDir = path.join(process.cwd(), "src", "content", "blog");
   const publicDir = path.join(process.cwd(), "public");
-  const sourceFile = path.join(contentDir, post.id);
+  const sourceFile = post.filePath ? path.join(process.cwd(), post.filePath) : path.join(contentDir, `${post.id}.md`);
   const cacheFile = path.join(CACHE_DIR, `${slug}.png`);
 
   // Check if we have a valid cached version
