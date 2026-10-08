@@ -8,7 +8,7 @@ export interface Props {
 const { course } = Astro.props;
 ---
 
-<a class="card course" href={course.url} target="_blank" rel="noopener">
+<a class="card course" href={course.url} rel="noopener">
   <img src={course.image} alt="" width="640" height="400" loading="lazy" decoding="async" />
   <div class="course-b">
     <h3>{course.title}</h3>

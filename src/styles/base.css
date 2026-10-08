@@ -721,6 +721,49 @@ html.pk-cin::before {
   content: "PK"; position: fixed; left: calc(50% - 46px); top: calc(50% - 46px); z-index: 9999; pointer-events: none;
   animation: pk-tile-out 0.45s cubic-bezier(.5,0,.75,0) forwards;
 }
+
+/* ---------- departure screen: covers the wait while another site loads ---------- */
+.pk-depart {
+  position: fixed; inset: 0; z-index: 9999; display: grid; place-items: center; padding: 16px;
+  background: var(--band-ink); color: var(--on-ink);
+  background-image: radial-gradient(rgba(255, 255, 255, 0.07) 1.5px, transparent 1.7px); background-size: 22px 22px;
+  animation: pk-depart-in 0.5s cubic-bezier(.7,0,.3,1) both;
+}
+@keyframes pk-depart-in {
+  from { clip-path: polygon(var(--dx) var(--dy), var(--dx) var(--dy), var(--dx) var(--dy), var(--dx) var(--dy)); }
+  to { clip-path: polygon(var(--dx) calc(var(--dy) - 300vmax), calc(var(--dx) + 300vmax) var(--dy), var(--dx) calc(var(--dy) + 300vmax), calc(var(--dx) - 300vmax) var(--dy)); }
+}
+.pk-depart-card {
+  width: min(420px, 100%); display: grid; justify-items: center; gap: 6px; text-align: center;
+  background: var(--surface); color: var(--fg); border: 2px solid var(--line); border-radius: 24px;
+  box-shadow: 8px 8px 0 var(--amber); padding: 30px 26px 26px;
+  animation: pk-card-in 0.5s var(--spring) 0.18s backwards;
+}
+@keyframes pk-card-in { from { opacity: 0; transform: translateY(18px) scale(0.92) rotate(-2deg); } }
+.pk-depart-tile {
+  display: grid; place-items: center; width: 58px; height: 58px; margin-bottom: 10px; border-radius: 22%;
+  background: #ffffff; color: #10131c; border: 2px solid #10131c; box-shadow: 4px 4px 0 #10131c;
+  font: 900 19px/1 var(--display); font-stretch: 125%; letter-spacing: -0.06em;
+  animation: pk-tile-wave 1.6s ease-in-out infinite;
+}
+@keyframes pk-tile-wave { 50% { transform: rotate(-8deg) translateY(-3px); } }
+.pk-depart-from { font: 600 0.7rem var(--mono); letter-spacing: 0.08em; text-transform: uppercase; color: var(--fg-2); }
+.pk-depart-to { font: 800 clamp(1.3rem, 4vw, 1.7rem)/1.15 var(--display); font-stretch: 112%; letter-spacing: -0.035em; text-wrap: balance; }
+.pk-depart-host { font: 500 0.8rem var(--mono); color: var(--fg-2); word-break: break-all; }
+.pk-depart-bar { position: relative; width: 100%; height: 6px; margin-top: 16px; border-radius: 99px; overflow: hidden; background: var(--bg-2); }
+.pk-depart-bar i {
+  position: absolute; inset: 0; width: 45%; border-radius: inherit;
+  background: linear-gradient(90deg, var(--red) 0 25%, var(--amber) 25% 50%, var(--green) 50% 75%, var(--blue) 75%);
+  animation: pk-bar 1.1s cubic-bezier(.65,0,.35,1) infinite;
+}
+@keyframes pk-bar { from { transform: translateX(-100%); } to { transform: translateX(225%); } }
+.pk-depart-slow { display: grid; gap: 10px; margin-top: 16px; font-size: 0.9rem; color: var(--fg-2); }
+.pk-depart-slow div { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+@media (prefers-reduced-motion: reduce) {
+  .pk-depart, .pk-depart-card, .pk-depart-tile { animation: none; }
+  .pk-depart-bar i { animation-duration: 2.4s; }
+}
+
 @keyframes pk-curtain-out { to { clip-path: polygon(50% 50%, 50% 50%, 50% 50%, 50% 50%); } }
 @keyframes pk-tile-out { to { scale: 0; rotate: 180deg; opacity: 0; } }
 

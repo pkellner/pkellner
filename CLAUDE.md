@@ -10,7 +10,7 @@ This is Peter Kellner's personal blog built with AstroPaper theme (v4.4.0), a mi
 
 - **Framework**: Astro 7 (static site generator, Vite 8); requires Node 22.12+ (`.nvmrc` pins 24)
 - **Languages**: TypeScript 6, JavaScript, CSS
-- **Transitions**: native cross-document view transitions where supported, a diamond-curtain fallback elsewhere (`src/scripts/transitions.ts`)
+- **Transitions** (`src/scripts/transitions.ts`): native cross-document view transitions where supported, a diamond-curtain fallback elsewhere, and a departure screen for links to other sites (covers slow redirects such as Pluralsight affiliate links; "Stay here" or Esc cancels). Theme links to other sites open in the same tab; share buttons and links inside posts open new tabs.
 - **Content**: content collection with the `glob()` loader, configured in `src/content.config.ts`
 - **Markdown**: remark/rehype pipeline via `unified()` from `@astrojs/markdown-remark` in `astro.config.ts`
 - **Styling**: hand-written theme in `src/styles/base.css` on Tailwind CSS 4 (`@tailwindcss/vite`)

@@ -120,3 +120,117 @@ addEventListener("pageshow", e => {
   document.querySelectorAll(".pk-curtain").forEach(el => el.remove());
   document.querySelectorAll<HTMLElement>(".pc-cover").forEach(c => (c.style.viewTransitionName = ""));
 });
+
+// ---------- leaving the site ----------
+// External links (Pluralsight, Microsoft MVP, GitHub...) can sit on a redirect chain for
+// seconds. The browser navigates as usual (no delay, no iframe); this only covers the
+// wait with a departure screen, warms up connections on intent, and offers a way out.
+
+const SITE_NAMES: Record<string, string> = {
+  "pluralsight.pxf.io": "Pluralsight",
+  "pluralsight.com": "Pluralsight",
+  "app.pluralsight.com": "Pluralsight",
+  "mvp.microsoft.com": "Microsoft MVP",
+  "siliconvalley-codecamp.com": "Silicon Valley Code Camp",
+  "github.com": "GitHub",
+  "linkedin.com": "LinkedIn",
+  "x.com": "X",
+  "techhub.social": "Mastodon",
+  "youtube.com": "YouTube",
+};
+/** Where known redirectors end up, so we can warm up the final site too. */
+const REDIRECT_TARGETS: Record<string, string> = {
+  "pluralsight.pxf.io": "https://www.pluralsight.com",
+};
+
+const bareHost = (h: string) => h.replace(/^www\./, "");
+export const siteName = (host: string) => SITE_NAMES[bareHost(host)] ?? bareHost(host);
+
+function isOutbound(a: HTMLAnchorElement): boolean {
+  return /^https?:$/.test(a.protocol) && a.origin !== location.origin && (!a.target || a.target === "_self") && !a.hasAttribute("download");
+}
+
+const warmed = new Set<string>();
+function warmUp(a: HTMLAnchorElement) {
+  for (const origin of [a.origin, REDIRECT_TARGETS[a.host]]) {
+    if (!origin || warmed.has(origin)) continue;
+    warmed.add(origin);
+    const link = document.createElement("link");
+    link.rel = "preconnect";
+    link.href = origin;
+    document.head.appendChild(link);
+  }
+}
+for (const type of ["pointerenter", "touchstart", "focusin"]) {
+  document.addEventListener(
+    type,
+    e => {
+      const a = (e.target as Element).closest?.<HTMLAnchorElement>("a[href]");
+      if (a && isOutbound(a)) warmUp(a);
+    },
+    { capture: true, passive: true }
+  );
+}
+
+let departTimer = 0;
+function closeDeparture() {
+  clearTimeout(departTimer);
+  document.querySelector(".pk-depart")?.remove();
+}
+
+function showDeparture(a: HTMLAnchorElement, x: number, y: number) {
+  closeDeparture();
+  const name = siteName(a.host);
+  const el = document.createElement("div");
+  el.className = "pk-depart";
+  el.setAttribute("role", "status");
+  el.setAttribute("aria-live", "polite");
+  el.style.setProperty("--dx", `${x}px`);
+  el.style.setProperty("--dy", `${y}px`);
+  el.innerHTML = `<div class="pk-depart-card">
+      <span class="pk-depart-tile" aria-hidden="true">PK</span>
+      <p class="pk-depart-from">Leaving PeterKellner.net</p>
+      <p class="pk-depart-to">Opening <b></b></p>
+      <p class="pk-depart-host"></p>
+      <div class="pk-depart-bar" aria-hidden="true"><i></i></div>
+      <div class="pk-depart-slow" hidden>
+        <p>This site is taking a while.</p>
+        <div><a class="btn btn--sm btn--blue" rel="noopener">Try again</a><button class="btn btn--sm" type="button">Stay here</button></div>
+      </div>
+    </div>`;
+  el.querySelector("b")!.textContent = name;
+  // Show where the visitor ends up, not the affiliate redirect in between.
+  el.querySelector(".pk-depart-host")!.textContent = bareHost(new URL(REDIRECT_TARGETS[a.host] ?? a.href).host);
+  el.querySelector<HTMLAnchorElement>(".pk-depart-slow a")!.href = a.href;
+  el.querySelector(".pk-depart-slow button")!.addEventListener("click", () => {
+    window.stop();
+    closeDeparture();
+  });
+  document.body.appendChild(el);
+  departTimer = window.setTimeout(() => {
+    const slow = el.querySelector<HTMLElement>(".pk-depart-slow");
+    if (slow) slow.hidden = false;
+  }, 6000);
+}
+
+document.addEventListener("click", e => {
+  if (e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+  const a = (e.target as Element).closest<HTMLAnchorElement>("a[href]");
+  if (!a || !isOutbound(a) || a.closest(".pk-depart")) return;
+  warmUp(a);
+  const { x, y } = clickPoint(e, a);
+  // Let the browser navigate normally; the screen just covers the wait.
+  showDeparture(a, x, y);
+});
+
+document.addEventListener("keydown", e => {
+  if (e.key === "Escape" && document.querySelector(".pk-depart")) {
+    window.stop();
+    closeDeparture();
+  }
+});
+
+// Back from the other site: this page may come back from memory with the screen up.
+addEventListener("pageshow", e => {
+  if (e.persisted) closeDeparture();
+});

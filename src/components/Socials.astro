@@ -7,7 +7,7 @@ const TILT = ["-6deg", "4deg", "-3deg", "5deg", "-4deg"];
 <div class="socials">
   {
     SOCIALS.map((s, i) => (
-      <a class="soc" href={s.href} rel="me noopener" target="_blank" aria-label={s.name} style={`--c:${s.color};--r:${TILT[i % TILT.length]}`}>
+      <a class="soc" href={s.href} rel="me noopener" aria-label={s.name} style={`--c:${s.color};--r:${TILT[i % TILT.length]}`}>
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" set:html={s.icon} />
       </a>
     ))

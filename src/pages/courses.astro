@@ -24,7 +24,7 @@ const EXT = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-w
                   <summary class="chip">Read more</summary>
                   <p style="margin-top:12px">{c.long}</p>
                 </details>
-                <a class={`btn btn--sm btn--${c.color}`} style="margin-top:auto;align-self:flex-start" href={c.url} target="_blank" rel="noopener">
+                <a class={`btn btn--sm btn--${c.color}`} style="margin-top:auto;align-self:flex-start" href={c.url} rel="noopener">
                   Watch on Pluralsight <Fragment set:html={EXT} />
                 </a>
               </div>
@@ -37,7 +37,7 @@ const EXT = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-w
             <h2 class="h2">GraphQL, .NET, Ext JS and more<span style="color:var(--amber)">.</span></h2>
             <p>The full catalog lives on my Pluralsight author page.</p>
           </div>
-          <a class="btn btn--amber" href={PLURALSIGHT_PROFILE} target="_blank" rel="noopener">View all 19 courses <Fragment set:html={EXT} /></a>
+          <a class="btn btn--amber" href={PLURALSIGHT_PROFILE} rel="noopener">View all 19 courses <Fragment set:html={EXT} /></a>
         </div>
       </div>
     </div>
