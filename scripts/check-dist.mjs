@@ -42,6 +42,9 @@ const PAGES = [
   "sitemap-index.xml",
 ];
 for (const p of PAGES) check(`page exists: /${p}`, exists(p));
+for (const p of PAGES.filter(p => p.endsWith(".html") && exists(p))) {
+  check(`footer links 73rdstreet.com: /${p}`, read(p).includes('href="https://73rdstreet.com/"'));
+}
 
 // ---------- drafts ----------
 const drafts = fs
