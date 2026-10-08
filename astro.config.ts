@@ -1,9 +1,6 @@
 import { defineConfig } from "astro/config";
 import tailwindcss from "@tailwindcss/vite";
 import { unified } from "@astrojs/markdown-remark";
-import react from "@astrojs/react";
-import remarkToc from "remark-toc";
-import remarkCollapse from "remark-collapse";
 import rehypeExternalLinks from "rehype-external-links";
 import sitemap from "@astrojs/sitemap";
 import { SITE } from "./src/config";
@@ -12,13 +9,15 @@ import { SITE } from "./src/config";
 // https://astro.build/config
 export default defineConfig({
   site: SITE.website,
-  integrations: [react(), sitemap()],
+  integrations: [sitemap()],
+  // Fetch pages when a link is hovered or touched, so the next page is ready
+  // by the time the transition finishes.
+  prefetch: { prefetchAll: true, defaultStrategy: "hover" },
   // Astro 7 defaults to "jsx"-style whitespace; keep the HTML output as before.
   compressHTML: true,
   markdown: {
     // The remark/rehype pipeline, which these plugins need in Astro 7.
     processor: unified({
-      remarkPlugins: [remarkToc, [remarkCollapse, { test: "Table of contents" }]],
       rehypePlugins: [
         [rehypeExternalLinks, { target: "_blank", rel: ["noopener", "noreferrer"] }],
       ],

@@ -1,35 +1,77 @@
 name: Deploy to GitHub Pages
 
+# A push to astroprod builds, tests and deploys peterkellner.net.
+# Pull requests into astroprod run the same build and tests without deploying.
 on:
-  # Trigger the workflow every time you push to the `main` branch
-  # Using a different branch name? Replace `main` with your branch’s name
   push:
-    branches: [ astroprod ]
-  # Allows you to run this workflow manually from the Actions tab on GitHub.
+    branches: [astroprod]
+  pull_request:
+    branches: [astroprod]
   workflow_dispatch:
 
-# Allow this job to clone the repo and create a page deployment
 permissions:
   contents: read
-  pages: write
-  id-token: write
+
+# One deploy at a time. A newer push waits for the running deploy instead of
+# cancelling it halfway; pull requests cancel their own stale runs.
+concurrency:
+  group: pages-${{ github.event_name == 'pull_request' && github.ref || 'deploy' }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
 
 jobs:
   build:
+    name: Build and test
     runs-on: ubuntu-latest
+    timeout-minutes: 20
     steps:
-      - name: Checkout your repository using git
-        uses: actions/checkout@v7
-      - name: Install, build, and upload your site
-        uses: withastro/action@v6
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-node@v7
         with:
-          # Astro 7 needs Node 22.12 or newer.
-          node-version: 24
-          package-manager: npm
+          node-version-file: .nvmrc
+          cache: npm
+
+      - name: Install
+        run: npm ci
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Unit tests
+        run: npm test
+
+      # Astro's content store and any OG images generated for new posts carry over
+      # between runs, so builds only redo what changed.
+      - name: Restore build cache
+        uses: actions/cache@v6
+        with:
+          path: |
+            node_modules/.astro
+            public/og-cache
+          key: astro-${{ hashFiles('package-lock.json') }}-${{ github.sha }}
+          restore-keys: astro-${{ hashFiles('package-lock.json') }}-
+
+      - name: Build
+        run: npm run build
+
+      - name: Check the built site
+        run: npm run test:dist
+
+      - name: Upload site
+        if: github.event_name != 'pull_request'
+        uses: actions/upload-pages-artifact@v5
+        with:
+          path: dist
 
   deploy:
+    name: Deploy
+    if: github.event_name != 'pull_request'
     needs: build
     runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      pages: write
+      id-token: write
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}

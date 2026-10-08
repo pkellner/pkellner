@@ -93,10 +93,17 @@ check("every RSS link has a page", deadRss.length === 0, deadRss.slice(0, 5).joi
 // ---------- facts ----------
 const about = read("about/index.html");
 check("about: 73rd Street founded 1985", about.includes("1985") && !about.includes("1990"));
+check("about: shows the deploy date", /Site deployed <time[^>]*datetime="\d{4}-\d{2}-\d{2}T/.test(about));
 check("home: no 1990 founding date", !home.includes("1990"));
 const tl = about.slice(about.indexOf('class="tl'), about.indexOf("</ol>", about.indexOf('class="tl')));
 const timeline = [...tl.matchAll(/class="yr[^"]*"[^>]*>([^<]+)</g)].map(m => m[1].trim());
 check("about timeline is newest first", timeline[0] === "Now" && timeline.includes("1985") && timeline.indexOf("2000") < timeline.indexOf("1985"), timeline.join(" > "));
+
+// ---------- fonts are self-hosted ----------
+check("no third-party font requests", !home.includes("fonts.googleapis.com") && !about.includes("fonts.gstatic.com"));
+const css = fs.readdirSync(path.join(DIST, "_astro")).filter(f => f.endsWith(".css")).map(f => read(`_astro/${f}`)).join("\n");
+const fontUrls = [...new Set([...css.matchAll(/url\((\/fonts\/[^)]+)\)/g)].map(m => m[1]))];
+check("every font file the CSS uses exists", fontUrls.length >= 6 && fontUrls.every(u => exists(u.slice(1))), `${fontUrls.length} fonts`);
 
 // ---------- internal links ----------
 function htmlFiles(dir) {

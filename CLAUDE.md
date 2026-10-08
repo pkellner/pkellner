@@ -10,11 +10,12 @@ This is Peter Kellner's personal blog built with AstroPaper theme (v4.4.0), a mi
 
 - **Framework**: Astro 7 (static site generator, Vite 8); requires Node 22.12+ (`.nvmrc` pins 24)
 - **Languages**: TypeScript 6, JavaScript, CSS
+- **Transitions**: native cross-document view transitions where supported, a diamond-curtain fallback elsewhere (`src/scripts/transitions.ts`)
 - **Content**: content collection with the `glob()` loader, configured in `src/content.config.ts`
 - **Markdown**: remark/rehype pipeline via `unified()` from `@astrojs/markdown-remark` in `astro.config.ts`
 - **Styling**: hand-written theme in `src/styles/base.css` on Tailwind CSS 4 (`@tailwindcss/vite`)
 - **Search**: `/search-index.json` plus a small built-in matcher (`src/utils/search.ts`)
-- **Image Generation**: Dynamic OG images using Satori + React 19 (`src/utils/og-templates/`), cached in `public/og-cache/`
+- **Image Generation**: Dynamic OG images using Satori with JSX templates (`src/utils/og-templates/`), cached in `public/og-cache/`
 - **Tests**: Vitest 5
 
 ## Common Development Commands
@@ -45,14 +46,15 @@ npm test
 # pages exist, lists are newest first, drafts hidden, theme links resolve
 npm run test:dist
 
+# Everything CI runs before a deploy: lint, unit tests, build, dist checks
+npm run verify
+
 # Format code (no npm script, use directly)
 npx prettier --write .
 
 # Sync Astro types
 npm run sync
 
-# Commit with commitizen
-npm run cz
 ```
 
 ## Architecture & Structure
@@ -90,7 +92,7 @@ npm run cz
 - ESLint configured with TypeScript support (flat config format)
 - Prettier with Astro and TailwindCSS plugins
 - Markdown linting with markdownlint
-- Use conventional commits (enforced via commitizen)
+- Use conventional commits (`feat:`, `fix:`, `build:`...)
 
 ### Testing Builds
 **IMPORTANT**: Always run both `npm run build` and `npm run dev` to ensure there are no errors or warnings before committing changes. Then run `npm test` and `npm run test:dist`.
@@ -154,6 +156,8 @@ Link key terms throughout posts for SEO:
 - **Tools**: `[HashiCorp Vault](https://www.vaultproject.io/)`
 
 ### Deployment
+- Pushing to `astroprod` deploys: `.github/workflows/deploy.yml` runs lint, unit tests, the build and the dist checks, and deploys only if all pass. Pull requests into `astroprod` run the same checks without deploying.
+- OG images are cached in `public/og-cache/` and keyed by `manifest.json` (a fingerprint of each post, its images and the template code), so builds only render images whose inputs changed. Commit new cache files with the post.
 - Site deploys to peterkellner.net
 - CNAME file configured for custom domain
 - Ensure all changes pass `npm run build` before committing

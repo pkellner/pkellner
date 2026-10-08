@@ -94,6 +94,8 @@ function main() {
   }
 
   console.log(`\n  Done! Converted: ${converted}, Failed: ${failed}\n`);
+  // A broken OG image should stop the build, not ship.
+  if (failed > 0) process.exitCode = 1;
 }
 
 main();

@@ -4,6 +4,7 @@
    recurring mark, and a diamond-shaped wipe between pages (cross-document view transitions). */
 
 @import "tailwindcss";
+@import "./fonts.css";
 
 /* Layout concept: the PK logo diamond as the system. Color-blocked bands in the four logo
    colors, every object a rounded tile with an ink outline and a hard shadow, diamonds as the
@@ -701,6 +702,28 @@ html { scroll-padding-top: 90px; }
 .pager .mono { font-size: 0.8rem; color: var(--fg-2); padding-inline: 8px; }
 .pager .btn[aria-disabled="true"] { opacity: 0.4; pointer-events: none; box-shadow: none; }
 .yr-group[hidden] { display: none; }
+
+/* ---------- diamond curtain: page transitions where native view transitions are missing ---------- */
+.pk-curtain { position: fixed; inset: 0; z-index: 9999; display: grid; place-items: center; clip-path: polygon(50% 50%, 50% 50%, 50% 50%, 50% 50%); pointer-events: all; }
+.pk-curtain span, html.pk-cin::before {
+  display: grid; place-items: center; width: 92px; height: 92px; border-radius: 22%;
+  background: #ffffff; border: 2px solid #10131c; box-shadow: 5px 5px 0 #10131c;
+  font: 900 30px/1 var(--display); font-stretch: 125%; letter-spacing: -0.06em; color: #10131c;
+}
+.pk-curtain span { animation: pk-tile-in 0.42s var(--spring) 0.12s backwards; }
+@keyframes pk-tile-in { from { scale: 0.2; rotate: -180deg; opacity: 0; } }
+html.pk-cin::after {
+  content: ""; position: fixed; inset: 0; z-index: 9998; pointer-events: none; background: var(--curtain, var(--blue));
+  clip-path: polygon(50% -100%, 200% 50%, 50% 200%, -100% 50%);
+  animation: pk-curtain-out 0.6s cubic-bezier(.65,0,.35,1) 0.08s forwards;
+}
+html.pk-cin::before {
+  content: "PK"; position: fixed; left: calc(50% - 46px); top: calc(50% - 46px); z-index: 9999; pointer-events: none;
+  animation: pk-tile-out 0.45s cubic-bezier(.5,0,.75,0) forwards;
+}
+@keyframes pk-curtain-out { to { clip-path: polygon(50% 50%, 50% 50%, 50% 50%, 50% 50%); } }
+@keyframes pk-tile-out { to { scale: 0; rotate: 180deg; opacity: 0; } }
+
 @media print { .top, .foot, .toc, .ribbon, .pal, .sheet, .deco { display: none !important; } body { background: #fff; color: #000; } }
 
 /* Windows Live Writer "CopySourceAsHtml" code from the 2006-2012 posts */

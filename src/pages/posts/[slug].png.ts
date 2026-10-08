@@ -6,6 +6,7 @@ import {
   extractImagesFromMarkdown,
   loadImagesForOg,
 } from "@utils/generateOgImages";
+import { createHash } from "node:crypto";
 import fs from "node:fs";
 import path from "node:path";
 import sharp from "sharp";
@@ -18,23 +19,28 @@ if (!fs.existsSync(CACHE_DIR)) {
   fs.mkdirSync(CACHE_DIR, { recursive: true });
 }
 
-/**
- * Check if cached image is still valid (exists and newer than source)
- */
-function isCacheValid(cacheFile: string, sourceFile: string): boolean {
-  if (!fs.existsSync(cacheFile)) {
-    return false;
+// The cache is keyed by content, not file times: a fresh git checkout (as on GitHub
+// Actions) gives every file a new timestamp, which made every image look stale.
+// manifest.json maps each image to a fingerprint of everything that shapes it.
+const MANIFEST = path.join(CACHE_DIR, "manifest.json");
+const manifest: Record<string, string> = fs.existsSync(MANIFEST) ? JSON.parse(fs.readFileSync(MANIFEST, "utf-8")) : {};
+const TEMPLATE_SOURCES = ["src/utils/generateOgImages.tsx", "src/utils/og-templates/post.tsx"]
+  .map(f => fs.readFileSync(path.join(process.cwd(), f), "utf-8"))
+  .join("\n");
+
+/** Fingerprint of the post's markdown, the images it shows and the template code. */
+function fingerprint(markdown: string, imagePaths: string[], publicDir: string): string {
+  const h = createHash("sha256").update(TEMPLATE_SOURCES).update(markdown);
+  for (const p of imagePaths) {
+    const file = path.join(publicDir, p);
+    if (fs.existsSync(file)) h.update(fs.readFileSync(file));
   }
+  return h.digest("hex").slice(0, 16);
+}
 
-  if (!fs.existsSync(sourceFile)) {
-    // Source doesn't exist, use cache anyway
-    return true;
-  }
-
-  const cacheStat = fs.statSync(cacheFile);
-  const sourceStat = fs.statSync(sourceFile);
-
-  return cacheStat.mtimeMs > sourceStat.mtimeMs;
+function saveManifest() {
+  const sorted = Object.fromEntries(Object.entries(manifest).sort(([a], [b]) => a.localeCompare(b)));
+  fs.writeFileSync(MANIFEST, JSON.stringify(sorted, null, 1) + "\n");
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
@@ -56,11 +62,12 @@ export const GET: APIRoute = async ({ props }) => {
   const sourceFile = post.filePath ? path.join(process.cwd(), post.filePath) : path.join(contentDir, `${post.id}.md`);
   const cacheFile = path.join(CACHE_DIR, `${slug}.png`);
 
-  // Check if we have a valid cached version
-  if (isCacheValid(cacheFile, sourceFile)) {
-    const cachedImage = fs.readFileSync(cacheFile);
-    console.log(`[OG Cache] HIT: ${slug}`);
-    return new Response(new Uint8Array(cachedImage), {
+  const rawContent = fs.existsSync(sourceFile) ? fs.readFileSync(sourceFile, "utf-8") : "";
+  const imagePaths = extractImagesFromMarkdown(rawContent);
+  const key = fingerprint(rawContent, imagePaths, publicDir);
+
+  if (manifest[slug] === key && fs.existsSync(cacheFile)) {
+    return new Response(new Uint8Array(fs.readFileSync(cacheFile)), {
       headers: {
         "Content-Type": "image/png",
         "Cache-Control": "public, max-age=31536000, immutable",
@@ -69,26 +76,8 @@ export const GET: APIRoute = async ({ props }) => {
   }
 
   console.log(`[OG Cache] MISS: ${slug}`);
-
-  // Find the markdown file for this post
-  let rawContent = "";
-  try {
-    if (fs.existsSync(sourceFile)) {
-      rawContent = fs.readFileSync(sourceFile, "utf-8");
-    }
-  } catch (error) {
-    console.error(`Error reading post file:`, error);
-  }
-
-  // Extract and load images from the markdown
-  const imagePaths = extractImagesFromMarkdown(rawContent);
-  if (imagePaths.length > 0) {
-    console.log(`[OG] Found ${imagePaths.length} images in ${slug}:`, imagePaths.slice(0, 3));
-  }
   const images = await loadImagesForOg(imagePaths, publicDir);
-  if (images.length > 0) {
-    console.log(`[OG] Loaded ${images.length} images for ${slug}`);
-  } else if (imagePaths.length > 0) {
+  if (imagePaths.length > 0 && images.length === 0) {
     console.log(`[OG] WARNING: Found image paths but failed to load any for ${slug}`);
   }
 
@@ -106,6 +95,8 @@ export const GET: APIRoute = async ({ props }) => {
 
   // Save to cache
   fs.writeFileSync(cacheFile, optimizedPng);
+  manifest[slug] = key;
+  saveManifest();
 
   return new Response(new Uint8Array(optimizedPng), {
     headers: {

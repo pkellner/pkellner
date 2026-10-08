@@ -1,6 +1,7 @@
 import { burst, copyText, reduceMotion } from "./fx";
 import { searchPosts, searchTerms, type SearchEntry } from "../utils/search";
 import { loadIndex, resultHtml } from "./search-client";
+import { navigate } from "./transitions";
 
 const $ = <T extends Element = HTMLElement>(s: string, r: ParentNode = document) => r.querySelector<T>(s);
 const $$ = <T extends Element = HTMLElement>(s: string, r: ParentNode = document) => [...r.querySelectorAll<T>(s)];
@@ -57,22 +58,6 @@ const onScroll = () => {
 };
 addEventListener("scroll", onScroll, { passive: true });
 onScroll();
-
-// ---------- page transitions: remember the click point, carry the card cover ----------
-document.addEventListener("click", e => {
-  const a = (e.target as Element).closest<HTMLAnchorElement>("a[href]");
-  if (!a || a.target === "_blank" || a.origin !== location.origin) return;
-  try {
-    sessionStorage.setItem("pk-vt", JSON.stringify({ x: e.clientX, y: e.clientY }));
-  } catch {
-    /* the wipe opens from the center instead */
-  }
-  const cover = a.matches(".pc") ? $(".pc-cover", a) : null;
-  if (cover && !reduce) cover.style.viewTransitionName = "pk-cover";
-});
-addEventListener("pageshow", e => {
-  if (e.persisted) $$(".pc-cover").forEach(c => (c.style.viewTransitionName = ""));
-});
 
 // ---------- copy buttons ----------
 document.addEventListener("click", async e => {
@@ -218,7 +203,9 @@ palQ?.addEventListener("keydown", e => {
   }
   if (e.key === "Enter" && results[sel]) {
     e.preventDefault();
-    location.href = results[sel].u;
+    const r = $(".res.sel", palList!)?.getBoundingClientRect();
+    closePalette();
+    navigate(results[sel].u, r ? r.left + r.width / 2 : undefined, r ? r.top + r.height / 2 : undefined);
   }
 });
 document.addEventListener("keydown", e => {
