@@ -1,6 +1,6 @@
 import type { BrandColor } from "@utils/posts";
 
-export const EMAIL = "peterkellnerblog@svcc.zendesk.com";
+export const EMAIL = "pkellner@73rdstreet.com";
 export const PLURALSIGHT_PROFILE = "https://app.pluralsight.com/profile/author/peter-kellner";
 
 export interface Course {
