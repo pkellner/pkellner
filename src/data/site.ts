@@ -80,7 +80,7 @@ export interface Credential {
 }
 
 export const CREDENTIALS: Credential[] = [
-  { badge: "19×", color: "red", title: "Pluralsight author", text: "Authored 19 courses on React, JavaScript and modern web development.", href: PLURALSIGHT_PROFILE, site: "pluralsight.com" },
+  { badge: "20×", color: "red", title: "Pluralsight author", text: "Authored 20 courses on React, JavaScript and modern web development.", href: PLURALSIGHT_PROFILE, site: "pluralsight.com" },
   { badge: "MS", color: "blue", title: "Microsoft documentation author", text: "Wrote hundreds of pages of official documentation for ASP.NET Core and Chromium-based extensions.", href: "https://github.com/dotnet/AspNetCore.Docs/pulls?q=is%3Apr+author%3Apkellner", site: "github.com" },
   { badge: "MVP", color: "green", title: "Microsoft MVP, 2007–2018", text: "Recognized by the Microsoft MVP program for twelve years of sharing technical knowledge.", href: "https://mvp.microsoft.com/", site: "mvp.microsoft.com" },
   { badge: "2006", color: "amber", title: "Conference founder", text: "Founded Silicon Valley Code Camp, drawing thousands of developers each year with sponsors like Google, Microsoft, IBM and PayPal.", href: "https://siliconvalley-codecamp.com/", site: "siliconvalley-codecamp.com" },
@@ -100,7 +100,7 @@ export interface Milestone {
 
 /** Newest first. */
 export const TIMELINE: Milestone[] = [
-  { when: "Now", color: "amber", title: "Author, teacher, consultant", text: "Nineteen Pluralsight courses, official Microsoft documentation for ASP.NET Core, and independent consulting on full-stack JavaScript and React.", href: "/contact/", site: "Work with me" },
+  { when: "Now", color: "amber", title: "Author, teacher, consultant", text: "Twenty Pluralsight courses, official Microsoft documentation for ASP.NET Core, and independent consulting on full-stack JavaScript and React.", href: "/contact/", site: "Work with me" },
   { when: "2007", color: "red", title: "First of twelve Microsoft MVP awards", text: "Recognized every year through 2018 for sharing technical knowledge with the community.", href: "https://mvp.microsoft.com/", site: "mvp.microsoft.com" },
   { when: "2006", color: "blue", title: "Started Silicon Valley Code Camp", text: "A weekend of free sessions for developers. It grew to thousands of attendees, most recently hosted at PayPal HQ in 2019.", href: "https://siliconvalley-codecamp.com/", site: "siliconvalley-codecamp.com" },
   { when: "2000", color: "green", title: "Sold 73rd Street Associates", text: "A large insurance company purchased the company’s assets.", href: "https://www.73rdstreet.com", site: "73rdstreet.com" },
