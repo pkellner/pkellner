@@ -13,13 +13,16 @@ const c2 = BRAND_COLORS[(i + 1) % 4];
 const c3 = BRAND_COLORS[(i + 2) % 4];
 const year = post.date.getUTCFullYear();
 const word = (post.topics[0] ?? "notes").replace(/-/g, " ");
+// The cover sizes the topic so its longest word fits on one line and every word fits in height.
+const words = word.split(/\s+/);
+const longest = Math.max(...words.map(w => w.length));
 ---
 
 {
   post.og ? (
     <img src={post.og} alt="" width="1200" height="630" loading={eager ? "eager" : "lazy"} decoding="async" />
   ) : (
-    <div class="gc" style={`--c:var(--${post.color});--oc:var(--on-${post.color});--c2:var(--${c2});--c3:var(--${c3})`} aria-hidden="true">
+    <div class="gc" style={`--c:var(--${post.color});--oc:var(--on-${post.color});--c2:var(--${c2});--c3:var(--${c3});--len:${longest};--words:${words.length}`} aria-hidden="true">
       <i class="gc-d gc-d1" />
       <i class="gc-d gc-d2" />
       <span class="gc-tag">{year} · {post.minutes} min read</span>

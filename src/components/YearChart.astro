@@ -11,9 +11,9 @@ const peak = years.find(y => y.count === max)!;
 <div class="chart rv">
   <div class="chart-cols" style={`grid-template-columns:repeat(${years.length},minmax(0,1fr))`}>
     {
-      years.map(y => (
+      years.map((y, i) => (
         <a
-          class:list={["col", { peak: y === peak }]}
+          class:list={["col", { peak: y === peak, "edge-l": i < 3, "edge-r": i >= years.length - 3 }]}
           href={`/posts/#y${y.year}`}
           style={`--h:${Math.round((y.count / max) * 100)}%`}
           aria-label={`${y.year}: ${y.count} posts`}

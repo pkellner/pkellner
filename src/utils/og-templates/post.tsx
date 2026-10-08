@@ -1,6 +1,47 @@
 import { SITE } from "@config";
 import type { CollectionEntry } from "astro:content";
 
+// IBM Plex Mono advances every character by 0.6em, so text can be fitted exactly.
+const MONO = 0.6;
+
+/** Wraps text between words into lines of at most `perLine` characters and keeps `maxLines`.
+ *  A title that doesn't fit ends with an ellipsis after its last whole word. */
+function fitLines(text: string, perLine: number, maxLines: number): string {
+  const lines: string[] = [];
+  let line = "";
+  for (const word of text.split(/\s+/).filter(Boolean)) {
+    const next = line ? `${line} ${word}` : word;
+    if (next.length <= perLine) {
+      line = next;
+      continue;
+    }
+    if (line) lines.push(line);
+    // A single word longer than a whole line is the only thing ever cut mid-word.
+    line = word.length > perLine ? `${word.slice(0, perLine - 1)}…` : word;
+  }
+  if (line) lines.push(line);
+  if (lines.length <= maxLines) return lines.join(" ");
+  const kept = lines.slice(0, maxLines);
+  let last = kept[maxLines - 1];
+  while (last.length + 1 > perLine && last.includes(" ")) last = last.slice(0, last.lastIndexOf(" "));
+  kept[maxLines - 1] = `${last.replace(/[\s,.;:–—-]+$/, "")}…`;
+  return kept.join(" ");
+}
+
+/** The first tags (up to three) that fit the footer row whole. A centered row that clipped
+ *  its overflow would cut tags off at both edges. */
+function fitTags(tags: string[], rowPx: number, fontPx: number): string[] {
+  const out: string[] = [];
+  let used = 0;
+  for (const tag of tags.slice(0, 3)) {
+    const px = (tag.length + 1) * fontPx * MONO + 24 + 8; // "#tag", padding, gap
+    if (used + px > rowPx) break;
+    out.push(tag);
+    used += px;
+  }
+  return out;
+}
+
 interface PostOgProps {
   post: CollectionEntry<"blog">;
   images?: Buffer[];
@@ -214,14 +255,14 @@ function renderWithImages(
             color: "#ffffff",
             margin: 0,
             lineHeight: 1.2,
-            maxHeight: "100px",
+            maxHeight: "104px", // two 42px lines at 1.2
             overflow: "hidden",
             textShadow: "0 2px 4px rgba(0,0,0,0.3)",
             textAlign: "center",
             width: "100%",
           }}
         >
-          {title.length > 80 ? title.substring(0, 77) + "..." : title}
+          {fitLines(title, 45, 2)}
         </p>
 
         <div
@@ -241,7 +282,7 @@ function renderWithImages(
           </span>
 
           <div style={{ display: "flex", gap: "8px", justifyContent: "center", flex: 1, overflow: "hidden" }}>
-            {tags.slice(0, 3).map((tag, i) => (
+            {fitTags(tags, 560, 18).map((tag, i) => (
               <span
                 key={i}
                 style={{
@@ -254,7 +295,7 @@ function renderWithImages(
                   whiteSpace: "nowrap",
                 }}
               >
-                #{tag.length > 12 ? tag.substring(0, 10) + "…" : tag}
+                #{tag}
               </span>
             ))}
           </div>
@@ -334,7 +375,7 @@ function renderTitleCard(
             textAlign: "center",
           }}
         >
-          {title.length > 90 ? title.substring(0, 87) + "..." : title}
+          {fitLines(title, 26, 4)}
         </p>
       </div>
 
@@ -359,7 +400,7 @@ function renderTitleCard(
 
         {tags.length > 0 ? (
           <div style={{ display: "flex", gap: "8px", justifyContent: "center", flex: 1, overflow: "hidden" }}>
-            {tags.slice(0, 3).map((tag, i) => (
+            {fitTags(tags, 560, 18).map((tag, i) => (
               <span
                 key={i}
                 style={{
@@ -372,7 +413,7 @@ function renderTitleCard(
                   whiteSpace: "nowrap",
                 }}
               >
-                #{tag.length > 12 ? tag.substring(0, 10) + "…" : tag}
+                #{tag}
               </span>
             ))}
           </div>

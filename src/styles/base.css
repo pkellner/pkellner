@@ -363,17 +363,26 @@ button.chip { cursor: pointer; }
 .pc-go svg { width: 16px; transition: transform 0.4s var(--spring); }
 .pc:hover .pc-go svg { transform: translateX(5px); }
 
-/* generated covers for posts without an OG image */
+/* generated covers for posts without an OG image
+   Sized to the cover, not the window: the cover is a size container, and the topic is set so
+   its longest word (--len characters, from Cover.astro) fits the text column on one line.
+   Multi-word topics wrap between words only. The diamonds stay to the right of the column. */
 .gc { position: relative; display: grid; align-content: space-between; padding: clamp(14px, 2.4vw, 26px); overflow: hidden; background: var(--c); color: var(--oc);
+  container-type: inline-size;
   background-image: radial-gradient(rgba(0,0,0,0.16) 1.5px, transparent 1.7px); background-size: 20px 20px; }
-.gc-tag { position: relative; z-index: 1; font: 700 0.72rem var(--mono); letter-spacing: 0.06em; text-transform: uppercase; justify-self: start;
+.gc-tag { position: relative; z-index: 1; font: 700 0.72rem var(--mono); letter-spacing: 0.06em; text-transform: uppercase; justify-self: start; white-space: nowrap;
   background: var(--surface); color: var(--fg); border: 2px solid var(--line); border-radius: 999px; padding: 6px 11px; }
-.gc-word { position: relative; z-index: 1; font: 900 clamp(2rem, 6vw, 4.6rem)/0.9 var(--display); font-stretch: 125%; letter-spacing: -0.06em; word-break: break-word; }
-.gc-word small { display: block; font-size: 0.32em; letter-spacing: -0.01em; font-weight: 700; opacity: 0.85; margin-top: 0.3em; font-family: var(--mono); font-stretch: 100%; }
+.gc-word {
+  position: relative; z-index: 1; max-width: 70%; min-width: 0;
+  /* Letters average about 0.8em at this weight and stretch, so --len letters fit 66cqi.
+     The cover is 52.5cqi tall; about 26cqi of it is left for the topic, at most one word a line. */
+  font: 900 min(15cqi, calc(66cqi / (var(--len, 8) * 0.8)), calc(26cqi / (var(--words, 1) * 0.92)))/0.92 var(--display); font-stretch: 125%; letter-spacing: -0.06em;
+  overflow-wrap: normal; word-break: normal; hyphens: none; text-wrap: balance;
+}
+.gc-word small { display: block; margin-top: 0.45em; font: 700 max(10px, 2.9cqi)/1.2 var(--mono); font-stretch: 100%; letter-spacing: 0; opacity: 0.85; white-space: nowrap; }
 .gc-d { position: absolute; aspect-ratio: 1; border: 2px solid var(--line); border-radius: 22%; transform: rotate(45deg); box-shadow: 4px 4px 0 var(--shadow); }
-.gc-d1 { width: 38%; right: -9%; top: -14%; background: var(--c2); }
-.gc-d2 { width: 18%; right: 22%; bottom: 10%; background: var(--c3); }
-.bento .gc-word { font-size: clamp(1.6rem, 3.4vw, 2.6rem); }
+.gc-d1 { width: 36%; right: -9%; top: -14%; background: var(--c2); }
+.gc-d2 { width: 16%; right: 7%; bottom: 12%; background: var(--c3); }
 
 /* ---------- year chart ---------- */
 .yrs { display: grid; grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr); gap: 40px 56px; align-items: end; }
@@ -395,6 +404,10 @@ button.chip { cursor: pointer; }
   transition: opacity 0.25s, translate 0.35s var(--spring); z-index: 2; }
 .col:hover em, .col:focus-visible em, .col.peak em { opacity: 1; translate: -50% 0; }
 .chart:hover .col.peak:not(:hover) em { opacity: 0; }
+/* Labels on the outer bars open inward so they stay inside the chart. */
+.col.edge-l em { left: 0; translate: 0 6px; }
+.col.edge-r em { left: auto; right: 0; translate: 0 6px; }
+.col.edge-l:hover em, .col.edge-l:focus-visible em, .col.edge-l.peak em, .col.edge-r:hover em, .col.edge-r:focus-visible em, .col.edge-r.peak em { translate: 0 0; }
 .chart-x { display: grid; grid-template-columns: repeat(22, minmax(0, 1fr)); gap: clamp(2px, 0.5vw, 6px); margin-top: 8px; }
 .chart-x span { font: 500 0.62rem var(--mono); color: var(--on-ink-2); text-align: center; }
 .chart-x span:nth-child(even) { visibility: hidden; }
@@ -572,7 +585,7 @@ button.chip { cursor: pointer; }
 .pk-prose h2:nth-of-type(4n+2)::before { background: var(--amber); } .pk-prose h2:nth-of-type(4n+3)::before { background: var(--green); } .pk-prose h2:nth-of-type(4n)::before { background: var(--blue); }
 .pk-prose h3 { font: 750 1.22rem/1.25 var(--display); font-stretch: 106%; margin-top: 1.8em; scroll-margin-top: 100px; }
 .pk-prose h4 { font: 700 1.05rem var(--body); margin-top: 1.5em; }
-.pk-prose a { color: var(--fg); text-decoration: none; font-weight: 600; background: linear-gradient(var(--amber), var(--amber)) 0 100% / 100% 3px no-repeat; transition: background-size 0.35s var(--ease), color 0.2s; padding-bottom: 1px; }
+.pk-prose a { overflow-wrap: anywhere; color: var(--fg); text-decoration: none; font-weight: 600; background: linear-gradient(var(--amber), var(--amber)) 0 100% / 100% 3px no-repeat; transition: background-size 0.35s var(--ease), color 0.2s; padding-bottom: 1px; }
 .pk-prose a:hover { background-size: 100% 100%; color: var(--on-amber); }
 .pk-prose strong { font-weight: 750; }
 .pk-prose ul, .pk-prose ol { padding-left: 1.4em; }

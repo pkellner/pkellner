@@ -5,7 +5,10 @@ pubDatetime: 2024-05-10T16:51:20.332Z
 preview: /postimages2024/umd-build-1.png
 draft: false
 tags:
-    - react reactjs react19 esmsh
+    - react
+    - reactjs
+    - react19
+    - esmsh
 categories:
     - react
 type: default
