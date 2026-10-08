@@ -137,6 +137,9 @@ const SITE_NAMES: Record<string, string> = {
   "x.com": "X",
   "techhub.social": "Mastodon",
   "youtube.com": "YouTube",
+  "mae.cornell.edu": "Cornell Engineering",
+  "cornell.edu": "Cornell University",
+  "73rdstreet.com": "73rd Street Associates",
 };
 /** Where known redirectors end up, so we can warm up the final site too. */
 const REDIRECT_TARGETS: Record<string, string> = {
@@ -183,6 +186,21 @@ function showDeparture(a: HTMLAnchorElement, x: number, y: number) {
   const name = siteName(a.host);
   const el = document.createElement("div");
   el.className = "pk-depart";
+  // A card grows into the screen (a container transform) and keeps its color and badge.
+  const card = a.matches(".card") ? a : null;
+  if (card) {
+    const r = card.getBoundingClientRect();
+    el.classList.add("pk-depart--card");
+    el.style.setProperty("--t", `${r.top}px`);
+    el.style.setProperty("--r", `${innerWidth - r.right}px`);
+    el.style.setProperty("--b", `${innerHeight - r.bottom}px`);
+    el.style.setProperty("--l", `${r.left}px`);
+    const color = card.style.getPropertyValue("--c");
+    const onColor = card.style.getPropertyValue("--oc");
+    const badge = card.querySelector<HTMLElement>(".yr");
+    el.style.setProperty("--accent", badge?.style.getPropertyValue("--c") || color || "var(--amber)");
+    el.style.setProperty("--on-accent", badge?.style.getPropertyValue("--oc") || onColor || "#10131c");
+  }
   el.setAttribute("role", "status");
   el.setAttribute("aria-live", "polite");
   el.style.setProperty("--dx", `${x}px`);
@@ -199,6 +217,8 @@ function showDeparture(a: HTMLAnchorElement, x: number, y: number) {
       </div>
     </div>`;
   el.querySelector("b")!.textContent = name;
+  const badge = card?.querySelector(".yr")?.textContent?.trim();
+  if (badge) el.querySelector(".pk-depart-tile")!.textContent = badge;
   // Show where the visitor ends up, not the affiliate redirect in between.
   el.querySelector(".pk-depart-host")!.textContent = bareHost(new URL(REDIRECT_TARGETS[a.host] ?? a.href).host);
   el.querySelector<HTMLAnchorElement>(".pk-depart-slow a")!.href = a.href;

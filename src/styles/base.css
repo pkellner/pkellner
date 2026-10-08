@@ -409,11 +409,22 @@ button.dia-pk { padding: 0; font: inherit; }
 .creds { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 330px), 1fr)); gap: 22px; }
 .cred { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 16px; align-items: start; transform: rotate(var(--r, 0deg)); transition: transform 0.5s var(--spring), box-shadow 0.4s var(--ease); }
 .cred:nth-child(3n+1) { --r: -0.8deg; } .cred:nth-child(3n+2) { --r: 0.6deg; } .cred:nth-child(3n) { --r: -0.3deg; }
-.cred:hover { transform: rotate(0) translateY(-5px); box-shadow: var(--pop-lg); }
+
 .cred .yr { font: 850 0.95rem/1 var(--display); font-stretch: 118%; background: var(--c); color: var(--oc); border: 2px solid var(--line); border-radius: 12px; padding: 10px 10px; min-width: 64px; text-align: center; letter-spacing: -0.03em; }
 .cred h3 { font: 750 1.08rem/1.2 var(--display); font-stretch: 108%; margin-bottom: 6px; }
 .cred p { font-size: 0.94rem; color: var(--fg-2); }
-.cred a { color: var(--fg); text-decoration-color: var(--red); text-decoration-thickness: 2px; text-underline-offset: 3px; }
+.cred { align-items: stretch; }
+.cred .yr { align-self: start; }
+.cred-b { display: flex; flex-direction: column; min-width: 0; }
+.cred--link { text-decoration: none; color: var(--fg); }
+.cred--link:hover { transform: rotate(0) translateY(-5px); box-shadow: 9px 9px 0 var(--c, var(--shadow)); }
+.cred-go {
+  display: inline-flex; align-items: center; gap: 6px; align-self: flex-start; margin-top: auto; padding-top: 14px;
+  font: 600 0.74rem var(--mono); letter-spacing: 0.02em; color: var(--fg);
+  text-decoration: underline; text-decoration-color: var(--red); text-decoration-thickness: 2px; text-underline-offset: 4px;
+}
+.cred-go svg { width: 14px; height: 14px; transition: transform 0.35s var(--spring); }
+.cred--link:hover .cred-go svg, .cred--link:focus-visible .cred-go svg { transform: translate(3px, -3px); }
 
 /* ---------- page headers ---------- */
 .ph { padding-block: clamp(44px, 6vw, 80px) clamp(40px, 5vw, 64px); border-bottom: 2px solid var(--line); overflow: hidden; }
@@ -702,6 +713,8 @@ html { scroll-padding-top: 90px; }
 .pager .mono { font-size: 0.8rem; color: var(--fg-2); padding-inline: 8px; }
 .pager .btn[aria-disabled="true"] { opacity: 0.4; pointer-events: none; box-shadow: none; }
 .yr-group[hidden] { display: none; }
+/* Tailwind's base styles strip link underlines; put them back where links sit in plain text. */
+.foot-bot a, .notice a, noscript a, .hint a { text-decoration: underline; text-underline-offset: 3px; }
 
 /* ---------- diamond curtain: page transitions where native view transitions are missing ---------- */
 .pk-curtain { position: fixed; inset: 0; z-index: 9999; display: grid; place-items: center; clip-path: polygon(50% 50%, 50% 50%, 50% 50%, 50% 50%); pointer-events: all; }
@@ -740,6 +753,18 @@ html.pk-cin::before {
   animation: pk-card-in 0.5s var(--spring) 0.18s backwards;
 }
 @keyframes pk-card-in { from { opacity: 0; transform: translateY(18px) scale(0.92) rotate(-2deg); } }
+/* From a card: the card's own shape grows to fill the screen, in its color. */
+.pk-depart--card { animation-name: pk-depart-grow; animation-duration: 0.55s; }
+@keyframes pk-depart-grow {
+  from { clip-path: inset(var(--t) var(--r) var(--b) var(--l) round 22px); background-color: var(--accent, var(--band-ink)); }
+  45% { background-color: var(--accent, var(--band-ink)); }
+  to { clip-path: inset(0 round 0); background-color: var(--band-ink); }
+}
+/* The card pops in once the shape has filled the screen, never half-clipped. */
+.pk-depart--card .pk-depart-card { box-shadow: 8px 8px 0 var(--accent, var(--amber)); animation-delay: 0.48s; }
+.pk-depart--card .pk-depart-tile { background: var(--accent, #ffffff); color: var(--on-accent, #10131c); width: auto; min-width: 58px; padding-inline: 12px; font-size: 17px; }
+/* Linked cards press in when tapped. */
+a.card:active { transform: translate(3px, 3px) scale(0.985); box-shadow: 2px 2px 0 var(--shadow); transition-duration: 0.08s; }
 .pk-depart-tile {
   display: grid; place-items: center; width: 58px; height: 58px; margin-bottom: 10px; border-radius: 22%;
   background: #ffffff; color: #10131c; border: 2px solid #10131c; box-shadow: 4px 4px 0 #10131c;

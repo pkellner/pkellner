@@ -72,17 +72,20 @@ export interface Credential {
   badge: string;
   color: BrandColor;
   title: string;
-  /** HTML; links only. */
-  html: string;
+  text: string;
+  /** Where the card links; omitted when there is no public page. */
+  href?: string;
+  /** Short label for the link, shown on the card. */
+  site?: string;
 }
 
 export const CREDENTIALS: Credential[] = [
-  { badge: "19×", color: "red", title: "Pluralsight author", html: `Authored <a href="${PLURALSIGHT_PROFILE}">19 courses</a> on React, JavaScript and modern web development.` },
-  { badge: "MS", color: "blue", title: "Microsoft documentation author", html: "Wrote hundreds of pages of official documentation for ASP.NET Core and Chromium-based extensions." },
-  { badge: "MVP", color: "green", title: "Microsoft MVP, 2007–2018", html: 'Recognized by the <a href="https://mvp.microsoft.com/">Microsoft MVP program</a> for twelve years of sharing technical knowledge.' },
-  { badge: "2006", color: "amber", title: "Conference founder", html: 'Founded <a href="https://siliconvalley-codecamp.com/">Silicon Valley Code Camp</a>, drawing thousands of developers each year with sponsors like Google, Microsoft, IBM and PayPal.' },
-  { badge: "1985", color: "blue", title: "Software company founder", html: "Founded 73rd Street Associates: clinic scheduling, insurance management and medical claims software for 500+ customers. Sold in 2000." },
-  { badge: "BS·MS", color: "red", title: "Cornell University", html: "Bachelors and Masters in Mechanical and Aerospace Engineering, Ithaca, New York." },
+  { badge: "19×", color: "red", title: "Pluralsight author", text: "Authored 19 courses on React, JavaScript and modern web development.", href: PLURALSIGHT_PROFILE, site: "pluralsight.com" },
+  { badge: "MS", color: "blue", title: "Microsoft documentation author", text: "Wrote hundreds of pages of official documentation for ASP.NET Core and Chromium-based extensions.", href: "https://github.com/dotnet/AspNetCore.Docs/pulls?q=is%3Apr+author%3Apkellner", site: "github.com" },
+  { badge: "MVP", color: "green", title: "Microsoft MVP, 2007–2018", text: "Recognized by the Microsoft MVP program for twelve years of sharing technical knowledge.", href: "https://mvp.microsoft.com/", site: "mvp.microsoft.com" },
+  { badge: "2006", color: "amber", title: "Conference founder", text: "Founded Silicon Valley Code Camp, drawing thousands of developers each year with sponsors like Google, Microsoft, IBM and PayPal.", href: "https://siliconvalley-codecamp.com/", site: "siliconvalley-codecamp.com" },
+  { badge: "1985", color: "blue", title: "Software company founder", text: "Founded 73rd Street Associates: clinic scheduling, insurance management and medical claims software for 500+ customers. Sold in 2000.", href: "https://www.73rdstreet.com", site: "73rdstreet.com" },
+  { badge: "BS·MS", color: "red", title: "Cornell University", text: "Bachelors and Masters in Mechanical and Aerospace Engineering, Ithaca, New York.", href: "https://www.mae.cornell.edu/", site: "mae.cornell.edu" },
 ];
 
 export interface Milestone {

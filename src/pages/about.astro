@@ -70,5 +70,5 @@ const commit = process.env.GITHUB_SHA?.slice(0, 7);
   .built b { color: var(--fg); }
   .deployed { margin-top: clamp(40px, 6vw, 64px); text-align: center; font: 500 0.72rem var(--mono); letter-spacing: 0.04em; color: var(--fg-2); opacity: 0.75; }
   .deployed::before { content: ""; display: inline-block; width: 7px; height: 7px; margin-right: 8px; border-radius: 2px; rotate: 45deg; background: var(--green); vertical-align: 1px; }
-  .deployed a { color: inherit; text-underline-offset: 3px; }
+  .deployed a { color: inherit; text-decoration: underline; text-underline-offset: 3px; }
 </style>
